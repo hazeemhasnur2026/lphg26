@@ -1,0 +1,51 @@
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    restart: unless-stopped
+    env_file: [backend/.env]
+    environment:
+      # Ditetapkan di sini, bukan hanya di entrypoint: Laravel membaca nilai ini
+      # sendiri lewat config/database.php, dan bila kosong ia tetap menunjuk
+      # backend/database yang justru berisi kode, bukan data.
+      DB_DATABASE: /app/data/database.sqlite
+    ports:
+      - "${PORT_SITUS:-8080}:80"
+    volumes:
+      # Dua hal yang harus bertahan saat image dibangun ulang: isi basis data
+      # dan gambar yang diunggah dari panel admin.
+      #
+      # Folder gambar sudah berisi hasil crawl situs lama di dalam image, dan
+      # Docker menyalin isi itu ke volume saat volumenya pertama kali dibuat.
+      # Sesudah itu volume yang menang. Jadi gambar hasil crawl yang baru
+      # ditambahkan ke repo tidak akan muncul sampai volumenya dibuat ulang
+      # dengan `docker compose down -v`, sementara unggahan dari admin aman.
+      - basis-data:/app/data
+      - unggahan:/app/content-migration/images
+      - log:/app/backend/storage/logs
+
+  # Pemangkasan pesan yang melewati masa simpan, dan backup harian. Keduanya
+  # butuh penjadwal; di luar Docker perannya dipegang cron server.
+  penjadwal:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    restart: unless-stopped
+    env_file: [backend/.env]
+    environment:
+      DB_DATABASE: /app/data/database.sqlite
+      # Migrasi dijalankan container app. Dua proses yang bermigrasi ke basis
+      # data yang sama pada saat bersamaan akan saling menjatuhkan.
+      LEWATI_MIGRASI: "1"
+    depends_on: [app]
+    volumes:
+      - basis-data:/app/data
+      - unggahan:/app/content-migration/images
+      - log:/app/backend/storage/logs
+    command: ["php", "artisan", "schedule:work"]
+
+volumes:
+  basis-data:
+  unggahan:
+  log:

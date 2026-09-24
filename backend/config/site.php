@@ -1,0 +1,88 @@
+<?php
+
+/*
+ * Navigation structure for the article listings.
+ *
+ * Breadcrumbs, tab strips and banners all read from here, so a category's
+ * label is written once rather than repeated in the controller, the view and
+ * the breadcrumb. Mirrors the groups in tools/build_page_hero.py, which does
+ * the same job for the fixed-content pages.
+ */
+return [
+    /*
+     * Masa simpan pesan dari formulir Hubungi Kami, dalam bulan.
+     *
+     * Menyimpan data pribadi tanpa batas waktu bertentangan dengan prinsip
+     * pemrosesan terbatas. Angka 24 bulan adalah nilai awal yang masuk akal
+     * untuk korespondensi bisnis, bukan keputusan yang sudah dikonfirmasi
+     * legal; ubah lewat CONTACT_RETENTION_MONTHS di .env setelah disepakati.
+     *
+     * Diisi 0 berarti pemangkasan dimatikan dan pesan disimpan selamanya.
+     */
+    'retensi_pesan_bulan' => (int) env('CONTACT_RETENTION_MONTHS', 24),
+
+    /*
+     * Halaman berisi konten tetap: URL -> view. Router dan sitemap membaca
+     * daftar yang sama, jadi menambah halaman berarti menambah satu baris di
+     * sini dan satu view. Tidak ada dua salinan yang bisa menyimpang.
+     */
+    'pages' => [
+        'about-us/overview' => 'pages.about-us.overview',
+        'about-us/vision-mission' => 'pages.about-us.vision-mission',
+        'csr/csr-overview' => 'pages.csr.csr-overview',
+        'she/overview-1' => 'pages.she.overview-1',
+        'our-business/logistic' => 'pages.our-business.logistic',
+        'our-business/agribusiness-forestry' => 'pages.our-business.agribusiness-forestry',
+        'our-business/energy' => 'pages.our-business.energy',
+        'our-business/technology-services' => 'pages.our-business.technology-services',
+        'our-business/education' => 'pages.our-business.education',
+        'our-business/consumer' => 'pages.our-business.consumer',
+        'our-business/investment' => 'pages.our-business.investment',
+        'publication/multimedia' => 'pages.publication.multimedia',
+        'publication/gallery' => 'pages.publication.gallery',
+        'career/our-vacancy' => 'pages.career.our-vacancy',
+        'legal/kebijakan-privasi' => 'pages.legal.kebijakan-privasi',
+    ],
+
+    'listings' => [
+        'latest-update' => [
+            'label' => 'Update Terbaru', 'section' => 'publication',
+            'group' => 'Publikasi', 'banner' => 'publication-latest-update',
+        ],
+        'news' => [
+            'label' => 'Berita', 'section' => 'publication',
+            'group' => 'Publikasi', 'banner' => 'publication-news',
+        ],
+        'press-release' => [
+            'label' => 'Press Release', 'section' => 'publication',
+            'group' => 'Publikasi', 'banner' => 'publication-press-release',
+        ],
+        'csr-activity' => [
+            'label' => 'Aktifitas CSR', 'section' => 'csr',
+            'group' => 'Tanggung Jawab Sosial Perusahaan', 'banner' => 'csr-csr-activity',
+        ],
+        'she-activity' => [
+            'label' => 'Aktivitas SHE', 'section' => 'she',
+            'group' => 'Keselamatan, Kesehatan, & Lingkungan', 'banner' => 'she-she-activity',
+        ],
+    ],
+
+    // Sibling pages shown as the tab strip, keyed by section.
+    'siblings' => [
+        'publication' => [
+            ['label' => 'Update Terbaru', 'url' => '/page/publication/latest-update'],
+            ['label' => 'Berita', 'url' => '/page/publication/news'],
+            ['label' => 'Press Release', 'url' => '/page/publication/press-release'],
+            ['label' => 'Multimedia', 'url' => '/page/publication/multimedia'],
+            ['label' => 'Galeri', 'url' => '/page/publication/gallery'],
+        ],
+        'csr' => [
+            ['label' => 'Ikhtisar', 'url' => '/page/csr/csr-overview'],
+            ['label' => 'Aktifitas CSR', 'url' => '/page/csr/csr-activity'],
+        ],
+        'she' => [
+            ['label' => 'Ikhtisar', 'url' => '/page/she/overview-1'],
+            ['label' => 'Aktivitas SHE', 'url' => '/page/she/she-activity'],
+        ],
+    ],
+];

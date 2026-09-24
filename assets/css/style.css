@@ -1,0 +1,191 @@
+/* Hasnur Group. Landing Page Prototype (Phase 1: Frontend / Beranda)
+   Custom styles that go beyond what plain Tailwind utility classes cover.
+   Meant to be ported into resources/css when the project moves to the
+   Laravel + Tailwind build pipeline described in the rejuvenation spec. */
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+[x-cloak] {
+  display: none !important;
+}
+
+/* Hide scrollbar on the timeline year-rail while keeping it scrollable
+   (touch / drag / arrow buttons still work). */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Dot-grid texture behind the banner on every /page/ subpage (see
+   tools/build_page_hero.py). It was dropped when the homepage hero stopped
+   using it. The usage check at the time only covered index.html, not the 20
+   subpages that also reference it. */
+.hero-pattern {
+  background-image: radial-gradient(circle, #ffffff 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+/* Scroll-reveal: elements fade + rise into place as they enter the
+   viewport (see assets/js/main.js). Degrades gracefully to fully visible
+   if JavaScript / IntersectionObserver is unavailable. */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.no-js .reveal,
+.no-observer .reveal {
+  opacity: 1;
+  transform: none;
+}
+
+/* ============ Timeline (serpentine path) ============
+   Everything below is observed by the same IntersectionObserver as
+   .reveal (see assets/js/main.js) and paired with a per-element
+   transition-delay set inline in index.html, so the whole path animates
+   itself in strict chronological order. Year by year, rather than the
+   generic fade+rise used for ordinary content blocks. */
+
+/* The ribbon is built from two kinds of piece: straight runs (.tl-line),
+   one per row, and the rounded U-turns (.tl-turn) that carry it down into
+   the next row. Both are plain boxes. The U-turn is a hollow bordered box
+   whose right (or left) corners get an elliptical radius, which is what
+   gives the path its wide, smooth hairpin instead of a square corner.
+
+   Straight runs grow along their own axis; transform-origin decides which
+   end they grow from, so the ribbon always draws in the direction time is
+   flowing (left→right on odd rows, right→left on even ones). */
+.tl-line {
+  transform: scaleX(0);
+  transition: transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.tl-line.is-visible {
+  transform: scaleX(1);
+}
+
+/* U-turns wipe downward, so the ribbon reads as travelling around the bend
+   into the row below rather than simply appearing there.
+
+   The clip lives on the inner box, never on .tl-turn itself: an element
+   clipped to nothing reports intersectionRatio 0 to IntersectionObserver,
+   so clipping the observed element would deadlock it. It could never be
+   seen, so it would never be un-clipped. The outer box stays unclipped and
+   is what gets observed; only its child is wiped. */
+.tl-turn > div {
+  clip-path: inset(0 0 100% 0);
+  transition: clip-path 1s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.tl-turn.is-visible > div {
+  clip-path: inset(0 0 0 0);
+}
+
+/* Year nodes pop in with a slight overshoot instead of a flat fade, so
+   each milestone lands with a bit of weight. */
+.tl-node {
+  opacity: 0;
+  transform: translateY(30px) scale(0.85);
+  transition: opacity 0.5s ease, transform 0.7s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+.tl-node.is-visible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+/* The circle lifts toward the reader on hover; the caption under it stays
+   put so only the marker reacts. */
+.tl-dot {
+  transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.35s ease;
+}
+.tl-node:hover .tl-dot {
+  transform: translateY(-8px) scale(1.06);
+}
+
+/* Latest milestone only: a slow outward ping, so "where the company is
+   now" reads as the live end of the path. */
+.tl-ping::before {
+  content: '';
+  position: absolute;
+  inset: -6px;
+  border-radius: 9999px;
+  border: 2px solid #d9a441;
+  animation: tl-ping 2.6s cubic-bezier(0, 0, 0.2, 1) infinite;
+}
+@keyframes tl-ping {
+  0% { transform: scale(1); opacity: 0.7; }
+  70%, 100% { transform: scale(1.4); opacity: 0; }
+}
+
+.no-js .tl-line,
+.no-observer .tl-line {
+  transform: scaleX(1);
+}
+.no-js .tl-turn > div,
+.no-observer .tl-turn > div {
+  clip-path: none;
+}
+.no-js .tl-node,
+.no-observer .tl-node {
+  opacity: 1;
+  transform: none;
+}
+
+/* Mobile nav rows cascade in behind the panel. These are CSS animations, not
+   transitions, on purpose: the rows go from display:none to visible together
+   with the panel, and a transition has no rendered start frame to move from
+   in that case. It would simply pop. An animation replays cleanly every
+   time the panel is shown. `both` holds the start state during the delay so
+   nothing flashes in at full opacity first. */
+@keyframes nav-row-in {
+  from { opacity: 0; transform: translateY(-6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.nav-row {
+  animation: nav-row-in 0.32s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+/* Hero: gentle up/down drift for the floating "60 Tahun Berkarya" badge. */
+.animate-float {
+  animation: float 4s ease-in-out infinite;
+}
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+/* Hero: slow-drifting blurred blobs behind the slide card, for a livelier
+   background without competing with the framed image. */
+.animate-blob {
+  animation: blob 9s ease-in-out infinite;
+}
+@keyframes blob {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(18px, -24px) scale(1.06); }
+  66% { transform: translate(-14px, 14px) scale(0.96); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .animate-float,
+  .animate-blob,
+  .tl-ping::before,
+  .nav-row {
+    animation: none;
+  }
+  .tl-line,
+  .tl-turn > div,
+  .tl-node,
+  .tl-dot {
+    transition: none;
+  }
+}

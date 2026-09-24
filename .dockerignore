@@ -1,0 +1,30 @@
+# Dibangun ulang di dalam image, jadi menyalinnya hanya memperlambat build dan
+# berisiko membawa berkas yang dikompilasi untuk arsitektur berbeda.
+**/node_modules
+backend/vendor
+backend/public/build
+
+# Riwayat git tidak dibutuhkan saat berjalan, dan ukurannya 164 MB.
+.git
+.github
+
+# Rahasia tidak pernah masuk image. Nilainya diberikan saat container jalan.
+backend/.env
+backend/.env.backup
+
+# Keadaan lokal.
+backend/database/*.sqlite
+backend/storage/logs/*
+backend/storage/framework/cache/*
+backend/storage/framework/sessions/*
+backend/storage/framework/views/*
+backend/.phpunit.result.cache
+backend/bootstrap/cache/*.php
+.claude
+.DS_Store
+
+# Rujukan desain, tidak dipakai aplikasi.
+arsip
+docs
+index.html
+page

@@ -1,0 +1,66 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      # Versi terendah yang benar-benar bisa memasang composer.lock. Laravel 13
+      # membawa Symfony 8 dan plugin terjemahan Filament; 18 paket di antaranya
+      # menuntut PHP 8.4, jadi hosting PHP 8.3 tidak akan jalan.
+      - uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.4'
+          extensions: mbstring, sqlite3, gd, intl
+          coverage: none
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+          cache-dependency-path: backend/package-lock.json
+
+      - name: Pasang dependensi PHP
+        working-directory: backend
+        run: composer install --prefer-dist --no-interaction --no-progress
+
+      - name: Siapkan environment
+        working-directory: backend
+        run: |
+          cp .env.example .env
+          php artisan key:generate
+
+      # Tes manifest memeriksa tiap URL gambar benar-benar punya berkas, dan
+      # symlink-nya tidak dilacak git. Tanpa langkah ini semuanya tampak hilang.
+      - name: Buat symlink di public/
+        run: bash deploy/link-public-dirs.sh
+
+      - name: Periksa gaya penulisan
+        working-directory: backend
+        run: vendor/bin/pint --test
+
+      - name: Jalankan test
+        working-directory: backend
+        run: php artisan test
+
+      # Aset hasil build tidak dilacak git, jadi kegagalan build hanya ketahuan
+      # kalau benar-benar dijalankan di sini.
+      - name: Bangun aset
+        working-directory: backend
+        run: |
+          npm ci
+          npm run build
+
+      - name: Simpan aset untuk tahap deploy
+        uses: actions/upload-artifact@v4
+        with:
+          name: built-assets
+          path: backend/public/build
+          retention-days: 1

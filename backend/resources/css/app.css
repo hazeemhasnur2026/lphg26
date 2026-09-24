@@ -1,0 +1,156 @@
+@import 'tailwindcss';
+
+@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
+@source '../../storage/framework/views/*.php';
+
+/* Lebar kolom kartu SBU disusun di Blade sebagai xl:col-span-{{ ... }}, jadi
+   pemindai Tailwind tidak pernah melihat nama kelas utuhnya dan kelasnya tidak
+   ikut dibangun. Hanya dua nilai yang mungkin, keduanya disebut di sini. */
+@source inline('xl:col-span-{3,4}');
+
+/* Warna dan huruf ini sebelumnya ditulis sebagai tailwind.config inline di
+   <head> untuk Play CDN. Nilainya diambil dari logo resmi. Biru #154F91,
+   kuning #FFE80A, hijau #2A9941, merah #E03633, dan dipakai lintas halaman,
+   jadi kalau ada yang berubah cukup di satu tempat ini. */
+@theme {
+    --color-primary: #2f3ba2;
+    --color-primary-dark: #232c7a;
+    --color-primary-light: #4c58c4;
+
+    --color-accent: #d9a441;
+
+    --color-logo-blue: #154f91;
+    --color-logo-blue-dark: #0e335e;
+    --color-logo-yellow: #ffe80a;
+    --color-logo-green: #2a9941;
+    --color-logo-red: #e03633;
+
+    --font-sans: 'Plus Jakarta Sans', ui-sans-serif, system-ui, sans-serif;
+}
+
+/* Isi artikel datang sebagai HTML lepas hasil crawl situs lama, jadi kelasnya
+   bukan kelas kami dan tidak bisa disentuh satu per satu. `prose-hasnur` sudah
+   dipasang di view sejak halaman artikel dibuat, tapi tidak pernah punya satu
+   aturan pun, jadi daftar, tautan, dan gambar di dalam badan artikel selama ini
+   tampil tanpa gaya. Ketahuan oleh tools/check_css_coverage.py.
+
+   Tag yang benar-benar muncul di 35 artikel: p, span, em, img, strong, br, li,
+   a, div, hr, ul, ol. Tidak ada heading sama sekali, jadi tidak ada aturan
+   heading di sini. */
+.prose-hasnur img {
+    /* Margin ditulis pada <img>, bukan mengandalkan space-y-4 milik pembungkus:
+       gambar kini dibungkus <picture style="display:contents">, dan elemen
+       display:contents tidak membentuk kotak sehingga marginnya diabaikan. */
+    margin-block: 1.5rem;
+    border-radius: var(--radius-2xl);
+    box-shadow: var(--shadow-lg);
+}
+
+.prose-hasnur :is(ul, ol) {
+    margin-block: 1rem;
+    padding-inline-start: 1.5rem;
+}
+
+.prose-hasnur ul {
+    list-style-type: disc;
+}
+
+.prose-hasnur ol {
+    list-style-type: decimal;
+}
+
+.prose-hasnur li {
+    margin-block: 0.25rem;
+}
+
+.prose-hasnur a {
+    color: var(--color-primary);
+    font-weight: 600;
+    text-decoration-line: underline;
+}
+
+.prose-hasnur strong {
+    font-weight: 700;
+    color: var(--color-slate-800);
+}
+
+.prose-hasnur hr {
+    margin-block: 2rem;
+    border-top-width: 1px;
+    border-color: var(--color-slate-200);
+}
+
+/* ── Nilai inti ────────────────────────────────────────────────────────────
+   Cincin luar berputar mengelilingi emblem yang diam, dan seluruh bagiannya
+   ditahan di layar sementara halaman digulir: roda bergeser ke kiri dan kartu
+   muncul satu per satu sampai habis, baru halaman melanjut ke section bawahnya.
+
+   Sembunyi-munculnya kartu hanya berlaku setelah skrip memasang kelas
+   .core-value-scripted. Tanpa JavaScript, dan bagi mesin pencari, semua kartu
+   tampil apa adanya, bukan hilang. */
+@keyframes core-value-spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+.core-value-ring {
+    animation: core-value-spin 44s linear infinite;
+}
+
+.core-value-wheel:hover .core-value-ring {
+    animation-play-state: paused;
+}
+
+/* Geseran dan skala roda ditulis sebagai variabel supaya skrip hanya mengubah
+   angka, bukan menyusun string transform sendiri.
+
+   Skala dipakai, bukan lebar: mengubah lebar memicu perhitungan tata letak ulang
+   tiap frame dan ikut menggeser kartu di sebelahnya, sedangkan transform hanya
+   mengubah tampilannya. Ukuran dasarnya ukuran akhir yang kecil, lalu diperbesar
+   saat di tengah, dengan begitu kolomnya tetap selebar roda saat sudah menepi. */
+.core-value-stage {
+    --core-value-shift: 0px;
+    --core-value-scale: 1;
+}
+
+.core-value-scripted .core-value-stage .core-value-wheel {
+    transform: translateX(var(--core-value-shift)) scale(var(--core-value-scale));
+}
+
+.core-value-scripted .core-value-card {
+    opacity: 0;
+    transform: translateY(1.25rem);
+    transition: opacity 0.45s ease-out, transform 0.45s ease-out;
+}
+
+.core-value-scripted .core-value-card.is-revealed {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Gerakan terus-menerus memicu pusing bagi sebagian orang; sistem operasinya
+   sudah menyatakan itu lewat setelan ini dan situs harus menurutinya. Roda
+   berhenti berputar, section tidak lagi ditahan, dan kartunya langsung tampil. */
+@media (prefers-reduced-motion: reduce) {
+    .core-value-ring {
+        animation: none;
+    }
+
+    .core-value-track {
+        height: auto;
+    }
+
+    .core-value-panel {
+        position: static;
+        height: auto;
+    }
+
+    .core-value-scripted .core-value-stage .core-value-wheel {
+        transform: none;
+    }
+
+    .core-value-scripted .core-value-card {
+        opacity: 1;
+        transform: none;
+    }
+}

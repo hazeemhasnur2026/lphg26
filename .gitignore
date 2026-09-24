@@ -1,0 +1,34 @@
+.DS_Store
+*.log
+
+# Claude Code local session state
+.claude/
+
+# Dependensi tooling migrasi. Dipasang ulang lewat `npm install`
+node_modules/
+
+# Gambar hasil crawl: 139 MB, resolusi kamera asli dari situs lama.
+# Sengaja tidak dilacak. Blob git bersifat permanen dan file >100 MB ditolak
+# GitHub. Optimalkan (resize + WebP) dulu sebelum masuk repo mana pun.
+# Ambil ulang: node scripts/crawl-articles.js --force
+content-migration/images/
+
+# Composer dipasang lokal di project, bukan sistem
+composer.phar
+
+# Laravel
+backend/vendor/
+backend/node_modules/
+backend/.env
+backend/storage/*.key
+backend/database/*.sqlite
+backend/public/assets
+backend/public/content-images
+
+# Varian WebP hasil tools/optimize_images.py (628 berkas, 45 MB) sengaja
+# DILACAK, bukan diabaikan. Keputusan 2026-09-23. Itulah berkas yang benar-benar
+# dikirim ke browser, dan yang 18 MB untuk gambar artikel tidak bisa dibuat ulang
+# dari repo: gambar sumbernya tidak dilacak dan situs lama akan dimatikan saat
+# cutover, jadi crawl ulang bukan jalan keluar. Yang diabaikan hanya symlink di
+# public/, sama seperti symlink aset lainnya.
+backend/public/content-images-opt

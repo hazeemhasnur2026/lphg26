@@ -1,0 +1,44 @@
+@extends('layouts.app')
+
+@section('title', 'Ikhtisar CSR')
+@section('description', 'Program tanggung jawab sosial perusahaan (CSR) Hasnur Group untuk masyarakat Kalimantan Selatan dan Tengah.')
+
+@section('content')
+<x-page-hero
+    :breadcrumb="[
+            ['label' => 'Beranda', 'url' => '/'],
+            ['label' => 'Tanggung Jawab Sosial Perusahaan', 'url' => '/page/csr/csr-overview'],
+            ['label' => 'Ikhtisar', 'url' => null]
+        ]"
+    title="Ikhtisar"
+    description="Komitmen Hasnur Group untuk terus berkontribusi bagi masyarakat dan lingkungan di sekitar wilayah operasionalnya."
+    :image="['src' => '/assets/img/pages/csr-csr-overview/banner.jpg', 'alt' => 'Ikhtisar, Hasnur Group']"
+    :tabs="[
+            ['label' => 'Ikhtisar', 'url' => '/page/csr/csr-overview', 'active' => true],
+            ['label' => 'Aktifitas CSR', 'url' => '/page/csr/csr-activity', 'active' => false]
+        ]" />
+
+<section class="bg-slate-50 border-b border-slate-100">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-5 flex flex-wrap gap-2">
+    <a href="/page/csr/csr-overview" class="px-5 py-2.5 rounded-full text-sm font-semibold transition bg-primary text-white">Ikhtisar</a><a href="/page/csr/csr-activity" class="px-5 py-2.5 rounded-full text-sm font-semibold transition bg-white text-slate-600 hover:text-primary border border-slate-200">Aktifitas CSR</a>
+  </div>
+</section>
+
+<section class="py-16 sm:py-20">
+  <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+    <h2 class="reveal text-2xl font-extrabold text-primary mt-10 mb-4 first:mt-0">OVERVIEW</h2>
+<x-img src="/assets/img/pages/csr-csr-overview/content-1.jpg" alt="Ikhtisar CSR" class="reveal w-full h-auto rounded-2xl shadow-lg my-8" loading="lazy" sizes="(min-width: 768px) 768px, 100vw" />
+<p class="reveal text-slate-600 leading-relaxed mb-4">Sebagai salah satu pelaku bisnis di Indonesia, Hasnur Group berkomitmen untuk terus berkontribusi terhadap pembangunan berkelanjutan dan juga terhadap peningkatan kesejahteraan masyarakat, khususnya masyarakat Banua. Komiten ini sejalan dengan motto Hasnur Group yakni “Grow Together Develop The Future”. Motto ini sesuai dengan cita-cita dari pendiri Hasnur Group, Almarhum Bapak Haji Abdussamad Sulaiman HB dan Almarhumah Ibu Hajjah Nurhayati, yaitu bisnis yang dijalankan Hasnur Group harus mampu membangun daerah dan mensejahterakan masyarakat khususnya masyarakat Kalimantan Selatan dan Kalimantan Tengah.</p>
+<p class="reveal text-slate-600 leading-relaxed mb-4">Adapun bentuk tanggung jawab dan kepedulian Hasnur Group terhadap masyarakat, terakomodir di dalam program Corporate Social Responsibility (CSR). Pendekatan program CSR yang dilakukan dengan cara Community Development (CD). Program-program yang diciptakan harus berdasarkan kebutuhan masyarakat dan juga dijalankan oleh masyarakat. Dengan kata lain masyarakat merupakan organ terpenting di dalam berpartisipasi serta mensukseskan program-program sosial perusahaan. Perusahaan hanya berperan sebagai pihak yang memberikan dukungan dan semangat kepada masyarakat dalam mensukseskan program sosial tersebut.</p>
+<p class="reveal text-slate-600 leading-relaxed mb-4">Visi : Terwujudnya harmonisasi dengan stakeholders dalam meningkatkan kesejahteraan masyarakat dan kelestarian lingkungan yang berkelanjutan.</p>
+<p class="reveal text-slate-600 leading-relaxed mb-4">Misi : • Membuka akses masyarakat atas eksistensi perusahaan melalui berbagai program kemandirian untuk mewujudkan pembangunan sumber daya manusia (SDM) • Mewujudkan sinergitas bersama stakeholders untuk meningkatkan kesejahteraan masyarakat di bidang agama, ekonomi, sosial budaya, pendidikan, kesehatan, serta pelestarian lingkungan yang berkelanjutan • Mendorong kerjasama dengan stakeholders untuk terciptanya keselarasan pembangunan manusia dan lingkungan secara berkelanjutan • Meningkatkan legitimasi dan citra positif perusahaan melalui kepedulian masyarakat</p>
+<p class="reveal text-slate-600 leading-relaxed mb-4">Hasnur Group berkomitmen untuk berperan aktif dalam memberdayakan masyarakat untuk hidup lebih baik dan mendukung program pemerintah dengan mewujudkan pembangunan melalui beberapa bidang yang selaras dengan SDGs (Sustainable Development Goals). SDGs yang berisi 17 Tujuan dan 169 Target merupakan rencana aksi global untuk 15 tahun ke depan (berlaku sejak 2016 hingga 2030), yang bertujuan untuk mengakhiri kemiskinan, mengurangi kesenjangan dan melindungi lingkungan. SDGs berlaku bagi seluruh negara (universal), sehingga seluruh negara tanpa kecuali negara maju memiliki kewajiban moral untuk mencapai Tujuan dan Target SDGs.</p>
+<p class="reveal text-slate-600 leading-relaxed mb-4">Tujuan mulia SDGs adalah mewujudkan pembangunan berkelanjutan untuk masa depan yang lebih baik sejalan dengan konsep CSR. Berbagai macam inovasi program CSR telah dikembangkan oleh Hasnur Group untuk kepentingan masyarakat dengan dasar lima pilar pembangunan yakni Pilar ekonomi, Pilar pendidikan, Pilar sosial budaya, Pilar Kesehatan, Pilar Lingkungan dan infrastruktur melalui program-program CSR bersama entitas-entitas bisnisnya.</p>
+<p class="reveal text-slate-600 leading-relaxed mb-4">Pilar Ekonomi Ekonomi (economic) merupakan program CSR yang fokus kepada perbaikan taraf hidup ekonomi keluarga yang berada di dalam lingkup Desa ring 1 entitas bisnis Hasnur Group. Berdasarkan data Badan Pusat Statistik Kalimantan Selatan (Kalsel) bahwa pada maret 2019 jumlah penduduk miskin Kalsel sebesar 192,48 ribu orang dengan tingkat kemiskinan sebesar 4,55 persen dan Kalimantan Tengah (Kalteng) sebesar 134.594 (4.98 persen). Angka tersebut menjadi acuan bagi perusahaan agar selalu aware terhadap kondisi sosial-ekonomi masyarakat sekitar. Dengan sumbangsih yang perusahaan berikan terhadap masyarakat sekitar, diharapkan tingkat kesejahteraan masyarakat meningkat sehingga mereka dapat mencukupi kebutuhan keluarga sehari-hari, baik primer, sekunder, maupun tersier.</p>
+<p class="reveal text-slate-600 leading-relaxed mb-4">Pilar Sosial Budaya (socio-culture) Sosial Budaya (socio-culture) merupakan program CSR yang fokus kepada pelestarian nilai-nilai budaya dan kearifan lokal yang ada, menjaga adat - istiadat masyarakat lokal, serta menjaga peninggalan-peninggalan sejarah yang ada pada masyarakat sekitar. Perlu diketahui, bahwa entitas-entitas bisnis Hasnur Group hidup berdampingan bersama masyarakat lokal yang berasal dari Suku Banjar dan Suku Dayak. Suku Banjar maupun Suku Dayak merupakan suku yang terdapat pada Provinsi Kalimantan Selatan dan Kalimantan Tengah. Suku Banjar dan Dayak memiliki keberagaman nilai dan budaya dengan suku-suku lain. Oleh karena itu, sebagai bentuk kepedulian perusahaan yang hidup berdampingan dengan masyarakat sekitar maka Hasnur Group membuat program CD yang berkaitan dengan sosial-budaya.</p>
+<p class="reveal text-slate-600 leading-relaxed mb-4">Pendidikan (education) Pendidikan (education) merupakan program CSR yang fokus kepada peningkatan tingkat pendidikan dan kualitas sumber daya manusia pada masyarakat daerah. Badan Pusat Statistik (BPS) Provinsi Kalsel mencatat bahwa pendidikan masyarakat Kalsel mayoritas adalah Sekolah Menengah Pertama (SMP), yaitu dengan persentase sebesar 89,66%. Memang posisi perusahaan tidak menjadi aktor utama dalam meningkatkan tingkat pendidikan masyarakat sekitar, namun perusahaan akan menjadi salah satu stakeholder pemerintah dalam meningkatkan tingkat pendidikan masyarakat sekitar. Diharapkan dengan adanya dukungan perusahaan terhadap pendidikan, kedepannya kualitas sumber daya masyarakat Banua semakin baik serta dapat memajukan daerahnya.</p>
+<p class="reveal text-slate-600 leading-relaxed mb-4">Lingkungan Lingkungan (environment) merupakan program CSR yang fokus kepada menjaga kelestarian lingkungan. Perusahaan menyadari bahwa menjaga kelestarian lingkungan merupakan salah satu kewajiban bagi setiap orang, yaitu dengan harapan dapat memberikan kontribusi bagi kehidupan yang berkelanjutan di masa yang akan datang. Sadar ataupun tidak, generasi selanjutnyalah yang akan hidup dan bertempat tinggal nantinya. Oleh karenanya kewajiban untuk  menjaga lingkungan yang baik dan lestari, sejatinya diharapkan dapat dirasakan oleh generasi yang hidup saat ini maupun generasi yang hidup di masa yang akan datang.</p>
+<p class="reveal text-slate-600 leading-relaxed mb-4">Kesehatan Kesehatan (health) merupakan program yang fokus pada perbaikan kesehatan ibu dan anak, serta masyarakat di sekitar daerah wilayah perusahaan. Masalah kesehatan tentunya tidak hanya menjadi tanggung jawab pemerintah saja. Dalam hal ini, Hasnur Group akan terus berupaya bekerjasama dengan pemerintah dalam hal ini Satuan Kerja Pemerintah Daerah (SKPD) terkait dalam menangani permasalahan kesehatan, agar kedepannya masyarakat mendapatkan kehidupan yang sehat dan layak.</p>
+  </div>
+</section>
+@endsection

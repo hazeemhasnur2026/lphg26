@@ -1,0 +1,100 @@
+name: Deploy
+
+on:
+  workflow_run:
+    workflows: [CI]
+    types: [completed]
+    branches: [main]
+  workflow_dispatch:
+
+concurrency:
+  group: deploy-production
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    # Hanya menyusul CI yang lulus. Deploy setelah test merah lebih buruk
+    # daripada tidak deploy sama sekali.
+    if: github.event_name == 'workflow_dispatch' || github.event.workflow_run.conclusion == 'success'
+
+    steps:
+      - uses: actions/checkout@v4
+
+      # Selama server produksinya belum ada, langkah ini melaporkan tujuannya
+      # belum disetel lalu membiarkan sisanya dilewati. Menggagalkan job akan
+      # menandai merah setiap push, dan tanda merah yang selalu ada berhenti
+      # dibaca orang.
+      - name: Pastikan tujuannya sudah disetel
+        id: tujuan
+        env:
+          HOST: ${{ secrets.DEPLOY_HOST }}
+        run: |
+          if [ -z "$HOST" ]; then
+            echo "::notice::DEPLOY_HOST belum disetel, deploy dilewati. Tambahkan Secrets di Settings > Secrets and variables > Actions:"
+            echo "::notice::  DEPLOY_HOST, DEPLOY_USER, DEPLOY_PATH, DEPLOY_SSH_KEY, dan opsional DEPLOY_PORT."
+            echo "siap=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "siap=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      - uses: shivammathur/setup-php@v2
+        if: steps.tujuan.outputs.siap == 'true'
+        with:
+          php-version: '8.4'
+          extensions: mbstring, sqlite3, gd, intl
+          coverage: none
+
+      - uses: actions/setup-node@v4
+        if: steps.tujuan.outputs.siap == 'true'
+        with:
+          node-version: '22'
+          cache: npm
+          cache-dependency-path: backend/package-lock.json
+
+      # Dependensi produksi saja: paket dev tidak punya urusan di server, dan
+      # ikut mengirimnya berarti memperbesar permukaan yang bisa diserang.
+      - name: Pasang dependensi produksi
+        if: steps.tujuan.outputs.siap == 'true'
+        working-directory: backend
+        run: composer install --prefer-dist --no-dev --optimize-autoloader --no-interaction --no-progress
+
+      - name: Bangun aset
+        if: steps.tujuan.outputs.siap == 'true'
+        working-directory: backend
+        run: |
+          npm ci
+          npm run build
+
+      - name: Siapkan kunci SSH
+        if: steps.tujuan.outputs.siap == 'true'
+        run: |
+          mkdir -p ~/.ssh
+          echo "${{ secrets.DEPLOY_SSH_KEY }}" > ~/.ssh/id_deploy
+          chmod 600 ~/.ssh/id_deploy
+          ssh-keyscan -p "${{ secrets.DEPLOY_PORT || 22 }}" -H "${{ secrets.DEPLOY_HOST }}" >> ~/.ssh/known_hosts
+
+      # --delete dibatasi lewat daftar kecuali: .env, database SQLite, dan
+      # gambar yang diunggah dari admin hidup di server dan tidak boleh ikut
+      # terhapus hanya karena tidak ada di repo.
+      - name: Kirim berkas
+        if: steps.tujuan.outputs.siap == 'true'
+        run: |
+          rsync -az --delete \
+            -e "ssh -i ~/.ssh/id_deploy -p ${{ secrets.DEPLOY_PORT || 22 }}" \
+            --exclude '.git' \
+            --exclude 'node_modules' \
+            --exclude 'backend/node_modules' \
+            --exclude 'backend/.env' \
+            --exclude 'backend/database/*.sqlite' \
+            --exclude 'backend/storage/app' \
+            --exclude 'backend/storage/logs' \
+            --exclude 'content-migration/images' \
+            ./ "${{ secrets.DEPLOY_USER }}@${{ secrets.DEPLOY_HOST }}:${{ secrets.DEPLOY_PATH }}/"
+
+      - name: Jalankan langkah setelah deploy
+        if: steps.tujuan.outputs.siap == 'true'
+        run: |
+          ssh -i ~/.ssh/id_deploy -p "${{ secrets.DEPLOY_PORT || 22 }}" \
+            "${{ secrets.DEPLOY_USER }}@${{ secrets.DEPLOY_HOST }}" \
+            "cd ${{ secrets.DEPLOY_PATH }} && bash deploy/after-deploy.sh"

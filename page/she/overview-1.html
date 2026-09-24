@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ikhtisar SHE - Hasnur Group</title>
+<meta name="description" content="Direktorat Safety, Health &amp; Environment (SHE) Hasnur Group.">
+<meta name="theme-color" content="#2F3BA2">
+<link rel="apple-touch-icon" sizes="180x180" href="../../assets/img/logo.png">
+<link rel="icon" type="image/png" sizes="32x32" href="../../assets/img/ico/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="../../assets/img/ico/favicon-16x16.png">
+<link rel="shortcut icon" href="../../assets/img/ico/favicon.ico">
+
+<!-- Tailwind (Play CDN — prototype only, akan diganti build pipeline Tailwind saat migrasi ke Laravel) -->
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          primary: {
+            DEFAULT: '#2F3BA2',
+            dark: '#232C7A',
+            light: '#4C58C4',
+          },
+          accent: {
+            DEFAULT: '#D9A441',
+          },
+          /* Sampled directly from assets/img/logo.png — dominant hero palette */
+          logo: {
+            blue: '#154F91',
+            'blue-dark': '#0E335E',
+            yellow: '#FFE80A',
+            green: '#2A9941',
+            red: '#E03633',
+          }
+        },
+        fontFamily: {
+          sans: ['"Plus Jakarta Sans"', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+        },
+      }
+    }
+  }
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<!-- Alpine.js — interaktivitas ringan (dropdown nav, mobile menu, timeline, slider) -->
+<script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
+<link rel="stylesheet" href="../../assets/css/style.css">
+<!-- SEO:START — dihasilkan oleh tools/build_seo_meta.py, jangan diedit manual -->
+  <link rel="canonical" href="https://www.hasnurgroup.com/page/she/overview-1">
+
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Hasnur Group">
+  <meta property="og:locale" content="id_ID">
+  <meta property="og:url" content="https://www.hasnurgroup.com/page/she/overview-1">
+  <meta property="og:title" content="Ikhtisar SHE - Hasnur Group">
+  <meta property="og:description" content="Direktorat Safety, Health &amp; Environment (SHE) Hasnur Group.">
+  <meta property="og:image" content="https://www.hasnurgroup.com/assets/img/pages/she-overview-1/banner.jpg">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Ikhtisar SHE - Hasnur Group">
+  <meta name="twitter:description" content="Direktorat Safety, Health &amp; Environment (SHE) Hasnur Group.">
+  <meta name="twitter:image" content="https://www.hasnurgroup.com/assets/img/pages/she-overview-1/banner.jpg">
+  <!-- SEO:END -->
+</head>
+</head>
+<body class="font-sans text-slate-800 bg-white antialiased" x-data="{ mobileNavOpen: false }">
+
+<header class="fixed top-0 inset-x-0 z-50 bg-white/95 backdrop-blur border-b border-slate-100">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between h-18 py-3">
+      <!-- Logo -->
+      <a href="../../index.html" class="flex items-center shrink-0">
+        <img src="../../assets/img/logo.png" alt="Hasnur Group" class="h-9 sm:h-10 w-auto">
+      </a>
+
+      <!-- Desktop Nav -->
+      <nav class="hidden lg:flex items-center gap-1 text-sm font-semibold text-slate-700">
+        <a href="../../index.html" class="px-3 py-2 rounded-md hover:text-primary hover:bg-slate-50 transition">Beranda</a>
+
+        <div class="relative" x-data="{ open: false }" @mouseenter="open = true" @mouseleave="open = false">
+          <button class="px-3 py-2 rounded-md hover:text-primary hover:bg-slate-50 transition inline-flex items-center gap-1">
+            Tentang Kami
+            <svg class="w-3.5 h-3.5" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.17l3.71-3.94a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd"/></svg>
+          </button>
+          <div x-show="open" x-transition x-cloak class="absolute left-0 top-full w-56 bg-white rounded-xl shadow-lg border border-slate-100 py-2">
+            <a href="../about-us/overview.html" class="block px-4 py-2 text-sm hover:bg-slate-50 hover:text-primary">Ikhtisar</a>
+            <a href="../about-us/vision-mission.html" class="block px-4 py-2 text-sm hover:bg-slate-50 hover:text-primary">Visi Misi</a>
+            <a href="../about-us/core-value.html" class="block px-4 py-2 text-sm hover:bg-slate-50 hover:text-primary">Nilai Inti</a>
+          </div>
+        </div>
+
+        <div class="relative" x-data="{ open: false }" @mouseenter="open = true" @mouseleave="open = false">
+          <button class="px-3 py-2 rounded-md hover:text-primary hover:bg-slate-50 transition inline-flex items-center gap-1">
+            Bisnis Kami
+            <svg class="w-3.5 h-3.5" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.17l3.71-3.94a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd"/></svg>
+          </button>
+          <div x-show="open" x-transition x-cloak class="absolute left-0 top-full w-64 bg-white rounded-xl shadow-lg border border-slate-100 py-2">
+            <a href="../our-business/logistic.html" class="block px-4 py-2 text-sm hover:bg-slate-50 hover:text-primary">Logistik</a>
+            <a href="../our-business/agribusiness-forestry.html" class="block px-4 py-2 text-sm hover:bg-slate-50 hover:text-primary">Agribisnis &amp; Kehutanan</a>
+            <a href="../our-business/energy.html" class="block px-4 py-2 text-sm hover:bg-slate-50 hover:text-primary">Energi</a>
+            <a href="../our-business/technology-services.html" class="block px-4 py-2 text-sm hover:bg-slate-50 hover:text-primary">Teknologi &amp; Jasa</a>
+            <a href="../our-business/education.html" class="block px-4 py-2 text-sm hover:bg-slate-50 hover:text-primary">Pendidikan</a>
+            <a href="../our-business/consumer.html" class="block px-4 py-2 text-sm hover:bg-slate-50 hover:text-primary">Kebutuhan Pelanggan</a>
+            <a href="../our-business/investment.html" class="block px-4 py-2 text-sm hover:bg-slate-50 hover:text-primary">Investasi</a>
+          </div>
+        </div>
+
+        <div class="relative" x-data="{ open: false }" @mouseenter="open = true" @mouseleave="open = false">
+          <button class="px-3 py-2 rounded-md hover:text-primary hover:bg-slate-50 transition inline-flex items-center gap-1">
+            Tanggung Jawab Sosial
+            <svg class="w-3.5 h-3.5" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.17l3.71-3.94a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd"/></svg>
+          </button>
+          <div x-show="open" x-transition x-cloak class="absolute left-0 top-full w-56 bg-white rounded-xl shadow-lg border border-slate-100 py-2">
+            <a href="../csr/csr-overview.html" class="block px-4 py-2 text-sm hover:bg-slate-50 hover:text-primary">Ikhtisar</a>
+            <a href="../csr/csr-activity.html" class="block px-4 py-2 text-sm hover:bg-slate-50 hover:text-primary">Aktifitas CSR</a>
+          </div>
+        </div>
+
+        <div class="relative" x-data="{ open: false }" @mouseenter="open = true" @mouseleave="open = false">
+          <button class="px-3 py-2 rounded-md hover:text-primary hover:bg-slate-50 transition inline-flex items-center gap-1">
+            SHE
+            <svg class="w-3.5 h-3.5" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.17l3.71-3.94a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd"/></svg>
+          </button>
+          <div x-show="open" x-transition x-cloak class="absolute left-0 top-full w-56 bg-white rounded-xl shadow-lg border border-slate-100 py-2">
+            <a href="../she/overview-1.html" class="block px-4 py-2 text-sm hover:bg-slate-50 hover:text-primary">Ikhtisar</a>
+            <a href="../she/she-activity.html" class="block px-4 py-2 text-sm hover:bg-slate-50 hover:text-primary">Aktivitas SHE</a>
+          </div>
+        </div>
+
+        <div class="relative" x-data="{ open: false }" @mouseenter="open = true" @mouseleave="open = false">
+          <button class="px-3 py-2 rounded-md hover:text-primary hover:bg-slate-50 transition inline-flex items-center gap-1">
+            Karir
+            <svg class="w-3.5 h-3.5" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.17l3.71-3.94a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd"/></svg>
+          </button>
+          <div x-show="open" x-transition x-cloak class="absolute left-0 top-full w-48 bg-white rounded-xl shadow-lg border border-slate-100 py-2">
+            <a href="../career/our-vacancy.html" class="block px-4 py-2 text-sm hover:bg-slate-50 hover:text-primary">Lowongan Kami</a>
+          </div>
+        </div>
+
+        <div class="relative" x-data="{ open: false }" @mouseenter="open = true" @mouseleave="open = false">
+          <button class="px-3 py-2 rounded-md hover:text-primary hover:bg-slate-50 transition inline-flex items-center gap-1">
+            Publikasi
+            <svg class="w-3.5 h-3.5" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.17l3.71-3.94a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd"/></svg>
+          </button>
+          <div x-show="open" x-transition x-cloak class="absolute left-0 top-full w-56 bg-white rounded-xl shadow-lg border border-slate-100 py-2">
+            <a href="../publication/latest-update.html" class="block px-4 py-2 text-sm hover:bg-slate-50 hover:text-primary">Update Terbaru</a>
+            <a href="../publication/news.html" class="block px-4 py-2 text-sm hover:bg-slate-50 hover:text-primary">Berita</a>
+            <a href="../publication/press-release.html" class="block px-4 py-2 text-sm hover:bg-slate-50 hover:text-primary">Press Release</a>
+            <a href="../publication/multimedia.html" class="block px-4 py-2 text-sm hover:bg-slate-50 hover:text-primary">Multimedia</a>
+            <a href="../publication/gallery.html" class="block px-4 py-2 text-sm hover:bg-slate-50 hover:text-primary">Galeri</a>
+          </div>
+        </div>
+
+        <a href="#contact" class="ml-2 px-4 py-2 rounded-md bg-primary text-white hover:bg-primary-dark transition">Contact Us</a>
+      </nav>
+
+      <!-- Mobile toggle -->
+      <button class="lg:hidden p-2 rounded-md text-primary" @click="mobileNavOpen = !mobileNavOpen" aria-label="Buka menu">
+        <svg x-show="!mobileNavOpen" class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+        <svg x-show="mobileNavOpen" x-cloak class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- Mobile Nav -->
+  <div x-show="mobileNavOpen" x-cloak x-transition class="lg:hidden border-t border-slate-100 bg-white max-h-[80vh] overflow-y-auto">
+    <nav class="px-4 py-3 flex flex-col text-sm font-semibold text-slate-700">
+      <a href="../../index.html" class="py-2.5" @click="mobileNavOpen=false">Beranda</a>
+
+      <details class="py-2.5">
+        <summary class="cursor-pointer">Tentang Kami</summary>
+        <div class="pl-4 pt-2 flex flex-col gap-2 font-normal">
+          <a href="../about-us/overview.html">Ikhtisar</a>
+          <a href="../about-us/vision-mission.html">Visi Misi</a>
+          <a href="../about-us/core-value.html">Nilai Inti</a>
+        </div>
+      </details>
+
+      <details class="py-2.5">
+        <summary class="cursor-pointer">Bisnis Kami</summary>
+        <div class="pl-4 pt-2 flex flex-col gap-2 font-normal">
+          <a href="../our-business/logistic.html">Logistik</a>
+          <a href="../our-business/agribusiness-forestry.html">Agribisnis &amp; Kehutanan</a>
+          <a href="../our-business/energy.html">Energi</a>
+          <a href="../our-business/technology-services.html">Teknologi &amp; Jasa</a>
+          <a href="../our-business/education.html">Pendidikan</a>
+          <a href="../our-business/consumer.html">Kebutuhan Pelanggan</a>
+          <a href="../our-business/investment.html">Investasi</a>
+        </div>
+      </details>
+
+      <details class="py-2.5">
+        <summary class="cursor-pointer">Tanggung Jawab Sosial Perusahaan</summary>
+        <div class="pl-4 pt-2 flex flex-col gap-2 font-normal">
+          <a href="../csr/csr-overview.html">Ikhtisar</a>
+          <a href="../csr/csr-activity.html">Aktifitas CSR</a>
+        </div>
+      </details>
+
+      <details class="py-2.5">
+        <summary class="cursor-pointer">Keselamatan, Kesehatan, &amp; Lingkungan (SHE)</summary>
+        <div class="pl-4 pt-2 flex flex-col gap-2 font-normal">
+          <a href="../she/overview-1.html">Ikhtisar</a>
+          <a href="../she/she-activity.html">Aktivitas SHE</a>
+        </div>
+      </details>
+
+      <details class="py-2.5">
+        <summary class="cursor-pointer">Karir</summary>
+        <div class="pl-4 pt-2 flex flex-col gap-2 font-normal">
+          <a href="../career/our-vacancy.html">Lowongan Kami</a>
+        </div>
+      </details>
+
+      <details class="py-2.5">
+        <summary class="cursor-pointer">Publikasi</summary>
+        <div class="pl-4 pt-2 flex flex-col gap-2 font-normal">
+          <a href="../publication/latest-update.html">Update Terbaru</a>
+          <a href="../publication/news.html">Berita</a>
+          <a href="../publication/press-release.html">Press Release</a>
+          <a href="../publication/multimedia.html">Multimedia</a>
+          <a href="../publication/gallery.html">Galeri</a>
+        </div>
+      </details>
+
+      <a href="#contact" class="mt-2 mb-3 text-center px-4 py-2.5 rounded-md bg-primary text-white" @click="mobileNavOpen=false">Contact Us</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+<!-- PAGE_HERO:START — dihasilkan oleh tools/build_page_hero.py, jangan diedit manual -->
+<section class="relative overflow-hidden bg-gradient-to-br from-logo-blue via-logo-blue to-logo-blue-dark pt-[72px] text-white">
+  <div class="h-1.5 w-full" style="background:linear-gradient(90deg,#154F91,#FFE80A,#2A9941,#E03633,#154F91)"></div>
+  <div class="absolute inset-0 opacity-10 hero-pattern"></div>
+  <div class="pointer-events-none absolute -right-16 -top-24 h-72 w-72 rounded-full border border-white/10"></div>
+  <div class="pointer-events-none absolute -right-44 -top-6 h-96 w-96 rounded-full border border-white/[0.07]"></div>
+
+  <div class="relative mx-auto grid max-w-7xl items-stretch gap-10 px-4 py-8 sm:px-6 lg:grid-cols-2 lg:px-8 lg:py-14">
+    <div class="reveal flex flex-col justify-center">
+      <nav aria-label="Breadcrumb" class="mb-3 text-xs">
+        <ol class="flex flex-wrap items-center gap-x-1.5">
+            <li><a href="../../index.html" class="text-white/65 transition hover:text-white">Beranda</a></li><li aria-hidden="true" class="text-white/35">/</li>
+            <li><a href="../../page/she/overview-1.html" class="text-white/65 transition hover:text-white">Keselamatan, Kesehatan, &amp; Lingkungan</a></li><li aria-hidden="true" class="text-white/35">/</li>
+            <li><span aria-current="page" class="font-semibold text-logo-yellow">Ikhtisar</span></li>
+        </ol>
+      </nav>
+      <h1 class="text-4xl font-extrabold leading-tight md:text-5xl">Ikhtisar</h1>
+      <p class="mt-4 max-w-[460px] leading-relaxed text-white/80">Direktorat SHE bertujuan meminimalkan kecelakaan kerja serta menjaga keselamatan, kesehatan, dan lingkungan di seluruh unit usaha.</p>
+      <nav class="mt-6 flex flex-wrap gap-2" aria-label="Sub-halaman">
+          <a href="../../page/she/overview-1.html" class="rounded-full px-4 py-1.5 text-sm font-semibold transition bg-white text-logo-blue shadow-sm">Ikhtisar</a>
+          <a href="../../page/she/she-activity.html" class="rounded-full px-4 py-1.5 text-sm font-semibold transition border border-white/25 text-white/80 hover:bg-white/10">Aktivitas SHE</a>
+      </nav>
+    </div>
+
+    <div class="reveal relative">
+      <img src="../../assets/img/pages/she-overview-1/banner.jpg" alt="Ikhtisar — Hasnur Group" loading="eager"
+           class="h-full w-full rounded-2xl object-cover shadow-2xl">
+    </div>
+  </div>
+</section>
+<!-- PAGE_HERO:END -->
+<section class="bg-slate-50 border-b border-slate-100">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-5 flex flex-wrap gap-2">
+    <a href="overview-1.html" class="px-5 py-2.5 rounded-full text-sm font-semibold transition bg-primary text-white">Ikhtisar</a><a href="she-activity.html" class="px-5 py-2.5 rounded-full text-sm font-semibold transition bg-white text-slate-600 hover:text-primary border border-slate-200">Aktivitas SHE</a>
+  </div>
+</section>
+
+<section class="py-16 sm:py-20">
+  <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+    <h2 class="reveal text-2xl font-extrabold text-primary mt-10 mb-4 first:mt-0">DIREKTORAT SAFETY, HEALTH &amp; ENVIRONMENT (SHE)</h2>
+<p class="reveal text-slate-600 leading-relaxed mb-4">Direktorat SHE Hasnur Group bertujuan untuk membantu meminimalkan terjadinya kecelakaan kerja, terjadinya kerugian atau kerusakan peralatan serta kerusakan lingkungan. Direktorat SHE memberikan dukungan kepada entitas/perusahaan dalam menegakkan Visi dan Misi menuju perusahaan yang peduli terhadap lingkungan dan masyarakat, dalam upaya pengelolaan sumber daya alam secara berkesinambungan.</p>
+<p class="reveal text-slate-600 leading-relaxed mb-4">Kepedulian perusahaan terhadap aspek Keselamatan, Kesehatan Kerja dan Lingkungan dituangkan dengan jelas di dalam Kebijakan Keselamatan dan Kesehatan Kerja serta Pelestarian Lingkungan (K3L) yang ditandatangi oleh Presiden Direktur Hasnur Group, untuk menjadi salah satu acuan yang wajib dijalankan oleh seluruh Manajemen dan Karyawan sebagai pencapaian kinerja perusahaan.</p>
+<p class="reveal text-slate-600 leading-relaxed mb-4">Dalam menjalankan usaha dan operasional usaha di Strategic Business Unit (SBU) dan unit usaha (Entitas), Hasnur Group tetap berkomitmen mengikuti peraturan perundang-undangan yang berlaku dan selalu berupaya untuk mencapai target lebih baik terhadap aspek Keselamatan, Kesehatan Kerja dan Lingkungan.</p>
+<p class="reveal text-slate-600 leading-relaxed mb-4">AMDAL (Analisis Mengenai Dampak Lingkungan) dan UKL-UPL (Upaya Pengelolaan Lingkungan dan Upaya Pemantauan Lingkungan) merupakan instrumen pengelolaan lingkungan setiap usaha perusahaan dan syarat untuk mendapatkan Izin Lingkungan dari Pemerintah. Setiap usaha dan/atau kegiatan Perusahaan pun harus melalui kajian aspek K3 dan dampaknya terhadap lingkungan hidup.</p>
+<p class="reveal text-slate-600 leading-relaxed mb-4">Dalam pelaksanaan pertambangan perusahaan menerapkan konsep Good Mining Practice (teknik pertambangan yang baik), menerapkan prinsip-prinsip kelestarian dalam pengelolaan hutan, menerapkan aspek keberlanjutan ( sustainability) pada pengelolaan agribisnis dan juga pada usaha-usaha lain yang dimiliki.</p>
+<p class="reveal text-slate-600 leading-relaxed mb-4">Dengan upaya, kinerja yang baik dan berkelanjutan telah memberikan pencapaian bagi kinerja perusahaan diantaranya PROPER BIRU, Sertifikat International Organization for Standardization (ISO) 9001, Sertifikat ISO 14001, Sertifikat ISO 45001, Sertifikat Sistem Manajemen Keselamatan Pertambangan (SMKP), Sertifikat Indonesian Sustainable Palm Oil (ISPO), Sertifikat International Code for The Security of Ships and Port Facilities (ISPS CODE), dan Penghargaan Nihil Kecelakaan ( Zero Accident Award ) dari pemerintah.</p>
+<img src="../../assets/img/pages/she-overview-1/content-1.jpg" alt="Ikhtisar SHE" class="reveal w-full h-auto rounded-2xl shadow-lg my-8" loading="lazy">
+<h2 class="reveal text-2xl font-extrabold text-primary mt-10 mb-4 first:mt-0">Logo SHE Hasnur Group</h2>
+<img src="../../assets/img/pages/she-overview-1/content-2.png" alt="Ikhtisar SHE" class="reveal w-full h-auto rounded-2xl shadow-lg my-8" loading="lazy">
+<p class="reveal text-slate-600 leading-relaxed mb-4">Arti logo :</p>
+<ul class="reveal list-disc pl-5 space-y-2 mb-6"><li class="text-slate-600 leading-relaxed">Dua buah lambang gambar dengan siklus menyambung membentuk ilustrasi setetes air , melambangkan dinamika perusahaan dan peningkatan kualitas kegiatan operasional dan aspek K3L (Keselamatan, Kesehatan Kerja dan Lingkungan) secara berkelanjutan untuk kesejahteraan bersama.</li><li class="text-slate-600 leading-relaxed">Bidang lengkung berwarna merah , melambangkan seluruh kegiatan bisnis perusahaan yang senantiasa maju dan berkembang</li><li class="text-slate-600 leading-relaxed">Helai daun dengan tulang daun berwarna kuning dan ujung panah berwarna hijau , melambangkan budaya K3L dan kesejahteraan yang berkesinambungan seiring dengan beroperasinya perusahaan.</li><li class="text-slate-600 leading-relaxed">Semboyan berwarna biru , melambangkan kebulatan tekad dan komitmen perusahaan Hasnur Group terhadap K3L</li><li class="text-slate-600 leading-relaxed">Tulisan ‘safety first’ atau ‘aman’ , melambangkan selalu mengutamakan tindakan dan kondisi yang aman dan sehat dalam menjalankan usaha</li></ul>
+<p class="reveal text-slate-600 leading-relaxed mb-4">Tulisan ‘go green’ atau ‘ramah lingkungan’ , melambangkan mewujudkan kelestarian lingkungan melalui produksi bersih dan meminimalkan dampak negatif yang ditimbulkan.</p>
+  </div>
+</section>
+
+</main>
+
+<footer id="contact" class="bg-primary-dark text-white pt-20 pb-8">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-12">
+
+      <!-- Kantor -->
+      <div>
+        <div class="mb-5">
+          <img src="../../assets/img/logo.png" alt="Hasnur Group" class="h-9 w-auto bg-white rounded-md px-2 py-1.5">
+        </div>
+
+        <p class="text-sm font-bold text-white/90">Kantor Pusat — Jakarta</p>
+        <p class="mt-2 text-sm text-white/70 leading-relaxed">
+          Office 8 Building, Lantai 7<br>
+          Jl. Senopati No. 8B, Jakarta Selatan<br>
+          DKI Jakarta 12190
+        </p>
+        <p class="mt-3 text-sm text-white/70">
+          Telp: (+6221) 29343888<br>
+          Fax: (+6221) 29343777<br>
+          Email: <a href="mailto:info@hasnurgroup.com" class="underline hover:text-accent">info@hasnurgroup.com</a>
+        </p>
+      </div>
+
+      <!-- Kantor perwakilan -->
+      <div>
+        <p class="text-sm font-bold text-white/90">Kantor Perwakilan</p>
+        <div class="mt-3 text-sm text-white/70 leading-relaxed">
+          <p class="font-semibold text-white/90">Kalimantan Selatan</p>
+          <p>Jl. Berangas Timur No. 95 A, Alalak, Kalimantan Selatan 70582</p>
+        </div>
+        <div class="mt-4 text-sm text-white/70 leading-relaxed">
+          <p class="font-semibold text-white/90">Kalimantan Tengah</p>
+          <p>Jl. G. Obos No. 88 A, Palangkaraya, Kalimantan Tengah 73112</p>
+        </div>
+      </div>
+
+      <!-- Recent post -->
+      <div>
+        <p class="text-sm font-bold text-white/90">Recent Post</p>
+        <ul class="mt-3 space-y-3 text-sm text-white/70">
+          <li><a href="../publication/latest-update.html" class="hover:text-accent transition leading-snug block">Hasnur Berbagi Qurban Jangkau Puluhan Kabupaten dan Kota</a></li>
+          <li><a href="../publication/news.html" class="hover:text-accent transition leading-snug block">Hasnur Group Meraih Dua Penghargaan di Top CSR Awards 2026</a></li>
+          <li><a href="../publication/news.html" class="hover:text-accent transition leading-snug block">Kolaborasi Hasnur Group dengan Mitra Internasional untuk Proyek Pongamia</a></li>
+        </ul>
+      </div>
+
+      <!-- Social + link terkait -->
+      <div>
+        <p class="text-sm font-bold text-white/90">Sosial Media</p>
+        <div class="mt-3 flex gap-3">
+          <a href="https://www.linkedin.com/company/hasnurgroup" target="_blank" rel="noopener" aria-label="LinkedIn Hasnur Group" class="w-9 h-9 rounded-full bg-white/10 hover:bg-accent hover:text-primary-dark flex items-center justify-center transition">
+            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 110-4.125 2.062 2.062 0 010 4.125zM7.114 20.452H3.558V9h3.556v11.452z"/></svg>
+          </a>
+          <a href="https://www.instagram.com/hasnurgroup" target="_blank" rel="noopener" aria-label="Instagram Hasnur Group" class="w-9 h-9 rounded-full bg-white/10 hover:bg-accent hover:text-primary-dark flex items-center justify-center transition">
+            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.332.014 7.052.072 2.695.272.273 2.69.073 7.052.014 8.332 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.332 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.668-.072-4.948C23.73 2.7 21.31.273 16.949.073 15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+          </a>
+          <a href="https://www.youtube.com/@hasnurgroup" target="_blank" rel="noopener" aria-label="YouTube Hasnur Group" class="w-9 h-9 rounded-full bg-white/10 hover:bg-accent hover:text-primary-dark flex items-center justify-center transition">
+            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a2.994 2.994 0 00-2.107-2.117C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.391.524A2.994 2.994 0 00.502 6.186 31.36 31.36 0 000 12a31.36 31.36 0 00.502 5.814 2.994 2.994 0 002.107 2.117c1.886.524 9.391.524 9.391.524s7.505 0 9.391-.524a2.994 2.994 0 002.107-2.117A31.36 31.36 0 0024 12a31.36 31.36 0 00-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+          </a>
+        </div>
+
+        <p class="mt-6 text-sm font-bold text-white/90">Link Terkait</p>
+        <ul class="mt-3 space-y-2 text-sm text-white/70">
+          <li><a href="https://www.hasnurcentre.org" target="_blank" rel="noopener" class="hover:text-accent transition">Hasnur Centre</a></li>
+          <li><a href="https://www.baritoputera.co.id" target="_blank" rel="noopener" class="hover:text-accent transition">PS Barito Putera</a></li>
+          <li><a href="#contact" class="hover:text-accent transition">Contact Us</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="mt-16 pt-6 border-t border-white/10 text-center text-sm text-white/50">
+      © 2026 All rights reserved.
+    </div>
+  </div>
+</footer>
+
+
+<script src="../../assets/js/main.js"></script>
+</body>
+</html>

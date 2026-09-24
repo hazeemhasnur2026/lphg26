@@ -1,0 +1,1176 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Welcome to Hasnur Group - Hasnur Group</title>
+<meta name="description" content="Hasnur Group adalah grup usaha yang didirikan oleh H. Abdussamad Sulaiman HB dan Hj. Nurhayati, pengusaha asal Kalimantan. Grow Together Develop the Future.">
+<meta name="theme-color" content="#2F3BA2">
+<link rel="apple-touch-icon" sizes="180x180" href="assets/img/logo.png">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/img/ico/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="assets/img/ico/favicon-16x16.png">
+<link rel="shortcut icon" href="assets/img/ico/favicon.ico">
+
+<!-- Tailwind (Play CDN — prototype only, akan diganti build pipeline Tailwind saat migrasi ke Laravel) -->
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          primary: {
+            DEFAULT: '#2F3BA2',
+            dark: '#232C7A',
+            light: '#4C58C4',
+          },
+          accent: {
+            DEFAULT: '#D9A441',
+          },
+          /* Sampled directly from assets/img/logo.png — dominant hero palette */
+          logo: {
+            blue: '#154F91',
+            'blue-dark': '#0E335E',
+            yellow: '#FFE80A',
+            green: '#2A9941',
+            red: '#E03633',
+          }
+        },
+        fontFamily: {
+          sans: ['"Plus Jakarta Sans"', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+        },
+      }
+    }
+  }
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<!-- Alpine.js — interaktivitas ringan (dropdown nav, mobile menu, timeline, slider) -->
+<script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
+<link rel="stylesheet" href="assets/css/style.css">
+<!-- SEO:START — dihasilkan oleh tools/build_seo_meta.py, jangan diedit manual -->
+  <link rel="canonical" href="https://www.hasnurgroup.com/">
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Hasnur Group">
+  <meta property="og:locale" content="id_ID">
+  <meta property="og:url" content="https://www.hasnurgroup.com/">
+  <meta property="og:title" content="Welcome to Hasnur Group - Hasnur Group">
+  <meta property="og:description" content="Hasnur Group adalah grup usaha yang didirikan oleh H. Abdussamad Sulaiman HB dan Hj. Nurhayati, pengusaha asal Kalimantan. Grow Together Develop the Future.">
+  <meta property="og:image" content="https://www.hasnurgroup.com/assets/img/logo-60th.png">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Welcome to Hasnur Group - Hasnur Group">
+  <meta name="twitter:description" content="Hasnur Group adalah grup usaha yang didirikan oleh H. Abdussamad Sulaiman HB dan Hj. Nurhayati, pengusaha asal Kalimantan. Grow Together Develop the Future.">
+  <meta name="twitter:image" content="https://www.hasnurgroup.com/assets/img/logo-60th.png">
+
+  <script type="application/ld+json">
+  {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Hasnur Group",
+  "url": "https://www.hasnurgroup.com/",
+  "logo": "https://www.hasnurgroup.com/assets/img/logo.png",
+  "foundingDate": "1966",
+  "email": "info@hasnurgroup.com",
+  "telephone": "+622129343888",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Office 8 Building Lantai 7, Jl. Senopati No. 8B",
+    "addressLocality": "Jakarta Selatan",
+    "addressRegion": "DKI Jakarta",
+    "postalCode": "12190",
+    "addressCountry": "ID"
+  },
+  "sameAs": [
+    "https://www.linkedin.com/company/hasnurgroup",
+    "https://www.instagram.com/hasnurgroup",
+    "https://www.youtube.com/@hasnurgroup"
+  ]
+}
+  </script>
+  <!-- SEO:END -->
+</head>
+<body class="font-sans text-slate-800 bg-white antialiased">
+
+<!-- ============ HEADER / NAV ============ -->
+<!-- Desktop (lg+): always solid, logo + full nav always visible — no
+     scroll-dependent hide/show. Below lg: still the minimal floating-over-
+     hero look (logo + burger only, transparent) until the visitor scrolls,
+     matching the original mobile behavior. This is done by folding the lg
+     breakpoint into the same `scrolled` flag the background/logo/nav all
+     key off of, rather than juggling two separate states. -->
+<header class="fixed top-0 inset-x-0 z-50 transition-colors duration-300"
+        :class="scrolled ? 'bg-white/95 backdrop-blur border-b border-slate-100' : 'bg-transparent border-b border-transparent'"
+        x-data="{ scrolled: false, mobileOpen: false,
+                  updateScrolled() { this.scrolled = window.scrollY > 40 || window.innerWidth >= 1024 } }"
+        x-init="updateScrolled()"
+        @scroll.window="updateScrolled()"
+        @resize.window="updateScrolled()">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="relative flex items-center justify-between h-18 py-3">
+      <!-- Logo — hidden at the very top of the page (transparent header over
+           the hero), fades in together with the full nav once scrolled. -->
+      <a href="#beranda" class="flex items-center shrink-0" x-show="scrolled"
+         x-transition:enter="transition ease-out duration-200" x-transition:enter-start="opacity-0 -translate-y-1" x-transition:enter-end="opacity-100 translate-y-0">
+        <img src="assets/img/logo.png" alt="Hasnur Group" class="h-9 sm:h-10 w-auto drop-shadow">
+      </a>
+
+      <!-- Desktop Nav — hidden at the very top of the page, appears once the visitor scrolls -->
+      <nav x-show="scrolled" x-transition:enter="transition ease-out duration-200" x-transition:enter-start="opacity-0 -translate-y-1" x-transition:enter-end="opacity-100 translate-y-0"
+           class="hidden lg:flex items-center gap-1 text-sm font-semibold text-slate-700">
+        <a href="#beranda" class="px-3 py-2 rounded-md hover:text-primary hover:bg-slate-50 transition">Beranda</a>
+
+        <div class="relative" x-data="{ open: false }" @mouseenter="open = true" @mouseleave="open = false">
+          <button class="px-3 py-2 rounded-md hover:text-primary hover:bg-slate-50 transition inline-flex items-center gap-1">
+            Tentang Kami
+            <svg class="w-3.5 h-3.5" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.17l3.71-3.94a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd"/></svg>
+          </button>
+          <div x-show="open" x-transition x-cloak class="absolute left-0 top-full w-56 bg-white rounded-xl shadow-lg border border-slate-100 py-2">
+            <a href="page/about-us/overview.html" class="block px-4 py-2 text-sm hover:bg-slate-50 hover:text-primary">Ikhtisar</a>
+            <a href="page/about-us/vision-mission.html" class="block px-4 py-2 text-sm hover:bg-slate-50 hover:text-primary">Visi Misi</a>
+            <a href="page/about-us/core-value.html" class="block px-4 py-2 text-sm hover:bg-slate-50 hover:text-primary">Nilai Inti</a>
+          </div>
+        </div>
+
+        <div class="relative" x-data="{ open: false }" @mouseenter="open = true" @mouseleave="open = false">
+          <button class="px-3 py-2 rounded-md hover:text-primary hover:bg-slate-50 transition inline-flex items-center gap-1">
+            Bisnis Kami
+            <svg class="w-3.5 h-3.5" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.17l3.71-3.94a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd"/></svg>
+          </button>
+          <div x-show="open" x-transition x-cloak class="absolute left-0 top-full w-64 bg-white rounded-xl shadow-lg border border-slate-100 py-2">
+            <a href="page/our-business/logistic.html" class="block px-4 py-2 text-sm hover:bg-slate-50 hover:text-primary">Logistik</a>
+            <a href="page/our-business/agribusiness-forestry.html" class="block px-4 py-2 text-sm hover:bg-slate-50 hover:text-primary">Agribisnis &amp; Kehutanan</a>
+            <a href="page/our-business/energy.html" class="block px-4 py-2 text-sm hover:bg-slate-50 hover:text-primary">Energi</a>
+            <a href="page/our-business/technology-services.html" class="block px-4 py-2 text-sm hover:bg-slate-50 hover:text-primary">Teknologi &amp; Jasa</a>
+            <a href="page/our-business/education.html" class="block px-4 py-2 text-sm hover:bg-slate-50 hover:text-primary">Pendidikan</a>
+            <a href="page/our-business/consumer.html" class="block px-4 py-2 text-sm hover:bg-slate-50 hover:text-primary">Kebutuhan Pelanggan</a>
+            <a href="page/our-business/investment.html" class="block px-4 py-2 text-sm hover:bg-slate-50 hover:text-primary">Investasi</a>
+          </div>
+        </div>
+
+        <div class="relative" x-data="{ open: false }" @mouseenter="open = true" @mouseleave="open = false">
+          <button class="px-3 py-2 rounded-md hover:text-primary hover:bg-slate-50 transition inline-flex items-center gap-1">
+            Tanggung Jawab Sosial
+            <svg class="w-3.5 h-3.5" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.17l3.71-3.94a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd"/></svg>
+          </button>
+          <div x-show="open" x-transition x-cloak class="absolute left-0 top-full w-56 bg-white rounded-xl shadow-lg border border-slate-100 py-2">
+            <a href="page/csr/csr-overview.html" class="block px-4 py-2 text-sm hover:bg-slate-50 hover:text-primary">Ikhtisar</a>
+            <a href="page/csr/csr-activity.html" class="block px-4 py-2 text-sm hover:bg-slate-50 hover:text-primary">Aktifitas CSR</a>
+          </div>
+        </div>
+
+        <div class="relative" x-data="{ open: false }" @mouseenter="open = true" @mouseleave="open = false">
+          <button class="px-3 py-2 rounded-md hover:text-primary hover:bg-slate-50 transition inline-flex items-center gap-1">
+            SHE
+            <svg class="w-3.5 h-3.5" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.17l3.71-3.94a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd"/></svg>
+          </button>
+          <div x-show="open" x-transition x-cloak class="absolute left-0 top-full w-56 bg-white rounded-xl shadow-lg border border-slate-100 py-2">
+            <a href="page/she/overview-1.html" class="block px-4 py-2 text-sm hover:bg-slate-50 hover:text-primary">Ikhtisar</a>
+            <a href="page/she/she-activity.html" class="block px-4 py-2 text-sm hover:bg-slate-50 hover:text-primary">Aktivitas SHE</a>
+          </div>
+        </div>
+
+        <div class="relative" x-data="{ open: false }" @mouseenter="open = true" @mouseleave="open = false">
+          <button class="px-3 py-2 rounded-md hover:text-primary hover:bg-slate-50 transition inline-flex items-center gap-1">
+            Karir
+            <svg class="w-3.5 h-3.5" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.17l3.71-3.94a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd"/></svg>
+          </button>
+          <div x-show="open" x-transition x-cloak class="absolute left-0 top-full w-48 bg-white rounded-xl shadow-lg border border-slate-100 py-2">
+            <a href="page/career/our-vacancy.html" class="block px-4 py-2 text-sm hover:bg-slate-50 hover:text-primary">Lowongan Kami</a>
+          </div>
+        </div>
+
+        <div class="relative" x-data="{ open: false }" @mouseenter="open = true" @mouseleave="open = false">
+          <button class="px-3 py-2 rounded-md hover:text-primary hover:bg-slate-50 transition inline-flex items-center gap-1">
+            Publikasi
+            <svg class="w-3.5 h-3.5" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.17l3.71-3.94a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd"/></svg>
+          </button>
+          <div x-show="open" x-transition x-cloak class="absolute left-0 top-full w-56 bg-white rounded-xl shadow-lg border border-slate-100 py-2">
+            <a href="page/publication/latest-update.html" class="block px-4 py-2 text-sm hover:bg-slate-50 hover:text-primary">Update Terbaru</a>
+            <a href="page/publication/news.html" class="block px-4 py-2 text-sm hover:bg-slate-50 hover:text-primary">Berita</a>
+            <a href="page/publication/press-release.html" class="block px-4 py-2 text-sm hover:bg-slate-50 hover:text-primary">Press Release</a>
+            <a href="page/publication/multimedia.html" class="block px-4 py-2 text-sm hover:bg-slate-50 hover:text-primary">Multimedia</a>
+            <a href="page/publication/gallery.html" class="block px-4 py-2 text-sm hover:bg-slate-50 hover:text-primary">Galeri</a>
+          </div>
+        </div>
+
+        <a href="#contact" class="ml-2 px-4 py-2 rounded-md bg-primary text-white hover:bg-primary-dark transition">Contact Us</a>
+      </nav>
+
+      <!-- Mobile burger — always present (no inline nav to fall back to on
+           small screens), toggles the dropdown below. ml-auto keeps it
+           flush right even pre-scroll, when the logo is hidden and this
+           is the only visible flex child (justify-between alone would
+           otherwise drop a lone item to the start). Animated as three bars
+           that morph into an X (rotate + fade the middle bar) instead of
+           swapping two unrelated icons. -->
+      <button class="lg:hidden ml-auto flex h-11 w-11 items-center justify-center text-primary transition-opacity duration-200 hover:opacity-70"
+              @click="mobileOpen = !mobileOpen"
+              :aria-label="mobileOpen ? 'Tutup menu' : 'Buka menu'" :aria-expanded="mobileOpen">
+        <!-- All three bars sit centred on top-1/2 (-mt-px offsets half the 2px
+             height). The closed state pushes the outer two apart with
+             translateY, so opening only has to cancel that translate and
+             rotate — transform and opacity are the only animated properties,
+             never top/bottom, which would relayout on every frame. -->
+        <span class="relative block h-4 w-6" aria-hidden="true">
+          <span class="absolute left-0 top-1/2 -mt-px h-0.5 w-6 rounded-full bg-current transition-transform duration-300 ease-in-out"
+                :class="mobileOpen ? 'rotate-45' : '-translate-y-[7px]'"></span>
+          <span class="absolute left-0 top-1/2 -mt-px h-0.5 w-6 rounded-full bg-current transition-opacity duration-200 ease-in-out"
+                :class="mobileOpen ? 'opacity-0' : 'opacity-100'"></span>
+          <span class="absolute left-0 top-1/2 -mt-px h-0.5 w-6 rounded-full bg-current transition-transform duration-300 ease-in-out"
+                :class="mobileOpen ? '-rotate-45' : 'translate-y-[7px]'"></span>
+        </span>
+      </button>
+    </div>
+  </div>
+
+  <!-- Mobile Nav (also reachable pre-scroll on desktop via the burger above,
+       since the inline nav only appears once `scrolled` is true) -->
+  <div x-show="mobileOpen" x-cloak
+       x-transition:enter="transition ease-out duration-300"
+       x-transition:enter-start="opacity-0 -translate-y-3"
+       x-transition:enter-end="opacity-100 translate-y-0"
+       x-transition:leave="transition ease-in duration-200"
+       x-transition:leave-start="opacity-100 translate-y-0"
+       x-transition:leave-end="opacity-0 -translate-y-3"
+       class="border-t border-slate-100 bg-white max-h-[80vh] overflow-y-auto">
+    <nav class="px-4 py-3 flex flex-col text-sm font-semibold text-slate-700">
+      <a href="#beranda" class="nav-row py-2.5" style="animation-delay:60ms" @click="mobileOpen=false">Beranda</a>
+
+      <details class="nav-row py-2.5" style="animation-delay:90ms">
+        <summary class="cursor-pointer">Tentang Kami</summary>
+        <div class="pl-4 pt-2 flex flex-col gap-2 font-normal">
+          <a href="page/about-us/overview.html">Ikhtisar</a>
+          <a href="page/about-us/vision-mission.html">Visi Misi</a>
+          <a href="page/about-us/core-value.html">Nilai Inti</a>
+        </div>
+      </details>
+
+      <details class="nav-row py-2.5" style="animation-delay:120ms">
+        <summary class="cursor-pointer">Bisnis Kami</summary>
+        <div class="pl-4 pt-2 flex flex-col gap-2 font-normal">
+          <a href="page/our-business/logistic.html">Logistik</a>
+          <a href="page/our-business/agribusiness-forestry.html">Agribisnis &amp; Kehutanan</a>
+          <a href="page/our-business/energy.html">Energi</a>
+          <a href="page/our-business/technology-services.html">Teknologi &amp; Jasa</a>
+          <a href="page/our-business/education.html">Pendidikan</a>
+          <a href="page/our-business/consumer.html">Kebutuhan Pelanggan</a>
+          <a href="page/our-business/investment.html">Investasi</a>
+        </div>
+      </details>
+
+      <details class="nav-row py-2.5" style="animation-delay:150ms">
+        <summary class="cursor-pointer">Tanggung Jawab Sosial Perusahaan</summary>
+        <div class="pl-4 pt-2 flex flex-col gap-2 font-normal">
+          <a href="page/csr/csr-overview.html">Ikhtisar</a>
+          <a href="page/csr/csr-activity.html">Aktifitas CSR</a>
+        </div>
+      </details>
+
+      <details class="nav-row py-2.5" style="animation-delay:180ms">
+        <summary class="cursor-pointer">Keselamatan, Kesehatan, &amp; Lingkungan (SHE)</summary>
+        <div class="pl-4 pt-2 flex flex-col gap-2 font-normal">
+          <a href="page/she/overview-1.html">Ikhtisar</a>
+          <a href="page/she/she-activity.html">Aktivitas SHE</a>
+        </div>
+      </details>
+
+      <details class="nav-row py-2.5" style="animation-delay:210ms">
+        <summary class="cursor-pointer">Karir</summary>
+        <div class="pl-4 pt-2 flex flex-col gap-2 font-normal">
+          <a href="page/career/our-vacancy.html">Lowongan Kami</a>
+        </div>
+      </details>
+
+      <details class="nav-row py-2.5" style="animation-delay:240ms">
+        <summary class="cursor-pointer">Publikasi</summary>
+        <div class="pl-4 pt-2 flex flex-col gap-2 font-normal">
+          <a href="page/publication/latest-update.html">Update Terbaru</a>
+          <a href="page/publication/news.html">Berita</a>
+          <a href="page/publication/press-release.html">Press Release</a>
+          <a href="page/publication/multimedia.html">Multimedia</a>
+          <a href="page/publication/gallery.html">Galeri</a>
+        </div>
+      </details>
+
+      <a href="#contact" class="nav-row mt-2 mb-3 text-center px-4 py-2.5 rounded-md bg-primary text-white" style="animation-delay:270ms" @click="mobileOpen=false">Contact Us</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+<!-- ============ HERO (logo lockup + founder quote, digabung) ============ -->
+<!-- Dominant palette sampled straight from assets/img/logo.png: blue #154F91,
+     yellow #FFE80A, green #2A9941, red #E03633. White up top so the
+     transparent-PNG lockup and founder photo sit cleanly on the page, then
+     fading into a soft brand-blue tint toward the bottom for depth instead
+     of a flat white all the way down. -->
+<section id="beranda" class="relative overflow-hidden bg-gradient-to-b from-white via-white via-70% to-blue-100 text-slate-800">
+
+  <!-- Seated below the 65px sticky header rather than at top-0: anchored to
+       the literal corner, 72% of it sat behind the navbar and read as a
+       clipped strip instead of a corner accent. z-10 lifts both corners
+       above the blurred blobs (one sits on this exact corner and was
+       muddying the pattern) but still under the z-50 header. -->
+  <img src="assets/img/keyvisual-corner.png" alt="" aria-hidden="true"
+       width="1593" height="770" draggable="false"
+       class="pointer-events-none select-none absolute top-16 left-0 -translate-x-1/4 -translate-y-1/4
+              hidden sm:block sm:w-36 lg:w-72 h-auto z-10">
+  <img src="assets/img/keyvisual-corner.png" alt="" aria-hidden="true"
+       width="1593" height="770" draggable="false" loading="lazy"
+       class="pointer-events-none select-none absolute bottom-0 right-0 translate-x-1/4 translate-y-1/4 rotate-180
+              hidden sm:block sm:w-36 lg:w-72 h-auto z-10">
+
+  <div class="absolute -top-24 -left-16" data-parallax="0.12">
+    <div class="w-80 h-80 rounded-full bg-logo-yellow/15 blur-3xl animate-blob"></div>
+  </div>
+  <div class="absolute -top-24 -right-16" data-parallax="0.12">
+    <div class="w-80 h-80 rounded-full bg-logo-green/15 blur-3xl animate-blob" style="animation-delay:-3s"></div>
+  </div>
+  <div class="absolute -bottom-16 left-1/3" data-parallax="0.07">
+    <div class="w-64 h-64 rounded-full bg-logo-red/10 blur-3xl animate-blob" style="animation-delay:-6s"></div>
+  </div>
+  <div class="absolute bottom-10 right-1/4" data-parallax="0.07">
+    <div class="w-64 h-64 rounded-full bg-logo-blue/10 blur-3xl animate-blob" style="animation-delay:-1.5s"></div>
+  </div>
+
+  <!-- Decorative background: drifting brand-color blobs, wrapped in a
+       parallax layer each (data-parallax, driven by assets/js/main.js) —
+       the wrapper handles scroll-parallax translation while the inner div
+       keeps its own CSS "blob" drift animation, so the two transforms
+       don't fight over the same element. -->
+
+  <!-- Two-column row: brand logo lockup (left) + founder photo & quote
+       (right), vertically centered per column. On mobile they stack
+       (logo first, founder quote below). -->
+  <div class="relative max-w-7xl mx-auto lg:grid lg:grid-cols-2 lg:gap-16 lg:items-center px-6 sm:px-10 lg:px-8 pt-24 sm:pt-28 lg:pt-16">
+
+    <!-- LEFT: official 60th anniversary lockup (transparent PNG, from the
+         brand's own keyvisual/guide assets), shown at full size directly
+         on the white background — no card, no crop needed. -->
+    <div class="reveal">
+      <!-- The lockup is the page's visible headline, so it carries the h1 and
+           its alt text supplies the heading. Wrapping rather than adding a
+           hidden heading keeps one headline instead of two competing ones. -->
+      <h1 class="m-0">
+        <img src="assets/img/logo-60th.png" alt="Hasnur Group — 60 Tahun Berkarya, Stronger Values, More Sustainable Future" class="w-full max-w-xl mx-auto lg:mx-0 h-auto" loading="eager">
+      </h1>
+    </div>
+
+    <!-- RIGHT: founder photo + quote, moved here from its own section so
+         it reads as one hero moment with the logo. -->
+    <div class="relative flex flex-col justify-center px-2 sm:px-6 lg:px-0 py-10 lg:py-16 text-center lg:text-left reveal">
+      <img src="assets/img/founder.png" alt="H. Abdussamad Sulaiman HB &amp; Hj. Nurhayati" class="w-64 sm:w-80 lg:w-96 h-auto mx-auto lg:mx-0 object-contain drop-shadow-lg mb-6" loading="lazy" data-parallax="0.05">
+      <svg class="w-8 h-8 mx-auto lg:mx-0 text-accent mb-3" fill="currentColor" viewBox="0 0 32 32"><path d="M9.352 4C4.456 7.456 1 13.12 1 19.36 1 24.88 4.288 28 8.464 28c3.88 0 6.552-3.16 6.552-6.616 0-3.16-2.176-5.976-5.336-5.976-.6 0-1.336.104-1.512.208.408-2.744 2.984-5.976 5.568-7.6L9.352 4zm16.512 0C20.968 7.456 17.512 13.12 17.512 19.36c0 5.52 3.288 8.64 7.464 8.64 3.88 0 6.552-3.16 6.552-6.616 0-3.16-2.176-5.976-5.336-5.976-.6 0-1.336.104-1.512.208.408-2.744 2.984-5.976 5.568-7.6L25.864 4z"/></svg>
+      <p class="text-lg sm:text-xl font-semibold text-slate-800 leading-relaxed">
+        Komitmen pendiri, H. Abdussamad Sulaiman HB dan Hj. Nurhayati, untuk terus mengabdi dan membangun bersama masyarakat Kalimantan Selatan — "Banua" — menjadi fondasi perjalanan Hasnur Group hingga hari ini.
+      </p>
+      <p class="mt-5 font-bold text-primary">H. Abdussamad Sulaiman HB &amp; Hj. Nurhayati</p>
+      <p class="text-sm text-slate-500">Pendiri Hasnur Group</p>
+    </div>
+  </div>
+
+  <!-- Supporting copy + CTA -->
+  <div class="relative max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 pt-10 pb-16 sm:pb-20 text-center reveal">
+    <p class="text-lg text-slate-600">
+      Merayakan 60 tahun perjalanan Hasnur Group — nilai-nilai perusahaan yang semakin kuat dalam melangkah menuju masa depan yang berkelanjutan.
+    </p>
+    <div class="mt-8 flex flex-wrap gap-4 justify-center">
+      <a href="page/about-us/overview.html" class="px-6 py-3 rounded-md bg-primary text-white font-bold hover:bg-primary-dark transition">Tentang Kami</a>
+      <a href="#bisnis-kami" class="px-6 py-3 rounded-md border border-slate-300 text-slate-700 font-semibold hover:bg-slate-50 transition">Lihat Bisnis Kami</a>
+    </div>
+    <a href="#tentang-kami" class="hidden sm:inline-flex mt-10 text-slate-400 hover:text-primary transition animate-bounce" aria-label="Gulir ke bawah">
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"/></svg>
+    </a>
+  </div>
+</section>
+
+<!-- ============ GALERI SLIDER (konten sementara, foto seadanya) ============ -->
+<!-- Placeholder content: memakai foto dokumentasi yang sudah ada di
+     assets/img/gallery/ karena belum ada aset SlideBanner khusus untuk
+     section ini. Struktur slide (src/alt/title/subtitle) sudah siap
+     digantikan feed dinamis dari CMS Publikasi di fase Laravel. -->
+<section class="relative py-16 sm:py-20 bg-white overflow-hidden"
+  x-data="gallerySlider()" x-init="init()"
+  @mouseenter="stop()" @mouseleave="play()">
+
+  <div class="absolute -top-24 -right-16" data-parallax="0.12">
+    <div class="w-80 h-80 rounded-full bg-logo-blue/15 blur-3xl animate-blob" style="animation-delay:-2s"></div>
+  </div>
+  <div class="absolute -bottom-24 -left-16" data-parallax="0.07">
+    <div class="w-64 h-64 rounded-full bg-logo-yellow/10 blur-3xl animate-blob" style="animation-delay:-5s"></div>
+  </div>
+
+
+  <div class="relative max-w-2xl mx-auto px-4 sm:px-6 lg:px-8 text-center reveal">
+    <span class="text-sm font-bold uppercase tracking-widest text-accent">Galeri Kegiatan</span>
+    <h2 class="mt-3 text-3xl sm:text-4xl font-extrabold text-primary">Momen Hasnur Group</h2>
+    <p class="mt-4 text-slate-600 text-sm">Konten sementara memakai dokumentasi yang tersedia — akan digantikan feed dinamis dari CMS Publikasi.</p>
+  </div>
+
+  <!-- Full-bleed slide frame — no max-width wrapper, no rounded border,
+       no shadow card; the photo runs edge to edge like the hero slider. -->
+  <div class="relative mt-12 reveal">
+    <div class="relative w-full aspect-[16/9] sm:aspect-[21/9] lg:aspect-[28/9]">
+      <template x-for="(s, i) in slides" :key="i">
+        <img :src="s.src" :alt="s.alt" x-show="active === i" x-cloak
+             x-transition:enter="transition ease-out duration-700"
+             x-transition:enter-start="opacity-0 scale-105"
+             x-transition:enter-end="opacity-100 scale-100"
+             x-transition:leave="transition ease-in duration-300"
+             x-transition:leave-start="opacity-100"
+             x-transition:leave-end="opacity-0"
+             class="absolute inset-0 w-full h-full object-cover" loading="lazy">
+      </template>
+
+      <template x-for="(s, i) in slides" :key="'g-caption-' + i">
+        <div x-show="active === i" x-cloak class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent p-5 sm:p-8">
+          <h3 class="text-white font-bold text-lg sm:text-xl" x-text="s.title"></h3>
+          <p class="text-white/80 text-sm mt-1" x-text="s.subtitle"></p>
+        </div>
+      </template>
+
+      <button @click="prev()" class="absolute left-3 sm:left-6 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/20 hover:bg-white/30 backdrop-blur ring-1 ring-white/40 flex items-center justify-center transition" aria-label="Slide sebelumnya">
+        <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
+      </button>
+      <button @click="next()" class="absolute right-3 sm:right-6 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/20 hover:bg-white/30 backdrop-blur ring-1 ring-white/40 flex items-center justify-center transition" aria-label="Slide berikutnya">
+        <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+      </button>
+    </div>
+
+    <div class="mt-5 flex justify-center gap-2">
+      <template x-for="(s, i) in slides" :key="'g-dot-' + i">
+        <button @click="goTo(i)" class="h-2 rounded-full transition-all" :class="active === i ? 'w-6 bg-primary' : 'w-2 bg-primary/20'" :aria-label="'Slide ' + (i + 1)"></button>
+      </template>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TENTANG KAMI ============ -->
+<section id="tentang-kami" class="relative py-20 sm:py-28 overflow-hidden">
+
+  <div class="absolute -top-24 -left-16" data-parallax="0.12">
+    <div class="w-80 h-80 rounded-full bg-logo-green/15 blur-3xl animate-blob" style="animation-delay:-4s"></div>
+  </div>
+  <div class="absolute -bottom-24 -right-16" data-parallax="0.07">
+    <div class="w-64 h-64 rounded-full bg-logo-yellow/10 blur-3xl animate-blob" style="animation-delay:-1s"></div>
+  </div>
+  <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid lg:grid-cols-2 gap-14 items-center">
+    <div class="reveal">
+      <img src="assets/img/image-about.png" alt="Tentang Hasnur Group" class="rounded-2xl shadow-lg w-full h-auto" loading="lazy" data-parallax="0.05">
+    </div>
+    <div class="reveal">
+      <span class="text-sm font-bold uppercase tracking-widest text-accent">Tentang Kami</span>
+      <h2 class="mt-3 text-3xl sm:text-4xl font-extrabold text-primary">Berawal dari Sungai Barito, 1966</h2>
+      <p class="mt-6 text-slate-600 leading-relaxed">
+        Hasnur Group didirikan oleh pengusaha asli Kalimantan, H. Abdussamad Sulaiman HB, bersama istrinya Hj. Nurhayati, yang memulai usaha di bidang angkutan sungai pada tahun 1966.
+      </p>
+      <p class="mt-4 text-slate-600 leading-relaxed">
+        Nama <span class="font-semibold text-primary">"HASNUR"</span> merupakan gabungan inisial nama keduanya — <span class="font-semibold">HAS</span> (H. Abdussamad Sulaiman) + <span class="font-semibold">NUR</span> (Nurhayati).
+      </p>
+      <a href="page/about-us/overview.html" class="mt-8 inline-flex items-center gap-2 font-bold text-primary hover:text-primary-dark transition">
+        Selengkapnya
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TIMELINE SEJARAH (serpentine photo path) ============ -->
+<!-- Reference: an "A Day in the Life"-style winding infographic (circular
+     photo nodes on a continuous path, alternating direction row by row).
+     Adapted with our own 15 milestones/photos. Desktop/tablet (sm+): 3
+     rows x 5 nodes (wide layout, not centered/cramped), each row
+     alternating left→right / right→left via `order-*` utilities
+     (source/DOM order stays chronological for accessibility — only visual
+     placement reverses). A horizontal connector runs through each row and
+     a vertical connector drops into the next row at the alternating edge.
+     Every node/line carries an inline transition-delay so the whole path
+     animates in strict chronological order — nodes cascade in one after
+     another (not all at once) and each row's connector "draws itself"
+     (scale 0→1 from the correct edge) right as its nodes appear. Below sm:
+     a simple single-column vertical list — the serpentine layout doesn't
+     have room to breathe on a phone. -->
+<section class="relative py-20 sm:py-28 bg-slate-50 overflow-hidden">
+
+  <div class="absolute -top-24 -right-16" data-parallax="0.12">
+    <div class="w-80 h-80 rounded-full bg-logo-yellow/15 blur-3xl animate-blob" style="animation-delay:-3s"></div>
+  </div>
+  <div class="absolute -bottom-24 -left-16" data-parallax="0.07">
+    <div class="w-64 h-64 rounded-full bg-logo-green/10 blur-3xl animate-blob" style="animation-delay:-6s"></div>
+  </div>
+
+  <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="relative text-center max-w-2xl mx-auto reveal">
+      <span class="text-sm font-bold uppercase tracking-widest text-accent">Perjalanan Kami</span>
+      <h2 class="mt-3 text-3xl sm:text-4xl font-extrabold text-primary">Timeline Sejarah Perusahaan</h2>
+      <p class="mt-4 text-slate-600">Setiap tonggak perjalanan Hasnur Group dari tahun ke tahun, 1966–2023.</p>
+    </div>
+
+    <!-- ===== Desktop/tablet: serpentine grid (hidden below sm) ===== -->
+    <div class="hidden lg:block mt-20 px-12 space-y-16">
+
+      <!-- Row 1: 1966 → 1982 → 1988 → 1992 → 2000 (left to right) -->
+      <div class="relative z-0 grid grid-cols-5 gap-6">
+        <div class="tl-line origin-left absolute top-16 left-[10%] right-[10%] h-4 rounded-l-full bg-accent -z-10" style="transition-delay:0ms"></div>
+        <div class="tl-turn absolute top-16 -right-12 w-[calc(10%_+_3rem)] h-[388px] -z-10">
+          <div class="w-full h-full border-[16px] border-l-0 border-accent" style="border-radius:0 100% 100% 0 / 0 194px 194px 0;transition-delay:340ms"></div>
+        </div>
+
+        <div class="tl-node flex flex-col items-center text-center" style="transition-delay:0ms">
+          <div class="tl-dot relative w-36 h-36 rounded-full ring-[6px] ring-white bg-gradient-to-br from-primary-light to-primary shadow-[0_14px_30px_-10px_rgba(76,88,196,0.6)] flex items-center justify-center">
+            <span class="text-white text-3xl font-extrabold tracking-tight">1966</span>
+          </div>
+          <p class="mt-5 text-sm text-slate-600 leading-relaxed max-w-[12rem] min-h-[9rem]">Mulai usaha angkutan sungai.</p>
+        </div>
+
+        <div class="tl-node flex flex-col items-center text-center" style="transition-delay:80ms">
+          <div class="tl-dot relative w-36 h-36 rounded-full ring-[6px] ring-white bg-gradient-to-br from-primary-light to-primary shadow-[0_14px_30px_-10px_rgba(76,88,196,0.6)] flex items-center justify-center">
+            <span class="text-white text-3xl font-extrabold tracking-tight">1982</span>
+          </div>
+          <p class="mt-5 text-sm text-slate-600 leading-relaxed max-w-[12rem] min-h-[9rem]">Mulai usaha kehutanan.</p>
+        </div>
+
+        <div class="tl-node flex flex-col items-center text-center" style="transition-delay:160ms">
+          <div class="tl-dot relative w-36 h-36 rounded-full ring-[6px] ring-white bg-gradient-to-br from-primary-light to-primary shadow-[0_14px_30px_-10px_rgba(76,88,196,0.6)] flex items-center justify-center">
+            <span class="text-white text-3xl font-extrabold tracking-tight">1988</span>
+          </div>
+          <p class="mt-5 text-sm text-slate-600 leading-relaxed max-w-[12rem] min-h-[9rem]">Pendirian klub sepak bola PS Barito Putera.</p>
+        </div>
+
+        <div class="tl-node flex flex-col items-center text-center" style="transition-delay:240ms">
+          <div class="tl-dot relative w-36 h-36 rounded-full ring-[6px] ring-white bg-gradient-to-br from-primary-light to-primary shadow-[0_14px_30px_-10px_rgba(76,88,196,0.6)] flex items-center justify-center">
+            <span class="text-white text-3xl font-extrabold tracking-tight">1992</span>
+          </div>
+          <p class="mt-5 text-sm text-slate-600 leading-relaxed max-w-[12rem] min-h-[9rem]">Mulai usaha pertambangan dan perkebunan kelapa sawit.</p>
+        </div>
+
+        <div class="tl-node flex flex-col items-center text-center" style="transition-delay:320ms">
+          <div class="tl-dot relative w-36 h-36 rounded-full ring-[6px] ring-white bg-gradient-to-br from-primary-light to-primary shadow-[0_14px_30px_-10px_rgba(76,88,196,0.6)] flex items-center justify-center">
+            <span class="text-white text-3xl font-extrabold tracking-tight">2000</span>
+          </div>
+          <p class="mt-5 text-sm text-slate-600 leading-relaxed max-w-[12rem] min-h-[9rem]">Memiliki jalan hauling dan pelabuhan batubara di Tapin, Kalsel.</p>
+        </div>
+      </div>
+
+      <!-- Row 2: 2006 → 2008 → 2009 → 2010 → 2011, visually right to left
+           (order reversed, DOM/reading + delay order stays chronological) -->
+      <div class="relative z-0 grid grid-cols-5 gap-6">
+        <div class="tl-line origin-right absolute top-16 left-[10%] right-[10%] h-4 bg-accent -z-10" style="transition-delay:400ms"></div>
+        <div class="tl-turn absolute top-16 -left-12 w-[calc(10%_+_3rem)] h-[388px] -z-10">
+          <div class="w-full h-full border-[16px] border-r-0 border-accent" style="border-radius:100% 0 0 100% / 194px 0 0 194px;transition-delay:740ms"></div>
+        </div>
+
+        <div class="tl-node order-5 flex flex-col items-center text-center" style="transition-delay:400ms">
+          <div class="tl-dot relative w-36 h-36 rounded-full ring-[6px] ring-white bg-gradient-to-br from-primary to-logo-blue shadow-[0_14px_30px_-10px_rgba(47,59,162,0.6)] flex items-center justify-center">
+            <span class="text-white text-3xl font-extrabold tracking-tight">2006</span>
+          </div>
+          <p class="mt-5 text-sm text-slate-600 leading-relaxed max-w-[12rem] min-h-[9rem]">Ekspansi ke bidang jasa/services.</p>
+        </div>
+
+        <div class="tl-node order-4 flex flex-col items-center text-center" style="transition-delay:480ms">
+          <div class="tl-dot relative w-36 h-36 rounded-full ring-[6px] ring-white bg-gradient-to-br from-primary to-logo-blue shadow-[0_14px_30px_-10px_rgba(47,59,162,0.6)] flex items-center justify-center">
+            <span class="text-white text-3xl font-extrabold tracking-tight">2008</span>
+          </div>
+          <p class="mt-5 text-sm text-slate-600 leading-relaxed max-w-[12rem] min-h-[9rem]">Mulai usaha di bidang media.</p>
+        </div>
+
+        <div class="tl-node order-3 flex flex-col items-center text-center" style="transition-delay:560ms">
+          <div class="tl-dot relative w-36 h-36 rounded-full ring-[6px] ring-white bg-gradient-to-br from-primary to-logo-blue shadow-[0_14px_30px_-10px_rgba(47,59,162,0.6)] flex items-center justify-center">
+            <span class="text-white text-3xl font-extrabold tracking-tight">2009</span>
+          </div>
+          <p class="mt-5 text-sm text-slate-600 leading-relaxed max-w-[12rem] min-h-[9rem]">Ekspansi perkebunan sawit dan pengangkutan batubara via laut.</p>
+        </div>
+
+        <div class="tl-node order-2 flex flex-col items-center text-center" style="transition-delay:640ms">
+          <div class="tl-dot relative w-36 h-36 rounded-full ring-[6px] ring-white bg-gradient-to-br from-primary to-logo-blue shadow-[0_14px_30px_-10px_rgba(47,59,162,0.6)] flex items-center justify-center">
+            <span class="text-white text-3xl font-extrabold tracking-tight">2010</span>
+          </div>
+          <p class="mt-5 text-sm text-slate-600 leading-relaxed max-w-[12rem] min-h-[9rem]">Pendirian Yayasan Hasnur Centre, tambahan lahan sawit di Barito Kuala.</p>
+        </div>
+
+        <div class="tl-node order-1 flex flex-col items-center text-center" style="transition-delay:720ms">
+          <div class="tl-dot relative w-36 h-36 rounded-full ring-[6px] ring-white bg-gradient-to-br from-primary to-logo-blue shadow-[0_14px_30px_-10px_rgba(47,59,162,0.6)] flex items-center justify-center">
+            <span class="text-white text-3xl font-extrabold tracking-tight">2011</span>
+          </div>
+          <p class="mt-5 text-sm text-slate-600 leading-relaxed max-w-[12rem] min-h-[9rem]">Ekspansi ke bidang teknologi informasi.</p>
+        </div>
+      </div>
+
+      <!-- Row 3: 2013 → 2015 → 2020 → 2021 → 2023 (left to right, final row) -->
+      <div class="relative z-0 grid grid-cols-5 gap-6">
+        <div class="tl-line origin-left absolute top-16 left-[10%] right-[10%] h-4 rounded-r-full bg-accent -z-10" style="transition-delay:800ms"></div>
+
+        <div class="tl-node flex flex-col items-center text-center" style="transition-delay:800ms">
+          <div class="tl-dot relative w-36 h-36 rounded-full ring-[6px] ring-white bg-gradient-to-br from-logo-blue to-logo-blue-dark shadow-[0_14px_30px_-10px_rgba(21,79,145,0.6)] flex items-center justify-center">
+            <span class="text-white text-3xl font-extrabold tracking-tight">2013</span>
+          </div>
+          <p class="mt-5 text-sm text-slate-600 leading-relaxed max-w-[12rem] min-h-[9rem]">Peresmian pabrik kelapa sawit di Tapin dan pelabuhan batubara di Barito Selatan.</p>
+        </div>
+
+        <div class="tl-node flex flex-col items-center text-center" style="transition-delay:880ms">
+          <div class="tl-dot relative w-36 h-36 rounded-full ring-[6px] ring-white bg-gradient-to-br from-logo-blue to-logo-blue-dark shadow-[0_14px_30px_-10px_rgba(21,79,145,0.6)] flex items-center justify-center">
+            <span class="text-white text-3xl font-extrabold tracking-tight">2015</span>
+          </div>
+          <p class="mt-5 text-sm text-slate-600 leading-relaxed max-w-[12rem] min-h-[9rem]">Ekspansi ke jasa konstruksi.</p>
+        </div>
+
+        <div class="tl-node flex flex-col items-center text-center" style="transition-delay:960ms">
+          <div class="tl-dot relative w-36 h-36 rounded-full ring-[6px] ring-white bg-gradient-to-br from-logo-blue to-logo-blue-dark shadow-[0_14px_30px_-10px_rgba(21,79,145,0.6)] flex items-center justify-center">
+            <span class="text-white text-3xl font-extrabold tracking-tight">2020</span>
+          </div>
+          <p class="mt-5 text-sm text-slate-600 leading-relaxed max-w-[12rem] min-h-[9rem]">Penguatan bisnis logistik dan energi terbarukan.</p>
+        </div>
+
+        <div class="tl-node flex flex-col items-center text-center" style="transition-delay:1040ms">
+          <div class="tl-dot relative w-36 h-36 rounded-full ring-[6px] ring-white bg-gradient-to-br from-logo-blue to-logo-blue-dark shadow-[0_14px_30px_-10px_rgba(21,79,145,0.6)] flex items-center justify-center">
+            <span class="text-white text-3xl font-extrabold tracking-tight">2021</span>
+          </div>
+          <p class="mt-5 text-sm text-slate-600 leading-relaxed max-w-[12rem] min-h-[9rem]">Anak perusahaan PT Hasnur International Shipping IPO di BEI (kode saham: HAIS), 1 September 2021.</p>
+        </div>
+
+        <div class="tl-node flex flex-col items-center text-center" style="transition-delay:1120ms">
+          <div class="tl-dot tl-ping relative w-36 h-36 rounded-full ring-[6px] ring-accent bg-gradient-to-br from-accent to-[#bd8526] shadow-[0_14px_34px_-8px_rgba(217,164,65,0.7)] flex items-center justify-center">
+            <span class="text-logo-blue text-3xl font-extrabold tracking-tight">2023</span>
+          </div>
+          <p class="mt-5 text-sm text-slate-600 leading-relaxed max-w-[12rem] min-h-[9rem]">Restrukturisasi menjadi 7 Strategic Business Unit (SBU): Logistic, Agro Forestry, Energy, Technology &amp; Services, Education, Consumer, Investment.</p>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- ===== Mobile: simple vertical list (sm and up hides this) ===== -->
+    <div class="lg:hidden relative mt-14">
+      <div class="absolute left-12 top-2 bottom-2 w-[6px] -translate-x-1/2 rounded-full bg-accent/70"></div>
+      <div class="space-y-8">
+
+        <div class="tl-node relative flex gap-4 items-center" style="transition-delay:0ms">
+          <div class="tl-dot relative z-10 shrink-0 w-24 h-24 rounded-full ring-[6px] ring-white bg-gradient-to-br from-primary-light to-primary shadow-[0_10px_22px_-8px_rgba(76,88,196,0.6)] flex items-center justify-center">
+          <span class="text-white text-xl font-extrabold">1966</span>
+        </div>
+          <div>
+            <p class="text-sm text-slate-600 leading-relaxed">Mulai usaha angkutan sungai.</p>
+          </div>
+        </div>
+
+        <div class="tl-node relative flex gap-4 items-center" style="transition-delay:70ms">
+          <div class="tl-dot relative z-10 shrink-0 w-24 h-24 rounded-full ring-[6px] ring-white bg-gradient-to-br from-primary-light to-primary shadow-[0_10px_22px_-8px_rgba(76,88,196,0.6)] flex items-center justify-center">
+          <span class="text-white text-xl font-extrabold">1982</span>
+        </div>
+          <div>
+            <p class="text-sm text-slate-600 leading-relaxed">Mulai usaha kehutanan.</p>
+          </div>
+        </div>
+
+        <div class="tl-node relative flex gap-4 items-center" style="transition-delay:140ms">
+          <div class="tl-dot relative z-10 shrink-0 w-24 h-24 rounded-full ring-[6px] ring-white bg-gradient-to-br from-primary-light to-primary shadow-[0_10px_22px_-8px_rgba(76,88,196,0.6)] flex items-center justify-center">
+          <span class="text-white text-xl font-extrabold">1988</span>
+        </div>
+          <div>
+            <p class="text-sm text-slate-600 leading-relaxed">Pendirian klub sepak bola PS Barito Putera.</p>
+          </div>
+        </div>
+
+        <div class="tl-node relative flex gap-4 items-center" style="transition-delay:210ms">
+          <div class="tl-dot relative z-10 shrink-0 w-24 h-24 rounded-full ring-[6px] ring-white bg-gradient-to-br from-primary-light to-primary shadow-[0_10px_22px_-8px_rgba(76,88,196,0.6)] flex items-center justify-center">
+          <span class="text-white text-xl font-extrabold">1992</span>
+        </div>
+          <div>
+            <p class="text-sm text-slate-600 leading-relaxed">Mulai usaha pertambangan dan perkebunan kelapa sawit.</p>
+          </div>
+        </div>
+
+        <div class="tl-node relative flex gap-4 items-center" style="transition-delay:0ms">
+          <div class="tl-dot relative z-10 shrink-0 w-24 h-24 rounded-full ring-[6px] ring-white bg-gradient-to-br from-primary-light to-primary shadow-[0_10px_22px_-8px_rgba(76,88,196,0.6)] flex items-center justify-center">
+          <span class="text-white text-xl font-extrabold">2000</span>
+        </div>
+          <div>
+            <p class="text-sm text-slate-600 leading-relaxed">Memiliki jalan hauling dan pelabuhan batubara di Tapin, Kalsel.</p>
+          </div>
+        </div>
+
+        <div class="tl-node relative flex gap-4 items-center" style="transition-delay:70ms">
+          <div class="tl-dot relative z-10 shrink-0 w-24 h-24 rounded-full ring-[6px] ring-white bg-gradient-to-br from-primary to-logo-blue shadow-[0_10px_22px_-8px_rgba(47,59,162,0.6)] flex items-center justify-center">
+          <span class="text-white text-xl font-extrabold">2006</span>
+        </div>
+          <div>
+            <p class="text-sm text-slate-600 leading-relaxed">Ekspansi ke bidang jasa/services.</p>
+          </div>
+        </div>
+
+        <div class="tl-node relative flex gap-4 items-center" style="transition-delay:140ms">
+          <div class="tl-dot relative z-10 shrink-0 w-24 h-24 rounded-full ring-[6px] ring-white bg-gradient-to-br from-primary to-logo-blue shadow-[0_10px_22px_-8px_rgba(47,59,162,0.6)] flex items-center justify-center">
+          <span class="text-white text-xl font-extrabold">2008</span>
+        </div>
+          <div>
+            <p class="text-sm text-slate-600 leading-relaxed">Mulai usaha di bidang media.</p>
+          </div>
+        </div>
+
+        <div class="tl-node relative flex gap-4 items-center" style="transition-delay:210ms">
+          <div class="tl-dot relative z-10 shrink-0 w-24 h-24 rounded-full ring-[6px] ring-white bg-gradient-to-br from-primary to-logo-blue shadow-[0_10px_22px_-8px_rgba(47,59,162,0.6)] flex items-center justify-center">
+          <span class="text-white text-xl font-extrabold">2009</span>
+        </div>
+          <div>
+            <p class="text-sm text-slate-600 leading-relaxed">Ekspansi perkebunan sawit dan pengangkutan batubara via laut.</p>
+          </div>
+        </div>
+
+        <div class="tl-node relative flex gap-4 items-center" style="transition-delay:0ms">
+          <div class="tl-dot relative z-10 shrink-0 w-24 h-24 rounded-full ring-[6px] ring-white bg-gradient-to-br from-primary to-logo-blue shadow-[0_10px_22px_-8px_rgba(47,59,162,0.6)] flex items-center justify-center">
+          <span class="text-white text-xl font-extrabold">2010</span>
+        </div>
+          <div>
+            <p class="text-sm text-slate-600 leading-relaxed">Pendirian Yayasan Hasnur Centre, tambahan lahan sawit di Barito Kuala.</p>
+          </div>
+        </div>
+
+        <div class="tl-node relative flex gap-4 items-center" style="transition-delay:70ms">
+          <div class="tl-dot relative z-10 shrink-0 w-24 h-24 rounded-full ring-[6px] ring-white bg-gradient-to-br from-primary to-logo-blue shadow-[0_10px_22px_-8px_rgba(47,59,162,0.6)] flex items-center justify-center">
+          <span class="text-white text-xl font-extrabold">2011</span>
+        </div>
+          <div>
+            <p class="text-sm text-slate-600 leading-relaxed">Ekspansi ke bidang teknologi informasi.</p>
+          </div>
+        </div>
+
+        <div class="tl-node relative flex gap-4 items-center" style="transition-delay:140ms">
+          <div class="tl-dot relative z-10 shrink-0 w-24 h-24 rounded-full ring-[6px] ring-white bg-gradient-to-br from-logo-blue to-logo-blue-dark shadow-[0_10px_22px_-8px_rgba(21,79,145,0.6)] flex items-center justify-center">
+          <span class="text-white text-xl font-extrabold">2013</span>
+        </div>
+          <div>
+            <p class="text-sm text-slate-600 leading-relaxed">Peresmian pabrik kelapa sawit di Tapin dan pelabuhan batubara di Barito Selatan.</p>
+          </div>
+        </div>
+
+        <div class="tl-node relative flex gap-4 items-center" style="transition-delay:210ms">
+          <div class="tl-dot relative z-10 shrink-0 w-24 h-24 rounded-full ring-[6px] ring-white bg-gradient-to-br from-logo-blue to-logo-blue-dark shadow-[0_10px_22px_-8px_rgba(21,79,145,0.6)] flex items-center justify-center">
+          <span class="text-white text-xl font-extrabold">2015</span>
+        </div>
+          <div>
+            <p class="text-sm text-slate-600 leading-relaxed">Ekspansi ke jasa konstruksi.</p>
+          </div>
+        </div>
+
+        <div class="tl-node relative flex gap-4 items-center" style="transition-delay:0ms">
+          <div class="tl-dot relative z-10 shrink-0 w-24 h-24 rounded-full ring-[6px] ring-white bg-gradient-to-br from-logo-blue to-logo-blue-dark shadow-[0_10px_22px_-8px_rgba(21,79,145,0.6)] flex items-center justify-center">
+          <span class="text-white text-xl font-extrabold">2020</span>
+        </div>
+          <div>
+            <p class="text-sm text-slate-600 leading-relaxed">Penguatan bisnis logistik dan energi terbarukan.</p>
+          </div>
+        </div>
+
+        <div class="tl-node relative flex gap-4 items-center" style="transition-delay:70ms">
+          <div class="tl-dot relative z-10 shrink-0 w-24 h-24 rounded-full ring-[6px] ring-white bg-gradient-to-br from-logo-blue to-logo-blue-dark shadow-[0_10px_22px_-8px_rgba(21,79,145,0.6)] flex items-center justify-center">
+          <span class="text-white text-xl font-extrabold">2021</span>
+        </div>
+          <div>
+            <p class="text-sm text-slate-600 leading-relaxed">Anak perusahaan PT Hasnur International Shipping IPO di BEI (kode saham: HAIS), 1 September 2021.</p>
+          </div>
+        </div>
+
+        <div class="tl-node relative flex gap-4 items-center" style="transition-delay:140ms">
+          <div class="tl-dot tl-ping relative z-10 shrink-0 w-24 h-24 rounded-full ring-[6px] ring-accent bg-gradient-to-br from-accent to-[#bd8526] shadow-[0_10px_26px_-6px_rgba(217,164,65,0.7)] flex items-center justify-center">
+          <span class="text-logo-blue text-xl font-extrabold">2023</span>
+        </div>
+          <div>
+            <p class="text-sm text-slate-600 leading-relaxed">Restrukturisasi menjadi 7 Strategic Business Unit (SBU): Logistic, Agro Forestry, Energy, Technology &amp; Services, Education, Consumer, Investment.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ BISNIS KAMI (7 SBU) ============ -->
+<!-- Each card carries its own SBU colour, sampled from that unit's own icon
+     disc in assets/img/bisnis/. The photo fills the card and a tinted curve —
+     the same colour as the card — is painted over its left side, which is what
+     gives the sweep without needing a per-card clipped image. -->
+<section id="bisnis-kami" class="relative py-20 sm:py-28 overflow-hidden">
+
+  <div class="absolute -top-24 -left-16" data-parallax="0.12">
+    <div class="w-80 h-80 rounded-full bg-logo-blue/15 blur-3xl animate-blob" style="animation-delay:-2s"></div>
+  </div>
+  <div class="absolute -bottom-24 -right-16" data-parallax="0.07">
+    <div class="w-64 h-64 rounded-full bg-logo-yellow/10 blur-3xl animate-blob" style="animation-delay:-5s"></div>
+  </div>
+  <div class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <div class="reveal mx-auto max-w-2xl text-center">
+      <span class="text-sm font-bold uppercase tracking-widest text-accent">7 Strategic Business Unit</span>
+      <h2 class="mt-3 text-3xl font-extrabold text-primary sm:text-4xl">Bisnis Kami</h2>
+    </div>
+
+    <!-- 4 cards then 3, as in the reference, once there is room for it (xl);
+         two-up below that, so the text column never gets squeezed. -->
+    <div class="mt-14 grid gap-6 sm:grid-cols-2 xl:grid-cols-12">
+
+      <a href="page/our-business/logistic.html"
+         class="reveal group relative flex min-h-[21rem] flex-col overflow-hidden rounded-3xl shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-xl xl:col-span-3"
+         style="background:#EBF6FB;transition-delay:0ms">
+        <img src="assets/img/pages/our-business-logistic/banner.png" alt="Kapal dan pelabuhan logistik Hasnur Group" loading="lazy"
+             class="absolute inset-0 h-full w-full object-cover brightness-110 transition-transform duration-500 group-hover:scale-105">
+        <!-- Tinted sweep painted over the photo: same colour as the card, so the
+             photo reads as if it were cut by the curve. Held at 80% so the
+             photo stays faintly visible through it — which is why the caption
+             below runs slate-700 rather than slate-600: over the darkest
+             photo (Teknologi & Jasa) slate-600 measured 4.38:1, under the
+             4.5:1 AA floor. Scales with the card. -->
+        <svg class="absolute inset-0 h-full w-full" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+          <path d="M0,0 L70,0 C64,30 74,62 54,100 L0,100 Z" fill-opacity="0.8" fill="#EBF6FB"/>
+        </svg>
+
+        <div class="relative flex flex-1 flex-col p-6 pr-[42%] sm:p-7 sm:pr-[42%]">
+          <span class="h-14 w-14 shrink-0 overflow-hidden rounded-full">
+            <img src="assets/img/bisnis/1.logistics.png" alt="" aria-hidden="true" loading="lazy"
+                 class="h-full w-full object-cover object-top">
+          </span>
+          <h3 class="mt-5 text-lg font-extrabold leading-snug text-slate-900">Logistik</h3>
+          <p class="mt-3 text-sm leading-relaxed text-slate-700">Mendukung kebutuhan logistik internal grup maupun mitra eksternal.</p>
+          <span class="mt-auto pt-6">
+            <span class="flex h-10 w-10 items-center justify-center rounded-full text-white shadow-sm"
+                  style="background:#008CC8"><svg class="h-4 w-4 transition-transform duration-300 group-hover:translate-x-0.5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14m0 0l-6-6m6 6l-6 6"/></svg></span>
+          </span>
+        </div>
+      </a>
+
+      <a href="page/our-business/agribusiness-forestry.html"
+         class="reveal group relative flex min-h-[21rem] flex-col overflow-hidden rounded-3xl shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-xl xl:col-span-3"
+         style="background:#F5FBF0;transition-delay:70ms">
+        <img src="assets/img/pages/our-business-agribusiness-forestry/banner.png" alt="Hamparan perkebunan kelapa sawit" loading="lazy"
+             class="absolute inset-0 h-full w-full object-cover brightness-110 transition-transform duration-500 group-hover:scale-105">
+        <!-- Tinted sweep painted over the photo: same colour as the card, so the
+             photo reads as if it were cut by the curve. Held at 80% so the
+             photo stays faintly visible through it — which is why the caption
+             below runs slate-700 rather than slate-600: over the darkest
+             photo (Teknologi & Jasa) slate-600 measured 4.38:1, under the
+             4.5:1 AA floor. Scales with the card. -->
+        <svg class="absolute inset-0 h-full w-full" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+          <path d="M0,0 L70,0 C64,30 74,62 54,100 L0,100 Z" fill-opacity="0.8" fill="#F5FBF0"/>
+        </svg>
+
+        <div class="relative flex flex-1 flex-col p-6 pr-[42%] sm:p-7 sm:pr-[42%]">
+          <span class="h-14 w-14 shrink-0 overflow-hidden rounded-full">
+            <img src="assets/img/bisnis/2.agro-forestry.png" alt="" aria-hidden="true" loading="lazy"
+                 class="h-full w-full object-cover object-top">
+          </span>
+          <h3 class="mt-5 text-lg font-extrabold leading-snug text-slate-900">Agribisnis &amp; Kehutanan</h3>
+          <p class="mt-3 text-sm leading-relaxed text-slate-700">Berawal dari jasa penarikan rakit kayu di DAS Barito, kini mencakup perkebunan dan kehutanan.</p>
+          <span class="mt-auto pt-6">
+            <span class="flex h-10 w-10 items-center justify-center rounded-full text-white shadow-sm"
+                  style="background:#5F9A28"><svg class="h-4 w-4 transition-transform duration-300 group-hover:translate-x-0.5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14m0 0l-6-6m6 6l-6 6"/></svg></span>
+          </span>
+        </div>
+      </a>
+
+      <a href="page/our-business/energy.html"
+         class="reveal group relative flex min-h-[21rem] flex-col overflow-hidden rounded-3xl shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-xl xl:col-span-3"
+         style="background:#FFFDEB;transition-delay:140ms">
+        <img src="assets/img/pages/our-business-energy/banner.png" alt="Batubara hasil pertambangan" loading="lazy"
+             class="absolute inset-0 h-full w-full object-cover brightness-110 transition-transform duration-500 group-hover:scale-105">
+        <!-- Tinted sweep painted over the photo: same colour as the card, so the
+             photo reads as if it were cut by the curve. Held at 80% so the
+             photo stays faintly visible through it — which is why the caption
+             below runs slate-700 rather than slate-600: over the darkest
+             photo (Teknologi & Jasa) slate-600 measured 4.38:1, under the
+             4.5:1 AA floor. Scales with the card. -->
+        <svg class="absolute inset-0 h-full w-full" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+          <path d="M0,0 L70,0 C64,30 74,62 54,100 L0,100 Z" fill-opacity="0.8" fill="#FFFDEB"/>
+        </svg>
+
+        <div class="relative flex flex-1 flex-col p-6 pr-[42%] sm:p-7 sm:pr-[42%]">
+          <span class="h-14 w-14 shrink-0 overflow-hidden rounded-full">
+            <img src="assets/img/bisnis/3.energy.png" alt="" aria-hidden="true" loading="lazy"
+                 class="h-full w-full object-cover object-top">
+          </span>
+          <h3 class="mt-5 text-lg font-extrabold leading-snug text-slate-900">Energi</h3>
+          <p class="mt-3 text-sm leading-relaxed text-slate-700">Fokus pertambangan dengan visi menjadi pemain terkemuka di Indonesia, kapasitas produksi terus tumbuh.</p>
+          <span class="mt-auto pt-6">
+            <span class="flex h-10 w-10 items-center justify-center rounded-full text-white shadow-sm"
+                  style="background:#B38A00"><svg class="h-4 w-4 transition-transform duration-300 group-hover:translate-x-0.5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14m0 0l-6-6m6 6l-6 6"/></svg></span>
+          </span>
+        </div>
+      </a>
+
+      <a href="page/our-business/technology-services.html"
+         class="reveal group relative flex min-h-[21rem] flex-col overflow-hidden rounded-3xl shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-xl xl:col-span-3"
+         style="background:#F5F0EF;transition-delay:210ms">
+        <img src="assets/img/pages/our-business-technology-services/banner.png" alt="Kantor unit teknologi digital Hasnur Group" loading="lazy"
+             class="absolute inset-0 h-full w-full object-cover brightness-110 transition-transform duration-500 group-hover:scale-105">
+        <!-- Tinted sweep painted over the photo: same colour as the card, so the
+             photo reads as if it were cut by the curve. Held at 80% so the
+             photo stays faintly visible through it — which is why the caption
+             below runs slate-700 rather than slate-600: over the darkest
+             photo (Teknologi & Jasa) slate-600 measured 4.38:1, under the
+             4.5:1 AA floor. Scales with the card. -->
+        <svg class="absolute inset-0 h-full w-full" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+          <path d="M0,0 L70,0 C64,30 74,62 54,100 L0,100 Z" fill-opacity="0.8" fill="#F5F0EF"/>
+        </svg>
+
+        <div class="relative flex flex-1 flex-col p-6 pr-[42%] sm:p-7 sm:pr-[42%]">
+          <span class="h-14 w-14 shrink-0 overflow-hidden rounded-full">
+            <img src="assets/img/bisnis/4.technology-services.png" alt="" aria-hidden="true" loading="lazy"
+                 class="h-full w-full object-cover object-top">
+          </span>
+          <h3 class="mt-5 text-lg font-extrabold leading-snug text-slate-900">Teknologi &amp; Jasa</h3>
+          <p class="mt-3 text-sm leading-relaxed text-slate-700">Menaungi unit bisnis pengembangan teknologi dan layanan.</p>
+          <span class="mt-auto pt-6">
+            <span class="flex h-10 w-10 items-center justify-center rounded-full text-white shadow-sm"
+                  style="background:#80493A"><svg class="h-4 w-4 transition-transform duration-300 group-hover:translate-x-0.5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14m0 0l-6-6m6 6l-6 6"/></svg></span>
+          </span>
+        </div>
+      </a>
+
+      <a href="page/our-business/education.html"
+         class="reveal group relative flex min-h-[21rem] flex-col overflow-hidden rounded-3xl shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-xl xl:col-span-4"
+         style="background:#F7F0F5;transition-delay:280ms">
+        <img src="assets/img/pages/our-business-education/banner.jpg" alt="Gedung sekolah Hasnur" loading="lazy"
+             class="absolute inset-0 h-full w-full object-cover brightness-110 transition-transform duration-500 group-hover:scale-105">
+        <!-- Tinted sweep painted over the photo: same colour as the card, so the
+             photo reads as if it were cut by the curve. Held at 80% so the
+             photo stays faintly visible through it — which is why the caption
+             below runs slate-700 rather than slate-600: over the darkest
+             photo (Teknologi & Jasa) slate-600 measured 4.38:1, under the
+             4.5:1 AA floor. Scales with the card. -->
+        <svg class="absolute inset-0 h-full w-full" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+          <path d="M0,0 L70,0 C64,30 74,62 54,100 L0,100 Z" fill-opacity="0.8" fill="#F7F0F5"/>
+        </svg>
+
+        <div class="relative flex flex-1 flex-col p-6 pr-[42%] sm:p-7 sm:pr-[42%]">
+          <span class="h-14 w-14 shrink-0 overflow-hidden rounded-full">
+            <img src="assets/img/bisnis/5.education.png" alt="" aria-hidden="true" loading="lazy"
+                 class="h-full w-full object-cover object-top">
+          </span>
+          <h3 class="mt-5 text-lg font-extrabold leading-snug text-slate-900">Pendidikan</h3>
+          <p class="mt-3 text-sm leading-relaxed text-slate-700">Mengembangkan pendidikan bertaraf internasional dengan pendekatan kearifan lokal dan religius.</p>
+          <span class="mt-auto pt-6">
+            <span class="flex h-10 w-10 items-center justify-center rounded-full text-white shadow-sm"
+                  style="background:#99477F"><svg class="h-4 w-4 transition-transform duration-300 group-hover:translate-x-0.5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14m0 0l-6-6m6 6l-6 6"/></svg></span>
+          </span>
+        </div>
+      </a>
+
+      <a href="page/our-business/consumer.html"
+         class="reveal group relative flex min-h-[21rem] flex-col overflow-hidden rounded-3xl shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-xl xl:col-span-4"
+         style="background:#FDF4EE;transition-delay:350ms">
+        <img src="assets/img/pages/our-business-consumer/banner.png" alt="Tim PS Barito Putera" loading="lazy"
+             class="absolute inset-0 h-full w-full object-cover brightness-110 transition-transform duration-500 group-hover:scale-105">
+        <!-- Tinted sweep painted over the photo: same colour as the card, so the
+             photo reads as if it were cut by the curve. Held at 80% so the
+             photo stays faintly visible through it — which is why the caption
+             below runs slate-700 rather than slate-600: over the darkest
+             photo (Teknologi & Jasa) slate-600 measured 4.38:1, under the
+             4.5:1 AA floor. Scales with the card. -->
+        <svg class="absolute inset-0 h-full w-full" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+          <path d="M0,0 L70,0 C64,30 74,62 54,100 L0,100 Z" fill-opacity="0.8" fill="#FDF4EE"/>
+        </svg>
+
+        <div class="relative flex flex-1 flex-col p-6 pr-[42%] sm:p-7 sm:pr-[42%]">
+          <span class="h-14 w-14 shrink-0 overflow-hidden rounded-full">
+            <img src="assets/img/bisnis/6.consumer.png" alt="" aria-hidden="true" loading="lazy"
+                 class="h-full w-full object-cover object-top">
+          </span>
+          <h3 class="mt-5 text-lg font-extrabold leading-snug text-slate-900">Kebutuhan Pelanggan (Consumer)</h3>
+          <p class="mt-3 text-sm leading-relaxed text-slate-700">Membawahi bisnis media, gaya hidup, dan kesehatan.</p>
+          <span class="mt-auto pt-6">
+            <span class="flex h-10 w-10 items-center justify-center rounded-full text-white shadow-sm"
+                  style="background:#D96412"><svg class="h-4 w-4 transition-transform duration-300 group-hover:translate-x-0.5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14m0 0l-6-6m6 6l-6 6"/></svg></span>
+          </span>
+        </div>
+      </a>
+
+      <a href="page/our-business/investment.html"
+         class="reveal group relative flex min-h-[21rem] flex-col overflow-hidden rounded-3xl shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-xl xl:col-span-4"
+         style="background:#FCEDEE;transition-delay:420ms">
+        <img src="assets/img/pages/our-business-investment/banner.png" alt="Grafik pergerakan investasi" loading="lazy"
+             class="absolute inset-0 h-full w-full object-cover brightness-110 transition-transform duration-500 group-hover:scale-105">
+        <!-- Tinted sweep painted over the photo: same colour as the card, so the
+             photo reads as if it were cut by the curve. Held at 80% so the
+             photo stays faintly visible through it — which is why the caption
+             below runs slate-700 rather than slate-600: over the darkest
+             photo (Teknologi & Jasa) slate-600 measured 4.38:1, under the
+             4.5:1 AA floor. Scales with the card. -->
+        <svg class="absolute inset-0 h-full w-full" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+          <path d="M0,0 L70,0 C64,30 74,62 54,100 L0,100 Z" fill-opacity="0.8" fill="#FCEDEE"/>
+        </svg>
+
+        <div class="relative flex flex-1 flex-col p-6 pr-[42%] sm:p-7 sm:pr-[42%]">
+          <span class="h-14 w-14 shrink-0 overflow-hidden rounded-full">
+            <img src="assets/img/bisnis/7.investment.png" alt="" aria-hidden="true" loading="lazy"
+                 class="h-full w-full object-cover object-top">
+          </span>
+          <h3 class="mt-5 text-lg font-extrabold leading-snug text-slate-900">Investasi</h3>
+          <p class="mt-3 text-sm leading-relaxed text-slate-700">Mendukung pengembangan bisnis grup melalui investasi internal maupun eksternal.</p>
+          <span class="mt-auto pt-6">
+            <span class="flex h-10 w-10 items-center justify-center rounded-full text-white shadow-sm"
+                  style="background:#DA2127"><svg class="h-4 w-4 transition-transform duration-300 group-hover:translate-x-0.5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14m0 0l-6-6m6 6l-6 6"/></svg></span>
+          </span>
+        </div>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============ AKTIVITAS KAMI ============ -->
+<section class="relative py-20 sm:py-28 bg-slate-50 overflow-hidden">
+
+  <div class="absolute -top-24 -right-16" data-parallax="0.12">
+    <div class="w-80 h-80 rounded-full bg-logo-red/15 blur-3xl animate-blob" style="animation-delay:-4s"></div>
+  </div>
+  <div class="absolute -bottom-24 -left-16" data-parallax="0.07">
+    <div class="w-64 h-64 rounded-full bg-logo-blue/10 blur-3xl animate-blob" style="animation-delay:-1s"></div>
+  </div>
+  <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex flex-wrap items-end justify-between gap-4 reveal">
+      <div>
+        <span class="text-sm font-bold uppercase tracking-widest text-accent">Publikasi</span>
+        <h2 class="mt-3 text-3xl sm:text-4xl font-extrabold text-primary">Aktivitas Kami</h2>
+      </div>
+      <a href="page/publication/latest-update.html" class="font-bold text-primary hover:text-primary-dark transition inline-flex items-center gap-2">
+        Lihat Semua
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+      </a>
+    </div>
+
+    <div class="mt-12 grid md:grid-cols-3 gap-8">
+      <!-- Latest Update -->
+      <article class="reveal bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition group">
+        <a href="page/publication/latest-update.html">
+          <div class="aspect-video overflow-hidden">
+            <img src="assets/img/publication/hasnur-berbagi-qurban.jpeg" alt="Hasnur Berbagi Qurban" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" loading="lazy">
+          </div>
+          <div class="p-6">
+            <span class="inline-block text-xs font-bold uppercase tracking-wide text-primary bg-primary/10 px-3 py-1 rounded-full">Latest Update</span>
+            <h3 class="mt-4 font-bold text-lg text-slate-800 group-hover:text-primary transition leading-snug">
+              Hasnur Berbagi Qurban Jangkau Puluhan Kabupaten dan Kota
+            </h3>
+            <p class="mt-2 text-sm text-slate-500">Program CSR yang menjangkau puluhan kabupaten/kota di delapan provinsi saat momentum Iduladha 1447 H.</p>
+            <p class="mt-4 text-xs font-semibold text-slate-400">Jakarta, 5 Juni 2026</p>
+          </div>
+        </a>
+      </article>
+
+      <!-- News -->
+      <article class="reveal bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition group">
+        <a href="page/publication/news.html">
+          <div class="aspect-video overflow-hidden">
+            <img src="assets/img/publication/hd-hyundai-partnership.jpg" alt="Kerja sama HD Hyundai Construction Equipment" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" loading="lazy">
+          </div>
+          <div class="p-6">
+            <span class="inline-block text-xs font-bold uppercase tracking-wide text-primary bg-primary/10 px-3 py-1 rounded-full">News</span>
+            <h3 class="mt-4 font-bold text-lg text-slate-800 group-hover:text-primary transition leading-snug">
+              Kerja Sama HD Hyundai Construction Equipment dengan Hasnur Group
+            </h3>
+            <p class="mt-2 text-sm text-slate-500">Kolaborasi untuk pengembangan solusi pertambangan.</p>
+          </div>
+        </a>
+      </article>
+
+      <!-- CSR -->
+      <article class="reveal bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition group">
+        <a href="page/csr/csr-activity.html">
+          <div class="aspect-video overflow-hidden">
+            <img src="assets/img/publication/csr-bioflok-martapura.jpg" alt="Bantuan kolam bioflok" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" loading="lazy">
+          </div>
+          <div class="p-6">
+            <span class="inline-block text-xs font-bold uppercase tracking-wide text-primary bg-primary/10 px-3 py-1 rounded-full">CSR</span>
+            <h3 class="mt-4 font-bold text-lg text-slate-800 group-hover:text-primary transition leading-snug">
+              Bantuan 20 Kolam Bioflok untuk Pemberdayaan Masyarakat di Martapura
+            </h3>
+            <p class="mt-2 text-sm text-slate-500">Bekerja sama dengan Polda Kalimantan Selatan.</p>
+            <p class="mt-4 text-xs font-semibold text-slate-400">2 Oktober 2025</p>
+          </div>
+        </a>
+      </article>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer id="contact" class="bg-primary-dark text-white pt-20 pb-8">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-12">
+
+      <!-- Kantor -->
+      <div>
+        <div class="mb-5">
+          <img src="assets/img/logo.png" alt="Hasnur Group" class="h-9 w-auto bg-white rounded-md px-2 py-1.5">
+        </div>
+
+        <p class="text-sm font-bold text-white/90">Kantor Pusat — Jakarta</p>
+        <p class="mt-2 text-sm text-white/70 leading-relaxed">
+          Office 8 Building, Lantai 7<br>
+          Jl. Senopati No. 8B, Jakarta Selatan<br>
+          DKI Jakarta 12190
+        </p>
+        <p class="mt-3 text-sm text-white/70">
+          Telp: (+6221) 29343888<br>
+          Fax: (+6221) 29343777<br>
+          Email: <a href="mailto:info@hasnurgroup.com" class="underline hover:text-accent">info@hasnurgroup.com</a>
+        </p>
+      </div>
+
+      <!-- Kantor perwakilan -->
+      <div>
+        <p class="text-sm font-bold text-white/90">Kantor Perwakilan</p>
+        <div class="mt-3 text-sm text-white/70 leading-relaxed">
+          <p class="font-semibold text-white/90">Kalimantan Selatan</p>
+          <p>Jl. Berangas Timur No. 95 A, Alalak, Kalimantan Selatan 70582</p>
+        </div>
+        <div class="mt-4 text-sm text-white/70 leading-relaxed">
+          <p class="font-semibold text-white/90">Kalimantan Tengah</p>
+          <p>Jl. G. Obos No. 88 A, Palangkaraya, Kalimantan Tengah 73112</p>
+        </div>
+      </div>
+
+      <!-- Recent post -->
+      <div>
+        <p class="text-sm font-bold text-white/90">Recent Post</p>
+        <ul class="mt-3 space-y-3 text-sm text-white/70">
+          <li><a href="page/publication/latest-update.html" class="hover:text-accent transition leading-snug block">Hasnur Berbagi Qurban Jangkau Puluhan Kabupaten dan Kota</a></li>
+          <li><a href="page/publication/news.html" class="hover:text-accent transition leading-snug block">Hasnur Group Meraih Dua Penghargaan di Top CSR Awards 2026</a></li>
+          <li><a href="page/publication/news.html" class="hover:text-accent transition leading-snug block">Kolaborasi Hasnur Group dengan Mitra Internasional untuk Proyek Pongamia</a></li>
+        </ul>
+      </div>
+
+      <!-- Social + link terkait -->
+      <div>
+        <p class="text-sm font-bold text-white/90">Sosial Media</p>
+        <div class="mt-3 flex gap-3">
+          <a href="https://www.linkedin.com/company/hasnurgroup" target="_blank" rel="noopener" aria-label="LinkedIn Hasnur Group" class="w-9 h-9 rounded-full bg-white/10 hover:bg-accent hover:text-primary-dark flex items-center justify-center transition">
+            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 110-4.125 2.062 2.062 0 010 4.125zM7.114 20.452H3.558V9h3.556v11.452z"/></svg>
+          </a>
+          <a href="https://www.instagram.com/hasnurgroup" target="_blank" rel="noopener" aria-label="Instagram Hasnur Group" class="w-9 h-9 rounded-full bg-white/10 hover:bg-accent hover:text-primary-dark flex items-center justify-center transition">
+            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.332.014 7.052.072 2.695.272.273 2.69.073 7.052.014 8.332 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.332 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.668-.072-4.948C23.73 2.7 21.31.273 16.949.073 15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+          </a>
+          <a href="https://www.youtube.com/@hasnurgroup" target="_blank" rel="noopener" aria-label="YouTube Hasnur Group" class="w-9 h-9 rounded-full bg-white/10 hover:bg-accent hover:text-primary-dark flex items-center justify-center transition">
+            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a2.994 2.994 0 00-2.107-2.117C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.391.524A2.994 2.994 0 00.502 6.186 31.36 31.36 0 000 12a31.36 31.36 0 00.502 5.814 2.994 2.994 0 002.107 2.117c1.886.524 9.391.524 9.391.524s7.505 0 9.391-.524a2.994 2.994 0 002.107-2.117A31.36 31.36 0 0024 12a31.36 31.36 0 00-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+          </a>
+        </div>
+
+        <p class="mt-6 text-sm font-bold text-white/90">Link Terkait</p>
+        <ul class="mt-3 space-y-2 text-sm text-white/70">
+          <li><a href="https://www.hasnurcentre.org" target="_blank" rel="noopener" class="hover:text-accent transition">Hasnur Centre</a></li>
+          <li><a href="https://www.baritoputera.co.id" target="_blank" rel="noopener" class="hover:text-accent transition">PS Barito Putera</a></li>
+          <li><a href="#contact" class="hover:text-accent transition">Contact Us</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="mt-16 pt-6 border-t border-white/10 text-center text-sm text-white/50">
+      © 2026 All rights reserved.
+    </div>
+  </div>
+</footer>
+
+<script src="assets/js/main.js"></script>
+</body>
+</html>

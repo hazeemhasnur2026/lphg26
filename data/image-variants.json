@@ -1,0 +1,4740 @@
+{
+  "/assets/img/bisnis/1.logistics.png": {
+    "bytes": 33438,
+    "height": 400,
+    "variants": [
+      {
+        "bytes": 23086,
+        "path": "/assets/img-opt/bisnis/1.logistics-341.webp",
+        "width": 341
+      }
+    ],
+    "width": 341
+  },
+  "/assets/img/bisnis/2.agro-forestry.png": {
+    "bytes": 36171,
+    "height": 427,
+    "variants": [
+      {
+        "bytes": 20462,
+        "path": "/assets/img-opt/bisnis/2.agro-forestry-342.webp",
+        "width": 342
+      }
+    ],
+    "width": 342
+  },
+  "/assets/img/bisnis/3.energy.png": {
+    "bytes": 31190,
+    "height": 400,
+    "variants": [
+      {
+        "bytes": 19202,
+        "path": "/assets/img-opt/bisnis/3.energy-341.webp",
+        "width": 341
+      }
+    ],
+    "width": 341
+  },
+  "/assets/img/bisnis/4.technology-services.png": {
+    "bytes": 34552,
+    "height": 427,
+    "variants": [
+      {
+        "bytes": 20976,
+        "path": "/assets/img-opt/bisnis/4.technology-services-341.webp",
+        "width": 341
+      }
+    ],
+    "width": 341
+  },
+  "/assets/img/bisnis/5.education.png": {
+    "bytes": 22338,
+    "height": 401,
+    "variants": [
+      {
+        "bytes": 15208,
+        "path": "/assets/img-opt/bisnis/5.education-342.webp",
+        "width": 342
+      }
+    ],
+    "width": 342
+  },
+  "/assets/img/bisnis/6.consumer.png": {
+    "bytes": 43573,
+    "height": 401,
+    "variants": [
+      {
+        "bytes": 26036,
+        "path": "/assets/img-opt/bisnis/6.consumer-342.webp",
+        "width": 342
+      }
+    ],
+    "width": 342
+  },
+  "/assets/img/bisnis/7.investment.png": {
+    "bytes": 31377,
+    "height": 401,
+    "variants": [
+      {
+        "bytes": 19738,
+        "path": "/assets/img-opt/bisnis/7.investment-342.webp",
+        "width": 342
+      }
+    ],
+    "width": 342
+  },
+  "/assets/img/founder.png": {
+    "bytes": 120091,
+    "height": 492,
+    "variants": [
+      {
+        "bytes": 34922,
+        "path": "/assets/img-opt/founder-539.webp",
+        "width": 539
+      },
+      {
+        "bytes": 21010,
+        "path": "/assets/img-opt/founder-400.webp",
+        "width": 400
+      }
+    ],
+    "width": 539
+  },
+  "/assets/img/gallery/01-hasnur-group-she-activity.jpg": {
+    "bytes": 211790,
+    "height": 309,
+    "variants": [
+      {
+        "bytes": 44442,
+        "path": "/assets/img-opt/gallery/01-hasnur-group-she-activity-550.webp",
+        "width": 550
+      },
+      {
+        "bytes": 23504,
+        "path": "/assets/img-opt/gallery/01-hasnur-group-she-activity-400.webp",
+        "width": 400
+      }
+    ],
+    "width": 550
+  },
+  "/assets/img/gallery/02-hasnur-group-csr-activity.jpg": {
+    "bytes": 184103,
+    "height": 309,
+    "variants": [
+      {
+        "bytes": 38982,
+        "path": "/assets/img-opt/gallery/02-hasnur-group-csr-activity-550.webp",
+        "width": 550
+      },
+      {
+        "bytes": 21214,
+        "path": "/assets/img-opt/gallery/02-hasnur-group-csr-activity-400.webp",
+        "width": 400
+      }
+    ],
+    "width": 550
+  },
+  "/assets/img/gallery/03-pt-hasnur-internasional-shipping-beri-ba.jpg": {
+    "bytes": 182064,
+    "height": 309,
+    "variants": [
+      {
+        "bytes": 35966,
+        "path": "/assets/img-opt/gallery/03-pt-hasnur-internasional-shipping-beri-ba-550.webp",
+        "width": 550
+      },
+      {
+        "bytes": 20548,
+        "path": "/assets/img-opt/gallery/03-pt-hasnur-internasional-shipping-beri-ba-400.webp",
+        "width": 400
+      }
+    ],
+    "width": 550
+  },
+  "/assets/img/gallery/04-hasnur-group-memberikan-bantuan-banjir-k.jpg": {
+    "bytes": 154982,
+    "height": 309,
+    "variants": [
+      {
+        "bytes": 31382,
+        "path": "/assets/img-opt/gallery/04-hasnur-group-memberikan-bantuan-banjir-k-550.webp",
+        "width": 550
+      },
+      {
+        "bytes": 17758,
+        "path": "/assets/img-opt/gallery/04-hasnur-group-memberikan-bantuan-banjir-k-400.webp",
+        "width": 400
+      }
+    ],
+    "width": 550
+  },
+  "/assets/img/gallery/05-yayasan-hasnur-centre-menyerahkan-bantua.jpg": {
+    "bytes": 132211,
+    "height": 309,
+    "variants": [
+      {
+        "bytes": 21918,
+        "path": "/assets/img-opt/gallery/05-yayasan-hasnur-centre-menyerahkan-bantua-550.webp",
+        "width": 550
+      },
+      {
+        "bytes": 13206,
+        "path": "/assets/img-opt/gallery/05-yayasan-hasnur-centre-menyerahkan-bantua-400.webp",
+        "width": 400
+      }
+    ],
+    "width": 550
+  },
+  "/assets/img/gallery/06-pt-hasnur-resources-terminal-peduli-benc.jpg": {
+    "bytes": 155787,
+    "height": 309,
+    "variants": [
+      {
+        "bytes": 29404,
+        "path": "/assets/img-opt/gallery/06-pt-hasnur-resources-terminal-peduli-benc-550.webp",
+        "width": 550
+      },
+      {
+        "bytes": 16458,
+        "path": "/assets/img-opt/gallery/06-pt-hasnur-resources-terminal-peduli-benc-400.webp",
+        "width": 400
+      }
+    ],
+    "width": 550
+  },
+  "/assets/img/gallery/07-hasnur-group-memberikan-bantuan-penangan.jpg": {
+    "bytes": 159938,
+    "height": 309,
+    "variants": [
+      {
+        "bytes": 33724,
+        "path": "/assets/img-opt/gallery/07-hasnur-group-memberikan-bantuan-penangan-550.webp",
+        "width": 550
+      },
+      {
+        "bytes": 18608,
+        "path": "/assets/img-opt/gallery/07-hasnur-group-memberikan-bantuan-penangan-400.webp",
+        "width": 400
+      }
+    ],
+    "width": 550
+  },
+  "/assets/img/gallery/08-hasnur-group-memberikan-bantuan-penangan.jpg": {
+    "bytes": 184093,
+    "height": 309,
+    "variants": [
+      {
+        "bytes": 38512,
+        "path": "/assets/img-opt/gallery/08-hasnur-group-memberikan-bantuan-penangan-550.webp",
+        "width": 550
+      },
+      {
+        "bytes": 21680,
+        "path": "/assets/img-opt/gallery/08-hasnur-group-memberikan-bantuan-penangan-400.webp",
+        "width": 400
+      }
+    ],
+    "width": 550
+  },
+  "/assets/img/gallery/09-she-hasnur-group-tanggap-darurat-di-sbu.jpg": {
+    "bytes": 136782,
+    "height": 309,
+    "variants": [
+      {
+        "bytes": 25588,
+        "path": "/assets/img-opt/gallery/09-she-hasnur-group-tanggap-darurat-di-sbu-550.webp",
+        "width": 550
+      },
+      {
+        "bytes": 15108,
+        "path": "/assets/img-opt/gallery/09-she-hasnur-group-tanggap-darurat-di-sbu-400.webp",
+        "width": 400
+      }
+    ],
+    "width": 550
+  },
+  "/assets/img/ico/favicon-16x16.png": {
+    "bytes": 1409,
+    "height": 16,
+    "variants": [
+      {
+        "bytes": 292,
+        "path": "/assets/img-opt/ico/favicon-16x16-16.webp",
+        "width": 16
+      }
+    ],
+    "width": 16
+  },
+  "/assets/img/ico/favicon-32x32.png": {
+    "bytes": 2403,
+    "height": 32,
+    "variants": [
+      {
+        "bytes": 772,
+        "path": "/assets/img-opt/ico/favicon-32x32-32.webp",
+        "width": 32
+      }
+    ],
+    "width": 32
+  },
+  "/assets/img/image-about.png": {
+    "bytes": 114893,
+    "height": 414,
+    "variants": [
+      {
+        "bytes": 56618,
+        "path": "/assets/img-opt/image-about-570.webp",
+        "width": 570
+      },
+      {
+        "bytes": 32840,
+        "path": "/assets/img-opt/image-about-400.webp",
+        "width": 400
+      }
+    ],
+    "width": 570
+  },
+  "/assets/img/keyvisual-corner.png": {
+    "bytes": 62337,
+    "height": 770,
+    "variants": [
+      {
+        "bytes": 55368,
+        "path": "/assets/img-opt/keyvisual-corner-1593.webp",
+        "width": 1593
+      },
+      {
+        "bytes": 37732,
+        "path": "/assets/img-opt/keyvisual-corner-800.webp",
+        "width": 800
+      },
+      {
+        "bytes": 18906,
+        "path": "/assets/img-opt/keyvisual-corner-400.webp",
+        "width": 400
+      }
+    ],
+    "width": 1593
+  },
+  "/assets/img/logo-60th.png": {
+    "bytes": 132909,
+    "height": 969,
+    "variants": [
+      {
+        "bytes": 84050,
+        "path": "/assets/img-opt/logo-60th-1600.webp",
+        "width": 1600
+      },
+      {
+        "bytes": 38078,
+        "path": "/assets/img-opt/logo-60th-800.webp",
+        "width": 800
+      },
+      {
+        "bytes": 16450,
+        "path": "/assets/img-opt/logo-60th-400.webp",
+        "width": 400
+      }
+    ],
+    "width": 2252
+  },
+  "/assets/img/logo.png": {
+    "bytes": 52790,
+    "height": 473,
+    "variants": [
+      {
+        "bytes": 35572,
+        "path": "/assets/img-opt/logo-1600.webp",
+        "width": 1600
+      },
+      {
+        "bytes": 16612,
+        "path": "/assets/img-opt/logo-800.webp",
+        "width": 800
+      },
+      {
+        "bytes": 7398,
+        "path": "/assets/img-opt/logo-400.webp",
+        "width": 400
+      }
+    ],
+    "width": 2072
+  },
+  "/assets/img/nilai_inti/core-value-inner.png": {
+    "bytes": 380411,
+    "height": 923,
+    "variants": [
+      {
+        "bytes": 54754,
+        "path": "/assets/img-opt/nilai_inti/core-value-inner-923.webp",
+        "width": 923
+      },
+      {
+        "bytes": 47756,
+        "path": "/assets/img-opt/nilai_inti/core-value-inner-800.webp",
+        "width": 800
+      },
+      {
+        "bytes": 23710,
+        "path": "/assets/img-opt/nilai_inti/core-value-inner-400.webp",
+        "width": 400
+      }
+    ],
+    "width": 923
+  },
+  "/assets/img/nilai_inti/core-value-outer.png": {
+    "bytes": 316024,
+    "height": 1080,
+    "variants": [
+      {
+        "bytes": 95720,
+        "path": "/assets/img-opt/nilai_inti/core-value-outer-1080.webp",
+        "width": 1080
+      },
+      {
+        "bytes": 67248,
+        "path": "/assets/img-opt/nilai_inti/core-value-outer-800.webp",
+        "width": 800
+      },
+      {
+        "bytes": 28946,
+        "path": "/assets/img-opt/nilai_inti/core-value-outer-400.webp",
+        "width": 400
+      }
+    ],
+    "width": 1080
+  },
+  "/assets/img/pages/about-us-core-value/banner.jpg": {
+    "bytes": 371117,
+    "height": 1080,
+    "variants": [
+      {
+        "bytes": 64592,
+        "path": "/assets/img-opt/pages/about-us-core-value/banner-1600.webp",
+        "width": 1600
+      },
+      {
+        "bytes": 28810,
+        "path": "/assets/img-opt/pages/about-us-core-value/banner-800.webp",
+        "width": 800
+      },
+      {
+        "bytes": 11626,
+        "path": "/assets/img-opt/pages/about-us-core-value/banner-400.webp",
+        "width": 400
+      }
+    ],
+    "width": 1920
+  },
+  "/assets/img/pages/about-us-core-value/content-1.png": {
+    "bytes": 288828,
+    "height": 508,
+    "variants": [
+      {
+        "bytes": 34582,
+        "path": "/assets/img-opt/pages/about-us-core-value/content-1-508.webp",
+        "width": 508
+      },
+      {
+        "bytes": 25808,
+        "path": "/assets/img-opt/pages/about-us-core-value/content-1-400.webp",
+        "width": 400
+      }
+    ],
+    "width": 508
+  },
+  "/assets/img/pages/about-us-overview/banner.jpg": {
+    "bytes": 371117,
+    "height": 1080,
+    "variants": [
+      {
+        "bytes": 64592,
+        "path": "/assets/img-opt/pages/about-us-overview/banner-1600.webp",
+        "width": 1600
+      },
+      {
+        "bytes": 28810,
+        "path": "/assets/img-opt/pages/about-us-overview/banner-800.webp",
+        "width": 800
+      },
+      {
+        "bytes": 11626,
+        "path": "/assets/img-opt/pages/about-us-overview/banner-400.webp",
+        "width": 400
+      }
+    ],
+    "width": 1920
+  },
+  "/assets/img/pages/about-us-overview/content-1.jpg": {
+    "bytes": 395364,
+    "height": 720,
+    "variants": [
+      {
+        "bytes": 90456,
+        "path": "/assets/img-opt/pages/about-us-overview/content-1-1280.webp",
+        "width": 1280
+      },
+      {
+        "bytes": 41608,
+        "path": "/assets/img-opt/pages/about-us-overview/content-1-800.webp",
+        "width": 800
+      },
+      {
+        "bytes": 14852,
+        "path": "/assets/img-opt/pages/about-us-overview/content-1-400.webp",
+        "width": 400
+      }
+    ],
+    "width": 1280
+  },
+  "/assets/img/pages/about-us-vision-mission/banner.jpg": {
+    "bytes": 371117,
+    "height": 1080,
+    "variants": [
+      {
+        "bytes": 64592,
+        "path": "/assets/img-opt/pages/about-us-vision-mission/banner-1600.webp",
+        "width": 1600
+      },
+      {
+        "bytes": 28810,
+        "path": "/assets/img-opt/pages/about-us-vision-mission/banner-800.webp",
+        "width": 800
+      },
+      {
+        "bytes": 11626,
+        "path": "/assets/img-opt/pages/about-us-vision-mission/banner-400.webp",
+        "width": 400
+      }
+    ],
+    "width": 1920
+  },
+  "/assets/img/pages/career-our-vacancy/banner.jpg": {
+    "bytes": 472357,
+    "height": 1080,
+    "variants": [
+      {
+        "bytes": 102954,
+        "path": "/assets/img-opt/pages/career-our-vacancy/banner-1600.webp",
+        "width": 1600
+      },
+      {
+        "bytes": 48912,
+        "path": "/assets/img-opt/pages/career-our-vacancy/banner-800.webp",
+        "width": 800
+      },
+      {
+        "bytes": 21276,
+        "path": "/assets/img-opt/pages/career-our-vacancy/banner-400.webp",
+        "width": 400
+      }
+    ],
+    "width": 1920
+  },
+  "/assets/img/pages/csr-csr-activity/banner.jpg": {
+    "bytes": 393990,
+    "height": 1080,
+    "variants": [
+      {
+        "bytes": 106904,
+        "path": "/assets/img-opt/pages/csr-csr-activity/banner-1600.webp",
+        "width": 1600
+      },
+      {
+        "bytes": 42838,
+        "path": "/assets/img-opt/pages/csr-csr-activity/banner-800.webp",
+        "width": 800
+      },
+      {
+        "bytes": 15116,
+        "path": "/assets/img-opt/pages/csr-csr-activity/banner-400.webp",
+        "width": 400
+      }
+    ],
+    "width": 1920
+  },
+  "/assets/img/pages/csr-csr-activity/content-1.jpg": {
+    "bytes": 701340,
+    "height": 640,
+    "variants": [
+      {
+        "bytes": 142102,
+        "path": "/assets/img-opt/pages/csr-csr-activity/content-1-1060.webp",
+        "width": 1060
+      },
+      {
+        "bytes": 82206,
+        "path": "/assets/img-opt/pages/csr-csr-activity/content-1-800.webp",
+        "width": 800
+      },
+      {
+        "bytes": 27426,
+        "path": "/assets/img-opt/pages/csr-csr-activity/content-1-400.webp",
+        "width": 400
+      }
+    ],
+    "width": 1060
+  },
+  "/assets/img/pages/csr-csr-activity/content-10.jpg": {
+    "bytes": 392435,
+    "height": 640,
+    "variants": [
+      {
+        "bytes": 121282,
+        "path": "/assets/img-opt/pages/csr-csr-activity/content-10-1060.webp",
+        "width": 1060
+      },
+      {
+        "bytes": 69058,
+        "path": "/assets/img-opt/pages/csr-csr-activity/content-10-800.webp",
+        "width": 800
+      },
+      {
+        "bytes": 22794,
+        "path": "/assets/img-opt/pages/csr-csr-activity/content-10-400.webp",
+        "width": 400
+      }
+    ],
+    "width": 1060
+  },
+  "/assets/img/pages/csr-csr-activity/content-11.jpg": {
+    "bytes": 155125,
+    "height": 640,
+    "variants": [
+      {
+        "bytes": 76158,
+        "path": "/assets/img-opt/pages/csr-csr-activity/content-11-1060.webp",
+        "width": 1060
+      },
+      {
+        "bytes": 48690,
+        "path": "/assets/img-opt/pages/csr-csr-activity/content-11-800.webp",
+        "width": 800
+      },
+      {
+        "bytes": 20118,
+        "path": "/assets/img-opt/pages/csr-csr-activity/content-11-400.webp",
+        "width": 400
+      }
+    ],
+    "width": 1060
+  },
+  "/assets/img/pages/csr-csr-activity/content-2.jpg": {
+    "bytes": 1730100,
+    "height": 1920,
+    "variants": [
+      {
+        "bytes": 234544,
+        "path": "/assets/img-opt/pages/csr-csr-activity/content-2-1600.webp",
+        "width": 1600
+      },
+      {
+        "bytes": 78942,
+        "path": "/assets/img-opt/pages/csr-csr-activity/content-2-800.webp",
+        "width": 800
+      },
+      {
+        "bytes": 22972,
+        "path": "/assets/img-opt/pages/csr-csr-activity/content-2-400.webp",
+        "width": 400
+      }
+    ],
+    "width": 3180
+  },
+  "/assets/img/pages/csr-csr-activity/content-3.jpg": {
+    "bytes": 1831372,
+    "height": 1920,
+    "variants": [
+      {
+        "bytes": 294178,
+        "path": "/assets/img-opt/pages/csr-csr-activity/content-3-1600.webp",
+        "width": 1600
+      },
+      {
+        "bytes": 98472,
+        "path": "/assets/img-opt/pages/csr-csr-activity/content-3-800.webp",
+        "width": 800
+      },
+      {
+        "bytes": 27812,
+        "path": "/assets/img-opt/pages/csr-csr-activity/content-3-400.webp",
+        "width": 400
+      }
+    ],
+    "width": 3180
+  },
+  "/assets/img/pages/csr-csr-activity/content-4.jpg": {
+    "bytes": 1953378,
+    "height": 1920,
+    "variants": [
+      {
+        "bytes": 110384,
+        "path": "/assets/img-opt/pages/csr-csr-activity/content-4-1600.webp",
+        "width": 1600
+      },
+      {
+        "bytes": 45576,
+        "path": "/assets/img-opt/pages/csr-csr-activity/content-4-800.webp",
+        "width": 800
+      },
+      {
+        "bytes": 17314,
+        "path": "/assets/img-opt/pages/csr-csr-activity/content-4-400.webp",
+        "width": 400
+      }
+    ],
+    "width": 3180
+  },
+  "/assets/img/pages/csr-csr-activity/content-5.jpg": {
+    "bytes": 1209633,
+    "height": 1920,
+    "variants": [
+      {
+        "bytes": 71910,
+        "path": "/assets/img-opt/pages/csr-csr-activity/content-5-1600.webp",
+        "width": 1600
+      },
+      {
+        "bytes": 31362,
+        "path": "/assets/img-opt/pages/csr-csr-activity/content-5-800.webp",
+        "width": 800
+      },
+      {
+        "bytes": 11998,
+        "path": "/assets/img-opt/pages/csr-csr-activity/content-5-400.webp",
+        "width": 400
+      }
+    ],
+    "width": 3180
+  },
+  "/assets/img/pages/csr-csr-activity/content-6.jpg": {
+    "bytes": 462270,
+    "height": 640,
+    "variants": [
+      {
+        "bytes": 222762,
+        "path": "/assets/img-opt/pages/csr-csr-activity/content-6-1060.webp",
+        "width": 1060
+      },
+      {
+        "bytes": 120394,
+        "path": "/assets/img-opt/pages/csr-csr-activity/content-6-800.webp",
+        "width": 800
+      },
+      {
+        "bytes": 35252,
+        "path": "/assets/img-opt/pages/csr-csr-activity/content-6-400.webp",
+        "width": 400
+      }
+    ],
+    "width": 1060
+  },
+  "/assets/img/pages/csr-csr-activity/content-7.jpg": {
+    "bytes": 297740,
+    "height": 640,
+    "variants": [
+      {
+        "bytes": 51394,
+        "path": "/assets/img-opt/pages/csr-csr-activity/content-7-1060.webp",
+        "width": 1060
+      },
+      {
+        "bytes": 34646,
+        "path": "/assets/img-opt/pages/csr-csr-activity/content-7-800.webp",
+        "width": 800
+      },
+      {
+        "bytes": 14970,
+        "path": "/assets/img-opt/pages/csr-csr-activity/content-7-400.webp",
+        "width": 400
+      }
+    ],
+    "width": 1060
+  },
+  "/assets/img/pages/csr-csr-activity/content-8.jpg": {
+    "bytes": 374888,
+    "height": 673,
+    "variants": [
+      {
+        "bytes": 158304,
+        "path": "/assets/img-opt/pages/csr-csr-activity/content-8-960.webp",
+        "width": 960
+      },
+      {
+        "bytes": 100086,
+        "path": "/assets/img-opt/pages/csr-csr-activity/content-8-800.webp",
+        "width": 800
+      },
+      {
+        "bytes": 30634,
+        "path": "/assets/img-opt/pages/csr-csr-activity/content-8-400.webp",
+        "width": 400
+      }
+    ],
+    "width": 960
+  },
+  "/assets/img/pages/csr-csr-activity/content-9.jpg": {
+    "bytes": 356331,
+    "height": 640,
+    "variants": [
+      {
+        "bytes": 110212,
+        "path": "/assets/img-opt/pages/csr-csr-activity/content-9-1060.webp",
+        "width": 1060
+      },
+      {
+        "bytes": 64150,
+        "path": "/assets/img-opt/pages/csr-csr-activity/content-9-800.webp",
+        "width": 800
+      },
+      {
+        "bytes": 22928,
+        "path": "/assets/img-opt/pages/csr-csr-activity/content-9-400.webp",
+        "width": 400
+      }
+    ],
+    "width": 1060
+  },
+  "/assets/img/pages/csr-csr-overview/banner.jpg": {
+    "bytes": 393990,
+    "height": 1080,
+    "variants": [
+      {
+        "bytes": 106904,
+        "path": "/assets/img-opt/pages/csr-csr-overview/banner-1600.webp",
+        "width": 1600
+      },
+      {
+        "bytes": 42838,
+        "path": "/assets/img-opt/pages/csr-csr-overview/banner-800.webp",
+        "width": 800
+      },
+      {
+        "bytes": 15116,
+        "path": "/assets/img-opt/pages/csr-csr-overview/banner-400.webp",
+        "width": 400
+      }
+    ],
+    "width": 1920
+  },
+  "/assets/img/pages/csr-csr-overview/content-1.jpg": {
+    "bytes": 496600,
+    "height": 750,
+    "variants": [
+      {
+        "bytes": 112746,
+        "path": "/assets/img-opt/pages/csr-csr-overview/content-1-1110.webp",
+        "width": 1110
+      },
+      {
+        "bytes": 59240,
+        "path": "/assets/img-opt/pages/csr-csr-overview/content-1-800.webp",
+        "width": 800
+      },
+      {
+        "bytes": 20292,
+        "path": "/assets/img-opt/pages/csr-csr-overview/content-1-400.webp",
+        "width": 400
+      }
+    ],
+    "width": 1110
+  },
+  "/assets/img/pages/our-business-agribusiness-forestry/banner.png": {
+    "bytes": 2277294,
+    "height": 768,
+    "variants": [
+      {
+        "bytes": 367298,
+        "path": "/assets/img-opt/pages/our-business-agribusiness-forestry/banner-1366.webp",
+        "width": 1366
+      },
+      {
+        "bytes": 142604,
+        "path": "/assets/img-opt/pages/our-business-agribusiness-forestry/banner-800.webp",
+        "width": 800
+      },
+      {
+        "bytes": 39250,
+        "path": "/assets/img-opt/pages/our-business-agribusiness-forestry/banner-400.webp",
+        "width": 400
+      }
+    ],
+    "width": 1366
+  },
+  "/assets/img/pages/our-business-agribusiness-forestry/content-1.png": {
+    "bytes": 2072148,
+    "height": 833,
+    "variants": [
+      {
+        "bytes": 254898,
+        "path": "/assets/img-opt/pages/our-business-agribusiness-forestry/content-1-1250.webp",
+        "width": 1250
+      },
+      {
+        "bytes": 110954,
+        "path": "/assets/img-opt/pages/our-business-agribusiness-forestry/content-1-800.webp",
+        "width": 800
+      },
+      {
+        "bytes": 36576,
+        "path": "/assets/img-opt/pages/our-business-agribusiness-forestry/content-1-400.webp",
+        "width": 400
+      }
+    ],
+    "width": 1250
+  },
+  "/assets/img/pages/our-business-agribusiness-forestry/content-2.png": {
+    "bytes": 2246884,
+    "height": 857,
+    "variants": [
+      {
+        "bytes": 333024,
+        "path": "/assets/img-opt/pages/our-business-agribusiness-forestry/content-2-1250.webp",
+        "width": 1250
+      },
+      {
+        "bytes": 134180,
+        "path": "/assets/img-opt/pages/our-business-agribusiness-forestry/content-2-800.webp",
+        "width": 800
+      },
+      {
+        "bytes": 39994,
+        "path": "/assets/img-opt/pages/our-business-agribusiness-forestry/content-2-400.webp",
+        "width": 400
+      }
+    ],
+    "width": 1250
+  },
+  "/assets/img/pages/our-business-agribusiness-forestry/content-3.png": {
+    "bytes": 3323013,
+    "height": 1162,
+    "variants": [
+      {
+        "bytes": 274656,
+        "path": "/assets/img-opt/pages/our-business-agribusiness-forestry/content-3-1600.webp",
+        "width": 1600
+      },
+      {
+        "bytes": 96512,
+        "path": "/assets/img-opt/pages/our-business-agribusiness-forestry/content-3-800.webp",
+        "width": 800
+      },
+      {
+        "bytes": 28998,
+        "path": "/assets/img-opt/pages/our-business-agribusiness-forestry/content-3-400.webp",
+        "width": 400
+      }
+    ],
+    "width": 2217
+  },
+  "/assets/img/pages/our-business-consumer/banner.png": {
+    "bytes": 1878569,
+    "height": 768,
+    "variants": [
+      {
+        "bytes": 228992,
+        "path": "/assets/img-opt/pages/our-business-consumer/banner-1366.webp",
+        "width": 1366
+      },
+      {
+        "bytes": 103610,
+        "path": "/assets/img-opt/pages/our-business-consumer/banner-800.webp",
+        "width": 800
+      },
+      {
+        "bytes": 35874,
+        "path": "/assets/img-opt/pages/our-business-consumer/banner-400.webp",
+        "width": 400
+      }
+    ],
+    "width": 1366
+  },
+  "/assets/img/pages/our-business-consumer/content-1.jpg": {
+    "bytes": 254650,
+    "height": 683,
+    "variants": [
+      {
+        "bytes": 117134,
+        "path": "/assets/img-opt/pages/our-business-consumer/content-1-1024.webp",
+        "width": 1024
+      },
+      {
+        "bytes": 77338,
+        "path": "/assets/img-opt/pages/our-business-consumer/content-1-800.webp",
+        "width": 800
+      },
+      {
+        "bytes": 29882,
+        "path": "/assets/img-opt/pages/our-business-consumer/content-1-400.webp",
+        "width": 400
+      }
+    ],
+    "width": 1024
+  },
+  "/assets/img/pages/our-business-consumer/content-2.jpg": {
+    "bytes": 89333,
+    "height": 480,
+    "variants": [
+      {
+        "bytes": 40182,
+        "path": "/assets/img-opt/pages/our-business-consumer/content-2-800.webp",
+        "width": 800
+      },
+      {
+        "bytes": 13654,
+        "path": "/assets/img-opt/pages/our-business-consumer/content-2-400.webp",
+        "width": 400
+      }
+    ],
+    "width": 800
+  },
+  "/assets/img/pages/our-business-education/banner.jpg": {
+    "bytes": 1188004,
+    "height": 2250,
+    "variants": [
+      {
+        "bytes": 154756,
+        "path": "/assets/img-opt/pages/our-business-education/banner-1600.webp",
+        "width": 1600
+      },
+      {
+        "bytes": 48534,
+        "path": "/assets/img-opt/pages/our-business-education/banner-800.webp",
+        "width": 800
+      },
+      {
+        "bytes": 15098,
+        "path": "/assets/img-opt/pages/our-business-education/banner-400.webp",
+        "width": 400
+      }
+    ],
+    "width": 4000
+  },
+  "/assets/img/pages/our-business-education/content-1.jpg": {
+    "bytes": 6088091,
+    "height": 3376,
+    "variants": [
+      {
+        "bytes": 180116,
+        "path": "/assets/img-opt/pages/our-business-education/content-1-1600.webp",
+        "width": 1600
+      },
+      {
+        "bytes": 63750,
+        "path": "/assets/img-opt/pages/our-business-education/content-1-800.webp",
+        "width": 800
+      },
+      {
+        "bytes": 21352,
+        "path": "/assets/img-opt/pages/our-business-education/content-1-400.webp",
+        "width": 400
+      }
+    ],
+    "width": 6000
+  },
+  "/assets/img/pages/our-business-education/content-2.jpg": {
+    "bytes": 1685113,
+    "height": 3024,
+    "variants": [
+      {
+        "bytes": 280046,
+        "path": "/assets/img-opt/pages/our-business-education/content-2-1600.webp",
+        "width": 1600
+      },
+      {
+        "bytes": 103644,
+        "path": "/assets/img-opt/pages/our-business-education/content-2-800.webp",
+        "width": 800
+      },
+      {
+        "bytes": 34174,
+        "path": "/assets/img-opt/pages/our-business-education/content-2-400.webp",
+        "width": 400
+      }
+    ],
+    "width": 4032
+  },
+  "/assets/img/pages/our-business-education/content-3.jpg": {
+    "bytes": 4292608,
+    "height": 3376,
+    "variants": [
+      {
+        "bytes": 46540,
+        "path": "/assets/img-opt/pages/our-business-education/content-3-1600.webp",
+        "width": 1600
+      },
+      {
+        "bytes": 20192,
+        "path": "/assets/img-opt/pages/our-business-education/content-3-800.webp",
+        "width": 800
+      },
+      {
+        "bytes": 8558,
+        "path": "/assets/img-opt/pages/our-business-education/content-3-400.webp",
+        "width": 400
+      }
+    ],
+    "width": 6000
+  },
+  "/assets/img/pages/our-business-education/content-4.jpg": {
+    "bytes": 696586,
+    "height": 1298,
+    "variants": [
+      {
+        "bytes": 111062,
+        "path": "/assets/img-opt/pages/our-business-education/content-4-1600.webp",
+        "width": 1600
+      },
+      {
+        "bytes": 44782,
+        "path": "/assets/img-opt/pages/our-business-education/content-4-800.webp",
+        "width": 800
+      },
+      {
+        "bytes": 16444,
+        "path": "/assets/img-opt/pages/our-business-education/content-4-400.webp",
+        "width": 400
+      }
+    ],
+    "width": 2592
+  },
+  "/assets/img/pages/our-business-education/content-5.jpg": {
+    "bytes": 2475999,
+    "height": 2320,
+    "variants": [
+      {
+        "bytes": 106358,
+        "path": "/assets/img-opt/pages/our-business-education/content-5-1600.webp",
+        "width": 1600
+      },
+      {
+        "bytes": 39126,
+        "path": "/assets/img-opt/pages/our-business-education/content-5-800.webp",
+        "width": 800
+      },
+      {
+        "bytes": 14358,
+        "path": "/assets/img-opt/pages/our-business-education/content-5-400.webp",
+        "width": 400
+      }
+    ],
+    "width": 3477
+  },
+  "/assets/img/pages/our-business-education/content-6.png": {
+    "bytes": 5128989,
+    "height": 4640,
+    "variants": [
+      {
+        "bytes": 148272,
+        "path": "/assets/img-opt/pages/our-business-education/content-6-1600.webp",
+        "width": 1600
+      },
+      {
+        "bytes": 56256,
+        "path": "/assets/img-opt/pages/our-business-education/content-6-800.webp",
+        "width": 800
+      },
+      {
+        "bytes": 19946,
+        "path": "/assets/img-opt/pages/our-business-education/content-6-400.webp",
+        "width": 400
+      }
+    ],
+    "width": 6954
+  },
+  "/assets/img/pages/our-business-education/content-7.jpg": {
+    "bytes": 85556,
+    "height": 904,
+    "variants": [
+      {
+        "bytes": 27970,
+        "path": "/assets/img-opt/pages/our-business-education/content-7-1071.webp",
+        "width": 1071
+      },
+      {
+        "bytes": 17364,
+        "path": "/assets/img-opt/pages/our-business-education/content-7-800.webp",
+        "width": 800
+      },
+      {
+        "bytes": 7356,
+        "path": "/assets/img-opt/pages/our-business-education/content-7-400.webp",
+        "width": 400
+      }
+    ],
+    "width": 1071
+  },
+  "/assets/img/pages/our-business-energy/banner.png": {
+    "bytes": 1094753,
+    "height": 768,
+    "variants": [
+      {
+        "bytes": 51890,
+        "path": "/assets/img-opt/pages/our-business-energy/banner-1366.webp",
+        "width": 1366
+      },
+      {
+        "bytes": 23666,
+        "path": "/assets/img-opt/pages/our-business-energy/banner-800.webp",
+        "width": 800
+      },
+      {
+        "bytes": 10274,
+        "path": "/assets/img-opt/pages/our-business-energy/banner-400.webp",
+        "width": 400
+      }
+    ],
+    "width": 1366
+  },
+  "/assets/img/pages/our-business-energy/content-1.jpg": {
+    "bytes": 739008,
+    "height": 865,
+    "variants": [
+      {
+        "bytes": 473302,
+        "path": "/assets/img-opt/pages/our-business-energy/content-1-1600.webp",
+        "width": 1600
+      },
+      {
+        "bytes": 121502,
+        "path": "/assets/img-opt/pages/our-business-energy/content-1-800.webp",
+        "width": 800
+      },
+      {
+        "bytes": 31736,
+        "path": "/assets/img-opt/pages/our-business-energy/content-1-400.webp",
+        "width": 400
+      }
+    ],
+    "width": 1600
+  },
+  "/assets/img/pages/our-business-energy/content-2.jpg": {
+    "bytes": 615857,
+    "height": 918,
+    "variants": [
+      {
+        "bytes": 331214,
+        "path": "/assets/img-opt/pages/our-business-energy/content-2-1600.webp",
+        "width": 1600
+      },
+      {
+        "bytes": 93286,
+        "path": "/assets/img-opt/pages/our-business-energy/content-2-800.webp",
+        "width": 800
+      },
+      {
+        "bytes": 24748,
+        "path": "/assets/img-opt/pages/our-business-energy/content-2-400.webp",
+        "width": 400
+      }
+    ],
+    "width": 1600
+  },
+  "/assets/img/pages/our-business-energy/content-3.jpg": {
+    "bytes": 866163,
+    "height": 1148,
+    "variants": [
+      {
+        "bytes": 469270,
+        "path": "/assets/img-opt/pages/our-business-energy/content-3-1600.webp",
+        "width": 1600
+      },
+      {
+        "bytes": 154732,
+        "path": "/assets/img-opt/pages/our-business-energy/content-3-800.webp",
+        "width": 800
+      },
+      {
+        "bytes": 40382,
+        "path": "/assets/img-opt/pages/our-business-energy/content-3-400.webp",
+        "width": 400
+      }
+    ],
+    "width": 1600
+  },
+  "/assets/img/pages/our-business-investment/banner.png": {
+    "bytes": 1243110,
+    "height": 768,
+    "variants": [
+      {
+        "bytes": 99666,
+        "path": "/assets/img-opt/pages/our-business-investment/banner-1366.webp",
+        "width": 1366
+      },
+      {
+        "bytes": 51676,
+        "path": "/assets/img-opt/pages/our-business-investment/banner-800.webp",
+        "width": 800
+      },
+      {
+        "bytes": 22354,
+        "path": "/assets/img-opt/pages/our-business-investment/banner-400.webp",
+        "width": 400
+      }
+    ],
+    "width": 1366
+  },
+  "/assets/img/pages/our-business-logistic/banner.png": {
+    "bytes": 2167531,
+    "height": 768,
+    "variants": [
+      {
+        "bytes": 327474,
+        "path": "/assets/img-opt/pages/our-business-logistic/banner-1366.webp",
+        "width": 1366
+      },
+      {
+        "bytes": 112036,
+        "path": "/assets/img-opt/pages/our-business-logistic/banner-800.webp",
+        "width": 800
+      },
+      {
+        "bytes": 30650,
+        "path": "/assets/img-opt/pages/our-business-logistic/banner-400.webp",
+        "width": 400
+      }
+    ],
+    "width": 1366
+  },
+  "/assets/img/pages/our-business-logistic/content-1.jpg": {
+    "bytes": 2627003,
+    "height": 2250,
+    "variants": [
+      {
+        "bytes": 111722,
+        "path": "/assets/img-opt/pages/our-business-logistic/content-1-1600.webp",
+        "width": 1600
+      },
+      {
+        "bytes": 27746,
+        "path": "/assets/img-opt/pages/our-business-logistic/content-1-800.webp",
+        "width": 800
+      },
+      {
+        "bytes": 6622,
+        "path": "/assets/img-opt/pages/our-business-logistic/content-1-400.webp",
+        "width": 400
+      }
+    ],
+    "width": 4000
+  },
+  "/assets/img/pages/our-business-logistic/content-2.png": {
+    "bytes": 4591564,
+    "height": 1250,
+    "variants": [
+      {
+        "bytes": 340900,
+        "path": "/assets/img-opt/pages/our-business-logistic/content-2-1600.webp",
+        "width": 1600
+      },
+      {
+        "bytes": 100936,
+        "path": "/assets/img-opt/pages/our-business-logistic/content-2-800.webp",
+        "width": 800
+      },
+      {
+        "bytes": 30888,
+        "path": "/assets/img-opt/pages/our-business-logistic/content-2-400.webp",
+        "width": 400
+      }
+    ],
+    "width": 2000
+  },
+  "/assets/img/pages/our-business-logistic/content-3.png": {
+    "bytes": 2747175,
+    "height": 1159,
+    "variants": [
+      {
+        "bytes": 162726,
+        "path": "/assets/img-opt/pages/our-business-logistic/content-3-1600.webp",
+        "width": 1600
+      },
+      {
+        "bytes": 58790,
+        "path": "/assets/img-opt/pages/our-business-logistic/content-3-800.webp",
+        "width": 800
+      },
+      {
+        "bytes": 18568,
+        "path": "/assets/img-opt/pages/our-business-logistic/content-3-400.webp",
+        "width": 400
+      }
+    ],
+    "width": 2256
+  },
+  "/assets/img/pages/our-business-technology-services/banner.png": {
+    "bytes": 1026592,
+    "height": 768,
+    "variants": [
+      {
+        "bytes": 122788,
+        "path": "/assets/img-opt/pages/our-business-technology-services/banner-1366.webp",
+        "width": 1366
+      },
+      {
+        "bytes": 52968,
+        "path": "/assets/img-opt/pages/our-business-technology-services/banner-800.webp",
+        "width": 800
+      },
+      {
+        "bytes": 17664,
+        "path": "/assets/img-opt/pages/our-business-technology-services/banner-400.webp",
+        "width": 400
+      }
+    ],
+    "width": 1366
+  },
+  "/assets/img/pages/our-business-technology-services/content-1.jpg": {
+    "bytes": 7134107,
+    "height": 2610,
+    "variants": [
+      {
+        "bytes": 217904,
+        "path": "/assets/img-opt/pages/our-business-technology-services/content-1-1600.webp",
+        "width": 1600
+      },
+      {
+        "bytes": 59502,
+        "path": "/assets/img-opt/pages/our-business-technology-services/content-1-800.webp",
+        "width": 800
+      },
+      {
+        "bytes": 17220,
+        "path": "/assets/img-opt/pages/our-business-technology-services/content-1-400.webp",
+        "width": 400
+      }
+    ],
+    "width": 4640
+  },
+  "/assets/img/pages/our-business-technology-services/content-2.jpg": {
+    "bytes": 3221418,
+    "height": 2350,
+    "variants": [
+      {
+        "bytes": 152050,
+        "path": "/assets/img-opt/pages/our-business-technology-services/content-2-1600.webp",
+        "width": 1600
+      },
+      {
+        "bytes": 43430,
+        "path": "/assets/img-opt/pages/our-business-technology-services/content-2-800.webp",
+        "width": 800
+      },
+      {
+        "bytes": 12688,
+        "path": "/assets/img-opt/pages/our-business-technology-services/content-2-400.webp",
+        "width": 400
+      }
+    ],
+    "width": 4640
+  },
+  "/assets/img/pages/our-business-technology-services/content-3.jpg": {
+    "bytes": 129533,
+    "height": 834,
+    "variants": [
+      {
+        "bytes": 80286,
+        "path": "/assets/img-opt/pages/our-business-technology-services/content-3-1250.webp",
+        "width": 1250
+      },
+      {
+        "bytes": 32326,
+        "path": "/assets/img-opt/pages/our-business-technology-services/content-3-800.webp",
+        "width": 800
+      },
+      {
+        "bytes": 10520,
+        "path": "/assets/img-opt/pages/our-business-technology-services/content-3-400.webp",
+        "width": 400
+      }
+    ],
+    "width": 1250
+  },
+  "/assets/img/pages/our-business-technology-services/content-4.jpg": {
+    "bytes": 288791,
+    "height": 899,
+    "variants": [
+      {
+        "bytes": 68226,
+        "path": "/assets/img-opt/pages/our-business-technology-services/content-4-1600.webp",
+        "width": 1600
+      },
+      {
+        "bytes": 25524,
+        "path": "/assets/img-opt/pages/our-business-technology-services/content-4-800.webp",
+        "width": 800
+      },
+      {
+        "bytes": 8096,
+        "path": "/assets/img-opt/pages/our-business-technology-services/content-4-400.webp",
+        "width": 400
+      }
+    ],
+    "width": 1644
+  },
+  "/assets/img/pages/our-business-technology-services/content-5.jpg": {
+    "bytes": 79769,
+    "height": 341,
+    "variants": [
+      {
+        "bytes": 40980,
+        "path": "/assets/img-opt/pages/our-business-technology-services/content-5-606.webp",
+        "width": 606
+      },
+      {
+        "bytes": 18488,
+        "path": "/assets/img-opt/pages/our-business-technology-services/content-5-400.webp",
+        "width": 400
+      }
+    ],
+    "width": 606
+  },
+  "/assets/img/pages/publication-gallery/banner.jpg": {
+    "bytes": 686359,
+    "height": 1080,
+    "variants": [
+      {
+        "bytes": 154498,
+        "path": "/assets/img-opt/pages/publication-gallery/banner-1600.webp",
+        "width": 1600
+      },
+      {
+        "bytes": 63282,
+        "path": "/assets/img-opt/pages/publication-gallery/banner-800.webp",
+        "width": 800
+      },
+      {
+        "bytes": 21920,
+        "path": "/assets/img-opt/pages/publication-gallery/banner-400.webp",
+        "width": 400
+      }
+    ],
+    "width": 1920
+  },
+  "/assets/img/pages/publication-latest-update/banner.jpg": {
+    "bytes": 686359,
+    "height": 1080,
+    "variants": [
+      {
+        "bytes": 154498,
+        "path": "/assets/img-opt/pages/publication-latest-update/banner-1600.webp",
+        "width": 1600
+      },
+      {
+        "bytes": 63282,
+        "path": "/assets/img-opt/pages/publication-latest-update/banner-800.webp",
+        "width": 800
+      },
+      {
+        "bytes": 21920,
+        "path": "/assets/img-opt/pages/publication-latest-update/banner-400.webp",
+        "width": 400
+      }
+    ],
+    "width": 1920
+  },
+  "/assets/img/pages/publication-latest-update/content-1.jpeg": {
+    "bytes": 7243704,
+    "height": 3750,
+    "variants": [
+      {
+        "bytes": 279042,
+        "path": "/assets/img-opt/pages/publication-latest-update/content-1-1600.webp",
+        "width": 1600
+      },
+      {
+        "bytes": 96500,
+        "path": "/assets/img-opt/pages/publication-latest-update/content-1-800.webp",
+        "width": 800
+      },
+      {
+        "bytes": 30208,
+        "path": "/assets/img-opt/pages/publication-latest-update/content-1-400.webp",
+        "width": 400
+      }
+    ],
+    "width": 5000
+  },
+  "/assets/img/pages/publication-latest-update/content-10.jpg": {
+    "bytes": 1727344,
+    "height": 1600,
+    "variants": [
+      {
+        "bytes": 104438,
+        "path": "/assets/img-opt/pages/publication-latest-update/content-10-1600.webp",
+        "width": 1600
+      },
+      {
+        "bytes": 36354,
+        "path": "/assets/img-opt/pages/publication-latest-update/content-10-800.webp",
+        "width": 800
+      },
+      {
+        "bytes": 12608,
+        "path": "/assets/img-opt/pages/publication-latest-update/content-10-400.webp",
+        "width": 400
+      }
+    ],
+    "width": 2650
+  },
+  "/assets/img/pages/publication-latest-update/content-11.jpg": {
+    "bytes": 1762006,
+    "height": 1600,
+    "variants": [
+      {
+        "bytes": 127518,
+        "path": "/assets/img-opt/pages/publication-latest-update/content-11-1600.webp",
+        "width": 1600
+      },
+      {
+        "bytes": 46140,
+        "path": "/assets/img-opt/pages/publication-latest-update/content-11-800.webp",
+        "width": 800
+      },
+      {
+        "bytes": 15522,
+        "path": "/assets/img-opt/pages/publication-latest-update/content-11-400.webp",
+        "width": 400
+      }
+    ],
+    "width": 2650
+  },
+  "/assets/img/pages/publication-latest-update/content-12.jpg": {
+    "bytes": 1818119,
+    "height": 1920,
+    "variants": [
+      {
+        "bytes": 230312,
+        "path": "/assets/img-opt/pages/publication-latest-update/content-12-1600.webp",
+        "width": 1600
+      },
+      {
+        "bytes": 82066,
+        "path": "/assets/img-opt/pages/publication-latest-update/content-12-800.webp",
+        "width": 800
+      },
+      {
+        "bytes": 26392,
+        "path": "/assets/img-opt/pages/publication-latest-update/content-12-400.webp",
+        "width": 400
+      }
+    ],
+    "width": 3180
+  },
+  "/assets/img/pages/publication-latest-update/content-13.jpg": {
+    "bytes": 1421838,
+    "height": 1920,
+    "variants": [
+      {
+        "bytes": 211828,
+        "path": "/assets/img-opt/pages/publication-latest-update/content-13-1600.webp",
+        "width": 1600
+      },
+      {
+        "bytes": 75530,
+        "path": "/assets/img-opt/pages/publication-latest-update/content-13-800.webp",
+        "width": 800
+      },
+      {
+        "bytes": 23832,
+        "path": "/assets/img-opt/pages/publication-latest-update/content-13-400.webp",
+        "width": 400
+      }
+    ],
+    "width": 3180
+  },
+  "/assets/img/pages/publication-latest-update/content-14.jpg": {
+    "bytes": 1782109,
+    "height": 1920,
+    "variants": [
+      {
+        "bytes": 94492,
+        "path": "/assets/img-opt/pages/publication-latest-update/content-14-1600.webp",
+        "width": 1600
+      },
+      {
+        "bytes": 40080,
+        "path": "/assets/img-opt/pages/publication-latest-update/content-14-800.webp",
+        "width": 800
+      },
+      {
+        "bytes": 16530,
+        "path": "/assets/img-opt/pages/publication-latest-update/content-14-400.webp",
+        "width": 400
+      }
+    ],
+    "width": 3180
+  },
+  "/assets/img/pages/publication-latest-update/content-15.jpg": {
+    "bytes": 2493083,
+    "height": 1280,
+    "variants": [
+      {
+        "bytes": 240394,
+        "path": "/assets/img-opt/pages/publication-latest-update/content-15-1600.webp",
+        "width": 1600
+      },
+      {
+        "bytes": 83390,
+        "path": "/assets/img-opt/pages/publication-latest-update/content-15-800.webp",
+        "width": 800
+      },
+      {
+        "bytes": 26450,
+        "path": "/assets/img-opt/pages/publication-latest-update/content-15-400.webp",
+        "width": 400
+      }
+    ],
+    "width": 2120
+  },
+  "/assets/img/pages/publication-latest-update/content-16.jpg": {
+    "bytes": 745140,
+    "height": 640,
+    "variants": [
+      {
+        "bytes": 132982,
+        "path": "/assets/img-opt/pages/publication-latest-update/content-16-1060.webp",
+        "width": 1060
+      },
+      {
+        "bytes": 76788,
+        "path": "/assets/img-opt/pages/publication-latest-update/content-16-800.webp",
+        "width": 800
+      },
+      {
+        "bytes": 23846,
+        "path": "/assets/img-opt/pages/publication-latest-update/content-16-400.webp",
+        "width": 400
+      }
+    ],
+    "width": 1060
+  },
+  "/assets/img/pages/publication-latest-update/content-17.jpeg": {
+    "bytes": 478501,
+    "height": 1066,
+    "variants": [
+      {
+        "bytes": 202906,
+        "path": "/assets/img-opt/pages/publication-latest-update/content-17-1600.webp",
+        "width": 1600
+      },
+      {
+        "bytes": 66742,
+        "path": "/assets/img-opt/pages/publication-latest-update/content-17-800.webp",
+        "width": 800
+      },
+      {
+        "bytes": 22348,
+        "path": "/assets/img-opt/pages/publication-latest-update/content-17-400.webp",
+        "width": 400
+      }
+    ],
+    "width": 1600
+  },
+  "/assets/img/pages/publication-latest-update/content-2.jpeg": {
+    "bytes": 5718908,
+    "height": 2813,
+    "variants": [
+      {
+        "bytes": 222448,
+        "path": "/assets/img-opt/pages/publication-latest-update/content-2-1600.webp",
+        "width": 1600
+      },
+      {
+        "bytes": 95986,
+        "path": "/assets/img-opt/pages/publication-latest-update/content-2-800.webp",
+        "width": 800
+      },
+      {
+        "bytes": 31066,
+        "path": "/assets/img-opt/pages/publication-latest-update/content-2-400.webp",
+        "width": 400
+      }
+    ],
+    "width": 5000
+  },
+  "/assets/img/pages/publication-latest-update/content-3.jpg": {
+    "bytes": 879460,
+    "height": 640,
+    "variants": [
+      {
+        "bytes": 198458,
+        "path": "/assets/img-opt/pages/publication-latest-update/content-3-1060.webp",
+        "width": 1060
+      },
+      {
+        "bytes": 112998,
+        "path": "/assets/img-opt/pages/publication-latest-update/content-3-800.webp",
+        "width": 800
+      },
+      {
+        "bytes": 34398,
+        "path": "/assets/img-opt/pages/publication-latest-update/content-3-400.webp",
+        "width": 400
+      }
+    ],
+    "width": 1060
+  },
+  "/assets/img/pages/publication-latest-update/content-4.jpg": {
+    "bytes": 989211,
+    "height": 640,
+    "variants": [
+      {
+        "bytes": 114738,
+        "path": "/assets/img-opt/pages/publication-latest-update/content-4-1060.webp",
+        "width": 1060
+      },
+      {
+        "bytes": 60482,
+        "path": "/assets/img-opt/pages/publication-latest-update/content-4-800.webp",
+        "width": 800
+      },
+      {
+        "bytes": 21538,
+        "path": "/assets/img-opt/pages/publication-latest-update/content-4-400.webp",
+        "width": 400
+      }
+    ],
+    "width": 1060
+  },
+  "/assets/img/pages/publication-latest-update/content-5.jpg": {
+    "bytes": 895310,
+    "height": 640,
+    "variants": [
+      {
+        "bytes": 173042,
+        "path": "/assets/img-opt/pages/publication-latest-update/content-5-1060.webp",
+        "width": 1060
+      },
+      {
+        "bytes": 86808,
+        "path": "/assets/img-opt/pages/publication-latest-update/content-5-800.webp",
+        "width": 800
+      },
+      {
+        "bytes": 23786,
+        "path": "/assets/img-opt/pages/publication-latest-update/content-5-400.webp",
+        "width": 400
+      }
+    ],
+    "width": 1060
+  },
+  "/assets/img/pages/publication-latest-update/content-6.jpg": {
+    "bytes": 583011,
+    "height": 640,
+    "variants": [
+      {
+        "bytes": 83670,
+        "path": "/assets/img-opt/pages/publication-latest-update/content-6-1060.webp",
+        "width": 1060
+      },
+      {
+        "bytes": 51492,
+        "path": "/assets/img-opt/pages/publication-latest-update/content-6-800.webp",
+        "width": 800
+      },
+      {
+        "bytes": 18782,
+        "path": "/assets/img-opt/pages/publication-latest-update/content-6-400.webp",
+        "width": 400
+      }
+    ],
+    "width": 1060
+  },
+  "/assets/img/pages/publication-latest-update/content-7.jpg": {
+    "bytes": 319882,
+    "height": 640,
+    "variants": [
+      {
+        "bytes": 48302,
+        "path": "/assets/img-opt/pages/publication-latest-update/content-7-1060.webp",
+        "width": 1060
+      },
+      {
+        "bytes": 30152,
+        "path": "/assets/img-opt/pages/publication-latest-update/content-7-800.webp",
+        "width": 800
+      },
+      {
+        "bytes": 11906,
+        "path": "/assets/img-opt/pages/publication-latest-update/content-7-400.webp",
+        "width": 400
+      }
+    ],
+    "width": 1060
+  },
+  "/assets/img/pages/publication-latest-update/content-8.jpg": {
+    "bytes": 360915,
+    "height": 640,
+    "variants": [
+      {
+        "bytes": 45274,
+        "path": "/assets/img-opt/pages/publication-latest-update/content-8-1060.webp",
+        "width": 1060
+      },
+      {
+        "bytes": 31170,
+        "path": "/assets/img-opt/pages/publication-latest-update/content-8-800.webp",
+        "width": 800
+      },
+      {
+        "bytes": 13382,
+        "path": "/assets/img-opt/pages/publication-latest-update/content-8-400.webp",
+        "width": 400
+      }
+    ],
+    "width": 1060
+  },
+  "/assets/img/pages/publication-latest-update/content-9.jpg": {
+    "bytes": 642462,
+    "height": 640,
+    "variants": [
+      {
+        "bytes": 69044,
+        "path": "/assets/img-opt/pages/publication-latest-update/content-9-1060.webp",
+        "width": 1060
+      },
+      {
+        "bytes": 37820,
+        "path": "/assets/img-opt/pages/publication-latest-update/content-9-800.webp",
+        "width": 800
+      },
+      {
+        "bytes": 13288,
+        "path": "/assets/img-opt/pages/publication-latest-update/content-9-400.webp",
+        "width": 400
+      }
+    ],
+    "width": 1060
+  },
+  "/assets/img/pages/publication-multimedia/banner.jpg": {
+    "bytes": 686359,
+    "height": 1080,
+    "variants": [
+      {
+        "bytes": 154498,
+        "path": "/assets/img-opt/pages/publication-multimedia/banner-1600.webp",
+        "width": 1600
+      },
+      {
+        "bytes": 63282,
+        "path": "/assets/img-opt/pages/publication-multimedia/banner-800.webp",
+        "width": 800
+      },
+      {
+        "bytes": 21920,
+        "path": "/assets/img-opt/pages/publication-multimedia/banner-400.webp",
+        "width": 400
+      }
+    ],
+    "width": 1920
+  },
+  "/assets/img/pages/publication-multimedia/content-1.jpg": {
+    "bytes": 12663,
+    "height": 180,
+    "variants": [
+      {
+        "bytes": 7914,
+        "path": "/assets/img-opt/pages/publication-multimedia/content-1-320.webp",
+        "width": 320
+      }
+    ],
+    "width": 320
+  },
+  "/assets/img/pages/publication-news/banner.jpg": {
+    "bytes": 686359,
+    "height": 1080,
+    "variants": [
+      {
+        "bytes": 154498,
+        "path": "/assets/img-opt/pages/publication-news/banner-1600.webp",
+        "width": 1600
+      },
+      {
+        "bytes": 63282,
+        "path": "/assets/img-opt/pages/publication-news/banner-800.webp",
+        "width": 800
+      },
+      {
+        "bytes": 21920,
+        "path": "/assets/img-opt/pages/publication-news/banner-400.webp",
+        "width": 400
+      }
+    ],
+    "width": 1920
+  },
+  "/assets/img/pages/publication-news/content-1.jpg": {
+    "bytes": 1727344,
+    "height": 1600,
+    "variants": [
+      {
+        "bytes": 104438,
+        "path": "/assets/img-opt/pages/publication-news/content-1-1600.webp",
+        "width": 1600
+      },
+      {
+        "bytes": 36354,
+        "path": "/assets/img-opt/pages/publication-news/content-1-800.webp",
+        "width": 800
+      },
+      {
+        "bytes": 12608,
+        "path": "/assets/img-opt/pages/publication-news/content-1-400.webp",
+        "width": 400
+      }
+    ],
+    "width": 2650
+  },
+  "/assets/img/pages/publication-news/content-10.jpeg": {
+    "bytes": 95586,
+    "height": 493,
+    "variants": [
+      {
+        "bytes": 79038,
+        "path": "/assets/img-opt/pages/publication-news/content-10-1040.webp",
+        "width": 1040
+      },
+      {
+        "bytes": 47550,
+        "path": "/assets/img-opt/pages/publication-news/content-10-800.webp",
+        "width": 800
+      },
+      {
+        "bytes": 16546,
+        "path": "/assets/img-opt/pages/publication-news/content-10-400.webp",
+        "width": 400
+      }
+    ],
+    "width": 1040
+  },
+  "/assets/img/pages/publication-news/content-11.jpg": {
+    "bytes": 216339,
+    "height": 640,
+    "variants": [
+      {
+        "bytes": 143612,
+        "path": "/assets/img-opt/pages/publication-news/content-11-1060.webp",
+        "width": 1060
+      },
+      {
+        "bytes": 86736,
+        "path": "/assets/img-opt/pages/publication-news/content-11-800.webp",
+        "width": 800
+      },
+      {
+        "bytes": 29240,
+        "path": "/assets/img-opt/pages/publication-news/content-11-400.webp",
+        "width": 400
+      }
+    ],
+    "width": 1060
+  },
+  "/assets/img/pages/publication-news/content-2.jpg": {
+    "bytes": 1788343,
+    "height": 1280,
+    "variants": [
+      {
+        "bytes": 156146,
+        "path": "/assets/img-opt/pages/publication-news/content-2-1600.webp",
+        "width": 1600
+      },
+      {
+        "bytes": 62144,
+        "path": "/assets/img-opt/pages/publication-news/content-2-800.webp",
+        "width": 800
+      },
+      {
+        "bytes": 21930,
+        "path": "/assets/img-opt/pages/publication-news/content-2-400.webp",
+        "width": 400
+      }
+    ],
+    "width": 2120
+  },
+  "/assets/img/pages/publication-news/content-3.jpg": {
+    "bytes": 1853051,
+    "height": 1600,
+    "variants": [
+      {
+        "bytes": 135458,
+        "path": "/assets/img-opt/pages/publication-news/content-3-1600.webp",
+        "width": 1600
+      },
+      {
+        "bytes": 56784,
+        "path": "/assets/img-opt/pages/publication-news/content-3-800.webp",
+        "width": 800
+      },
+      {
+        "bytes": 21776,
+        "path": "/assets/img-opt/pages/publication-news/content-3-400.webp",
+        "width": 400
+      }
+    ],
+    "width": 2650
+  },
+  "/assets/img/pages/publication-news/content-4.jpg": {
+    "bytes": 1968306,
+    "height": 1280,
+    "variants": [
+      {
+        "bytes": 116954,
+        "path": "/assets/img-opt/pages/publication-news/content-4-1600.webp",
+        "width": 1600
+      },
+      {
+        "bytes": 46542,
+        "path": "/assets/img-opt/pages/publication-news/content-4-800.webp",
+        "width": 800
+      },
+      {
+        "bytes": 17150,
+        "path": "/assets/img-opt/pages/publication-news/content-4-400.webp",
+        "width": 400
+      }
+    ],
+    "width": 2120
+  },
+  "/assets/img/pages/publication-news/content-5.jpg": {
+    "bytes": 223019,
+    "height": 640,
+    "variants": [
+      {
+        "bytes": 69474,
+        "path": "/assets/img-opt/pages/publication-news/content-5-1060.webp",
+        "width": 1060
+      },
+      {
+        "bytes": 46716,
+        "path": "/assets/img-opt/pages/publication-news/content-5-800.webp",
+        "width": 800
+      },
+      {
+        "bytes": 19594,
+        "path": "/assets/img-opt/pages/publication-news/content-5-400.webp",
+        "width": 400
+      }
+    ],
+    "width": 1060
+  },
+  "/assets/img/pages/publication-news/content-6.jpg": {
+    "bytes": 61701,
+    "height": 393,
+    "variants": [
+      {
+        "bytes": 56134,
+        "path": "/assets/img-opt/pages/publication-news/content-6-700.webp",
+        "width": 700
+      },
+      {
+        "bytes": 21708,
+        "path": "/assets/img-opt/pages/publication-news/content-6-400.webp",
+        "width": 400
+      }
+    ],
+    "width": 700
+  },
+  "/assets/img/pages/publication-news/content-7.jpeg": {
+    "bytes": 205708,
+    "height": 720,
+    "variants": [
+      {
+        "bytes": 182818,
+        "path": "/assets/img-opt/pages/publication-news/content-7-1280.webp",
+        "width": 1280
+      },
+      {
+        "bytes": 87402,
+        "path": "/assets/img-opt/pages/publication-news/content-7-800.webp",
+        "width": 800
+      },
+      {
+        "bytes": 28384,
+        "path": "/assets/img-opt/pages/publication-news/content-7-400.webp",
+        "width": 400
+      }
+    ],
+    "width": 1280
+  },
+  "/assets/img/pages/publication-news/content-8.png": {
+    "bytes": 1121713,
+    "height": 618,
+    "variants": [
+      {
+        "bytes": 93338,
+        "path": "/assets/img-opt/pages/publication-news/content-8-1052.webp",
+        "width": 1052
+      },
+      {
+        "bytes": 63204,
+        "path": "/assets/img-opt/pages/publication-news/content-8-800.webp",
+        "width": 800
+      },
+      {
+        "bytes": 25914,
+        "path": "/assets/img-opt/pages/publication-news/content-8-400.webp",
+        "width": 400
+      }
+    ],
+    "width": 1052
+  },
+  "/assets/img/pages/publication-news/content-9.jpeg": {
+    "bytes": 163525,
+    "height": 622,
+    "variants": [
+      {
+        "bytes": 139880,
+        "path": "/assets/img-opt/pages/publication-news/content-9-1280.webp",
+        "width": 1280
+      },
+      {
+        "bytes": 59978,
+        "path": "/assets/img-opt/pages/publication-news/content-9-800.webp",
+        "width": 800
+      },
+      {
+        "bytes": 18916,
+        "path": "/assets/img-opt/pages/publication-news/content-9-400.webp",
+        "width": 400
+      }
+    ],
+    "width": 1280
+  },
+  "/assets/img/pages/publication-press-release/banner.jpg": {
+    "bytes": 686359,
+    "height": 1080,
+    "variants": [
+      {
+        "bytes": 154498,
+        "path": "/assets/img-opt/pages/publication-press-release/banner-1600.webp",
+        "width": 1600
+      },
+      {
+        "bytes": 63282,
+        "path": "/assets/img-opt/pages/publication-press-release/banner-800.webp",
+        "width": 800
+      },
+      {
+        "bytes": 21920,
+        "path": "/assets/img-opt/pages/publication-press-release/banner-400.webp",
+        "width": 400
+      }
+    ],
+    "width": 1920
+  },
+  "/assets/img/pages/publication-press-release/content-1.jpg": {
+    "bytes": 588549,
+    "height": 640,
+    "variants": [
+      {
+        "bytes": 90982,
+        "path": "/assets/img-opt/pages/publication-press-release/content-1-1060.webp",
+        "width": 1060
+      },
+      {
+        "bytes": 50658,
+        "path": "/assets/img-opt/pages/publication-press-release/content-1-800.webp",
+        "width": 800
+      },
+      {
+        "bytes": 17190,
+        "path": "/assets/img-opt/pages/publication-press-release/content-1-400.webp",
+        "width": 400
+      }
+    ],
+    "width": 1060
+  },
+  "/assets/img/pages/publication-press-release/content-10.jpeg": {
+    "bytes": 261375,
+    "height": 900,
+    "variants": [
+      {
+        "bytes": 204292,
+        "path": "/assets/img-opt/pages/publication-press-release/content-10-1600.webp",
+        "width": 1600
+      },
+      {
+        "bytes": 82460,
+        "path": "/assets/img-opt/pages/publication-press-release/content-10-800.webp",
+        "width": 800
+      },
+      {
+        "bytes": 26490,
+        "path": "/assets/img-opt/pages/publication-press-release/content-10-400.webp",
+        "width": 400
+      }
+    ],
+    "width": 1600
+  },
+  "/assets/img/pages/publication-press-release/content-11.jpeg": {
+    "bytes": 302562,
+    "height": 853,
+    "variants": [
+      {
+        "bytes": 136398,
+        "path": "/assets/img-opt/pages/publication-press-release/content-11-1280.webp",
+        "width": 1280
+      },
+      {
+        "bytes": 64254,
+        "path": "/assets/img-opt/pages/publication-press-release/content-11-800.webp",
+        "width": 800
+      },
+      {
+        "bytes": 22488,
+        "path": "/assets/img-opt/pages/publication-press-release/content-11-400.webp",
+        "width": 400
+      }
+    ],
+    "width": 1280
+  },
+  "/assets/img/pages/publication-press-release/content-12.jpg": {
+    "bytes": 242355,
+    "height": 638,
+    "variants": [
+      {
+        "bytes": 83386,
+        "path": "/assets/img-opt/pages/publication-press-release/content-12-960.webp",
+        "width": 960
+      },
+      {
+        "bytes": 58790,
+        "path": "/assets/img-opt/pages/publication-press-release/content-12-800.webp",
+        "width": 800
+      },
+      {
+        "bytes": 22332,
+        "path": "/assets/img-opt/pages/publication-press-release/content-12-400.webp",
+        "width": 400
+      }
+    ],
+    "width": 960
+  },
+  "/assets/img/pages/publication-press-release/content-13.jpg": {
+    "bytes": 387914,
+    "height": 1526,
+    "variants": [
+      {
+        "bytes": 97398,
+        "path": "/assets/img-opt/pages/publication-press-release/content-13-960.webp",
+        "width": 960
+      },
+      {
+        "bytes": 64044,
+        "path": "/assets/img-opt/pages/publication-press-release/content-13-800.webp",
+        "width": 800
+      },
+      {
+        "bytes": 22400,
+        "path": "/assets/img-opt/pages/publication-press-release/content-13-400.webp",
+        "width": 400
+      }
+    ],
+    "width": 960
+  },
+  "/assets/img/pages/publication-press-release/content-2.jpg": {
+    "bytes": 576073,
+    "height": 640,
+    "variants": [
+      {
+        "bytes": 103458,
+        "path": "/assets/img-opt/pages/publication-press-release/content-2-1060.webp",
+        "width": 1060
+      },
+      {
+        "bytes": 62320,
+        "path": "/assets/img-opt/pages/publication-press-release/content-2-800.webp",
+        "width": 800
+      },
+      {
+        "bytes": 23142,
+        "path": "/assets/img-opt/pages/publication-press-release/content-2-400.webp",
+        "width": 400
+      }
+    ],
+    "width": 1060
+  },
+  "/assets/img/pages/publication-press-release/content-3.jpg": {
+    "bytes": 728226,
+    "height": 640,
+    "variants": [
+      {
+        "bytes": 118610,
+        "path": "/assets/img-opt/pages/publication-press-release/content-3-1060.webp",
+        "width": 1060
+      },
+      {
+        "bytes": 72368,
+        "path": "/assets/img-opt/pages/publication-press-release/content-3-800.webp",
+        "width": 800
+      },
+      {
+        "bytes": 26136,
+        "path": "/assets/img-opt/pages/publication-press-release/content-3-400.webp",
+        "width": 400
+      }
+    ],
+    "width": 1060
+  },
+  "/assets/img/pages/publication-press-release/content-4.jpg": {
+    "bytes": 556153,
+    "height": 640,
+    "variants": [
+      {
+        "bytes": 79010,
+        "path": "/assets/img-opt/pages/publication-press-release/content-4-1060.webp",
+        "width": 1060
+      },
+      {
+        "bytes": 46652,
+        "path": "/assets/img-opt/pages/publication-press-release/content-4-800.webp",
+        "width": 800
+      },
+      {
+        "bytes": 17736,
+        "path": "/assets/img-opt/pages/publication-press-release/content-4-400.webp",
+        "width": 400
+      }
+    ],
+    "width": 1060
+  },
+  "/assets/img/pages/publication-press-release/content-5.jpg": {
+    "bytes": 738259,
+    "height": 640,
+    "variants": [
+      {
+        "bytes": 148942,
+        "path": "/assets/img-opt/pages/publication-press-release/content-5-1060.webp",
+        "width": 1060
+      },
+      {
+        "bytes": 82984,
+        "path": "/assets/img-opt/pages/publication-press-release/content-5-800.webp",
+        "width": 800
+      },
+      {
+        "bytes": 25516,
+        "path": "/assets/img-opt/pages/publication-press-release/content-5-400.webp",
+        "width": 400
+      }
+    ],
+    "width": 1060
+  },
+  "/assets/img/pages/publication-press-release/content-6.jpg": {
+    "bytes": 477650,
+    "height": 640,
+    "variants": [
+      {
+        "bytes": 72654,
+        "path": "/assets/img-opt/pages/publication-press-release/content-6-1060.webp",
+        "width": 1060
+      },
+      {
+        "bytes": 43544,
+        "path": "/assets/img-opt/pages/publication-press-release/content-6-800.webp",
+        "width": 800
+      },
+      {
+        "bytes": 16124,
+        "path": "/assets/img-opt/pages/publication-press-release/content-6-400.webp",
+        "width": 400
+      }
+    ],
+    "width": 1060
+  },
+  "/assets/img/pages/publication-press-release/content-7.jpg": {
+    "bytes": 784435,
+    "height": 640,
+    "variants": [
+      {
+        "bytes": 132518,
+        "path": "/assets/img-opt/pages/publication-press-release/content-7-1060.webp",
+        "width": 1060
+      },
+      {
+        "bytes": 75214,
+        "path": "/assets/img-opt/pages/publication-press-release/content-7-800.webp",
+        "width": 800
+      },
+      {
+        "bytes": 24752,
+        "path": "/assets/img-opt/pages/publication-press-release/content-7-400.webp",
+        "width": 400
+      }
+    ],
+    "width": 1060
+  },
+  "/assets/img/pages/publication-press-release/content-8.jpeg": {
+    "bytes": 562012,
+    "height": 1066,
+    "variants": [
+      {
+        "bytes": 266230,
+        "path": "/assets/img-opt/pages/publication-press-release/content-8-1600.webp",
+        "width": 1600
+      },
+      {
+        "bytes": 75694,
+        "path": "/assets/img-opt/pages/publication-press-release/content-8-800.webp",
+        "width": 800
+      },
+      {
+        "bytes": 21696,
+        "path": "/assets/img-opt/pages/publication-press-release/content-8-400.webp",
+        "width": 400
+      }
+    ],
+    "width": 1600
+  },
+  "/assets/img/pages/publication-press-release/content-9.jpeg": {
+    "bytes": 149288,
+    "height": 768,
+    "variants": [
+      {
+        "bytes": 130540,
+        "path": "/assets/img-opt/pages/publication-press-release/content-9-1024.webp",
+        "width": 1024
+      },
+      {
+        "bytes": 78800,
+        "path": "/assets/img-opt/pages/publication-press-release/content-9-800.webp",
+        "width": 800
+      },
+      {
+        "bytes": 28528,
+        "path": "/assets/img-opt/pages/publication-press-release/content-9-400.webp",
+        "width": 400
+      }
+    ],
+    "width": 1024
+  },
+  "/assets/img/pages/she-overview-1/banner.jpg": {
+    "bytes": 728530,
+    "height": 948,
+    "variants": [
+      {
+        "bytes": 149422,
+        "path": "/assets/img-opt/pages/she-overview-1/banner-1600.webp",
+        "width": 1600
+      },
+      {
+        "bytes": 46238,
+        "path": "/assets/img-opt/pages/she-overview-1/banner-800.webp",
+        "width": 800
+      },
+      {
+        "bytes": 13986,
+        "path": "/assets/img-opt/pages/she-overview-1/banner-400.webp",
+        "width": 400
+      }
+    ],
+    "width": 1980
+  },
+  "/assets/img/pages/she-overview-1/content-1.jpg": {
+    "bytes": 34127,
+    "height": 626,
+    "variants": [
+      {
+        "bytes": 27322,
+        "path": "/assets/img-opt/pages/she-overview-1/content-1-1112.webp",
+        "width": 1112
+      },
+      {
+        "bytes": 17350,
+        "path": "/assets/img-opt/pages/she-overview-1/content-1-800.webp",
+        "width": 800
+      },
+      {
+        "bytes": 7730,
+        "path": "/assets/img-opt/pages/she-overview-1/content-1-400.webp",
+        "width": 400
+      }
+    ],
+    "width": 1112
+  },
+  "/assets/img/pages/she-overview-1/content-2.png": {
+    "bytes": 57597,
+    "height": 671,
+    "variants": [
+      {
+        "bytes": 21072,
+        "path": "/assets/img-opt/pages/she-overview-1/content-2-501.webp",
+        "width": 501
+      },
+      {
+        "bytes": 23678,
+        "path": "/assets/img-opt/pages/she-overview-1/content-2-400.webp",
+        "width": 400
+      }
+    ],
+    "width": 501
+  },
+  "/assets/img/pages/she-she-activity/banner.jpg": {
+    "bytes": 728530,
+    "height": 948,
+    "variants": [
+      {
+        "bytes": 149422,
+        "path": "/assets/img-opt/pages/she-she-activity/banner-1600.webp",
+        "width": 1600
+      },
+      {
+        "bytes": 46238,
+        "path": "/assets/img-opt/pages/she-she-activity/banner-800.webp",
+        "width": 800
+      },
+      {
+        "bytes": 13986,
+        "path": "/assets/img-opt/pages/she-she-activity/banner-400.webp",
+        "width": 400
+      }
+    ],
+    "width": 1980
+  },
+  "/assets/img/pages/she-she-activity/content-1.jpg": {
+    "bytes": 213567,
+    "height": 640,
+    "variants": [
+      {
+        "bytes": 59358,
+        "path": "/assets/img-opt/pages/she-she-activity/content-1-1060.webp",
+        "width": 1060
+      },
+      {
+        "bytes": 40066,
+        "path": "/assets/img-opt/pages/she-she-activity/content-1-800.webp",
+        "width": 800
+      },
+      {
+        "bytes": 16372,
+        "path": "/assets/img-opt/pages/she-she-activity/content-1-400.webp",
+        "width": 400
+      }
+    ],
+    "width": 1060
+  },
+  "/assets/img/pages/she-she-activity/content-2.jpg": {
+    "bytes": 437842,
+    "height": 640,
+    "variants": [
+      {
+        "bytes": 211178,
+        "path": "/assets/img-opt/pages/she-she-activity/content-2-1060.webp",
+        "width": 1060
+      },
+      {
+        "bytes": 114044,
+        "path": "/assets/img-opt/pages/she-she-activity/content-2-800.webp",
+        "width": 800
+      },
+      {
+        "bytes": 33466,
+        "path": "/assets/img-opt/pages/she-she-activity/content-2-400.webp",
+        "width": 400
+      }
+    ],
+    "width": 1060
+  },
+  "/assets/img/pages/she-she-activity/content-3.jpg": {
+    "bytes": 366171,
+    "height": 640,
+    "variants": [
+      {
+        "bytes": 154560,
+        "path": "/assets/img-opt/pages/she-she-activity/content-3-1060.webp",
+        "width": 1060
+      },
+      {
+        "bytes": 91720,
+        "path": "/assets/img-opt/pages/she-she-activity/content-3-800.webp",
+        "width": 800
+      },
+      {
+        "bytes": 30546,
+        "path": "/assets/img-opt/pages/she-she-activity/content-3-400.webp",
+        "width": 400
+      }
+    ],
+    "width": 1060
+  },
+  "/assets/img/pages/she-she-activity/content-4.jpg": {
+    "bytes": 320322,
+    "height": 640,
+    "variants": [
+      {
+        "bytes": 118350,
+        "path": "/assets/img-opt/pages/she-she-activity/content-4-1060.webp",
+        "width": 1060
+      },
+      {
+        "bytes": 67434,
+        "path": "/assets/img-opt/pages/she-she-activity/content-4-800.webp",
+        "width": 800
+      },
+      {
+        "bytes": 22946,
+        "path": "/assets/img-opt/pages/she-she-activity/content-4-400.webp",
+        "width": 400
+      }
+    ],
+    "width": 1060
+  },
+  "/assets/img/pages/she-she-activity/content-5.jpg": {
+    "bytes": 286307,
+    "height": 640,
+    "variants": [
+      {
+        "bytes": 111708,
+        "path": "/assets/img-opt/pages/she-she-activity/content-5-1060.webp",
+        "width": 1060
+      },
+      {
+        "bytes": 72138,
+        "path": "/assets/img-opt/pages/she-she-activity/content-5-800.webp",
+        "width": 800
+      },
+      {
+        "bytes": 27668,
+        "path": "/assets/img-opt/pages/she-she-activity/content-5-400.webp",
+        "width": 400
+      }
+    ],
+    "width": 1060
+  },
+  "/assets/img/pages/she-she-activity/content-6.jpg": {
+    "bytes": 165461,
+    "height": 640,
+    "variants": [
+      {
+        "bytes": 39968,
+        "path": "/assets/img-opt/pages/she-she-activity/content-6-1060.webp",
+        "width": 1060
+      },
+      {
+        "bytes": 26114,
+        "path": "/assets/img-opt/pages/she-she-activity/content-6-800.webp",
+        "width": 800
+      },
+      {
+        "bytes": 11132,
+        "path": "/assets/img-opt/pages/she-she-activity/content-6-400.webp",
+        "width": 400
+      }
+    ],
+    "width": 1060
+  },
+  "/assets/img/pages/she-she-activity/content-7.jpg": {
+    "bytes": 425752,
+    "height": 640,
+    "variants": [
+      {
+        "bytes": 188574,
+        "path": "/assets/img-opt/pages/she-she-activity/content-7-1060.webp",
+        "width": 1060
+      },
+      {
+        "bytes": 105632,
+        "path": "/assets/img-opt/pages/she-she-activity/content-7-800.webp",
+        "width": 800
+      },
+      {
+        "bytes": 32574,
+        "path": "/assets/img-opt/pages/she-she-activity/content-7-400.webp",
+        "width": 400
+      }
+    ],
+    "width": 1060
+  },
+  "/assets/img/pages/she-she-activity/content-8.jpg": {
+    "bytes": 161774,
+    "height": 780,
+    "variants": [
+      {
+        "bytes": 140988,
+        "path": "/assets/img-opt/pages/she-she-activity/content-8-1040.webp",
+        "width": 1040
+      },
+      {
+        "bytes": 87392,
+        "path": "/assets/img-opt/pages/she-she-activity/content-8-800.webp",
+        "width": 800
+      },
+      {
+        "bytes": 30644,
+        "path": "/assets/img-opt/pages/she-she-activity/content-8-400.webp",
+        "width": 400
+      }
+    ],
+    "width": 1040
+  },
+  "/assets/img/publication/csr-bioflok-martapura.jpg": {
+    "bytes": 701340,
+    "height": 640,
+    "variants": [
+      {
+        "bytes": 142102,
+        "path": "/assets/img-opt/publication/csr-bioflok-martapura-1060.webp",
+        "width": 1060
+      },
+      {
+        "bytes": 82206,
+        "path": "/assets/img-opt/publication/csr-bioflok-martapura-800.webp",
+        "width": 800
+      },
+      {
+        "bytes": 27426,
+        "path": "/assets/img-opt/publication/csr-bioflok-martapura-400.webp",
+        "width": 400
+      }
+    ],
+    "width": 1060
+  },
+  "/assets/img/publication/hasnur-berbagi-qurban.jpeg": {
+    "bytes": 7243704,
+    "height": 3750,
+    "variants": [
+      {
+        "bytes": 279042,
+        "path": "/assets/img-opt/publication/hasnur-berbagi-qurban-1600.webp",
+        "width": 1600
+      },
+      {
+        "bytes": 96500,
+        "path": "/assets/img-opt/publication/hasnur-berbagi-qurban-800.webp",
+        "width": 800
+      },
+      {
+        "bytes": 30208,
+        "path": "/assets/img-opt/publication/hasnur-berbagi-qurban-400.webp",
+        "width": 400
+      }
+    ],
+    "width": 5000
+  },
+  "/assets/img/publication/hd-hyundai-partnership.jpg": {
+    "bytes": 1727344,
+    "height": 1600,
+    "variants": [
+      {
+        "bytes": 104438,
+        "path": "/assets/img-opt/publication/hd-hyundai-partnership-1600.webp",
+        "width": 1600
+      },
+      {
+        "bytes": 36354,
+        "path": "/assets/img-opt/publication/hd-hyundai-partnership-800.webp",
+        "width": 800
+      },
+      {
+        "bytes": 12608,
+        "path": "/assets/img-opt/publication/hd-hyundai-partnership-400.webp",
+        "width": 400
+      }
+    ],
+    "width": 2650
+  },
+  "/assets/img/publication/img13.jpg": {
+    "bytes": 18797,
+    "height": 480,
+    "variants": [
+      {
+        "bytes": 2784,
+        "path": "/assets/img-opt/publication/img13-671.webp",
+        "width": 671
+      },
+      {
+        "bytes": 1444,
+        "path": "/assets/img-opt/publication/img13-400.webp",
+        "width": 400
+      }
+    ],
+    "width": 671
+  },
+  "/assets/img/publication/pongamia-project.jpeg": {
+    "bytes": 5718908,
+    "height": 2813,
+    "variants": [
+      {
+        "bytes": 222448,
+        "path": "/assets/img-opt/publication/pongamia-project-1600.webp",
+        "width": 1600
+      },
+      {
+        "bytes": 95986,
+        "path": "/assets/img-opt/publication/pongamia-project-800.webp",
+        "width": 800
+      },
+      {
+        "bytes": 31066,
+        "path": "/assets/img-opt/publication/pongamia-project-400.webp",
+        "width": 400
+      }
+    ],
+    "width": 5000
+  },
+  "/assets/img/slider/hut-ke-60-hasnur-group.png": {
+    "bytes": 683945,
+    "height": 1896,
+    "variants": [
+      {
+        "bytes": 51136,
+        "path": "/assets/img-opt/slider/hut-ke-60-hasnur-group-1600.webp",
+        "width": 1600
+      },
+      {
+        "bytes": 25208,
+        "path": "/assets/img-opt/slider/hut-ke-60-hasnur-group-800.webp",
+        "width": 800
+      },
+      {
+        "bytes": 11842,
+        "path": "/assets/img-opt/slider/hut-ke-60-hasnur-group-400.webp",
+        "width": 400
+      }
+    ],
+    "width": 3960
+  },
+  "/assets/img/welcome-image.png": {
+    "bytes": 144194,
+    "height": 400,
+    "variants": [
+      {
+        "bytes": 35816,
+        "path": "/assets/img-opt/welcome-image-700.webp",
+        "width": 700
+      },
+      {
+        "bytes": 14700,
+        "path": "/assets/img-opt/welcome-image-400.webp",
+        "width": 400
+      }
+    ],
+    "width": 700
+  },
+  "/content-images/csr-activity/csr-hasnur-group/1.jpg": {
+    "bytes": 155125,
+    "height": 640,
+    "variants": [
+      {
+        "bytes": 76158,
+        "path": "/content-images-opt/csr-activity/csr-hasnur-group/1-1060.webp",
+        "width": 1060
+      },
+      {
+        "bytes": 48690,
+        "path": "/content-images-opt/csr-activity/csr-hasnur-group/1-800.webp",
+        "width": 800
+      },
+      {
+        "bytes": 20118,
+        "path": "/content-images-opt/csr-activity/csr-hasnur-group/1-400.webp",
+        "width": 400
+      }
+    ],
+    "width": 1060
+  },
+  "/content-images/csr-activity/dukung-asta-cita-presiden-hasnur-group-salurkan-bantuan-untuk-ketahanan-pangan-dan-ekonomi-biru/1.jpg": {
+    "bytes": 1652508,
+    "height": 1449,
+    "variants": [
+      {
+        "bytes": 209178,
+        "path": "/content-images-opt/csr-activity/dukung-asta-cita-presiden-hasnur-group-salurkan-bantuan-untuk-ketahanan-pangan-dan-ekonomi-biru/1-1600.webp",
+        "width": 1600
+      },
+      {
+        "bytes": 79086,
+        "path": "/content-images-opt/csr-activity/dukung-asta-cita-presiden-hasnur-group-salurkan-bantuan-untuk-ketahanan-pangan-dan-ekonomi-biru/1-800.webp",
+        "width": 800
+      },
+      {
+        "bytes": 27112,
+        "path": "/content-images-opt/csr-activity/dukung-asta-cita-presiden-hasnur-group-salurkan-bantuan-untuk-ketahanan-pangan-dan-ekonomi-biru/1-400.webp",
+        "width": 400
+      }
+    ],
+    "width": 2560
+  },
+  "/content-images/csr-activity/dukung-asta-cita-presiden-hasnur-group-salurkan-bantuan-untuk-ketahanan-pangan-dan-ekonomi-biru/2.jpg": {
+    "bytes": 1585935,
+    "height": 2774,
+    "variants": [
+      {
+        "bytes": 179156,
+        "path": "/content-images-opt/csr-activity/dukung-asta-cita-presiden-hasnur-group-salurkan-bantuan-untuk-ketahanan-pangan-dan-ekonomi-biru/2-1600.webp",
+        "width": 1600
+      },
+      {
+        "bytes": 72100,
+        "path": "/content-images-opt/csr-activity/dukung-asta-cita-presiden-hasnur-group-salurkan-bantuan-untuk-ketahanan-pangan-dan-ekonomi-biru/2-800.webp",
+        "width": 800
+      },
+      {
+        "bytes": 24454,
+        "path": "/content-images-opt/csr-activity/dukung-asta-cita-presiden-hasnur-group-salurkan-bantuan-untuk-ketahanan-pangan-dan-ekonomi-biru/2-400.webp",
+        "width": 400
+      }
+    ],
+    "width": 4160
+  },
+  "/content-images/csr-activity/hasnur-group-distribusikan-ratusan-hewan-kurban-ke-sejumlah-provinsi-di-indonesia/1.jpg": {
+    "bytes": 3821434,
+    "height": 4000,
+    "variants": [
+      {
+        "bytes": 67132,
+        "path": "/content-images-opt/csr-activity/hasnur-group-distribusikan-ratusan-hewan-kurban-ke-sejumlah-provinsi-di-indonesia/1-1600.webp",
+        "width": 1600
+      },
+      {
+        "bytes": 27052,
+        "path": "/content-images-opt/csr-activity/hasnur-group-distribusikan-ratusan-hewan-kurban-ke-sejumlah-provinsi-di-indonesia/1-800.webp",
+        "width": 800
+      },
+      {
+        "bytes": 10890,
+        "path": "/content-images-opt/csr-activity/hasnur-group-distribusikan-ratusan-hewan-kurban-ke-sejumlah-provinsi-di-indonesia/1-400.webp",
+        "width": 400
+      }
+    ],
+    "width": 6000
+  },
+  "/content-images/csr-activity/hasnur-group-distribusikan-ratusan-hewan-kurban-ke-sejumlah-provinsi-di-indonesia/2.jpg": {
+    "bytes": 5574947,
+    "height": 4000,
+    "variants": [
+      {
+        "bytes": 115252,
+        "path": "/content-images-opt/csr-activity/hasnur-group-distribusikan-ratusan-hewan-kurban-ke-sejumlah-provinsi-di-indonesia/2-1600.webp",
+        "width": 1600
+      },
+      {
+        "bytes": 49538,
+        "path": "/content-images-opt/csr-activity/hasnur-group-distribusikan-ratusan-hewan-kurban-ke-sejumlah-provinsi-di-indonesia/2-800.webp",
+        "width": 800
+      },
+      {
+        "bytes": 19358,
+        "path": "/content-images-opt/csr-activity/hasnur-group-distribusikan-ratusan-hewan-kurban-ke-sejumlah-provinsi-di-indonesia/2-400.webp",
+        "width": 400
+      }
+    ],
+    "width": 6000
+  },
+  "/content-images/csr-activity/hasnur-group-dukung-pemberdayaan-masyarakat-melalui-bantuan-20-kolam-bioflok-di-martapura/1.jpg": {
+    "bytes": 701340,
+    "height": 640,
+    "variants": [
+      {
+        "bytes": 142102,
+        "path": "/content-images-opt/csr-activity/hasnur-group-dukung-pemberdayaan-masyarakat-melalui-bantuan-20-kolam-bioflok-di-martapura/1-1060.webp",
+        "width": 1060
+      },
+      {
+        "bytes": 82206,
+        "path": "/content-images-opt/csr-activity/hasnur-group-dukung-pemberdayaan-masyarakat-melalui-bantuan-20-kolam-bioflok-di-martapura/1-800.webp",
+        "width": 800
+      },
+      {
+        "bytes": 27426,
+        "path": "/content-images-opt/csr-activity/hasnur-group-dukung-pemberdayaan-masyarakat-melalui-bantuan-20-kolam-bioflok-di-martapura/1-400.webp",
+        "width": 400
+      }
+    ],
+    "width": 1060
+  },
+  "/content-images/csr-activity/hasnur-group-dukung-pemberdayaan-masyarakat-melalui-bantuan-20-kolam-bioflok-di-martapura/2.jpg": {
+    "bytes": 672771,
+    "height": 640,
+    "variants": [
+      {
+        "bytes": 103388,
+        "path": "/content-images-opt/csr-activity/hasnur-group-dukung-pemberdayaan-masyarakat-melalui-bantuan-20-kolam-bioflok-di-martapura/2-1060.webp",
+        "width": 1060
+      },
+      {
+        "bytes": 64300,
+        "path": "/content-images-opt/csr-activity/hasnur-group-dukung-pemberdayaan-masyarakat-melalui-bantuan-20-kolam-bioflok-di-martapura/2-800.webp",
+        "width": 800
+      },
+      {
+        "bytes": 23356,
+        "path": "/content-images-opt/csr-activity/hasnur-group-dukung-pemberdayaan-masyarakat-melalui-bantuan-20-kolam-bioflok-di-martapura/2-400.webp",
+        "width": 400
+      }
+    ],
+    "width": 1060
+  },
+  "/content-images/csr-activity/hasnur-group-raih-dua-penghargaan-di-top-csr-awards-2025/1.jpg": {
+    "bytes": 5061706,
+    "height": 4000,
+    "variants": [
+      {
+        "bytes": 163450,
+        "path": "/content-images-opt/csr-activity/hasnur-group-raih-dua-penghargaan-di-top-csr-awards-2025/1-1600.webp",
+        "width": 1600
+      },
+      {
+        "bytes": 65806,
+        "path": "/content-images-opt/csr-activity/hasnur-group-raih-dua-penghargaan-di-top-csr-awards-2025/1-800.webp",
+        "width": 800
+      },
+      {
+        "bytes": 23410,
+        "path": "/content-images-opt/csr-activity/hasnur-group-raih-dua-penghargaan-di-top-csr-awards-2025/1-400.webp",
+        "width": 400
+      }
+    ],
+    "width": 6000
+  },
+  "/content-images/csr-activity/hasnur-group-raih-dua-penghargaan-di-top-csr-awards-2025/2.jpg": {
+    "bytes": 6758356,
+    "height": 4000,
+    "variants": [
+      {
+        "bytes": 341640,
+        "path": "/content-images-opt/csr-activity/hasnur-group-raih-dua-penghargaan-di-top-csr-awards-2025/2-1600.webp",
+        "width": 1600
+      },
+      {
+        "bytes": 115184,
+        "path": "/content-images-opt/csr-activity/hasnur-group-raih-dua-penghargaan-di-top-csr-awards-2025/2-800.webp",
+        "width": 800
+      },
+      {
+        "bytes": 34210,
+        "path": "/content-images-opt/csr-activity/hasnur-group-raih-dua-penghargaan-di-top-csr-awards-2025/2-400.webp",
+        "width": 400
+      }
+    ],
+    "width": 6000
+  },
+  "/content-images/csr-activity/program-budidaya-jagung-sayuran/1.jpg": {
+    "bytes": 462270,
+    "height": 640,
+    "variants": [
+      {
+        "bytes": 222762,
+        "path": "/content-images-opt/csr-activity/program-budidaya-jagung-sayuran/1-1060.webp",
+        "width": 1060
+      },
+      {
+        "bytes": 120394,
+        "path": "/content-images-opt/csr-activity/program-budidaya-jagung-sayuran/1-800.webp",
+        "width": 800
+      },
+      {
+        "bytes": 35252,
+        "path": "/content-images-opt/csr-activity/program-budidaya-jagung-sayuran/1-400.webp",
+        "width": 400
+      }
+    ],
+    "width": 1060
+  },
+  "/content-images/csr-activity/program-budidaya-jagung-sayuran/2.jpg": {
+    "bytes": 218626,
+    "height": 493,
+    "variants": [
+      {
+        "bytes": 85064,
+        "path": "/content-images-opt/csr-activity/program-budidaya-jagung-sayuran/2-1060.webp",
+        "width": 1060
+      },
+      {
+        "bytes": 50452,
+        "path": "/content-images-opt/csr-activity/program-budidaya-jagung-sayuran/2-800.webp",
+        "width": 800
+      },
+      {
+        "bytes": 17596,
+        "path": "/content-images-opt/csr-activity/program-budidaya-jagung-sayuran/2-400.webp",
+        "width": 400
+      }
+    ],
+    "width": 1060
+  },
+  "/content-images/csr-activity/program-budidaya-madu-kelulut-trigona/1.jpg": {
+    "bytes": 297740,
+    "height": 640,
+    "variants": [
+      {
+        "bytes": 51394,
+        "path": "/content-images-opt/csr-activity/program-budidaya-madu-kelulut-trigona/1-1060.webp",
+        "width": 1060
+      },
+      {
+        "bytes": 34646,
+        "path": "/content-images-opt/csr-activity/program-budidaya-madu-kelulut-trigona/1-800.webp",
+        "width": 800
+      },
+      {
+        "bytes": 14970,
+        "path": "/content-images-opt/csr-activity/program-budidaya-madu-kelulut-trigona/1-400.webp",
+        "width": 400
+      }
+    ],
+    "width": 1060
+  },
+  "/content-images/csr-activity/program-budidaya-madu-kelulut-trigona/2.jpg": {
+    "bytes": 490244,
+    "height": 640,
+    "variants": [
+      {
+        "bytes": 153640,
+        "path": "/content-images-opt/csr-activity/program-budidaya-madu-kelulut-trigona/2-1060.webp",
+        "width": 1060
+      },
+      {
+        "bytes": 88230,
+        "path": "/content-images-opt/csr-activity/program-budidaya-madu-kelulut-trigona/2-800.webp",
+        "width": 800
+      },
+      {
+        "bytes": 28338,
+        "path": "/content-images-opt/csr-activity/program-budidaya-madu-kelulut-trigona/2-400.webp",
+        "width": 400
+      }
+    ],
+    "width": 1060
+  },
+  "/content-images/csr-activity/pt-hasnur-citra-terpadu-memanfaatkan-lahan-sempit-untuk-bioflok/1.jpg": {
+    "bytes": 334818,
+    "height": 640,
+    "variants": [
+      {
+        "bytes": 113816,
+        "path": "/content-images-opt/csr-activity/pt-hasnur-citra-terpadu-memanfaatkan-lahan-sempit-untuk-bioflok/1-1060.webp",
+        "width": 1060
+      },
+      {
+        "bytes": 56790,
+        "path": "/content-images-opt/csr-activity/pt-hasnur-citra-terpadu-memanfaatkan-lahan-sempit-untuk-bioflok/1-800.webp",
+        "width": 800
+      },
+      {
+        "bytes": 16952,
+        "path": "/content-images-opt/csr-activity/pt-hasnur-citra-terpadu-memanfaatkan-lahan-sempit-untuk-bioflok/1-400.webp",
+        "width": 400
+      }
+    ],
+    "width": 1060
+  },
+  "/content-images/csr-activity/sasirangan-cloth-business-development-training/1.jpg": {
+    "bytes": 392435,
+    "height": 640,
+    "variants": [
+      {
+        "bytes": 121282,
+        "path": "/content-images-opt/csr-activity/sasirangan-cloth-business-development-training/1-1060.webp",
+        "width": 1060
+      },
+      {
+        "bytes": 69058,
+        "path": "/content-images-opt/csr-activity/sasirangan-cloth-business-development-training/1-800.webp",
+        "width": 800
+      },
+      {
+        "bytes": 22794,
+        "path": "/content-images-opt/csr-activity/sasirangan-cloth-business-development-training/1-400.webp",
+        "width": 400
+      }
+    ],
+    "width": 1060
+  },
+  "/content-images/csr-activity/terapkan-inovasi-lingkungan-dan-sosial-pt-energi-batubara-lestari-pertahankan-capaian-proper-biru/1.png": {
+    "bytes": 2246667,
+    "height": 2000,
+    "variants": [
+      {
+        "bytes": 163134,
+        "path": "/content-images-opt/csr-activity/terapkan-inovasi-lingkungan-dan-sosial-pt-energi-batubara-lestari-pertahankan-capaian-proper-biru/1-1600.webp",
+        "width": 1600
+      },
+      {
+        "bytes": 77754,
+        "path": "/content-images-opt/csr-activity/terapkan-inovasi-lingkungan-dan-sosial-pt-energi-batubara-lestari-pertahankan-capaian-proper-biru/1-800.webp",
+        "width": 800
+      },
+      {
+        "bytes": 31526,
+        "path": "/content-images-opt/csr-activity/terapkan-inovasi-lingkungan-dan-sosial-pt-energi-batubara-lestari-pertahankan-capaian-proper-biru/1-400.webp",
+        "width": 400
+      }
+    ],
+    "width": 2000
+  },
+  "/content-images/csr-activity/the-hasnur-group-cares-about-clean-water/1.jpg": {
+    "bytes": 251973,
+    "height": 640,
+    "variants": [
+      {
+        "bytes": 72866,
+        "path": "/content-images-opt/csr-activity/the-hasnur-group-cares-about-clean-water/1-1060.webp",
+        "width": 1060
+      },
+      {
+        "bytes": 48130,
+        "path": "/content-images-opt/csr-activity/the-hasnur-group-cares-about-clean-water/1-800.webp",
+        "width": 800
+      },
+      {
+        "bytes": 21192,
+        "path": "/content-images-opt/csr-activity/the-hasnur-group-cares-about-clean-water/1-400.webp",
+        "width": 400
+      }
+    ],
+    "width": 1060
+  },
+  "/content-images/latest-update/grand-opening-pt-sigma-rekayasa-prima-di-cikarang-dorong-pertumbuhan-dan-kolaborasi-industri/1.jpg": {
+    "bytes": 6036907,
+    "height": 4000,
+    "variants": [
+      {
+        "bytes": 176022,
+        "path": "/content-images-opt/latest-update/grand-opening-pt-sigma-rekayasa-prima-di-cikarang-dorong-pertumbuhan-dan-kolaborasi-industri/1-1600.webp",
+        "width": 1600
+      },
+      {
+        "bytes": 62506,
+        "path": "/content-images-opt/latest-update/grand-opening-pt-sigma-rekayasa-prima-di-cikarang-dorong-pertumbuhan-dan-kolaborasi-industri/1-800.webp",
+        "width": 800
+      },
+      {
+        "bytes": 20808,
+        "path": "/content-images-opt/latest-update/grand-opening-pt-sigma-rekayasa-prima-di-cikarang-dorong-pertumbuhan-dan-kolaborasi-industri/1-400.webp",
+        "width": 400
+      }
+    ],
+    "width": 6000
+  },
+  "/content-images/latest-update/grand-opening-pt-sigma-rekayasa-prima-di-cikarang-dorong-pertumbuhan-dan-kolaborasi-industri/2.jpg": {
+    "bytes": 5623088,
+    "height": 4000,
+    "variants": [
+      {
+        "bytes": 142992,
+        "path": "/content-images-opt/latest-update/grand-opening-pt-sigma-rekayasa-prima-di-cikarang-dorong-pertumbuhan-dan-kolaborasi-industri/2-1600.webp",
+        "width": 1600
+      },
+      {
+        "bytes": 58800,
+        "path": "/content-images-opt/latest-update/grand-opening-pt-sigma-rekayasa-prima-di-cikarang-dorong-pertumbuhan-dan-kolaborasi-industri/2-800.webp",
+        "width": 800
+      },
+      {
+        "bytes": 21936,
+        "path": "/content-images-opt/latest-update/grand-opening-pt-sigma-rekayasa-prima-di-cikarang-dorong-pertumbuhan-dan-kolaborasi-industri/2-400.webp",
+        "width": 400
+      }
+    ],
+    "width": 6000
+  },
+  "/content-images/latest-update/hasnur-berbagi-qurban-jangkau-puluhan-kabupaten-dan-kota-di-delapan-provinsi-pada-momentum-iduladha-1447-h/1.jpg": {
+    "bytes": 7243704,
+    "height": 3750,
+    "variants": [
+      {
+        "bytes": 279042,
+        "path": "/content-images-opt/latest-update/hasnur-berbagi-qurban-jangkau-puluhan-kabupaten-dan-kota-di-delapan-provinsi-pada-momentum-iduladha-1447-h/1-1600.webp",
+        "width": 1600
+      },
+      {
+        "bytes": 96500,
+        "path": "/content-images-opt/latest-update/hasnur-berbagi-qurban-jangkau-puluhan-kabupaten-dan-kota-di-delapan-provinsi-pada-momentum-iduladha-1447-h/1-800.webp",
+        "width": 800
+      },
+      {
+        "bytes": 30208,
+        "path": "/content-images-opt/latest-update/hasnur-berbagi-qurban-jangkau-puluhan-kabupaten-dan-kota-di-delapan-provinsi-pada-momentum-iduladha-1447-h/1-400.webp",
+        "width": 400
+      }
+    ],
+    "width": 5000
+  },
+  "/content-images/latest-update/hasnur-group-and-international-partners-pioneer-pongamia-project-for-post-mining-land-rehabilitation/1.jpg": {
+    "bytes": 5718908,
+    "height": 2813,
+    "variants": [
+      {
+        "bytes": 222448,
+        "path": "/content-images-opt/latest-update/hasnur-group-and-international-partners-pioneer-pongamia-project-for-post-mining-land-rehabilitation/1-1600.webp",
+        "width": 1600
+      },
+      {
+        "bytes": 95986,
+        "path": "/content-images-opt/latest-update/hasnur-group-and-international-partners-pioneer-pongamia-project-for-post-mining-land-rehabilitation/1-800.webp",
+        "width": 800
+      },
+      {
+        "bytes": 31066,
+        "path": "/content-images-opt/latest-update/hasnur-group-and-international-partners-pioneer-pongamia-project-for-post-mining-land-rehabilitation/1-400.webp",
+        "width": 400
+      }
+    ],
+    "width": 5000
+  },
+  "/content-images/latest-update/hasnur-group-gelar-rangkaian-buka-puasa-ramadan-2025-di-jakarta-dan-kalimantan/1.jpg": {
+    "bytes": 4005292,
+    "height": 4480,
+    "variants": [
+      {
+        "bytes": 245444,
+        "path": "/content-images-opt/latest-update/hasnur-group-gelar-rangkaian-buka-puasa-ramadan-2025-di-jakarta-dan-kalimantan/1-1600.webp",
+        "width": 1600
+      },
+      {
+        "bytes": 88052,
+        "path": "/content-images-opt/latest-update/hasnur-group-gelar-rangkaian-buka-puasa-ramadan-2025-di-jakarta-dan-kalimantan/1-800.webp",
+        "width": 800
+      },
+      {
+        "bytes": 27238,
+        "path": "/content-images-opt/latest-update/hasnur-group-gelar-rangkaian-buka-puasa-ramadan-2025-di-jakarta-dan-kalimantan/1-400.webp",
+        "width": 400
+      }
+    ],
+    "width": 6720
+  },
+  "/content-images/latest-update/hasnur-group-gelar-rangkaian-buka-puasa-ramadan-2025-di-jakarta-dan-kalimantan/2.jpg": {
+    "bytes": 3371415,
+    "height": 1800,
+    "variants": [
+      {
+        "bytes": 172928,
+        "path": "/content-images-opt/latest-update/hasnur-group-gelar-rangkaian-buka-puasa-ramadan-2025-di-jakarta-dan-kalimantan/2-1600.webp",
+        "width": 1600
+      },
+      {
+        "bytes": 64894,
+        "path": "/content-images-opt/latest-update/hasnur-group-gelar-rangkaian-buka-puasa-ramadan-2025-di-jakarta-dan-kalimantan/2-800.webp",
+        "width": 800
+      },
+      {
+        "bytes": 21858,
+        "path": "/content-images-opt/latest-update/hasnur-group-gelar-rangkaian-buka-puasa-ramadan-2025-di-jakarta-dan-kalimantan/2-400.webp",
+        "width": 400
+      }
+    ],
+    "width": 2700
+  },
+  "/content-images/latest-update/hasnur-group-gelar-rangkaian-buka-puasa-ramadan-2025-di-jakarta-dan-kalimantan/3.jpg": {
+    "bytes": 2550015,
+    "height": 2500,
+    "variants": [
+      {
+        "bytes": 47902,
+        "path": "/content-images-opt/latest-update/hasnur-group-gelar-rangkaian-buka-puasa-ramadan-2025-di-jakarta-dan-kalimantan/3-1600.webp",
+        "width": 1600
+      },
+      {
+        "bytes": 20764,
+        "path": "/content-images-opt/latest-update/hasnur-group-gelar-rangkaian-buka-puasa-ramadan-2025-di-jakarta-dan-kalimantan/3-800.webp",
+        "width": 800
+      },
+      {
+        "bytes": 9036,
+        "path": "/content-images-opt/latest-update/hasnur-group-gelar-rangkaian-buka-puasa-ramadan-2025-di-jakarta-dan-kalimantan/3-400.webp",
+        "width": 400
+      }
+    ],
+    "width": 3750
+  },
+  "/content-images/latest-update/hasnur-group-gelar-rangkaian-buka-puasa-ramadan-2025-di-jakarta-dan-kalimantan/4.jpg": {
+    "bytes": 1498810,
+    "height": 4289,
+    "variants": [
+      {
+        "bytes": 141824,
+        "path": "/content-images-opt/latest-update/hasnur-group-gelar-rangkaian-buka-puasa-ramadan-2025-di-jakarta-dan-kalimantan/4-1600.webp",
+        "width": 1600
+      },
+      {
+        "bytes": 57134,
+        "path": "/content-images-opt/latest-update/hasnur-group-gelar-rangkaian-buka-puasa-ramadan-2025-di-jakarta-dan-kalimantan/4-800.webp",
+        "width": 800
+      },
+      {
+        "bytes": 20850,
+        "path": "/content-images-opt/latest-update/hasnur-group-gelar-rangkaian-buka-puasa-ramadan-2025-di-jakarta-dan-kalimantan/4-400.webp",
+        "width": 400
+      }
+    ],
+    "width": 6434
+  },
+  "/content-images/latest-update/hasnur-group-raih-penghargaan-gold-dan-silver-pada-csr-award-indonesia-2025/1.jpg": {
+    "bytes": 895310,
+    "height": 640,
+    "variants": [
+      {
+        "bytes": 173042,
+        "path": "/content-images-opt/latest-update/hasnur-group-raih-penghargaan-gold-dan-silver-pada-csr-award-indonesia-2025/1-1060.webp",
+        "width": 1060
+      },
+      {
+        "bytes": 86808,
+        "path": "/content-images-opt/latest-update/hasnur-group-raih-penghargaan-gold-dan-silver-pada-csr-award-indonesia-2025/1-800.webp",
+        "width": 800
+      },
+      {
+        "bytes": 23786,
+        "path": "/content-images-opt/latest-update/hasnur-group-raih-penghargaan-gold-dan-silver-pada-csr-award-indonesia-2025/1-400.webp",
+        "width": 400
+      }
+    ],
+    "width": 1060
+  },
+  "/content-images/latest-update/hasnur-group-siapkan-tim-dan-tata-kelola-hadapi-tantangan-bisnis-2026/1.jpg": {
+    "bytes": 824205,
+    "height": 640,
+    "variants": [
+      {
+        "bytes": 164368,
+        "path": "/content-images-opt/latest-update/hasnur-group-siapkan-tim-dan-tata-kelola-hadapi-tantangan-bisnis-2026/1-1060.webp",
+        "width": 1060
+      },
+      {
+        "bytes": 86346,
+        "path": "/content-images-opt/latest-update/hasnur-group-siapkan-tim-dan-tata-kelola-hadapi-tantangan-bisnis-2026/1-800.webp",
+        "width": 800
+      },
+      {
+        "bytes": 26650,
+        "path": "/content-images-opt/latest-update/hasnur-group-siapkan-tim-dan-tata-kelola-hadapi-tantangan-bisnis-2026/1-400.webp",
+        "width": 400
+      }
+    ],
+    "width": 1060
+  },
+  "/content-images/latest-update/hasnur-group-siapkan-tim-dan-tata-kelola-hadapi-tantangan-bisnis-2026/2.jpg": {
+    "bytes": 690936,
+    "height": 640,
+    "variants": [
+      {
+        "bytes": 93866,
+        "path": "/content-images-opt/latest-update/hasnur-group-siapkan-tim-dan-tata-kelola-hadapi-tantangan-bisnis-2026/2-1060.webp",
+        "width": 1060
+      },
+      {
+        "bytes": 58378,
+        "path": "/content-images-opt/latest-update/hasnur-group-siapkan-tim-dan-tata-kelola-hadapi-tantangan-bisnis-2026/2-800.webp",
+        "width": 800
+      },
+      {
+        "bytes": 21834,
+        "path": "/content-images-opt/latest-update/hasnur-group-siapkan-tim-dan-tata-kelola-hadapi-tantangan-bisnis-2026/2-400.webp",
+        "width": 400
+      }
+    ],
+    "width": 1060
+  },
+  "/content-images/latest-update/hasnur-group-siapkan-tim-dan-tata-kelola-hadapi-tantangan-bisnis-2026/3.jpg": {
+    "bytes": 989211,
+    "height": 640,
+    "variants": [
+      {
+        "bytes": 114738,
+        "path": "/content-images-opt/latest-update/hasnur-group-siapkan-tim-dan-tata-kelola-hadapi-tantangan-bisnis-2026/3-1060.webp",
+        "width": 1060
+      },
+      {
+        "bytes": 60482,
+        "path": "/content-images-opt/latest-update/hasnur-group-siapkan-tim-dan-tata-kelola-hadapi-tantangan-bisnis-2026/3-800.webp",
+        "width": 800
+      },
+      {
+        "bytes": 21538,
+        "path": "/content-images-opt/latest-update/hasnur-group-siapkan-tim-dan-tata-kelola-hadapi-tantangan-bisnis-2026/3-400.webp",
+        "width": 400
+      }
+    ],
+    "width": 1060
+  },
+  "/content-images/latest-update/hasnur-group-town-hall-meeting-2025-achieve-higher-impact-more/1.jpg": {
+    "bytes": 5012078,
+    "height": 2177,
+    "variants": [
+      {
+        "bytes": 125146,
+        "path": "/content-images-opt/latest-update/hasnur-group-town-hall-meeting-2025-achieve-higher-impact-more/1-1600.webp",
+        "width": 1600
+      },
+      {
+        "bytes": 50314,
+        "path": "/content-images-opt/latest-update/hasnur-group-town-hall-meeting-2025-achieve-higher-impact-more/1-800.webp",
+        "width": 800
+      },
+      {
+        "bytes": 18728,
+        "path": "/content-images-opt/latest-update/hasnur-group-town-hall-meeting-2025-achieve-higher-impact-more/1-400.webp",
+        "width": 400
+      }
+    ],
+    "width": 3266
+  },
+  "/content-images/latest-update/hasnur-group-town-hall-meeting-2025-achieve-higher-impact-more/2.jpg": {
+    "bytes": 3430371,
+    "height": 1800,
+    "variants": [
+      {
+        "bytes": 213384,
+        "path": "/content-images-opt/latest-update/hasnur-group-town-hall-meeting-2025-achieve-higher-impact-more/2-1600.webp",
+        "width": 1600
+      },
+      {
+        "bytes": 76876,
+        "path": "/content-images-opt/latest-update/hasnur-group-town-hall-meeting-2025-achieve-higher-impact-more/2-800.webp",
+        "width": 800
+      },
+      {
+        "bytes": 25380,
+        "path": "/content-images-opt/latest-update/hasnur-group-town-hall-meeting-2025-achieve-higher-impact-more/2-400.webp",
+        "width": 400
+      }
+    ],
+    "width": 2700
+  },
+  "/content-images/latest-update/hasnur-group-town-hall-meeting-2025-achieve-higher-impact-more/3.jpg": {
+    "bytes": 4763848,
+    "height": 2000,
+    "variants": [
+      {
+        "bytes": 203650,
+        "path": "/content-images-opt/latest-update/hasnur-group-town-hall-meeting-2025-achieve-higher-impact-more/3-1600.webp",
+        "width": 1600
+      },
+      {
+        "bytes": 67448,
+        "path": "/content-images-opt/latest-update/hasnur-group-town-hall-meeting-2025-achieve-higher-impact-more/3-800.webp",
+        "width": 800
+      },
+      {
+        "bytes": 20838,
+        "path": "/content-images-opt/latest-update/hasnur-group-town-hall-meeting-2025-achieve-higher-impact-more/3-400.webp",
+        "width": 400
+      }
+    ],
+    "width": 3000
+  },
+  "/content-images/latest-update/hasnur-jaya-international-raih-penghargaan-dari-pemkab-tapin-atas-kepatuhan-pelaporan/1.jpg": {
+    "bytes": 319882,
+    "height": 640,
+    "variants": [
+      {
+        "bytes": 48302,
+        "path": "/content-images-opt/latest-update/hasnur-jaya-international-raih-penghargaan-dari-pemkab-tapin-atas-kepatuhan-pelaporan/1-1060.webp",
+        "width": 1060
+      },
+      {
+        "bytes": 30152,
+        "path": "/content-images-opt/latest-update/hasnur-jaya-international-raih-penghargaan-dari-pemkab-tapin-atas-kepatuhan-pelaporan/1-800.webp",
+        "width": 800
+      },
+      {
+        "bytes": 11906,
+        "path": "/content-images-opt/latest-update/hasnur-jaya-international-raih-penghargaan-dari-pemkab-tapin-atas-kepatuhan-pelaporan/1-400.webp",
+        "width": 400
+      }
+    ],
+    "width": 1060
+  },
+  "/content-images/latest-update/hasnur-jaya-international-raih-penghargaan-dari-pemkab-tapin-atas-kepatuhan-pelaporan/2.jpg": {
+    "bytes": 588878,
+    "height": 640,
+    "variants": [
+      {
+        "bytes": 79074,
+        "path": "/content-images-opt/latest-update/hasnur-jaya-international-raih-penghargaan-dari-pemkab-tapin-atas-kepatuhan-pelaporan/2-1060.webp",
+        "width": 1060
+      },
+      {
+        "bytes": 49092,
+        "path": "/content-images-opt/latest-update/hasnur-jaya-international-raih-penghargaan-dari-pemkab-tapin-atas-kepatuhan-pelaporan/2-800.webp",
+        "width": 800
+      },
+      {
+        "bytes": 18060,
+        "path": "/content-images-opt/latest-update/hasnur-jaya-international-raih-penghargaan-dari-pemkab-tapin-atas-kepatuhan-pelaporan/2-400.webp",
+        "width": 400
+      }
+    ],
+    "width": 1060
+  },
+  "/content-images/latest-update/haul-ke-11-h-abdussamad-sulaiman-tegaskan-keberlanjutan-warisan-usaha-dan-manfaat-sosial/1.jpg": {
+    "bytes": 879460,
+    "height": 640,
+    "variants": [
+      {
+        "bytes": 198458,
+        "path": "/content-images-opt/latest-update/haul-ke-11-h-abdussamad-sulaiman-tegaskan-keberlanjutan-warisan-usaha-dan-manfaat-sosial/1-1060.webp",
+        "width": 1060
+      },
+      {
+        "bytes": 112998,
+        "path": "/content-images-opt/latest-update/haul-ke-11-h-abdussamad-sulaiman-tegaskan-keberlanjutan-warisan-usaha-dan-manfaat-sosial/1-800.webp",
+        "width": 800
+      },
+      {
+        "bytes": 34398,
+        "path": "/content-images-opt/latest-update/haul-ke-11-h-abdussamad-sulaiman-tegaskan-keberlanjutan-warisan-usaha-dan-manfaat-sosial/1-400.webp",
+        "width": 400
+      }
+    ],
+    "width": 1060
+  },
+  "/content-images/latest-update/haul-ke-11-h-abdussamad-sulaiman-tegaskan-keberlanjutan-warisan-usaha-dan-manfaat-sosial/2.jpg": {
+    "bytes": 474177,
+    "height": 640,
+    "variants": [
+      {
+        "bytes": 58252,
+        "path": "/content-images-opt/latest-update/haul-ke-11-h-abdussamad-sulaiman-tegaskan-keberlanjutan-warisan-usaha-dan-manfaat-sosial/2-1060.webp",
+        "width": 1060
+      },
+      {
+        "bytes": 35392,
+        "path": "/content-images-opt/latest-update/haul-ke-11-h-abdussamad-sulaiman-tegaskan-keberlanjutan-warisan-usaha-dan-manfaat-sosial/2-800.webp",
+        "width": 800
+      },
+      {
+        "bytes": 12916,
+        "path": "/content-images-opt/latest-update/haul-ke-11-h-abdussamad-sulaiman-tegaskan-keberlanjutan-warisan-usaha-dan-manfaat-sosial/2-400.webp",
+        "width": 400
+      }
+    ],
+    "width": 1060
+  },
+  "/content-images/latest-update/haul-ke-11-h-abdussamad-sulaiman-tegaskan-keberlanjutan-warisan-usaha-dan-manfaat-sosial/3.jpg": {
+    "bytes": 781975,
+    "height": 640,
+    "variants": [
+      {
+        "bytes": 163666,
+        "path": "/content-images-opt/latest-update/haul-ke-11-h-abdussamad-sulaiman-tegaskan-keberlanjutan-warisan-usaha-dan-manfaat-sosial/3-1060.webp",
+        "width": 1060
+      },
+      {
+        "bytes": 96804,
+        "path": "/content-images-opt/latest-update/haul-ke-11-h-abdussamad-sulaiman-tegaskan-keberlanjutan-warisan-usaha-dan-manfaat-sosial/3-800.webp",
+        "width": 800
+      },
+      {
+        "bytes": 32608,
+        "path": "/content-images-opt/latest-update/haul-ke-11-h-abdussamad-sulaiman-tegaskan-keberlanjutan-warisan-usaha-dan-manfaat-sosial/3-400.webp",
+        "width": 400
+      }
+    ],
+    "width": 1060
+  },
+  "/content-images/latest-update/haul-ke-11-h-abdussamad-sulaiman-tegaskan-keberlanjutan-warisan-usaha-dan-manfaat-sosial/4.jpg": {
+    "bytes": 647146,
+    "height": 640,
+    "variants": [
+      {
+        "bytes": 126100,
+        "path": "/content-images-opt/latest-update/haul-ke-11-h-abdussamad-sulaiman-tegaskan-keberlanjutan-warisan-usaha-dan-manfaat-sosial/4-1060.webp",
+        "width": 1060
+      },
+      {
+        "bytes": 75874,
+        "path": "/content-images-opt/latest-update/haul-ke-11-h-abdussamad-sulaiman-tegaskan-keberlanjutan-warisan-usaha-dan-manfaat-sosial/4-800.webp",
+        "width": 800
+      },
+      {
+        "bytes": 26748,
+        "path": "/content-images-opt/latest-update/haul-ke-11-h-abdussamad-sulaiman-tegaskan-keberlanjutan-warisan-usaha-dan-manfaat-sosial/4-400.webp",
+        "width": 400
+      }
+    ],
+    "width": 1060
+  },
+  "/content-images/latest-update/intibios-banjarmasin-resmi-dibukan-hadirkan-akses-kesehatan-berkualitas-untuk-masyarakat-banua/1.jpg": {
+    "bytes": 2348782,
+    "height": 4000,
+    "variants": [
+      {
+        "bytes": 205648,
+        "path": "/content-images-opt/latest-update/intibios-banjarmasin-resmi-dibukan-hadirkan-akses-kesehatan-berkualitas-untuk-masyarakat-banua/1-1600.webp",
+        "width": 1600
+      },
+      {
+        "bytes": 74070,
+        "path": "/content-images-opt/latest-update/intibios-banjarmasin-resmi-dibukan-hadirkan-akses-kesehatan-berkualitas-untuk-masyarakat-banua/1-800.webp",
+        "width": 800
+      },
+      {
+        "bytes": 24174,
+        "path": "/content-images-opt/latest-update/intibios-banjarmasin-resmi-dibukan-hadirkan-akses-kesehatan-berkualitas-untuk-masyarakat-banua/1-400.webp",
+        "width": 400
+      }
+    ],
+    "width": 6000
+  },
+  "/content-images/latest-update/intibios-banjarmasin-resmi-dibukan-hadirkan-akses-kesehatan-berkualitas-untuk-masyarakat-banua/2.jpg": {
+    "bytes": 2325796,
+    "height": 4000,
+    "variants": [
+      {
+        "bytes": 194424,
+        "path": "/content-images-opt/latest-update/intibios-banjarmasin-resmi-dibukan-hadirkan-akses-kesehatan-berkualitas-untuk-masyarakat-banua/2-1600.webp",
+        "width": 1600
+      },
+      {
+        "bytes": 67476,
+        "path": "/content-images-opt/latest-update/intibios-banjarmasin-resmi-dibukan-hadirkan-akses-kesehatan-berkualitas-untuk-masyarakat-banua/2-800.webp",
+        "width": 800
+      },
+      {
+        "bytes": 22230,
+        "path": "/content-images-opt/latest-update/intibios-banjarmasin-resmi-dibukan-hadirkan-akses-kesehatan-berkualitas-untuk-masyarakat-banua/2-400.webp",
+        "width": 400
+      }
+    ],
+    "width": 6000
+  },
+  "/content-images/latest-update/intibios-banjarmasin-resmi-dibukan-hadirkan-akses-kesehatan-berkualitas-untuk-masyarakat-banua/3.jpg": {
+    "bytes": 5406720,
+    "height": 2624,
+    "variants": [
+      {
+        "bytes": 92890,
+        "path": "/content-images-opt/latest-update/intibios-banjarmasin-resmi-dibukan-hadirkan-akses-kesehatan-berkualitas-untuk-masyarakat-banua/3-1600.webp",
+        "width": 1600
+      },
+      {
+        "bytes": 39212,
+        "path": "/content-images-opt/latest-update/intibios-banjarmasin-resmi-dibukan-hadirkan-akses-kesehatan-berkualitas-untuk-masyarakat-banua/3-800.webp",
+        "width": 800
+      },
+      {
+        "bytes": 15146,
+        "path": "/content-images-opt/latest-update/intibios-banjarmasin-resmi-dibukan-hadirkan-akses-kesehatan-berkualitas-untuk-masyarakat-banua/3-400.webp",
+        "width": 400
+      }
+    ],
+    "width": 3936
+  },
+  "/content-images/latest-update/kolaborasi-hasnur-group-dan-hd-hyundai-hadirkan-solusi-tambang-terpadu-dan-berkelanjutan/1.jpg": {
+    "bytes": 2437497,
+    "height": 3175,
+    "variants": [
+      {
+        "bytes": 106136,
+        "path": "/content-images-opt/latest-update/kolaborasi-hasnur-group-dan-hd-hyundai-hadirkan-solusi-tambang-terpadu-dan-berkelanjutan/1-1600.webp",
+        "width": 1600
+      },
+      {
+        "bytes": 36502,
+        "path": "/content-images-opt/latest-update/kolaborasi-hasnur-group-dan-hd-hyundai-hadirkan-solusi-tambang-terpadu-dan-berkelanjutan/1-800.webp",
+        "width": 800
+      },
+      {
+        "bytes": 12714,
+        "path": "/content-images-opt/latest-update/kolaborasi-hasnur-group-dan-hd-hyundai-hadirkan-solusi-tambang-terpadu-dan-berkelanjutan/1-400.webp",
+        "width": 400
+      }
+    ],
+    "width": 4549
+  },
+  "/content-images/latest-update/kolaborasi-hasnur-group-dan-hd-hyundai-hadirkan-solusi-tambang-terpadu-dan-berkelanjutan/2.jpg": {
+    "bytes": 3773680,
+    "height": 2714,
+    "variants": [
+      {
+        "bytes": 117884,
+        "path": "/content-images-opt/latest-update/kolaborasi-hasnur-group-dan-hd-hyundai-hadirkan-solusi-tambang-terpadu-dan-berkelanjutan/2-1600.webp",
+        "width": 1600
+      },
+      {
+        "bytes": 41338,
+        "path": "/content-images-opt/latest-update/kolaborasi-hasnur-group-dan-hd-hyundai-hadirkan-solusi-tambang-terpadu-dan-berkelanjutan/2-800.webp",
+        "width": 800
+      },
+      {
+        "bytes": 14472,
+        "path": "/content-images-opt/latest-update/kolaborasi-hasnur-group-dan-hd-hyundai-hadirkan-solusi-tambang-terpadu-dan-berkelanjutan/2-400.webp",
+        "width": 400
+      }
+    ],
+    "width": 5671
+  },
+  "/content-images/latest-update/penetapan-rkap-2025-hasnur-group-perkuat-peran-direksi-lewat-win-win-agreement/1.jpg": {
+    "bytes": 745140,
+    "height": 640,
+    "variants": [
+      {
+        "bytes": 132982,
+        "path": "/content-images-opt/latest-update/penetapan-rkap-2025-hasnur-group-perkuat-peran-direksi-lewat-win-win-agreement/1-1060.webp",
+        "width": 1060
+      },
+      {
+        "bytes": 76788,
+        "path": "/content-images-opt/latest-update/penetapan-rkap-2025-hasnur-group-perkuat-peran-direksi-lewat-win-win-agreement/1-800.webp",
+        "width": 800
+      },
+      {
+        "bytes": 23846,
+        "path": "/content-images-opt/latest-update/penetapan-rkap-2025-hasnur-group-perkuat-peran-direksi-lewat-win-win-agreement/1-400.webp",
+        "width": 400
+      }
+    ],
+    "width": 1060
+  },
+  "/content-images/latest-update/penetapan-rkap-2025-hasnur-group-perkuat-peran-direksi-lewat-win-win-agreement/2.jpg": {
+    "bytes": 4304465,
+    "height": 2000,
+    "variants": [
+      {
+        "bytes": 160498,
+        "path": "/content-images-opt/latest-update/penetapan-rkap-2025-hasnur-group-perkuat-peran-direksi-lewat-win-win-agreement/2-1600.webp",
+        "width": 1600
+      },
+      {
+        "bytes": 59238,
+        "path": "/content-images-opt/latest-update/penetapan-rkap-2025-hasnur-group-perkuat-peran-direksi-lewat-win-win-agreement/2-800.webp",
+        "width": 800
+      },
+      {
+        "bytes": 19240,
+        "path": "/content-images-opt/latest-update/penetapan-rkap-2025-hasnur-group-perkuat-peran-direksi-lewat-win-win-agreement/2-400.webp",
+        "width": 400
+      }
+    ],
+    "width": 3000
+  },
+  "/content-images/latest-update/penetapan-rkap-2025-hasnur-group-perkuat-peran-direksi-lewat-win-win-agreement/3.jpg": {
+    "bytes": 4250245,
+    "height": 2000,
+    "variants": [
+      {
+        "bytes": 165176,
+        "path": "/content-images-opt/latest-update/penetapan-rkap-2025-hasnur-group-perkuat-peran-direksi-lewat-win-win-agreement/3-1600.webp",
+        "width": 1600
+      },
+      {
+        "bytes": 58794,
+        "path": "/content-images-opt/latest-update/penetapan-rkap-2025-hasnur-group-perkuat-peran-direksi-lewat-win-win-agreement/3-800.webp",
+        "width": 800
+      },
+      {
+        "bytes": 19598,
+        "path": "/content-images-opt/latest-update/penetapan-rkap-2025-hasnur-group-perkuat-peran-direksi-lewat-win-win-agreement/3-400.webp",
+        "width": 400
+      }
+    ],
+    "width": 3000
+  },
+  "/content-images/latest-update/presiden-direktur-hasnur-group-bagikan-strategi-menjaga-keberlanjutan-bisnis-keluarga/1.jpg": {
+    "bytes": 642462,
+    "height": 640,
+    "variants": [
+      {
+        "bytes": 69044,
+        "path": "/content-images-opt/latest-update/presiden-direktur-hasnur-group-bagikan-strategi-menjaga-keberlanjutan-bisnis-keluarga/1-1060.webp",
+        "width": 1060
+      },
+      {
+        "bytes": 37820,
+        "path": "/content-images-opt/latest-update/presiden-direktur-hasnur-group-bagikan-strategi-menjaga-keberlanjutan-bisnis-keluarga/1-800.webp",
+        "width": 800
+      },
+      {
+        "bytes": 13288,
+        "path": "/content-images-opt/latest-update/presiden-direktur-hasnur-group-bagikan-strategi-menjaga-keberlanjutan-bisnis-keluarga/1-400.webp",
+        "width": 400
+      }
+    ],
+    "width": 1060
+  },
+  "/content-images/latest-update/presiden-prabowo-anugerahkan-tanda-kehormatan-kepada-founder-hasnur-group-h-abdussamad-sulaiman/1.jpg": {
+    "bytes": 360915,
+    "height": 640,
+    "variants": [
+      {
+        "bytes": 45274,
+        "path": "/content-images-opt/latest-update/presiden-prabowo-anugerahkan-tanda-kehormatan-kepada-founder-hasnur-group-h-abdussamad-sulaiman/1-1060.webp",
+        "width": 1060
+      },
+      {
+        "bytes": 31170,
+        "path": "/content-images-opt/latest-update/presiden-prabowo-anugerahkan-tanda-kehormatan-kepada-founder-hasnur-group-h-abdussamad-sulaiman/1-800.webp",
+        "width": 800
+      },
+      {
+        "bytes": 13382,
+        "path": "/content-images-opt/latest-update/presiden-prabowo-anugerahkan-tanda-kehormatan-kepada-founder-hasnur-group-h-abdussamad-sulaiman/1-400.webp",
+        "width": 400
+      }
+    ],
+    "width": 1060
+  },
+  "/content-images/latest-update/pt-hasnur-citra-terpadu-raih-proper-biru-tegaskan-komitmen-pada-lingkungan-dan-masyarakat/1.jpg": {
+    "bytes": 2578869,
+    "height": 2000,
+    "variants": [
+      {
+        "bytes": 269410,
+        "path": "/content-images-opt/latest-update/pt-hasnur-citra-terpadu-raih-proper-biru-tegaskan-komitmen-pada-lingkungan-dan-masyarakat/1-1600.webp",
+        "width": 1600
+      },
+      {
+        "bytes": 96976,
+        "path": "/content-images-opt/latest-update/pt-hasnur-citra-terpadu-raih-proper-biru-tegaskan-komitmen-pada-lingkungan-dan-masyarakat/1-800.webp",
+        "width": 800
+      },
+      {
+        "bytes": 32578,
+        "path": "/content-images-opt/latest-update/pt-hasnur-citra-terpadu-raih-proper-biru-tegaskan-komitmen-pada-lingkungan-dan-masyarakat/1-400.webp",
+        "width": 400
+      }
+    ],
+    "width": 2000
+  },
+  "/content-images/latest-update/pt-hasnur-riung-sinergi-raih-tiga-penghargaan-bronze-di-opexcon-award-2025/1.jpg": {
+    "bytes": 583011,
+    "height": 640,
+    "variants": [
+      {
+        "bytes": 83670,
+        "path": "/content-images-opt/latest-update/pt-hasnur-riung-sinergi-raih-tiga-penghargaan-bronze-di-opexcon-award-2025/1-1060.webp",
+        "width": 1060
+      },
+      {
+        "bytes": 51492,
+        "path": "/content-images-opt/latest-update/pt-hasnur-riung-sinergi-raih-tiga-penghargaan-bronze-di-opexcon-award-2025/1-800.webp",
+        "width": 800
+      },
+      {
+        "bytes": 18782,
+        "path": "/content-images-opt/latest-update/pt-hasnur-riung-sinergi-raih-tiga-penghargaan-bronze-di-opexcon-award-2025/1-400.webp",
+        "width": 400
+      }
+    ],
+    "width": 1060
+  },
+  "/content-images/news/csr-hasnur-group-dan-polda-kalsel-dorong-ekonomi-biru-lewat-bantuan-sosial-di-desa-bagus/1.jpg": {
+    "bytes": 1222965,
+    "height": 1449,
+    "variants": [
+      {
+        "bytes": 133436,
+        "path": "/content-images-opt/news/csr-hasnur-group-dan-polda-kalsel-dorong-ekonomi-biru-lewat-bantuan-sosial-di-desa-bagus/1-1600.webp",
+        "width": 1600
+      },
+      {
+        "bytes": 55154,
+        "path": "/content-images-opt/news/csr-hasnur-group-dan-polda-kalsel-dorong-ekonomi-biru-lewat-bantuan-sosial-di-desa-bagus/1-800.webp",
+        "width": 800
+      },
+      {
+        "bytes": 21210,
+        "path": "/content-images-opt/news/csr-hasnur-group-dan-polda-kalsel-dorong-ekonomi-biru-lewat-bantuan-sosial-di-desa-bagus/1-400.webp",
+        "width": 400
+      }
+    ],
+    "width": 2560
+  },
+  "/content-images/news/hasnur-group-bantu-pembangunan-huntara-dan-mck-untuk-warga-hst/1.jpg": {
+    "bytes": 223019,
+    "height": 640,
+    "variants": [
+      {
+        "bytes": 69474,
+        "path": "/content-images-opt/news/hasnur-group-bantu-pembangunan-huntara-dan-mck-untuk-warga-hst/1-1060.webp",
+        "width": 1060
+      },
+      {
+        "bytes": 46716,
+        "path": "/content-images-opt/news/hasnur-group-bantu-pembangunan-huntara-dan-mck-untuk-warga-hst/1-800.webp",
+        "width": 800
+      },
+      {
+        "bytes": 19594,
+        "path": "/content-images-opt/news/hasnur-group-bantu-pembangunan-huntara-dan-mck-untuk-warga-hst/1-400.webp",
+        "width": 400
+      }
+    ],
+    "width": 1060
+  },
+  "/content-images/news/hasnur-group-siapkan-transformasi-bisnis-untuk-pertumbuhan-di-2025/1.jpg": {
+    "bytes": 5012078,
+    "height": 2177,
+    "variants": [
+      {
+        "bytes": 125146,
+        "path": "/content-images-opt/news/hasnur-group-siapkan-transformasi-bisnis-untuk-pertumbuhan-di-2025/1-1600.webp",
+        "width": 1600
+      },
+      {
+        "bytes": 50314,
+        "path": "/content-images-opt/news/hasnur-group-siapkan-transformasi-bisnis-untuk-pertumbuhan-di-2025/1-800.webp",
+        "width": 800
+      },
+      {
+        "bytes": 18728,
+        "path": "/content-images-opt/news/hasnur-group-siapkan-transformasi-bisnis-untuk-pertumbuhan-di-2025/1-400.webp",
+        "width": 400
+      }
+    ],
+    "width": 3266
+  },
+  "/content-images/news/hd-hyundai-construction-equipment-partners-with-indonesian-mining-firm-hasnur-group/1.jpg": {
+    "bytes": 3773680,
+    "height": 2714,
+    "variants": [
+      {
+        "bytes": 117884,
+        "path": "/content-images-opt/news/hd-hyundai-construction-equipment-partners-with-indonesian-mining-firm-hasnur-group/1-1600.webp",
+        "width": 1600
+      },
+      {
+        "bytes": 41338,
+        "path": "/content-images-opt/news/hd-hyundai-construction-equipment-partners-with-indonesian-mining-firm-hasnur-group/1-800.webp",
+        "width": 800
+      },
+      {
+        "bytes": 14472,
+        "path": "/content-images-opt/news/hd-hyundai-construction-equipment-partners-with-indonesian-mining-firm-hasnur-group/1-400.webp",
+        "width": 400
+      }
+    ],
+    "width": 5671
+  },
+  "/content-images/news/melihat-kiprah-perusahaan-asal-kalimantan-yang-raih-dua-penghargaan-di-top-csr-awards-2025/1.jpg": {
+    "bytes": 5061706,
+    "height": 4000,
+    "variants": [
+      {
+        "bytes": 163450,
+        "path": "/content-images-opt/news/melihat-kiprah-perusahaan-asal-kalimantan-yang-raih-dua-penghargaan-di-top-csr-awards-2025/1-1600.webp",
+        "width": 1600
+      },
+      {
+        "bytes": 65806,
+        "path": "/content-images-opt/news/melihat-kiprah-perusahaan-asal-kalimantan-yang-raih-dua-penghargaan-di-top-csr-awards-2025/1-800.webp",
+        "width": 800
+      },
+      {
+        "bytes": 23410,
+        "path": "/content-images-opt/news/melihat-kiprah-perusahaan-asal-kalimantan-yang-raih-dua-penghargaan-di-top-csr-awards-2025/1-400.webp",
+        "width": 400
+      }
+    ],
+    "width": 6000
+  },
+  "/content-images/news/visit-of-real-madrid-foundation-and-the-inauguration-of-hasnur-mini-arena/1.jpg": {
+    "bytes": 216339,
+    "height": 640,
+    "variants": [
+      {
+        "bytes": 143612,
+        "path": "/content-images-opt/news/visit-of-real-madrid-foundation-and-the-inauguration-of-hasnur-mini-arena/1-1060.webp",
+        "width": 1060
+      },
+      {
+        "bytes": 86736,
+        "path": "/content-images-opt/news/visit-of-real-madrid-foundation-and-the-inauguration-of-hasnur-mini-arena/1-800.webp",
+        "width": 800
+      },
+      {
+        "bytes": 29240,
+        "path": "/content-images-opt/news/visit-of-real-madrid-foundation-and-the-inauguration-of-hasnur-mini-arena/1-400.webp",
+        "width": 400
+      }
+    ],
+    "width": 1060
+  },
+  "/content-images/press-release/dari-mimpi-hingga-kepemimpinan-jayanti-sari-ceritakan-perjalanan-hasnur-group-di-bim-university/1.jpg": {
+    "bytes": 588549,
+    "height": 640,
+    "variants": [
+      {
+        "bytes": 90982,
+        "path": "/content-images-opt/press-release/dari-mimpi-hingga-kepemimpinan-jayanti-sari-ceritakan-perjalanan-hasnur-group-di-bim-university/1-1060.webp",
+        "width": 1060
+      },
+      {
+        "bytes": 50658,
+        "path": "/content-images-opt/press-release/dari-mimpi-hingga-kepemimpinan-jayanti-sari-ceritakan-perjalanan-hasnur-group-di-bim-university/1-800.webp",
+        "width": 800
+      },
+      {
+        "bytes": 17190,
+        "path": "/content-images-opt/press-release/dari-mimpi-hingga-kepemimpinan-jayanti-sari-ceritakan-perjalanan-hasnur-group-di-bim-university/1-400.webp",
+        "width": 400
+      }
+    ],
+    "width": 1060
+  },
+  "/content-images/press-release/dari-mimpi-hingga-kepemimpinan-jayanti-sari-ceritakan-perjalanan-hasnur-group-di-bim-university/2.jpg": {
+    "bytes": 557420,
+    "height": 640,
+    "variants": [
+      {
+        "bytes": 63948,
+        "path": "/content-images-opt/press-release/dari-mimpi-hingga-kepemimpinan-jayanti-sari-ceritakan-perjalanan-hasnur-group-di-bim-university/2-1060.webp",
+        "width": 1060
+      },
+      {
+        "bytes": 35908,
+        "path": "/content-images-opt/press-release/dari-mimpi-hingga-kepemimpinan-jayanti-sari-ceritakan-perjalanan-hasnur-group-di-bim-university/2-800.webp",
+        "width": 800
+      },
+      {
+        "bytes": 13620,
+        "path": "/content-images-opt/press-release/dari-mimpi-hingga-kepemimpinan-jayanti-sari-ceritakan-perjalanan-hasnur-group-di-bim-university/2-400.webp",
+        "width": 400
+      }
+    ],
+    "width": 1060
+  },
+  "/content-images/press-release/dari-mimpi-hingga-kepemimpinan-jayanti-sari-ceritakan-perjalanan-hasnur-group-di-bim-university/3.jpg": {
+    "bytes": 601085,
+    "height": 640,
+    "variants": [
+      {
+        "bytes": 77628,
+        "path": "/content-images-opt/press-release/dari-mimpi-hingga-kepemimpinan-jayanti-sari-ceritakan-perjalanan-hasnur-group-di-bim-university/3-1060.webp",
+        "width": 1060
+      },
+      {
+        "bytes": 41790,
+        "path": "/content-images-opt/press-release/dari-mimpi-hingga-kepemimpinan-jayanti-sari-ceritakan-perjalanan-hasnur-group-di-bim-university/3-800.webp",
+        "width": 800
+      },
+      {
+        "bytes": 15150,
+        "path": "/content-images-opt/press-release/dari-mimpi-hingga-kepemimpinan-jayanti-sari-ceritakan-perjalanan-hasnur-group-di-bim-university/3-400.webp",
+        "width": 400
+      }
+    ],
+    "width": 1060
+  },
+  "/content-images/press-release/hasnur-group-buka-rangkaian-hut-ke-59-dengan-tagline-tangguh-bersama-menggapai-visi/1.jpg": {
+    "bytes": 784435,
+    "height": 640,
+    "variants": [
+      {
+        "bytes": 132518,
+        "path": "/content-images-opt/press-release/hasnur-group-buka-rangkaian-hut-ke-59-dengan-tagline-tangguh-bersama-menggapai-visi/1-1060.webp",
+        "width": 1060
+      },
+      {
+        "bytes": 75214,
+        "path": "/content-images-opt/press-release/hasnur-group-buka-rangkaian-hut-ke-59-dengan-tagline-tangguh-bersama-menggapai-visi/1-800.webp",
+        "width": 800
+      },
+      {
+        "bytes": 24752,
+        "path": "/content-images-opt/press-release/hasnur-group-buka-rangkaian-hut-ke-59-dengan-tagline-tangguh-bersama-menggapai-visi/1-400.webp",
+        "width": 400
+      }
+    ],
+    "width": 1060
+  },
+  "/content-images/press-release/hasnur-group-buka-rangkaian-hut-ke-59-dengan-tagline-tangguh-bersama-menggapai-visi/2.jpg": {
+    "bytes": 454555,
+    "height": 640,
+    "variants": [
+      {
+        "bytes": 39772,
+        "path": "/content-images-opt/press-release/hasnur-group-buka-rangkaian-hut-ke-59-dengan-tagline-tangguh-bersama-menggapai-visi/2-1060.webp",
+        "width": 1060
+      },
+      {
+        "bytes": 23344,
+        "path": "/content-images-opt/press-release/hasnur-group-buka-rangkaian-hut-ke-59-dengan-tagline-tangguh-bersama-menggapai-visi/2-800.webp",
+        "width": 800
+      },
+      {
+        "bytes": 9074,
+        "path": "/content-images-opt/press-release/hasnur-group-buka-rangkaian-hut-ke-59-dengan-tagline-tangguh-bersama-menggapai-visi/2-400.webp",
+        "width": 400
+      }
+    ],
+    "width": 1060
+  },
+  "/content-images/press-release/hasnur-group-distributes-aid-to-flood-affected-communities-in-south-kalimantan/1.jpg": {
+    "bytes": 309039,
+    "height": 853,
+    "variants": [
+      {
+        "bytes": 137354,
+        "path": "/content-images-opt/press-release/hasnur-group-distributes-aid-to-flood-affected-communities-in-south-kalimantan/1-1280.webp",
+        "width": 1280
+      },
+      {
+        "bytes": 61348,
+        "path": "/content-images-opt/press-release/hasnur-group-distributes-aid-to-flood-affected-communities-in-south-kalimantan/1-800.webp",
+        "width": 800
+      },
+      {
+        "bytes": 21610,
+        "path": "/content-images-opt/press-release/hasnur-group-distributes-aid-to-flood-affected-communities-in-south-kalimantan/1-400.webp",
+        "width": 400
+      }
+    ],
+    "width": 1280
+  },
+  "/content-images/press-release/peringati-milad-ke-59-hasnur-group-terus-berkontribusi-positif-untuk-banua-dan-bangsa/1.jpg": {
+    "bytes": 672569,
+    "height": 640,
+    "variants": [
+      {
+        "bytes": 136254,
+        "path": "/content-images-opt/press-release/peringati-milad-ke-59-hasnur-group-terus-berkontribusi-positif-untuk-banua-dan-bangsa/1-1060.webp",
+        "width": 1060
+      },
+      {
+        "bytes": 71826,
+        "path": "/content-images-opt/press-release/peringati-milad-ke-59-hasnur-group-terus-berkontribusi-positif-untuk-banua-dan-bangsa/1-800.webp",
+        "width": 800
+      },
+      {
+        "bytes": 21322,
+        "path": "/content-images-opt/press-release/peringati-milad-ke-59-hasnur-group-terus-berkontribusi-positif-untuk-banua-dan-bangsa/1-400.webp",
+        "width": 400
+      }
+    ],
+    "width": 1060
+  },
+  "/content-images/press-release/peringati-milad-ke-59-hasnur-group-terus-berkontribusi-positif-untuk-banua-dan-bangsa/2.jpg": {
+    "bytes": 499969,
+    "height": 640,
+    "variants": [
+      {
+        "bytes": 74032,
+        "path": "/content-images-opt/press-release/peringati-milad-ke-59-hasnur-group-terus-berkontribusi-positif-untuk-banua-dan-bangsa/2-1060.webp",
+        "width": 1060
+      },
+      {
+        "bytes": 44764,
+        "path": "/content-images-opt/press-release/peringati-milad-ke-59-hasnur-group-terus-berkontribusi-positif-untuk-banua-dan-bangsa/2-800.webp",
+        "width": 800
+      },
+      {
+        "bytes": 16294,
+        "path": "/content-images-opt/press-release/peringati-milad-ke-59-hasnur-group-terus-berkontribusi-positif-untuk-banua-dan-bangsa/2-400.webp",
+        "width": 400
+      }
+    ],
+    "width": 1060
+  },
+  "/content-images/press-release/peringati-milad-ke-59-hasnur-group-terus-berkontribusi-positif-untuk-banua-dan-bangsa/3.jpg": {
+    "bytes": 738259,
+    "height": 640,
+    "variants": [
+      {
+        "bytes": 148942,
+        "path": "/content-images-opt/press-release/peringati-milad-ke-59-hasnur-group-terus-berkontribusi-positif-untuk-banua-dan-bangsa/3-1060.webp",
+        "width": 1060
+      },
+      {
+        "bytes": 82984,
+        "path": "/content-images-opt/press-release/peringati-milad-ke-59-hasnur-group-terus-berkontribusi-positif-untuk-banua-dan-bangsa/3-800.webp",
+        "width": 800
+      },
+      {
+        "bytes": 25516,
+        "path": "/content-images-opt/press-release/peringati-milad-ke-59-hasnur-group-terus-berkontribusi-positif-untuk-banua-dan-bangsa/3-400.webp",
+        "width": 400
+      }
+    ],
+    "width": 1060
+  },
+  "/content-images/press-release/presiden-direktur-hasnur-group-jayanti-sari-ceritakan-perjalanan-hasnur-group-dari-sungai-hingga-samudera-internasional/1.jpg": {
+    "bytes": 556153,
+    "height": 640,
+    "variants": [
+      {
+        "bytes": 79010,
+        "path": "/content-images-opt/press-release/presiden-direktur-hasnur-group-jayanti-sari-ceritakan-perjalanan-hasnur-group-dari-sungai-hingga-samudera-internasional/1-1060.webp",
+        "width": 1060
+      },
+      {
+        "bytes": 46652,
+        "path": "/content-images-opt/press-release/presiden-direktur-hasnur-group-jayanti-sari-ceritakan-perjalanan-hasnur-group-dari-sungai-hingga-samudera-internasional/1-800.webp",
+        "width": 800
+      },
+      {
+        "bytes": 17736,
+        "path": "/content-images-opt/press-release/presiden-direktur-hasnur-group-jayanti-sari-ceritakan-perjalanan-hasnur-group-dari-sungai-hingga-samudera-internasional/1-400.webp",
+        "width": 400
+      }
+    ],
+    "width": 1060
+  },
+  "/content-images/press-release/presiden-direktur-hasnur-group-jayanti-sari-ceritakan-perjalanan-hasnur-group-dari-sungai-hingga-samudera-internasional/2.jpg": {
+    "bytes": 508091,
+    "height": 640,
+    "variants": [
+      {
+        "bytes": 61530,
+        "path": "/content-images-opt/press-release/presiden-direktur-hasnur-group-jayanti-sari-ceritakan-perjalanan-hasnur-group-dari-sungai-hingga-samudera-internasional/2-1060.webp",
+        "width": 1060
+      },
+      {
+        "bytes": 38768,
+        "path": "/content-images-opt/press-release/presiden-direktur-hasnur-group-jayanti-sari-ceritakan-perjalanan-hasnur-group-dari-sungai-hingga-samudera-internasional/2-800.webp",
+        "width": 800
+      },
+      {
+        "bytes": 15940,
+        "path": "/content-images-opt/press-release/presiden-direktur-hasnur-group-jayanti-sari-ceritakan-perjalanan-hasnur-group-dari-sungai-hingga-samudera-internasional/2-400.webp",
+        "width": 400
+      }
+    ],
+    "width": 1060
+  },
+  "/content-images/press-release/presiden-direktur-hasnur-group-jayanti-sari-ceritakan-perjalanan-hasnur-group-dari-sungai-hingga-samudera-internasional/3.jpg": {
+    "bytes": 503349,
+    "height": 640,
+    "variants": [
+      {
+        "bytes": 63064,
+        "path": "/content-images-opt/press-release/presiden-direktur-hasnur-group-jayanti-sari-ceritakan-perjalanan-hasnur-group-dari-sungai-hingga-samudera-internasional/3-1060.webp",
+        "width": 1060
+      },
+      {
+        "bytes": 38448,
+        "path": "/content-images-opt/press-release/presiden-direktur-hasnur-group-jayanti-sari-ceritakan-perjalanan-hasnur-group-dari-sungai-hingga-samudera-internasional/3-800.webp",
+        "width": 800
+      },
+      {
+        "bytes": 14698,
+        "path": "/content-images-opt/press-release/presiden-direktur-hasnur-group-jayanti-sari-ceritakan-perjalanan-hasnur-group-dari-sungai-hingga-samudera-internasional/3-400.webp",
+        "width": 400
+      }
+    ],
+    "width": 1060
+  },
+  "/content-images/press-release/pt-sigma-rekayasa-prima-anak-usaha-hasnur-group-tampilkan-unit-terbaik-di-mining-expo-indonesia-2025/1.jpg": {
+    "bytes": 576073,
+    "height": 640,
+    "variants": [
+      {
+        "bytes": 103458,
+        "path": "/content-images-opt/press-release/pt-sigma-rekayasa-prima-anak-usaha-hasnur-group-tampilkan-unit-terbaik-di-mining-expo-indonesia-2025/1-1060.webp",
+        "width": 1060
+      },
+      {
+        "bytes": 62320,
+        "path": "/content-images-opt/press-release/pt-sigma-rekayasa-prima-anak-usaha-hasnur-group-tampilkan-unit-terbaik-di-mining-expo-indonesia-2025/1-800.webp",
+        "width": 800
+      },
+      {
+        "bytes": 23142,
+        "path": "/content-images-opt/press-release/pt-sigma-rekayasa-prima-anak-usaha-hasnur-group-tampilkan-unit-terbaik-di-mining-expo-indonesia-2025/1-400.webp",
+        "width": 400
+      }
+    ],
+    "width": 1060
+  },
+  "/content-images/press-release/pt-sigma-rekayasa-prima-anak-usaha-hasnur-group-tampilkan-unit-terbaik-di-mining-expo-indonesia-2025/2.jpg": {
+    "bytes": 515673,
+    "height": 640,
+    "variants": [
+      {
+        "bytes": 100254,
+        "path": "/content-images-opt/press-release/pt-sigma-rekayasa-prima-anak-usaha-hasnur-group-tampilkan-unit-terbaik-di-mining-expo-indonesia-2025/2-1060.webp",
+        "width": 1060
+      },
+      {
+        "bytes": 60696,
+        "path": "/content-images-opt/press-release/pt-sigma-rekayasa-prima-anak-usaha-hasnur-group-tampilkan-unit-terbaik-di-mining-expo-indonesia-2025/2-800.webp",
+        "width": 800
+      },
+      {
+        "bytes": 22342,
+        "path": "/content-images-opt/press-release/pt-sigma-rekayasa-prima-anak-usaha-hasnur-group-tampilkan-unit-terbaik-di-mining-expo-indonesia-2025/2-400.webp",
+        "width": 400
+      }
+    ],
+    "width": 1060
+  },
+  "/content-images/press-release/ribuan-jamaah-hadiri-peringatan-maulid-nabi-dan-haul-ke-10-hj-nurhayati-yang-digelar-hasnur-group/1.jpg": {
+    "bytes": 728226,
+    "height": 640,
+    "variants": [
+      {
+        "bytes": 118610,
+        "path": "/content-images-opt/press-release/ribuan-jamaah-hadiri-peringatan-maulid-nabi-dan-haul-ke-10-hj-nurhayati-yang-digelar-hasnur-group/1-1060.webp",
+        "width": 1060
+      },
+      {
+        "bytes": 72368,
+        "path": "/content-images-opt/press-release/ribuan-jamaah-hadiri-peringatan-maulid-nabi-dan-haul-ke-10-hj-nurhayati-yang-digelar-hasnur-group/1-800.webp",
+        "width": 800
+      },
+      {
+        "bytes": 26136,
+        "path": "/content-images-opt/press-release/ribuan-jamaah-hadiri-peringatan-maulid-nabi-dan-haul-ke-10-hj-nurhayati-yang-digelar-hasnur-group/1-400.webp",
+        "width": 400
+      }
+    ],
+    "width": 1060
+  },
+  "/content-images/press-release/ribuan-jamaah-hadiri-peringatan-maulid-nabi-dan-haul-ke-10-hj-nurhayati-yang-digelar-hasnur-group/2.jpg": {
+    "bytes": 760478,
+    "height": 640,
+    "variants": [
+      {
+        "bytes": 130584,
+        "path": "/content-images-opt/press-release/ribuan-jamaah-hadiri-peringatan-maulid-nabi-dan-haul-ke-10-hj-nurhayati-yang-digelar-hasnur-group/2-1060.webp",
+        "width": 1060
+      },
+      {
+        "bytes": 77454,
+        "path": "/content-images-opt/press-release/ribuan-jamaah-hadiri-peringatan-maulid-nabi-dan-haul-ke-10-hj-nurhayati-yang-digelar-hasnur-group/2-800.webp",
+        "width": 800
+      },
+      {
+        "bytes": 25866,
+        "path": "/content-images-opt/press-release/ribuan-jamaah-hadiri-peringatan-maulid-nabi-dan-haul-ke-10-hj-nurhayati-yang-digelar-hasnur-group/2-400.webp",
+        "width": 400
+      }
+    ],
+    "width": 1060
+  },
+  "/content-images/press-release/ribuan-jamaah-hadiri-peringatan-maulid-nabi-dan-haul-ke-10-hj-nurhayati-yang-digelar-hasnur-group/3.jpg": {
+    "bytes": 689564,
+    "height": 640,
+    "variants": [
+      {
+        "bytes": 113622,
+        "path": "/content-images-opt/press-release/ribuan-jamaah-hadiri-peringatan-maulid-nabi-dan-haul-ke-10-hj-nurhayati-yang-digelar-hasnur-group/3-1060.webp",
+        "width": 1060
+      },
+      {
+        "bytes": 68382,
+        "path": "/content-images-opt/press-release/ribuan-jamaah-hadiri-peringatan-maulid-nabi-dan-haul-ke-10-hj-nurhayati-yang-digelar-hasnur-group/3-800.webp",
+        "width": 800
+      },
+      {
+        "bytes": 23738,
+        "path": "/content-images-opt/press-release/ribuan-jamaah-hadiri-peringatan-maulid-nabi-dan-haul-ke-10-hj-nurhayati-yang-digelar-hasnur-group/3-400.webp",
+        "width": 400
+      }
+    ],
+    "width": 1060
+  },
+  "/content-images/press-release/sinergi-strategis-dcvi-dan-karoseri-sigma-perkuat-ekosistem-kendaraan-niaga-di-indonesia/1.jpg": {
+    "bytes": 477650,
+    "height": 640,
+    "variants": [
+      {
+        "bytes": 72654,
+        "path": "/content-images-opt/press-release/sinergi-strategis-dcvi-dan-karoseri-sigma-perkuat-ekosistem-kendaraan-niaga-di-indonesia/1-1060.webp",
+        "width": 1060
+      },
+      {
+        "bytes": 43544,
+        "path": "/content-images-opt/press-release/sinergi-strategis-dcvi-dan-karoseri-sigma-perkuat-ekosistem-kendaraan-niaga-di-indonesia/1-800.webp",
+        "width": 800
+      },
+      {
+        "bytes": 16124,
+        "path": "/content-images-opt/press-release/sinergi-strategis-dcvi-dan-karoseri-sigma-perkuat-ekosistem-kendaraan-niaga-di-indonesia/1-400.webp",
+        "width": 400
+      }
+    ],
+    "width": 1060
+  },
+  "/content-images/press-release/sinergi-strategis-dcvi-dan-karoseri-sigma-perkuat-ekosistem-kendaraan-niaga-di-indonesia/2.jpg": {
+    "bytes": 614494,
+    "height": 640,
+    "variants": [
+      {
+        "bytes": 86410,
+        "path": "/content-images-opt/press-release/sinergi-strategis-dcvi-dan-karoseri-sigma-perkuat-ekosistem-kendaraan-niaga-di-indonesia/2-1060.webp",
+        "width": 1060
+      },
+      {
+        "bytes": 55224,
+        "path": "/content-images-opt/press-release/sinergi-strategis-dcvi-dan-karoseri-sigma-perkuat-ekosistem-kendaraan-niaga-di-indonesia/2-800.webp",
+        "width": 800
+      },
+      {
+        "bytes": 21300,
+        "path": "/content-images-opt/press-release/sinergi-strategis-dcvi-dan-karoseri-sigma-perkuat-ekosistem-kendaraan-niaga-di-indonesia/2-400.webp",
+        "width": 400
+      }
+    ],
+    "width": 1060
+  },
+  "/content-images/she-activity/commemoration-of-the-national-occupational-safety-and-health-k3-month/1.jpg": {
+    "bytes": 320322,
+    "height": 640,
+    "variants": [
+      {
+        "bytes": 118350,
+        "path": "/content-images-opt/she-activity/commemoration-of-the-national-occupational-safety-and-health-k3-month/1-1060.webp",
+        "width": 1060
+      },
+      {
+        "bytes": 67434,
+        "path": "/content-images-opt/she-activity/commemoration-of-the-national-occupational-safety-and-health-k3-month/1-800.webp",
+        "width": 800
+      },
+      {
+        "bytes": 22946,
+        "path": "/content-images-opt/she-activity/commemoration-of-the-national-occupational-safety-and-health-k3-month/1-400.webp",
+        "width": 400
+      }
+    ],
+    "width": 1060
+  },
+  "/content-images/she-activity/environmental-management-and-monitoring/1.jpg": {
+    "bytes": 437842,
+    "height": 640,
+    "variants": [
+      {
+        "bytes": 211178,
+        "path": "/content-images-opt/she-activity/environmental-management-and-monitoring/1-1060.webp",
+        "width": 1060
+      },
+      {
+        "bytes": 114044,
+        "path": "/content-images-opt/she-activity/environmental-management-and-monitoring/1-800.webp",
+        "width": 800
+      },
+      {
+        "bytes": 33466,
+        "path": "/content-images-opt/she-activity/environmental-management-and-monitoring/1-400.webp",
+        "width": 400
+      }
+    ],
+    "width": 1060
+  },
+  "/content-images/she-activity/good-mining-practice/1.jpg": {
+    "bytes": 425752,
+    "height": 640,
+    "variants": [
+      {
+        "bytes": 188574,
+        "path": "/content-images-opt/she-activity/good-mining-practice/1-1060.webp",
+        "width": 1060
+      },
+      {
+        "bytes": 105632,
+        "path": "/content-images-opt/she-activity/good-mining-practice/1-800.webp",
+        "width": 800
+      },
+      {
+        "bytes": 32574,
+        "path": "/content-images-opt/she-activity/good-mining-practice/1-400.webp",
+        "width": 400
+      }
+    ],
+    "width": 1060
+  },
+  "/content-images/she-activity/inspection-and-observation/1.jpg": {
+    "bytes": 286307,
+    "height": 640,
+    "variants": [
+      {
+        "bytes": 111708,
+        "path": "/content-images-opt/she-activity/inspection-and-observation/1-1060.webp",
+        "width": 1060
+      },
+      {
+        "bytes": 72138,
+        "path": "/content-images-opt/she-activity/inspection-and-observation/1-800.webp",
+        "width": 800
+      },
+      {
+        "bytes": 27668,
+        "path": "/content-images-opt/she-activity/inspection-and-observation/1-400.webp",
+        "width": 400
+      }
+    ],
+    "width": 1060
+  },
+  "/content-images/she-activity/kegiatan-test/1.jpg": {
+    "bytes": 161774,
+    "height": 780,
+    "variants": [
+      {
+        "bytes": 140988,
+        "path": "/content-images-opt/she-activity/kegiatan-test/1-1040.webp",
+        "width": 1040
+      },
+      {
+        "bytes": 87392,
+        "path": "/content-images-opt/she-activity/kegiatan-test/1-800.webp",
+        "width": 800
+      },
+      {
+        "bytes": 30644,
+        "path": "/content-images-opt/she-activity/kegiatan-test/1-400.webp",
+        "width": 400
+      }
+    ],
+    "width": 1040
+  },
+  "/content-images/she-activity/p2k3-occupational-health-and-safety-committee/1.jpg": {
+    "bytes": 165461,
+    "height": 640,
+    "variants": [
+      {
+        "bytes": 39968,
+        "path": "/content-images-opt/she-activity/p2k3-occupational-health-and-safety-committee/1-1060.webp",
+        "width": 1060
+      },
+      {
+        "bytes": 26114,
+        "path": "/content-images-opt/she-activity/p2k3-occupational-health-and-safety-committee/1-800.webp",
+        "width": 800
+      },
+      {
+        "bytes": 11132,
+        "path": "/content-images-opt/she-activity/p2k3-occupational-health-and-safety-committee/1-400.webp",
+        "width": 400
+      }
+    ],
+    "width": 1060
+  },
+  "/content-images/she-activity/pengelolaan-limbah-b3-bahan-berbahaya-dan-beracun/1.jpg": {
+    "bytes": 213567,
+    "height": 640,
+    "variants": [
+      {
+        "bytes": 59358,
+        "path": "/content-images-opt/she-activity/pengelolaan-limbah-b3-bahan-berbahaya-dan-beracun/1-1060.webp",
+        "width": 1060
+      },
+      {
+        "bytes": 40066,
+        "path": "/content-images-opt/she-activity/pengelolaan-limbah-b3-bahan-berbahaya-dan-beracun/1-800.webp",
+        "width": 800
+      },
+      {
+        "bytes": 16372,
+        "path": "/content-images-opt/she-activity/pengelolaan-limbah-b3-bahan-berbahaya-dan-beracun/1-400.webp",
+        "width": 400
+      }
+    ],
+    "width": 1060
+  },
+  "/content-images/she-activity/safety-talk-safety-briefing-toolbox-meeting/1.jpg": {
+    "bytes": 366171,
+    "height": 640,
+    "variants": [
+      {
+        "bytes": 154560,
+        "path": "/content-images-opt/she-activity/safety-talk-safety-briefing-toolbox-meeting/1-1060.webp",
+        "width": 1060
+      },
+      {
+        "bytes": 91720,
+        "path": "/content-images-opt/she-activity/safety-talk-safety-briefing-toolbox-meeting/1-800.webp",
+        "width": 800
+      },
+      {
+        "bytes": 30546,
+        "path": "/content-images-opt/she-activity/safety-talk-safety-briefing-toolbox-meeting/1-400.webp",
+        "width": 400
+      }
+    ],
+    "width": 1060
+  }
+}
