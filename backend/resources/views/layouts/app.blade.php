@@ -7,6 +7,12 @@
 <meta name="description" content="@yield('description')">
 <meta name="theme-color" content="#2F3BA2">
 <link rel="canonical" href="@yield('canonical', url()->current())">
+{{-- Halaman yang sengaja tidak diindeks. Sitemap sudah melewatinya, tapi
+     sitemap hanya usulan: halaman tetap bisa ditemukan lewat tautan, dan hanya
+     robots meta yang benar-benar meminta mesin pencari melewatinya. --}}
+@hasSection('noindex')
+<meta name="robots" content="noindex, nofollow">
+@endif
 
 {{-- Satu halaman kini punya tiga alamat. Tanpa hreflang, Google memperlakukan
      ketiganya sebagai halaman terpisah yang saling bersaing, bukan sebagai
@@ -32,6 +38,8 @@
 <meta property="og:description" content="@yield('description')">
 <meta property="og:image" content="@yield('og_image', asset('assets/img/logo-60th.png'))">
 <meta name="twitter:card" content="summary_large_image">
+
+@include('partials.analytics')
 
 <link rel="icon" type="image/png" sizes="32x32" href="/assets/img/ico/favicon-32x32.png">
 <link rel="shortcut icon" href="/assets/img/ico/favicon.ico">

@@ -5,6 +5,7 @@ namespace App\Filament\Resources\Posts;
 use App\Filament\Resources\Posts\Pages\CreatePost;
 use App\Filament\Resources\Posts\Pages\EditPost;
 use App\Filament\Resources\Posts\Pages\ListPosts;
+use App\Filament\Resources\Posts\RelationManagers\RevisionsRelationManager;
 use App\Filament\Resources\Posts\Schemas\PostForm;
 use App\Filament\Resources\Posts\Tables\PostsTable;
 use App\Models\Post;
@@ -14,6 +15,7 @@ use Filament\Resources\Resource;
 use Filament\Schemas\Schema;
 use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Table;
+use Illuminate\Database\Eloquent\Builder;
 
 class PostResource extends Resource
 {
@@ -77,8 +79,47 @@ class PostResource extends Resource
     public static function getRelations(): array
     {
         return [
-            //
+            RevisionsRelationManager::class,
         ];
+    }
+
+    /**
+     * Kontributor hanya melihat naskahnya sendiri.
+     *
+     * Disaring di query, bukan disembunyikan di tampilan. Menyembunyikan baris
+     * dari tabel tidak menutup URL /admin/posts/{id}/edit, dan nomor yang
+     * berurutan adalah undangan untuk mencoba.
+     */
+    public static function getEloquentQuery(): Builder
+    {
+        $query = parent::getEloquentQuery();
+        $user = auth()->user();
+
+        return $user && ! $user->canEditOthersContent()
+            ? $query->where('author_id', $user->getKey())
+            : $query;
+    }
+
+    /**
+     * Angka merah di menu: naskah yang menunggu ditinjau.
+     *
+     * Hanya ditampilkan kepada yang bisa berbuat sesuatu terhadapnya. Bagi
+     * kontributor angka itu hanya pengingat bahwa ia sedang menunggu orang lain.
+     */
+    public static function getNavigationBadge(): ?string
+    {
+        if (! auth()->user()?->canApproveContent()) {
+            return null;
+        }
+
+        $menunggu = static::getModel()::awaitingReview()->count();
+
+        return $menunggu > 0 ? (string) $menunggu : null;
+    }
+
+    public static function getNavigationBadgeColor(): ?string
+    {
+        return 'warning';
     }
 
     public static function getPages(): array

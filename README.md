@@ -7,11 +7,12 @@ desain masih tersimpan di akar repositori.
 | | |
 |---|---|
 | Kerangka | Laravel 13, PHP 8.4, Livewire 3, Alpine 3, Tailwind 4 |
-| Panel admin | Filament 4 di `/admin`, 7 resource |
+| Panel admin | Filament 4 di `/admin`, 10 resource |
 | Bahasa | Indonesia (bawaan), Inggris, Jepang |
-| Basis data | SQLite, 14 migrasi, 7 model |
+| Basis data | SQLite, 19 migrasi, 11 model |
 | Isi | 35 artikel hasil migrasi, 7 unit usaha, 3 kantor, 5 banner |
-| Tes | 69, dijalankan tiap push |
+| Alur redaksi | Draf → Tinjau → Setujui → Terbit → Arsip, dengan jejak audit |
+| Tes | 110, dijalankan tiap push |
 
 ## Menjalankan
 
@@ -107,21 +108,62 @@ tidak bisa ikut pindah karena dilayani aplikasi lewat symlink.
 | Konten Situs, Slider Beranda | `slide_banners` | slider galeri beranda |
 | Konten Situs, Kantor | `offices` | alamat di footer |
 | Karir, Lowongan | `vacancies` | halaman Lowongan Kami |
-| Publikasi, Pesan Masuk | `contact_messages` | hanya Administrator |
+| Publikasi, Pesan Masuk | `contact_messages` | Admin Korporat ke atas |
+| Pustaka, Pustaka Media | `media` | galeri artikel, dipakai ulang lintas artikel |
+| Pustaka, Tag | `tags` | penyaring di panel dan di halaman `/cari` |
+| Pengaturan, Jejak Audit | `audit_logs` | baca saja, tidak bisa dihapus siapa pun |
 
 Kelima kategori artikel punya menunya sendiri, mengikuti bentuk navigasi situs
 publik. Membuka satu menu berarti melihat daftar kategori itu saja, dan tombol
 Buat di situ langsung membuat artikel dengan kategori yang sama. Kategorinya
 tetap bisa diubah dari dalam form.
 
-Dua peran, ditentukan `App\Enums\UserRole`. Administrator membuka seluruh menu
-termasuk Pesan Masuk dan Pengguna. Editor hanya artikel, unit bisnis, slider,
-kantor, dan lowongan, dibatasi di menu sekaligus di URL. Akun baru bawaannya
-Editor, dan perannya diubah dari menu Pengaturan, Pengguna.
+Empat peran, ditentukan `App\Enums\UserRole`: Super Admin, Admin Korporat,
+Peninjau, dan Kontributor. Pembedanya satu pertanyaan — seberapa jauh sebuah
+naskah boleh didorong oleh orang ini sendirian. Kontributor menulis dan
+mengajukan tapi tidak bisa menerbitkan, dan hanya melihat naskahnya sendiri;
+pembatasan itu ada di query, bukan sekadar di tampilan, jadi URL tebakan pun
+tertutup. Akun baru bawaannya Kontributor.
+
+Alur redaksinya tidak bisa dilompati, juga oleh Super Admin: perpindahan status
+yang sah didaftar di `PostStatus::nextStates()` dan dijalankan hanya lewat
+`App\Support\PostWorkflow`, sehingga tidak ada jalan memindahkan status tanpa
+ikut meninggalkan jejak audit.
+
+`status` dan `published_at` sengaja terpisah. Keduanya menjawab hal berbeda dan
+boleh berselisih: artikel berstatus Terbit dengan tanggal di masa depan adalah
+artikel terjadwal, belum tampil. Pasangannya `unpublish_at`, untuk konten yang
+harus berhenti tampil sendiri.
+
+Riwayat versi ada di tab Riwayat Versi tiap artikel, lengkap dengan tombol
+kembalikan. Yang dikembalikan hanya naskahnya — status dan tanggal terbit tidak
+ikut, karena mengembalikan tulisan bukan alasan membatalkan persetujuan orang
+lain.
+
+Perpindahan status memberi tahu orang yang giliran berikutnya jadi miliknya —
+peninjau saat naskah diajukan, penulis saat naskah dikembalikan, disetujui, atau
+terbit. Pemberitahuannya lewat lonceng di panel, bukan surel: surel butuh
+kredensial SMTP yang belum tentu ada saat panel dipasang, dan yang gagal terkirim
+karena `MAIL_HOST` kosong tidak meninggalkan jejak yang terlihat siapa pun.
+
+Pemberitahuannya dikirim dengan `notifyNow()`, bukan `sendToDatabase()`. Cara
+kedua memanggil `notify()`, dan kelas notifikasi Filament mengimplementasikan
+`ShouldQueue`: pemberitahuannya masuk tabel `jobs` dan menunggu pekerja antrean
+yang tidak dijalankan aplikasi ini di mana pun.
+
+Panduan pemakaian untuk redaksi ada di `docs/panduan-admin-cms.md`.
 
 Akses panel ditentukan `User::canAccessPanel()`. Tanpa metode itu Filament
 hanya mengizinkan akses saat `APP_ENV=local`, sehingga di produksi tidak ada
 satu pun akun yang bisa masuk.
+
+Berkas yang sudah ada di disk didaftarkan ke Pustaka Media dengan
+`php artisan media:import`. Perintah ini tidak memindahkan dan tidak mengubah
+berkas apa pun, hanya mencatat apa yang sudah ada, dan melewati yang barisnya
+sudah ada — menjalankannya dua kali tidak menggandakan apa pun. Alt text
+sengaja dibiarkan kosong: menebaknya dari nama berkas menghasilkan "dsc-0042"
+sebagai keterangan bagi pengguna pembaca layar, dan yang kosong setidaknya
+muncul di penyaring "Belum ada alt text".
 
 Gambar yang diunggah belum otomatis menjadi WebP. Unggahan mendarat di disk
 yang sama dengan gambar lama, jadi jalankan konverternya setelah mengunggah dan
@@ -170,13 +212,17 @@ privat. Riwayat git tersimpan permanen dan hak akses bisa berubah.
 
 ```
 * * * * *   cd /path/ke/backend && php artisan schedule:run >> /dev/null 2>&1
-15 2 * * *  /path/ke/deploy/backup.sh >> /var/log/hasnur-backup.log 2>&1
 ```
 
-Yang pertama memangkas pesan yang melewati masa simpan
-(`CONTACT_RETENTION_MONTHS`, bawaan 24 bulan). Yang kedua mencadangkan basis
-data dan gambar unggahan setiap hari, disimpan 30 hari. Tanpa keduanya, retensi
-dan backup tidak pernah berjalan dan tidak ada yang memberitahu.
+Satu baris, bukan dua. Tiga pekerjaan berkala dijadwalkan di dalam aplikasi
+(`backend/routes/console.php`): backup tiap 02.15 WIB, pemangkasan pesan yang
+melewati masa simpan (`CONTACT_RETENTION_MONTHS`, bawaan 24 bulan), dan
+pemangkasan riwayat versi tiap pekan (`REVISION_RETENTION`, bawaan 50 versi per
+artikel). Ketiganya ikut mati bila baris cron ini tidak ada, dan tidak ada yang
+memberitahu.
+
+Sasaran RPO/RTO, cara memeriksa isi backup, dan langkah pemulihan ada di
+`docs/prosedur-backup-dan-pemulihan.md`.
 
 `deploy/after-deploy.sh` mengurus sisanya tiap deploy: membuat ulang tiga
 symlink di `backend/public/` yang tidak dilacak git, menyetel izin tulis,
@@ -391,8 +437,14 @@ Gambar baru yang ditambahkan ke repositori karena itu tidak muncul sampai
 volumenya dibuat ulang dengan `docker compose down -v`, yang juga menghapus
 basis data.
 
-Backup tidak berjalan di dalam Docker. `deploy/backup.sh` dijalankan dari host,
-mengarah ke volume yang sama.
+Backup berjalan di dalam Docker, dijadwalkan container `penjadwal` tiap 02.15
+WIB. Hasilnya masuk volume `cadangan`, sengaja terpisah dari volume
+`basis-data`: backup yang berada di volume yang sama dengan basis datanya akan
+ikut hilang tepat pada kejadian yang membuatnya dibutuhkan.
+
+Yang masih kurang: salinan di luar mesin. Backup hari ini tetap berada di host
+yang sama dengan situsnya, jadi ia melindungi dari basis data yang rusak dan
+penghapusan tak sengaja, tetapi tidak dari host yang hilang.
 
 ## Jebakan yang sudah ditemukan
 

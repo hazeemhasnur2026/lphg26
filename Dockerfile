@@ -43,8 +43,13 @@ FROM php:8.4-fpm-alpine AS runtime
 # PHP, sehingga 165 MB gambar ikut tersalin ke image kedua, dan berbagi lewat
 # named volume membuat aset beku pada isi pertama, sehingga rebuild tidak
 # pernah memperbaruinya.
+# bash dan sqlite bukan untuk PHP, melainkan untuk deploy/backup.sh: skripnya
+# ditulis untuk bash, dan menyalin basis data lewat `sqlite3 .backup` yang aman
+# dijalankan selagi aplikasi menulis. Tanpa keduanya jadwal backup harian gagal
+# tiap malam tanpa ada yang menyadarinya, dan itu baru ketahuan saat backupnya
+# dibutuhkan.
 RUN apk add --no-cache \
-        nginx supervisor su-exec \
+        nginx supervisor su-exec bash sqlite tzdata \
         icu-libs oniguruma libzip sqlite-libs libpng libjpeg-turbo freetype \
     && apk add --no-cache --virtual .bangun \
         icu-dev oniguruma-dev libzip-dev sqlite-dev libpng-dev libjpeg-turbo-dev freetype-dev $PHPIZE_DEPS \
@@ -93,6 +98,12 @@ RUN chmod +x /usr/local/bin/entrypoint \
 
 # Tetap root supaya supervisor dapat menjalankan nginx; keduanya melepas hak ke
 # www-data lewat setelan masing-masing.
+# Jam container disamakan dengan jam aplikasi. Tanpa ini PHP memakai
+# Asia/Jakarta sementara shell tetap UTC, sehingga nama berkas backup
+# bertimestamp tujuh jam lebih awal daripada yang tertulis di panel — tepat saat
+# seseorang harus memilih backup mana yang dipulihkan.
+ENV TZ=Asia/Jakarta
+
 EXPOSE 80
 ENTRYPOINT ["entrypoint"]
 CMD ["supervisord", "-c", "/etc/supervisord.conf"]

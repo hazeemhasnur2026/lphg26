@@ -1,11 +1,14 @@
 @extends('layouts.app')
 
 @section('title', $post->title)
-@section('description', $post->excerpt ?? $post->title)
-@section('canonical', $post->url)
+@section('description', $post->meta_description_text)
+@section('canonical', $post->canonical_url ?: $post->url)
 @section('og_type', 'article')
-@if ($post->cover_image)
-  @section('og_image', url(\App\Support\ImageVariants::best($post->cover_url, 1200)))
+@if ($post->og_image_url)
+  @section('og_image', url(\App\Support\ImageVariants::best($post->og_image_url, 1200)))
+@endif
+@if ($post->noindex)
+  @section('noindex', true)
 @endif
 
 @push('head')
@@ -26,6 +29,11 @@
         <li><span class="font-semibold text-logo-yellow">{{ $post->category }}</span></li>
       </ol>
     </nav>
+    @if ($post->content_type)
+      <span class="mb-3 inline-block rounded-full bg-white/15 px-3 py-1 text-[11px] font-semibold uppercase tracking-wide">
+        {{ $post->content_type->getLabel() }}
+      </span>
+    @endif
     <h1 class="text-3xl font-extrabold leading-tight md:text-4xl">{{ $post->title }}</h1>
     <p class="mt-4 text-sm text-white/70">
       @if ($post->published_at)
@@ -38,7 +46,29 @@
 </section>
 
 <article class="mx-auto max-w-3xl px-4 py-12 sm:px-6 lg:px-8">
-  <div class="prose-hasnur space-y-4 leading-relaxed text-slate-700">
+
+  {{--
+    Isi khas tipe konten ditaruh di atas badan artikel, bukan di bawahnya.
+
+    Untuk Laporan dan Publikasi, badan artikelnya adalah pengantar; yang dicari
+    pembaca adalah berkasnya. Menaruh tombol unduh di dasar halaman berarti
+    setiap orang harus menggulir melewati pengantar yang tidak ia minta.
+    Hal yang sama berlaku untuk video dan galeri: itulah kontennya, bukan
+    lampirannya.
+  --}}
+  @if ($post->content_type?->isDocument() && $post->document_url)
+    @include('posts.partials.dokumen')
+  @endif
+
+  @if ($post->content_type === \App\Enums\ContentType::Video && $post->video_url)
+    @include('posts.partials.video')
+  @endif
+
+  @if ($post->content_type === \App\Enums\ContentType::Gallery && $post->media->isNotEmpty())
+    @include('posts.partials.galeri')
+  @endif
+
+  <div class="prose-hasnur mt-8 space-y-4 leading-relaxed text-slate-700">
     {!! $post->body_html !!}
   </div>
 

@@ -27,7 +27,7 @@ class UserForm
                 ->options(collect(UserRole::cases())->mapWithKeys(
                     fn (UserRole $peran) => [$peran->value => $peran->getLabel()]
                 ))
-                ->default(UserRole::Editor->value)
+                ->default(UserRole::Contributor->value)
                 ->required()
                 ->helperText(collect(UserRole::cases())->map(
                     fn (UserRole $peran) => $peran->getLabel().': '.$peran->description()

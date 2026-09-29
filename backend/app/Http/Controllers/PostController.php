@@ -13,7 +13,8 @@ class PostController extends Controller
         $meta = config("site.listings.{$category}");
         abort_unless($meta && $meta['section'] === $section, 404);
 
-        $posts = Post::where('category', $category)
+        $posts = Post::published()
+            ->where('category', $category)
             // Undated articles are still real content; ordering falls back to
             // the record id so they do not vanish from the listing while they
             // wait for a human to confirm the date.
@@ -39,7 +40,13 @@ class PostController extends Controller
     /** Detail page, matching the old site's /post/{category}/{slug} exactly. */
     public function show(string $category, string $slug)
     {
-        $post = Post::where('category', $category)->where('slug', $slug)->first();
+        // published() dipakai di sini juga, bukan hanya di daftar. Draf yang
+        // tidak muncul di daftar tapi tetap terbuka bagi siapa pun yang menebak
+        // URL-nya bukan draf; itu artikel terbit yang tidak ditautkan.
+        // media ikut dimuat di muka: artikel bertipe Galeri merender seluruh
+        // berkasnya, dan tanpa ini tiap foto menjadi satu kueri sendiri.
+        $post = Post::published()->with('media')
+            ->where('category', $category)->where('slug', $slug)->first();
 
         if (! $post) {
             // URL yang dulu ada di situs lama dijawab 410, bukan 404. Lihat
@@ -50,7 +57,7 @@ class PostController extends Controller
                 // Tautan ke daftar kategori hanya ditawarkan kalau daftarnya
                 // memang berisi. she-activity kehilangan seluruh artikelnya,
                 // dan mengirim pengunjung ke halaman kosong tidak menolong.
-                $hasSiblings = Post::where('category', $retired)->exists();
+                $hasSiblings = Post::published()->where('category', $retired)->exists();
 
                 return response()->view('errors.410', [
                     'category' => $hasSiblings ? $retired : null,
@@ -60,7 +67,8 @@ class PostController extends Controller
             abort(404);
         }
 
-        $related = Post::where('category', $category)
+        $related = Post::published()
+            ->where('category', $category)
             ->whereKeyNot($post->id)
             ->latest('published_at')
             ->limit(3)

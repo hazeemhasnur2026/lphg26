@@ -33,7 +33,14 @@ class AppServiceProvider extends ServiceProvider
                 // terpotong, dan satu ("Top CSR Awards 2026") merujuk artikel
                 // yang tidak ada; yang nyata bertahun 2025 dan ikut terhapus.
                 // Ketiganya juga menautkan ke halaman daftar, bukan artikelnya.
-                'footerPosts' => Post::orderByRaw('published_at IS NULL, published_at DESC, id DESC')
+                //
+                // published() wajib di sini, dan tempat ini paling mudah
+                // terlewat: footer muncul di setiap halaman, jadi draf yang
+                // bocor lewat daftar ini bocor di seluruh situs sekaligus —
+                // termasuk di halaman yang daftarnya sendiri sudah disaring
+                // dengan benar.
+                'footerPosts' => Post::published()
+                    ->orderByRaw('published_at IS NULL, published_at DESC, id DESC')
                     ->limit(3)
                     ->get(),
             ]);

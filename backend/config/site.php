@@ -22,6 +22,24 @@ return [
     'retensi_pesan_bulan' => (int) env('CONTACT_RETENTION_MONTHS', 24),
 
     /*
+     * Berapa versi terakhir yang disimpan per artikel.
+     *
+     * Dibatasi per jumlah, bukan per umur. Umur adalah ukuran yang salah di
+     * sini: artikel yang disunting sepuluh kali dalam sebulan akan kehilangan
+     * seluruh riwayatnya sekaligus begitu bulan itu lewat, sedangkan artikel
+     * yang disunting sekali setahun menyimpan satu versi selamanya. Yang ingin
+     * dijawab riwayat versi adalah "apa isinya sebelum beberapa suntingan
+     * terakhir", dan itu pertanyaan tentang jumlah.
+     *
+     * Lima puluh cukup panjang untuk menutupi hampir setiap penyuntingan yang
+     * masih diingat orang, dan setiap versi menyimpan satu salinan penuh badan
+     * artikel — tanpa batas, tabelnya tumbuh selamanya tanpa ada yang melihat.
+     *
+     * Diisi 0 berarti tidak ada pemangkasan.
+     */
+    'retensi_revisi' => (int) env('REVISION_RETENTION', 50),
+
+    /*
      * Halaman berisi konten tetap: URL -> view. Router dan sitemap membaca
      * daftar yang sama, jadi menambah halaman berarti menambah satu baris di
      * sini dan satu view. Tidak ada dua salinan yang bisa menyimpang.

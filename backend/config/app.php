@@ -59,13 +59,20 @@ return [
     | Application Timezone
     |--------------------------------------------------------------------------
     |
-    | Here you may specify the default timezone for your application, which
-    | will be used by the PHP date and date-time functions. The timezone
-    | is set to "UTC" by default as it is suitable for most use cases.
+    | Seluruh redaksi dan pembaca situs ini ada di WIB, dan satu-satunya waktu
+    | yang mereka ketik sendiri adalah jadwal terbit artikel. Dengan UTC, editor
+    | yang mengisi 08:00 karena bermaksud pagi hari justru menerbitkannya pukul
+    | 15:00 WIB. Selisih tujuh jam itu tidak pernah terlihat saat menyunting,
+    | hanya saat artikelnya belum juga muncul.
+    |
+    | Konsekuensi yang perlu diketahui: timestamp yang tersimpan sebelum
+    | perubahan ini dibaca ulang sebagai WIB, jadi created_at lama tampak tujuh
+    | jam lebih lambat. Tidak ada yang bergantung pada nilai itu selain urutan,
+    | dan urutannya utuh karena seluruh baris bergeser sama besar.
     |
     */
 
-    'timezone' => 'UTC',
+    'timezone' => 'Asia/Jakarta',
 
     /*
     |--------------------------------------------------------------------------
