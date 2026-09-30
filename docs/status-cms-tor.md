@@ -3,7 +3,7 @@
 Rincian per butir sheet **05_CMS**: apa yang diminta, apa yang dibangun,
 bagaimana cara kerjanya, dan apa yang masih harus dilakukan siapa.
 
-Per 29 September 2026. Aplikasi Laravel 13 + Filament 4, 110 tes otomatis,
+Per 29 September 2026. Aplikasi Laravel 13 + Filament 4, 146 tes otomatis,
 seluruhnya lulus. Bukti visual tiap butir ada di folder `screenshot_cms_tor`.
 
 ## Ringkasan
@@ -19,12 +19,12 @@ seluruhnya lulus. Bukti visual tiap butir ada di folder `screenshot_cms_tor`.
 | CMS-07 | Scheduling | ✅ Selesai | — | — |
 | CMS-08 | Search & Taxonomy | ✅ Selesai | Sepakati daftar tag baku | CorpComm |
 | CMS-09 | Versioning | ✅ Selesai | — | — |
-| CMS-10 | Analytics | ⏳ Menunggu | Isi ID platform analitik | IT |
+| CMS-10 | Analytics | ⚠️ Separuh | Pilih platform, isi ID-nya | IT |
 | CMS-11 | Backup | ⚠️ Separuh | Salinan luar mesin; sahkan RPO/RTO | IT |
 | CMS-12 | Training | ⚠️ Separuh | Jadwalkan dua sesi pelatihan | CorpComm |
 
 Sembilan selesai penuh. Tiga sisanya menunggu keputusan atau tindakan di luar
-kode: satu nilai konfigurasi, satu penyimpanan, satu jadwal.
+kode: satu nama platform, satu penyimpanan, satu jadwal.
 
 ---
 
@@ -331,7 +331,7 @@ disunting setahun sekali menyimpan satu versi selamanya.
 **Diminta.** Integrasi dengan platform analitik yang disetujui. Event untuk CTA,
 unduhan, pencarian, dan keterlibatan konten.
 
-**Dibangun.** Keempat event yang diminta, terbukti terkirim ke `dataLayer`:
+**Dibangun.** Keempat peristiwa yang diminta, dikirim ke dua penerima sekaligus:
 
 | Event TOR | Nama | Kapan terkirim |
 |---|---|---|
@@ -340,20 +340,79 @@ unduhan, pencarian, dan keterlibatan konten.
 | Search | `search` | formulir pencarian dikirim, berikut kata kuncinya |
 | Content engagement | `content_read` | pembaca sampai ke ujung bawah artikel |
 
-Yang terakhir sengaja: dicatat saat halaman dibuka, angkanya hanya menghitung
-orang yang membuka lalu langsung menutup.
+Ditambah satu yang ikut sejak awal karena datanya memang sudah ada:
+`outbound_click`, saat pengunjung membuka tautan ke domain lain.
 
 Dipasang lewat satu pendengar di `document`, bukan atribut `onclick` di tiap
 tombol. Tombol datang dari belasan view dan sebagian dirender Alpine setelah
 halaman dimuat; atribut yang ditempel satu per satu akan terlewat persis di
 tombol yang baru ditambahkan orang.
 
-**Mati secara bawaan.** Skrip pengukuran yang ikut menyala di mesin pengembang
-dan server uji akan mencampur kunjungan tim sendiri ke dalam angka yang dipakai
-mengambil keputusan, dan tidak ada yang menyadarinya sampai angkanya
-dipertanyakan.
+### Penerima pertama: platform luar
 
-**Status:** menunggu satu nilai.
+`dataLayer`, dibaca GA4 atau GTM. **Mati secara bawaan** dan sengaja begitu:
+skrip pengukuran pihak ketiga yang ikut menyala di mesin pengembang dan server
+uji akan mencampur kunjungan tim sendiri ke dalam angka yang dipakai mengambil
+keputusan, dan tidak ada yang menyadarinya sampai angkanya dipertanyakan.
+
+### Penerima kedua: papan analitik situs sendiri
+
+Menu **Analitik** di panel, di bawah Pengaturan. Peristiwa yang sama disimpan di
+tabel `analytics_events` pada basis data situs, dan papannya memperlihatkan:
+
+| Bagian | Isinya |
+|---|---|
+| Kartu ringkasan | jumlah tiap peristiwa 30 hari terakhir, pengunjung unik, angka hari ini, grafik kecil 7 hari |
+| Grafik harian | satu garis per jenis peristiwa, rentang 7 / 30 / 90 hari |
+| Lima tabel peringkat | CTA, berkas, kata kunci, artikel, dan tautan keluar yang paling sering |
+
+Ini yang membuat butir ini punya angka yang bisa dilihat hari ini. Sebelumnya
+keempat peristiwa memang sudah terkirim ke `dataLayer`, tapi `dataLayer` tanpa
+platform yang membacanya berarti tidak ada satu pun angka yang terlihat siapa
+pun — dan platformnya menunggu keputusan di luar kode.
+
+Papan ini **tidak** menggantikan platform analitik. Yang tidak dijawabnya: dari
+mana pengunjung datang, kata kunci apa yang membawanya dari mesin pencari,
+pengunjung baru atau yang kembali, dan perbandingan dengan situs lain. Ia juga
+ikut menghitung kunjungan tim sendiri. Ketiga batas itu tertulis di halamannya,
+bukan hanya di dokumen ini: papan angka tanpa keterangan asal akan dibaca
+sebagai angka Google Analytics oleh siapa pun yang belum membaca TOR-nya.
+
+Yang boleh membukanya sama dengan yang boleh membaca jejak audit — Peninjau ke
+atas. Kontributor tidak, karena papan ini memuat kata kunci yang diketik
+pengunjung.
+
+### Yang tidak disimpan
+
+Alamat IP dan User-Agent apa adanya. Keduanya cukup untuk menunjuk satu orang,
+dan tidak ada pertanyaan di papan itu yang membutuhkannya. Yang disimpan hanya
+sidik pendek hasil HMAC keduanya bersama tanggal hari itu: berganti tiap tengah
+malam, tidak bisa dikembalikan ke asalnya, tidak bisa dihubungkan dengan catatan
+hari sebelumnya. Gunanya satu, membedakan sepuluh klik dari satu orang dengan
+sepuluh klik dari sepuluh orang.
+
+Kebijakan privasi situs sudah diperbarui mengikuti ini — pasal "Pengukuran
+penggunaan halaman". Peristiwa yang lebih tua dari dua belas bulan dihapus
+penjadwal harian; batasnya `ANALYTICS_RETENTION_MONTHS`.
+
+### Data contoh untuk peninjauan
+
+Papan kosong tidak bisa ditinjau: tidak ada yang bisa mengatakan kolom mana yang
+kurang saat semuanya bernilai nol. Untuk memperlihatkan bentuknya sebelum ada
+pengunjung yang mengklik apa pun:
+
+```
+php artisan analitik:contoh              # isi 30 hari terakhir
+php artisan analitik:contoh --hapus      # buang kembali
+```
+
+Tiap baris contoh bertanda `demo`, dihitung terpisah, dan papannya memasang
+peringatan mencolok selama masih ada satu pun di basis data. **Harus dibuang
+sebelum situs dipakai sungguhan** — data contoh yang tidak dibedakan dari data
+sungguhan berhenti menjadi contoh dan menjadi kekeliruan.
+
+**Status:** separuh. Papan sendiri berjalan; integrasi ke platform yang disetujui
+menunggu satu nilai.
 
 **Sisa — IT.** Kata "approved" pada TOR adalah bagian yang tidak bisa diputuskan
 dari sisi teknis.
@@ -367,7 +426,8 @@ ANALYTICS_GTM_ID=     # Google Tag Manager
 ```
 
 Jangan isi keduanya. GTM sudah memuat GA dari dalam dirinya, dan dua pemuat
-sekaligus menghitung tiap kunjungan dua kali.
+sekaligus menghitung tiap kunjungan dua kali. Papan Analitik di panel tidak
+terpengaruh: ia tetap berjalan sebelum dan sesudah ID diisi.
 
 ---
 

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AnalyticsController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\SearchController;
@@ -120,6 +121,23 @@ foreach (array_keys(config('laravellocalization.supportedLocales')) as $locale) 
         ->middleware(SetLocale::class.':'.$locale)
         ->group($publicRoutes);
 }
+
+/*
+ * Penerima peristiwa analitik (CMS-10).
+ *
+ * Di luar grup bahasa dengan sengaja: yang mengirim adalah skrip, bukan
+ * pembaca, dan alamat yang berubah mengikuti bahasa halaman berarti tiga
+ * alamat untuk satu pekerjaan yang sama. Bahasa halaman tetap tercatat, dikirim
+ * sebagai bagian dari muatan.
+ *
+ * Throttle-nya longgar: satu pembaca yang benar-benar membaca bisa memicu
+ * beberapa peristiwa dalam satu menit, dan yang hendak dicegah di sini adalah
+ * pengiriman massal yang membuat angka di papan tidak berarti lagi, bukan
+ * pembaca yang rajin mengklik.
+ */
+Route::post('/analitik/peristiwa', AnalyticsController::class)
+    ->middleware('throttle:120,1')
+    ->name('analytics.track');
 
 // Di luar grup bahasa: satu berkas untuk seluruh situs, dan URL di dalamnya
 // sudah absolut lengkap dengan prefiks bahasanya masing-masing.

@@ -89,13 +89,12 @@ scripts/            crawler artikel situs lama
 deploy/             langkah yang dijalankan di server setelah deploy
 docs/               spesifikasi, brief konten, laporan, audit kepatuhan
 arsip/              bahan rujukan desain, tidak dirujuk kode mana pun
-index.html, page/   prototipe statis, rujukan desain
 ```
 
-Prototipe statis sengaja dibiarkan di akar. Ke-257 rujukan asetnya bersifat
-relatif terhadap letak berkasnya, jadi memindahkannya ke subfolder menuntut
-penulisan ulang seluruh path di 21 berkas HTML, sementara `assets/` sendiri
-tidak bisa ikut pindah karena dilayani aplikasi lewat symlink.
+Prototipe statis (`index.html`, `page/`, `robots.txt`, `sitemap.xml` di akar)
+sudah dihapus setelah seluruh 61 artikel dan halaman tetapnya berhasil pindah
+ke `backend/`. `assets/` tetap di akar: dilayani aplikasi lewat symlink
+(`deploy/link-public-dirs.sh`), jadi bukan sisa prototipe walau letaknya sama.
 
 ## Panel admin
 
@@ -111,6 +110,7 @@ tidak bisa ikut pindah karena dilayani aplikasi lewat symlink.
 | Publikasi, Pesan Masuk | `contact_messages` | Admin Korporat ke atas |
 | Pustaka, Pustaka Media | `media` | galeri artikel, dipakai ulang lintas artikel |
 | Pustaka, Tag | `tags` | penyaring di panel dan di halaman `/cari` |
+| Pengaturan, Analitik | `analytics_events` | papan angka klik, unduhan, pencarian, dan artikel yang dibaca tuntas |
 | Pengaturan, Jejak Audit | `audit_logs` | baca saja, tidak bisa dihapus siapa pun |
 
 Kelima kategori artikel punya menunya sendiri, mengikuti bentuk navigasi situs
@@ -176,7 +176,7 @@ dipakai.
 
 ## Deploy
 
-Tiap push ke `main` menjalankan CI (`.github/workflows/ci.yml`): 69 tes, Pint,
+Tiap push ke `main` menjalankan CI (`.github/workflows/ci.yml`): 146 tes, Pint,
 dan build aset pada PHP 8.4. Deploy (`deploy.yml`) menyusul hanya bila CI lulus,
 mengirim berkas lewat rsync/SSH lalu menjalankan `deploy/after-deploy.sh` di
 server.
@@ -214,12 +214,13 @@ privat. Riwayat git tersimpan permanen dan hak akses bisa berubah.
 * * * * *   cd /path/ke/backend && php artisan schedule:run >> /dev/null 2>&1
 ```
 
-Satu baris, bukan dua. Tiga pekerjaan berkala dijadwalkan di dalam aplikasi
+Satu baris, bukan dua. Pekerjaan berkala dijadwalkan di dalam aplikasi
 (`backend/routes/console.php`): backup tiap 02.15 WIB, pemangkasan pesan yang
-melewati masa simpan (`CONTACT_RETENTION_MONTHS`, bawaan 24 bulan), dan
-pemangkasan riwayat versi tiap pekan (`REVISION_RETENTION`, bawaan 50 versi per
-artikel). Ketiganya ikut mati bila baris cron ini tidak ada, dan tidak ada yang
-memberitahu.
+melewati masa simpan (`CONTACT_RETENTION_MONTHS`, bawaan 24 bulan), pemangkasan
+peristiwa analitik yang melewati masa simpan (`ANALYTICS_RETENTION_MONTHS`,
+bawaan 12 bulan), dan pemangkasan riwayat versi tiap pekan (`REVISION_RETENTION`,
+bawaan 50 versi per artikel). Semuanya ikut mati bila baris cron ini tidak ada,
+dan tidak ada yang memberitahu.
 
 Sasaran RPO/RTO, cara memeriksa isi backup, dan langkah pemulihan ada di
 `docs/prosedur-backup-dan-pemulihan.md`.

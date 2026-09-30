@@ -1,0 +1,43 @@
+# Pembaruan dependensi otomatis.
+#
+# Audit di CI memberi tahu bahwa ada kerentanan; berkas ini yang mengerjakan
+# pembaruannya. Keduanya dibutuhkan: tanpa audit, pembaruan datang tanpa
+# urgensi; tanpa Dependabot, temuan audit menunggu ada yang sempat.
+#
+# Mingguan, bukan harian. Repositori ini dikerjakan satu tim kecil, dan tumpukan
+# PR harian berakhir diabaikan seluruhnya — yang justru menyembunyikan
+# pembaruan keamanan di antaranya.
+version: 2
+
+updates:
+  - package-ecosystem: composer
+    directory: /backend
+    schedule:
+      interval: weekly
+      day: monday
+    open-pull-requests-limit: 5
+    groups:
+      # Pembaruan tambalan digabung jadi satu PR. Yang perlu dibaca satu per
+      # satu adalah kenaikan mayor dan minor.
+      tambalan:
+        update-types: [patch]
+
+  - package-ecosystem: npm
+    directory: /backend
+    schedule:
+      interval: weekly
+      day: monday
+    open-pull-requests-limit: 5
+    groups:
+      tambalan:
+        update-types: [patch]
+
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: monthly
+
+  - package-ecosystem: docker
+    directory: /
+    schedule:
+      interval: monthly

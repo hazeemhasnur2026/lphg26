@@ -32,13 +32,18 @@
           <button class="px-3 py-2 rounded-md hover:text-primary hover:bg-slate-50 transition inline-flex items-center gap-1">{{ __('nav.business') }}<svg class="w-3.5 h-3.5" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.17l3.71-3.94a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd"/></svg>
           </button>
           <div x-show="open" x-transition x-cloak class="absolute left-0 top-full w-64 bg-white rounded-xl shadow-lg border border-slate-100 py-2">
-            <a href="/page/our-business/logistic" class="block px-4 py-2 text-sm hover:bg-slate-50 hover:text-primary">{{ __('nav.business.logistic') }}</a>
-            <a href="/page/our-business/agribusiness-forestry" class="block px-4 py-2 text-sm hover:bg-slate-50 hover:text-primary">{{ __('nav.business.agribusiness') }}</a>
-            <a href="/page/our-business/energy" class="block px-4 py-2 text-sm hover:bg-slate-50 hover:text-primary">{{ __('nav.business.energy') }}</a>
-            <a href="/page/our-business/technology-services" class="block px-4 py-2 text-sm hover:bg-slate-50 hover:text-primary">{{ __('nav.business.technology') }}</a>
-            <a href="/page/our-business/education" class="block px-4 py-2 text-sm hover:bg-slate-50 hover:text-primary">{{ __('nav.business.education') }}</a>
-            <a href="/page/our-business/consumer" class="block px-4 py-2 text-sm hover:bg-slate-50 hover:text-primary">{{ __('nav.business.consumer') }}</a>
-            <a href="/page/our-business/investment" class="block px-4 py-2 text-sm hover:bg-slate-50 hover:text-primary">{{ __('nav.business.investment') }}</a>
+            {{-- Daftar dan urutan dari tabel business_units, bukan ditulis
+                 tangan: menambah atau menghapus unit lewat panel langsung
+                 terlihat di sini. Labelnya tetap dari lang/*.json lewat
+                 pemetaan di config/site.php — $unit->name belum translatable,
+                 dan situs ini punya tiga bahasa. Unit yang lupa didaftarkan di
+                 pemetaan jatuh ke $unit->name, yang berarti bahasa Indonesia
+                 di ketiga versi bahasa sampai kuncinya ditambahkan — lebih
+                 baik daripada salah menunjuk kunci terjemahan unit lain. --}}
+            @foreach ($businessUnits as $unit)
+              @php($kunciNav = config("site.business_unit_nav_keys.{$unit->slug}"))
+              <a href="/page/our-business/{{ $unit->slug }}" class="block px-4 py-2 text-sm hover:bg-slate-50 hover:text-primary">{{ $kunciNav ? __($kunciNav) : $unit->name }}</a>
+            @endforeach
           </div>
         </div>
 
@@ -149,13 +154,10 @@
       <details class="nav-row py-2.5" style="animation-delay:120ms">
         <summary class="cursor-pointer">{{ __('nav.business') }}</summary>
         <div class="pl-4 pt-2 flex flex-col gap-2 font-normal">
-          <a href="/page/our-business/logistic">{{ __('nav.business.logistic') }}</a>
-          <a href="/page/our-business/agribusiness-forestry">{{ __('nav.business.agribusiness') }}</a>
-          <a href="/page/our-business/energy">{{ __('nav.business.energy') }}</a>
-          <a href="/page/our-business/technology-services">{{ __('nav.business.technology') }}</a>
-          <a href="/page/our-business/education">{{ __('nav.business.education') }}</a>
-          <a href="/page/our-business/consumer">{{ __('nav.business.consumer') }}</a>
-          <a href="/page/our-business/investment">{{ __('nav.business.investment') }}</a>
+          @foreach ($businessUnits as $unit)
+            @php($kunciNav = config("site.business_unit_nav_keys.{$unit->slug}"))
+            <a href="/page/our-business/{{ $unit->slug }}">{{ $kunciNav ? __($kunciNav) : $unit->name }}</a>
+          @endforeach
         </div>
       </details>
 

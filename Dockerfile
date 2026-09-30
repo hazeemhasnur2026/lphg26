@@ -50,10 +50,14 @@ FROM php:8.4-fpm-alpine AS runtime
 # dibutuhkan.
 RUN apk add --no-cache \
         nginx supervisor su-exec bash sqlite tzdata \
-        icu-libs oniguruma libzip sqlite-libs libpng libjpeg-turbo freetype \
+        icu-libs oniguruma libzip sqlite-libs libpng libjpeg-turbo freetype libwebp \
     && apk add --no-cache --virtual .bangun \
-        icu-dev oniguruma-dev libzip-dev sqlite-dev libpng-dev libjpeg-turbo-dev freetype-dev $PHPIZE_DEPS \
-    && docker-php-ext-configure gd --with-jpeg --with-freetype \
+        icu-dev oniguruma-dev libzip-dev sqlite-dev libpng-dev libjpeg-turbo-dev freetype-dev libwebp-dev $PHPIZE_DEPS \
+    # --with-webp bukan tambahan opsional: tanpa itu imagewebp() tidak ada, dan
+    # varian gambar yang dibuat saat unggahan gagal diam-diam. Gambarnya tetap
+    # tampil memakai berkas aslinya, jadi tidak ada yang menyadarinya sampai
+    # seseorang mengukur berapa yang sebenarnya terkirim.
+    && docker-php-ext-configure gd --with-jpeg --with-freetype --with-webp \
     && docker-php-ext-install -j"$(nproc)" intl mbstring zip pdo_mysql pdo_sqlite gd opcache \
     && apk del .bangun
 
@@ -93,7 +97,20 @@ RUN chmod +x /usr/local/bin/entrypoint \
                content-migration/images /app/data \
     && mkdir -p /var/lib/nginx/tmp /var/log/supervisor /run/nginx \
     && chown -R www-data:www-data backend/storage backend/bootstrap/cache content-migration /app/data \
-                                  /var/lib/nginx /var/log/supervisor /run/nginx \
+                                  /var/log/supervisor \
+    # nginx, bukan www-data.
+    #
+    # php-fpm melayani sebagai www-data, tetapi worker nginx berjalan sebagai
+    # `nginx` — itu yang tertulis di /etc/nginx/nginx.conf bawaan Alpine, dan
+    # kami tidak mengubahnya. Memberikan /var/lib/nginx kepada www-data membuat
+    # worker tidak dapat menembus direktorinya sendiri.
+    #
+    # Akibatnya hanya muncul pada unggahan yang cukup besar untuk ditulis ke
+    # disk, yaitu hampir semuanya: nginx menjawab 500 dan mencatat
+    # "client_body ... Permission denied", sementara log aplikasi tetap bersih
+    # karena permintaannya tidak pernah sampai ke PHP. Seluruh unggahan di panel
+    # — pustaka media, sampul artikel, gambar pengumuman — gagal karenanya.
+    && chown -R nginx:nginx /var/lib/nginx /run/nginx \
     && find assets content-migration backend/public -type f ! -perm -004 -exec chmod 644 {} +
 
 # Tetap root supaya supervisor dapat menjalankan nginx; keduanya melepas hak ke

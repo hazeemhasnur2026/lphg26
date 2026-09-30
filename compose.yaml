@@ -23,6 +23,10 @@ services:
       # dengan `docker compose down -v`, sementara unggahan dari admin aman.
       - basis-data:/app/data
       - unggahan:/app/content-migration/images
+      # Varian WebP gambar unggahan, dibuat aplikasi saat berkas disimpan.
+      # Harus bertahan melewati build seperti gambar aslinya — dan harus
+      # terpisah dari manifest build yang ikut di dalam image.
+      - varian:/app/content-migration/images-opt
       - log:/app/backend/storage/logs
 
   # Pemangkasan pesan yang melewati masa simpan, dan backup harian. Keduanya
@@ -45,6 +49,10 @@ services:
     volumes:
       - basis-data:/app/data
       - unggahan:/app/content-migration/images
+      # Varian WebP gambar unggahan, dibuat aplikasi saat berkas disimpan.
+      # Harus bertahan melewati build seperti gambar aslinya — dan harus
+      # terpisah dari manifest build yang ikut di dalam image.
+      - varian:/app/content-migration/images-opt
       - log:/app/backend/storage/logs
       - cadangan:/cadangan
     command: ["php", "artisan", "schedule:work"]
@@ -56,3 +64,4 @@ volumes:
   # Hasil backup harian. Sengaja volume terpisah: gunanya justru bertahan saat
   # basis-data rusak atau terhapus, jadi keduanya tidak boleh senasib.
   cadangan:
+  varian:

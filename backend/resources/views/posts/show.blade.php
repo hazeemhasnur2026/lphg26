@@ -19,7 +19,7 @@
 
 @section('content')
 <section class="relative overflow-hidden bg-gradient-to-br from-logo-blue via-logo-blue to-logo-blue-dark pt-[72px] text-white">
-  <div class="h-1.5 w-full" style="background:linear-gradient(90deg,#154F91,#FFE80A,#2A9941,#E03633,#154F91)"></div>
+  <x-brand-strip />
   <div class="absolute inset-0 opacity-10 hero-pattern"></div>
   <div class="relative mx-auto max-w-4xl px-4 py-10 sm:px-6 lg:px-8 lg:py-14">
     <nav aria-label="Breadcrumb" class="mb-3 text-xs">

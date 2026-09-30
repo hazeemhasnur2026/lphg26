@@ -24,7 +24,7 @@
 ])
 
 <section class="relative overflow-hidden bg-gradient-to-br from-logo-blue via-logo-blue to-logo-blue-dark pt-[72px] text-white">
-  <div class="h-1.5 w-full" style="background:linear-gradient(90deg,#154F91,#FFE80A,#2A9941,#E03633,#154F91)"></div>
+  <x-brand-strip />
   <div class="absolute inset-0 opacity-10 hero-pattern"></div>
   <div class="pointer-events-none absolute -right-16 -top-24 h-72 w-72 rounded-full border border-white/10"></div>
   <div class="pointer-events-none absolute -right-44 -top-6 h-96 w-96 rounded-full border border-white/[0.07]"></div>

@@ -13,8 +13,8 @@
 
 @section('content')
 <!-- ============ HERO (logo lockup + founder quote, digabung) ============ -->
-<!-- Dominant palette sampled straight from assets/img/logo.png: blue #154F91,
-     yellow #FFE80A, green #2A9941, red #E03633. White up top so the
+<!-- Dominant palette sampled straight from assets/img/logo.png: blue #0F2747,
+     yellow #C9A227, green #007A53, red #E03633. White up top so the
      transparent-PNG lockup and founder photo sit cleanly on the page, then
      fading into a soft brand-blue tint toward the bottom for depth instead
      of a flat white all the way down. -->
@@ -89,8 +89,8 @@
       Merayakan 60 tahun perjalanan Hasnur Group, nilai-nilai perusahaan yang semakin kuat dalam melangkah menuju masa depan yang berkelanjutan.
     </p>
     <div class="mt-8 flex flex-wrap gap-4 justify-center">
-      <a href="/page/about-us/overview" class="px-6 py-3 rounded-md bg-primary text-white font-bold hover:bg-primary-dark transition">Tentang Kami</a>
-      <a href="#bisnis-kami" class="px-6 py-3 rounded-md border border-slate-300 text-slate-700 font-semibold hover:bg-slate-50 transition">Lihat Bisnis Kami</a>
+      <a href="/page/about-us/overview" data-cta="beranda-tentang-kami" class="px-6 py-3 rounded-md bg-primary text-white font-bold hover:bg-primary-dark transition">Tentang Kami</a>
+      <a href="#bisnis-kami" data-cta="beranda-lihat-bisnis" class="px-6 py-3 rounded-md border border-slate-300 text-slate-700 font-semibold hover:bg-slate-50 transition">Lihat Bisnis Kami</a>
     </div>
     <a href="#tentang-kami" class="hidden sm:inline-flex mt-10 text-slate-400 hover:text-primary transition animate-bounce" aria-label="Gulir ke bawah">
       <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"/></svg>
@@ -640,7 +640,7 @@
         <span class="text-sm font-bold uppercase tracking-widest text-accent">Publikasi</span>
         <h2 class="mt-3 text-3xl sm:text-4xl font-extrabold text-primary">Aktivitas Kami</h2>
       </div>
-      <a href="/page/publication/latest-update" class="font-bold text-primary hover:text-primary-dark transition inline-flex items-center gap-2">
+      <a href="/page/publication/latest-update" data-cta="beranda-lihat-semua-aktivitas" class="font-bold text-primary hover:text-primary-dark transition inline-flex items-center gap-2">
         Lihat Semua
         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
       </a>

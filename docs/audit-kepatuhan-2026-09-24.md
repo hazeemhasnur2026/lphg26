@@ -540,3 +540,61 @@ dilakukan, bukan sekadar menjalankan skripnya sampai selesai tanpa galat.
 4. NDA, IP assignment, dan pemindahan repositori ke akun organisasi.
 5. Satu baris cron untuk `schedule:run` dan satu untuk `backup.sh` di server, yang
    baru bisa dipasang setelah servernya ada.
+
+---
+
+## 19. Adendum: pengukuran penggunaan halaman, 29 September 2026
+
+Ditambahkan setelah audit dikerjakan. Bagian 1 sampai 16 dibiarkan apa adanya
+sebagai potret saat pemeriksaan; bagian ini mencatat satu pemrosesan data baru
+yang belum ada pada tanggal itu, sehingga jawaban "tidak ada analitik" pada
+bagian 4, 10, dan 11 tidak lagi berlaku.
+
+**Apa yang berubah.** Situs kini mencatat sendiri empat peristiwa penggunaan
+(CMS-10 pada TOR): klik tombol ajakan, unduhan berkas, pengiriman formulir
+pencarian, dan artikel yang dibaca sampai bagian bawahnya. Tabel baru
+`analytics_events`. Tidak ada skrip pihak ketiga yang dimuat untuk itu, dan tidak
+ada data yang meninggalkan server situs; pemuat GA4/GTM tetap mati sampai ID-nya
+diisi, terpisah dari pencatatan ini.
+
+**Tambahan pada inventaris data (bagian 4).**
+
+| Tabel | Kolom | Sumber | Klasifikasi | Catatan |
+|---|---|---|---|---|
+| `analytics_events` | `name`, `label`, `path`, `locale`, `created_at` | pengunjung | bukan data pribadi | tidak memuat pengenal orang; `label` berisi nama tombol, nama berkas, kata kunci pencarian, atau judul artikel |
+| `analytics_events` | `visitor` | pengunjung | pseudonim | HMAC-SHA256 dari IP + User-Agent + tanggal hari itu, dipotong 32 karakter, kunci `APP_KEY` |
+
+Alamat IP dan User-Agent **tidak** disimpan apa adanya, berbeda dari
+`contact_messages` dan `sessions`. Kolom `visitor` berganti nilai tiap tengah
+malam karena tanggalnya ikut masuk ke dalam HMAC, sehingga catatan hari berbeda
+tidak dapat dihubungkan menjadi satu riwayat, dan tidak dapat dihitung ulang dari
+luar tanpa `APP_KEY`. Kegunaannya terbatas pada satu hal: membedakan sepuluh klik
+dari satu orang dengan sepuluh klik dari sepuluh orang dalam satu hari yang sama.
+
+**Kata kunci pencarian adalah bagian yang perlu diperhatikan.** Medan pencarian
+bersifat bebas, sehingga pengunjung secara teknis dapat menuliskan apa pun ke
+dalamnya, termasuk namanya sendiri. Ini risiko yang sama bentuknya dengan medan
+pesan bebas pada formulir Hubungi Kami dan ditangani dengan cara yang sama: lewat
+kebijakan dan masa simpan, bukan lewat kode. Bedanya, catatan pencarian tidak
+membawa satu pun pengenal untuk menghubungkannya dengan orang.
+
+**Kebijakan privasi (bagian 10).** Pasal "Pengukuran penggunaan halaman"
+ditambahkan ke `/page/legal/kebijakan-privasi`, dan pernyataan lama diperbaiki
+menjadi "tidak memasang layanan analitik **pihak ketiga**". Pernyataan sebelumnya
+akan menjadi tidak benar setelah perubahan ini, dan kebijakan privasi yang tidak
+benar lebih buruk daripada kebijakan privasi yang belum lengkap.
+
+**Retensi (bagian 11).** Dua belas bulan, `ANALYTICS_RETENTION_MONTHS`, dijalankan
+`model:prune` oleh penjadwal harian — jadi ia ikut mati bila baris cron
+`schedule:run` tidak ada di server, sama seperti pemangkasan pesan. Diisi 0
+berarti tanpa batas.
+
+**Jawaban yang berubah pada tabel bagian 11:** "Apakah analitik menyimpan
+pengenal?" — kini ada pencatatan sendiri, dan jawabannya: tidak menyimpan
+pengenal langsung; satu kolom pseudonim harian yang tidak dapat dibalik.
+
+**Yang masih terbuka.** Dasar pemrosesan menurut Pasal 20 untuk catatan ini belum
+dinyatakan, sama seperti untuk `contact_messages`. Penilaian teknis: kepentingan
+sah pengendali, karena tidak ada pengenal orang yang disimpan dan tujuannya
+terbatas pada perbaikan situs. Itu penilaian teknis, bukan opini hukum, dan tetap
+perlu disahkan bersama tiga bagian `[perlu keputusan]` yang sudah terdaftar.

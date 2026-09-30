@@ -99,7 +99,7 @@
           <a href="/page/legal/kebijakan-privasi" class="font-semibold text-primary underline">Kebijakan Privasi</a>.
         </p>
 
-        <button type="submit" class="rounded-full bg-primary px-8 py-3.5 text-sm font-semibold text-white transition hover:bg-primary-dark">
+        <button type="submit" data-cta="kirim-pesan" class="rounded-full bg-primary px-8 py-3.5 text-sm font-semibold text-white transition hover:bg-primary-dark">
           Kirim Pesan
         </button>
       </form>

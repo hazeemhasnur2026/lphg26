@@ -4736,5 +4736,44 @@
       }
     ],
     "width": 1060
+  },
+  "/content-images/unggahan/pengumuman/contoh-60tahun.jpg": {
+    "bytes": 120091,
+    "height": 492,
+    "variants": [
+      {
+        "bytes": 21576,
+        "path": "/content-images-opt/unggahan/pengumuman/contoh-60tahun-539.webp",
+        "width": 539
+      },
+      {
+        "bytes": 13748,
+        "path": "/content-images-opt/unggahan/pengumuman/contoh-60tahun-400.webp",
+        "width": 400
+      }
+    ],
+    "width": 539
+  },
+  "/content-images/unggahan/pengumuman/waspada-penipuan-rekrutmen.png": {
+    "bytes": 1619696,
+    "height": 1402,
+    "variants": [
+      {
+        "bytes": 212194,
+        "path": "/content-images-opt/unggahan/pengumuman/waspada-penipuan-rekrutmen-1122.webp",
+        "width": 1122
+      },
+      {
+        "bytes": 124338,
+        "path": "/content-images-opt/unggahan/pengumuman/waspada-penipuan-rekrutmen-800.webp",
+        "width": 800
+      },
+      {
+        "bytes": 43834,
+        "path": "/content-images-opt/unggahan/pengumuman/waspada-penipuan-rekrutmen-400.webp",
+        "width": 400
+      }
+    ],
+    "width": 1122
   }
 }

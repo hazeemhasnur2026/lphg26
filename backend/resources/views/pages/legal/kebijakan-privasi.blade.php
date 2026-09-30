@@ -62,9 +62,34 @@
       memiliki akun panel administrasi. Data tidak dibagikan ke pihak ketiga mana pun.
     </p>
     <p>
-      Situs ini tidak memasang layanan analitik, piksel pelacak, peta tertanam, maupun
-      skrip dari domain lain. Seluruh gambar, huruf, dan skrip dilayani dari domain
-      Hasnur Group sendiri, sehingga kunjungan Anda tidak dilaporkan ke penyedia lain.
+      Situs ini tidak memasang layanan analitik pihak ketiga, piksel pelacak, peta
+      tertanam, maupun skrip dari domain lain. Seluruh gambar, huruf, dan skrip
+      dilayani dari domain Hasnur Group sendiri, sehingga kunjungan Anda tidak
+      dilaporkan ke penyedia lain.
+    </p>
+
+    <h2>Pengukuran penggunaan halaman</h2>
+    <p>
+      Untuk mengetahui bagian situs mana yang dibutuhkan pengunjung, situs ini mencatat
+      sendiri empat hal: tombol ajakan yang diklik, berkas yang diunduh, kata kunci
+      yang diketik pada halaman pencarian, dan artikel yang dibaca sampai bagian
+      bawahnya. Yang tersimpan pada setiap catatan hanya jenis peristiwanya, nama
+      tombol atau berkas atau kata kunci tersebut, halaman tempatnya terjadi, dan
+      bahasa halaman.
+    </p>
+    <p>
+      Alamat IP dan jenis peramban Anda <strong>tidak</strong> disimpan. Yang disimpan
+      hanya sidik pendek hasil pengacakan kriptografis dari keduanya bersama tanggal
+      hari itu: nilainya berganti setiap tengah malam, tidak dapat dikembalikan ke
+      asalnya, dan tidak dapat dihubungkan dengan catatan hari sebelumnya. Kegunaannya
+      satu, yaitu membedakan sepuluh klik dari satu orang dengan sepuluh klik dari
+      sepuluh orang.
+    </p>
+    <p>
+      Catatan ini tidak memakai cookie, tidak dipakai untuk mengenali Anda, tidak
+      digabungkan dengan data dari formulir Hubungi Kami, dan tidak dikirim ke pihak
+      mana pun di luar server situs ini. Catatan yang berumur lebih dari dua belas
+      bulan dihapus otomatis.
     </p>
 
     <h2>Cookie</h2>

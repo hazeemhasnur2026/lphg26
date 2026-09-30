@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>@yield('title') - Hasnur Group</title>
 <meta name="description" content="@yield('description')">
-<meta name="theme-color" content="#2F3BA2">
+<meta name="theme-color" content="#0F2747">
 <link rel="canonical" href="@yield('canonical', url()->current())">
 {{-- Halaman yang sengaja tidak diindeks. Sitemap sudah melewatinya, tapi
      sitemap hanya usulan: halaman tetap bisa ditemukan lewat tautan, dan hanya
@@ -66,6 +66,8 @@
 </main>
 
 @include('partials.footer')
+
+@include('partials.announcement')
 
 <script src="/assets/js/main.js"></script>
 @stack('scripts')

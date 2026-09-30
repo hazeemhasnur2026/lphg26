@@ -4,7 +4,9 @@ namespace App\Models;
 
 use App\Enums\ContentType;
 use App\Enums\PostStatus;
+use App\Models\Concerns\MengoptimalkanGambar;
 use App\Support\ImageVariants;
+use App\Support\SafeHtml;
 use App\Support\VideoEmbed;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -16,7 +18,13 @@ use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 
 class Post extends Model
 {
-    use HasFactory;
+    use HasFactory, MengoptimalkanGambar;
+
+    /** Kolom gambar pada disk `content`. */
+    public function kolomGambar(): array
+    {
+        return ['cover_image', 'og_image'];
+    }
 
     protected $fillable = [
         'title', 'slug', 'category', 'excerpt', 'body',
@@ -150,8 +158,25 @@ class Post extends Model
      */
     public function getBodyHtmlAttribute(): string
     {
-        $html = str_replace('src="images/', 'src="/content-images/', $this->body ?? '');
+        // Disaring lebih dulu, sebelum apa pun yang lain.
+        //
+        // View mencetak nilai ini dengan {!! !!} karena badan artikel memang
+        // HTML. Tanpa langkah ini, siapa pun yang boleh mengisi badan artikel
+        // dapat menyisipkan <script> yang berjalan di browser tiap pengunjung.
+        //
+        // Disaring saat dibaca, bukan saat disimpan, dengan alasan yang sama
+        // seperti penulisan ulang path di bawah: yang tersimpan tetap sama
+        // dengan hasil crawl. Ada untungnya juga — bila kelak ditemukan celah
+        // pada daftar izinnya, memperbaiki daftar itu langsung berlaku untuk
+        // seluruh artikel lama tanpa perlu memproses ulang satu pun baris.
+        $html = SafeHtml::clean($this->body);
 
+        $html = str_replace('src="images/', 'src="/content-images/', $html);
+
+        // Sesudah disaring, bukan sebelum: <picture> dan <source> yang
+        // ditambahkan di sini markup kami sendiri, dan penyaringnya tidak
+        // mengenal keduanya.
+        //
         // Isi artikel dibatasi max-w-4xl (896 px), jadi varian 800/400 yang dipakai.
         return ImageVariants::enhance($html, '(min-width: 896px) 896px, 100vw');
     }

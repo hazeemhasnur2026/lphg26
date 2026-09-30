@@ -30,12 +30,22 @@ class PostFactory extends Factory
             // Tes tentang alur redaksi menyatakan statusnya sendiri.
             'status' => PostStatus::Published,
             'content_type' => ContentType::News,
+            // Bergambar secara bawaan: artikel terbit wajib punya sampul, jadi
+            // artikel tanpa gambar bukan keadaan bawaan melainkan pengecualian.
+            // Tes yang menguji artikel tanpa gambar menyatakannya sendiri.
+            'cover_image' => 'unggahan/contoh-sampul.jpg',
         ];
     }
 
     public function draft(): static
     {
         return $this->state(fn () => ['status' => PostStatus::Draft]);
+    }
+
+    /** Artikel tanpa gambar sampul — tidak boleh terbit. */
+    public function tanpaGambar(): static
+    {
+        return $this->state(fn () => ['cover_image' => null]);
     }
 
     public function awaitingReview(): static

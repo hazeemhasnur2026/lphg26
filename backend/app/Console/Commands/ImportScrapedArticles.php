@@ -67,34 +67,44 @@ class ImportScrapedArticles extends Command
                 continue;
             }
 
+            // Dihitung lebih dulu, bukan di dalam literal di bawah: merujuk
+            // $attributes['cover_image'] dari dalam array yang sedang dibuat
+            // membaca variabel yang belum ada, dan hasilnya selalu null tanpa
+            // ada yang memberi tahu.
+            $sampul = isset($data['coverImage'])
+                // Disimpan relatif terhadap disk `content`; crawler menulisnya
+                // dengan awalan "images/" yang merupakan bentuk foldernya,
+                // bukan bagian dari identitas berkasnya.
+                ? ltrim(str_replace('images/', '', $data['coverImage']), '/')
+                : null;
+
             $attributes = [
                 'title' => $data['title'],
                 'category' => $data['category'] ?? 'uncategorised',
                 'excerpt' => $data['excerpt'] ?? null,
                 'body' => $data['content'] ?? '',
-                // Disimpan relatif terhadap disk `content`; crawler menulisnya
-                // dengan awalan "images/" yang merupakan bentuk foldernya, bukan
-                // bagian dari identitas berkasnya.
-                'cover_image' => isset($data['coverImage'])
-                    ? ltrim(str_replace('images/', '', $data['coverImage']), '/')
-                    : null,
+                'cover_image' => $sampul,
                 // Left null when the source had no dateline. Never invented,
                 // the list is printed at the end for a human to fill in.
                 'published_at' => $data['publishedAt'] ?? null,
                 'seo_title' => $data['seo']['title'] ?? null,
                 'source_url' => $data['sourceUrl'] ?? null,
-                // Terbit, bukan draf.
-                //
-                // Kolom status punya nilai bawaan 'draft', dan mengandalkan
-                // bawaan itu di sini menyalakan situs dalam keadaan kosong:
-                // entrypoint Docker menjalankan importer ini saat container
-                // pertama kali hidup, sehingga seluruh artikel hasil migrasi
-                // akan mendarat sebagai draf dan tidak satu pun tampil.
-                //
-                // Artikel-artikel ini sudah terbit di situs lama dan sudah
-                // terindeks Google. Memindahkannya ke sini tidak menariknya
-                // kembali ke meja redaksi.
-                'status' => PostStatus::Published,
+
+                /*
+                 * Status ditetapkan, tidak dibiarkan memakai nilai bawaan.
+                 *
+                 * Mengandalkan bawaan 'draft' menyalakan situs dalam keadaan
+                 * kosong: entrypoint Docker menjalankan importer ini saat
+                 * container pertama kali hidup, dan seluruh artikel hasil
+                 * migrasi akan mendarat sebagai draf.
+                 *
+                 * Tetapi aturan redaksi berlaku juga di sini: artikel yang
+                 * tampil di situs wajib bergambar. Importer adalah satu-satunya
+                 * jalan lain menuju status Terbit selain tombol di panel, jadi
+                 * tanpa syarat yang sama tiap impor ulang akan mengembalikan
+                 * artikel tanpa gambar ke situs.
+                 */
+                'status' => filled($sampul) ? PostStatus::Published : PostStatus::Draft,
             ];
 
             if (empty($attributes['published_at'])) {

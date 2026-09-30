@@ -39,11 +39,7 @@ class StructuredData
                 'url' => route('contact.show'),
                 'availableLanguage' => ['id', 'en', 'ja'],
             ],
-            'sameAs' => [
-                'https://www.linkedin.com/company/hasnurgroup',
-                'https://www.instagram.com/hasnurgroup',
-                'https://www.youtube.com/@hasnurgroup',
-            ],
+            'sameAs' => array_values(config('site.sosial')),
         ], self::FLAGS);
     }
 

@@ -3,7 +3,9 @@
 namespace App\Filament\Resources\Posts\Schemas;
 
 use App\Enums\ContentType;
+use App\Enums\PostStatus;
 use App\Models\BusinessUnit;
+use App\Models\Post;
 use App\Support\PostWorkflow;
 use Filament\Forms\Components\DateTimePicker;
 use Filament\Forms\Components\FileUpload;
@@ -95,13 +97,23 @@ class PostForm
                 ->schema([
                     FileUpload::make('cover_image')
                         ->label('Gambar sampul')
+                        // Wajib pada artikel yang sudah terbit, bebas pada draf.
+                        //
+                        // Mewajibkannya sejak draf berarti penulis tidak bisa
+                        // menyimpan tulisan setengah jadi tanpa lebih dulu
+                        // mencari gambar — dan yang terjadi berikutnya adalah
+                        // gambar asal-asalan yang dipasang supaya tombol simpan
+                        // menyala. Syaratnya berlaku di gerbang terbit.
+                        ->required(fn (?Post $record) => $record?->status === PostStatus::Published)
+                        ->helperText(fn (?Post $record) => $record?->status === PostStatus::Published
+                            ? 'Wajib: artikel yang sudah terbit harus punya gambar sampul.'
+                            : 'Wajib diisi sebelum artikel dapat diterbitkan. Setelah mengunggah gambar baru, jalankan tools/optimize_images.py --tree content agar versi WebP-nya ikut dibuat.')
                         ->image()
                         ->acceptedFileTypes(['image/jpeg', 'image/png', 'image/webp'])
                         ->maxSize(4096)
                         ->disk('content')
                         ->directory('unggahan')
                         ->visibility('public')
-                        ->helperText('Setelah mengunggah gambar baru, jalankan tools/optimize_images.py --tree content agar versi WebP-nya ikut dibuat.')
                         ->columnSpanFull(),
 
                     FileUpload::make('document_path')

@@ -27,6 +27,25 @@ use Illuminate\Support\Collection;
  */
 class PostWorkflow
 {
+    /**
+     * Alasan artikel ini belum boleh terbit, atau null bila sudah boleh.
+     *
+     * Dipisahkan dari allows() dengan sengaja. allows() menjawab "apakah
+     * langkah ini sah bagi orang ini", dan jawabannya menyembunyikan tombol.
+     * Syarat isi berbeda sifatnya: tombol yang hilang membuat orang mengira
+     * sistemnya rusak, sedangkan tombol yang mati dengan keterangan memberi
+     * tahu apa yang harus dikerjakan.
+     */
+    public static function alasanBelumBolehTerbit(Post $post): ?string
+    {
+        if (blank($post->cover_image)) {
+            return 'Artikel tanpa gambar sampul tidak dapat diterbitkan. '
+                .'Unggah gambar di bagian Berkas terlebih dahulu.';
+        }
+
+        return null;
+    }
+
     /** Apakah pengguna ini boleh memindahkan artikel ke status tersebut. */
     public static function allows(User $user, Post $post, PostStatus $target): bool
     {
@@ -80,6 +99,15 @@ class PostWorkflow
     {
         $from = $post->status ?? PostStatus::Draft;
         $user = auth()->user();
+
+        // Pertahanan terakhir, bukan satu-satunya.
+        //
+        // Tombolnya sudah mati di panel, tetapi transition() juga dipanggil
+        // dari perintah artisan dan dari kode yang ditulis kelak. Aturan yang
+        // hanya dijaga di antarmuka bukan aturan.
+        if ($target === PostStatus::Published && ($alasan = static::alasanBelumBolehTerbit($post))) {
+            throw new \RuntimeException($alasan);
+        }
 
         $perubahan = ['status' => $target];
 

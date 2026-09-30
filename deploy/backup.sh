@@ -18,7 +18,43 @@ BACKUP_DIR="${BACKUP_DIR:-$ROOT/../backup-hasnur}"
 SIMPAN_HARI="${BACKUP_RETENTION_DAYS:-30}"
 CAP="$(date +%Y%m%d-%H%M%S)"
 
+# Kunci enkripsi backup. Kosong berarti backup ditulis polos.
+#
+# Isinya seluruh basis data, termasuk pesan dari formulir kontak: nama, surel,
+# telepon, dan alamat IP pengunjung. Siapa pun yang dapat membaca folder backup
+# dapat membaca semuanya, dan folder backup biasanya justru yang paling longgar
+# izinnya — disalin ke penyimpanan lain, dibawa ke laptop, dilampirkan ke tiket.
+#
+# Dibiarkan kosong tidak menggagalkan apa pun; skrip hanya memperingatkan. Yang
+# menggagalkan justru kalau kunci diisi tetapi openssl tidak ada, karena backup
+# yang dikira terenkripsi padahal polos lebih buruk daripada tidak terenkripsi
+# sama sekali.
+KUNCI="${BACKUP_ENCRYPTION_KEY:-}"
+
 mkdir -p "$BACKUP_DIR"
+
+if [ -n "$KUNCI" ] && ! command -v openssl >/dev/null 2>&1; then
+    echo "!! BACKUP_ENCRYPTION_KEY diisi tetapi openssl tidak ada di PATH."
+    echo "   Dihentikan: backup polos yang dikira terenkripsi lebih berbahaya"
+    echo "   daripada backup polos yang diketahui polos."
+    exit 1
+fi
+
+# Membungkus satu berkas menjadi .enc lalu menghapus aslinya.
+#
+# AES-256-CBC dengan turunan kunci PBKDF2. -salt wajib: tanpa itu kunci yang
+# sama menghasilkan awalan ciphertext yang sama pada tiap backup, dan dua
+# backup berurutan bisa dibandingkan tanpa membukanya.
+enkripsi() {
+    local berkas="$1"
+
+    [ -n "$KUNCI" ] || return 0
+    [ -f "$berkas" ] || return 0
+
+    openssl enc -aes-256-cbc -pbkdf2 -iter 200000 -salt \
+        -in "$berkas" -out "$berkas.enc" -pass env:BACKUP_ENCRYPTION_KEY
+    rm -f "$berkas"
+}
 
 nilai_env() {
     # Variabel lingkungan menang atas .env, dan urutan ini bukan selera.
@@ -48,6 +84,7 @@ case "$KONEKSI" in
         # menyalin berkasnya dengan cp bisa menghasilkan salinan setengah jadi.
         sqlite3 "$SUMBER" ".backup '$BACKUP_DIR/db-$CAP.sqlite'"
         gzip -f "$BACKUP_DIR/db-$CAP.sqlite"
+        enkripsi "$BACKUP_DIR/db-$CAP.sqlite.gz"
         ;;
     mysql|mariadb)
         mysqldump \
@@ -55,6 +92,7 @@ case "$KONEKSI" in
             --user="$(nilai_env DB_USERNAME)" --password="$(nilai_env DB_PASSWORD)" \
             --single-transaction --quick \
             "$(nilai_env DB_DATABASE)" | gzip > "$BACKUP_DIR/db-$CAP.sql.gz"
+        enkripsi "$BACKUP_DIR/db-$CAP.sql.gz"
         ;;
     *)
         echo "!! DB_CONNECTION '$KONEKSI' belum didukung skrip ini."
@@ -64,7 +102,9 @@ esac
 
 echo "==> Gambar yang diunggah"
 # content-migration/images tidak dilacak git, jadi isinya hanya ada di server.
-tar -czf "$BACKUP_DIR/unggahan-$CAP.tar.gz" -C "$ROOT" content-migration/images 2>/dev/null || {
+tar -czf "$BACKUP_DIR/unggahan-$CAP.tar.gz" -C "$ROOT" content-migration/images 2>/dev/null && {
+    enkripsi "$BACKUP_DIR/unggahan-$CAP.tar.gz"
+} || {
     echo "   (folder unggahan belum ada, dilewat)"
     rm -f "$BACKUP_DIR/unggahan-$CAP.tar.gz"
 }
@@ -74,4 +114,14 @@ find "$BACKUP_DIR" -maxdepth 1 -name 'db-*' -mtime "+$SIMPAN_HARI" -delete
 find "$BACKUP_DIR" -maxdepth 1 -name 'unggahan-*' -mtime "+$SIMPAN_HARI" -delete
 
 echo "==> Selesai"
+
+if [ -z "$KUNCI" ]; then
+    echo "   PERINGATAN: backup tidak dienkripsi. Isinya memuat data pribadi"
+    echo "   pengunjung dari formulir kontak. Setel BACKUP_ENCRYPTION_KEY."
+else
+    echo "   Terenkripsi AES-256. Simpan kuncinya di luar server ini —"
+    echo "   kunci yang hanya ada di mesin yang sama tidak menolong saat"
+    echo "   mesin itu yang hilang."
+fi
+
 ls -lh "$BACKUP_DIR" | tail -5

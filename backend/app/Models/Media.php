@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\Concerns\MengoptimalkanGambar;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
@@ -9,6 +10,13 @@ use Illuminate\Support\Facades\Storage;
 
 class Media extends Model
 {
+    use MengoptimalkanGambar;
+
+    public function kolomGambar(): array
+    {
+        return ['path'];
+    }
+
     /**
      * Laravel menebak nama tabel dari nama model dengan memakai bentuk jamak
      * bahasa Inggris, dan bentuk jamak "media" menurut aturan itu adalah

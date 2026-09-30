@@ -49,6 +49,23 @@ return [
     'analytics' => [
         'ga_id' => env('ANALYTICS_GA_ID'),
         'gtm_id' => env('ANALYTICS_GTM_ID'),
+
+        /*
+         * Pencatatan peristiwa oleh situs sendiri, dibaca di panel pada menu
+         * Analitik. Menyala tanpa menunggu keputusan platform.
+         *
+         * Nyala secara bawaan, berbeda dari dua setelan di atas, karena yang
+         * dicemaskan di sana tidak berlaku di sini: tidak ada skrip pihak ketiga
+         * yang termuat, tidak ada data yang meninggalkan server ini, dan papan
+         * angkanya hanya terlihat oleh yang punya akun panel. Kunjungan tim
+         * sendiri memang ikut terhitung — itulah harga dari punya angka hari ini
+         * alih-alih tidak punya angka sama sekali, dan pada mesin pengembang
+         * papannya justru berguna untuk memastikan peristiwanya benar terkirim.
+         *
+         * Disetel false untuk mematikannya; penerimanya lalu membuang tiap
+         * peristiwa yang masuk.
+         */
+        'internal' => (bool) env('ANALYTICS_INTERNAL', true),
     ],
 
 ];

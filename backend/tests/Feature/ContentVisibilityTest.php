@@ -116,8 +116,15 @@ class ContentVisibilityTest extends TestCase
 
         $this->assertGreaterThan(0, Post::published()->count(),
             'Importer menghasilkan nol artikel yang tampil di situs.');
-        $this->assertSame(0, Post::where('status', PostStatus::Draft)->count(),
-            'Artikel hasil migrasi mendarat sebagai draf.');
+        // Yang bergambar terbit; yang tidak bergambar sengaja tetap draf, sejak
+        // aturan "artikel terbit wajib bergambar" berlaku. Yang diperiksa di
+        // sini adalah tidak adanya artikel bergambar yang tertinggal draf.
+        $tertinggal = Post::where('status', PostStatus::Draft)
+            ->whereNotNull('cover_image')
+            ->where('cover_image', '!=', '')
+            ->count();
+
+        $this->assertSame(0, $tertinggal, 'Artikel bergambar mendarat sebagai draf.');
     }
 
     public function test_the_sitemap_leaves_out_drafts_and_noindex_pages(): void

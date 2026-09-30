@@ -123,6 +123,17 @@ class PostsTable
                         ->when($data['dari'] ?? null, fn ($q, $v) => $q->whereDate('published_at', '>=', $v))
                         ->when($data['sampai'] ?? null, fn ($q, $v) => $q->whereDate('published_at', '<=', $v))),
 
+                // Terjadwal bukan status tersendiri melainkan perpaduan dua
+                // kolom: sudah berstatus Terbit, tetapi tanggalnya belum tiba.
+                // Tanpa penyaring ini, kartu "Terjadwal" di dasbor tidak punya
+                // tujuan yang bisa ditunjuk.
+                Filter::make('terjadwal')
+                    ->label('Terjadwal — belum tiba waktunya')
+                    ->query(fn (Builder $query) => $query
+                        ->where('status', PostStatus::Published)
+                        ->whereNotNull('published_at')
+                        ->where('published_at', '>', now())),
+
                 TernaryFilter::make('published_at')
                     ->label('Tanggal terbit')
                     ->nullable()
@@ -174,6 +185,11 @@ class PostsTable
                         ->color('success')
                         ->requiresConfirmation()
                         ->visible(fn (Post $record) => static::boleh($record, PostStatus::Published))
+                        // Mati, bukan hilang. Tombol yang lenyap membuat orang
+                        // mengira sistemnya rusak; tombol yang mati dengan
+                        // keterangan memberi tahu apa yang kurang.
+                        ->disabled(fn (Post $record) => PostWorkflow::alasanBelumBolehTerbit($record) !== null)
+                        ->tooltip(fn (Post $record) => PostWorkflow::alasanBelumBolehTerbit($record))
                         ->action(fn (Post $record) => PostWorkflow::transition($record, PostStatus::Published)),
 
                     Action::make('arsipkan')

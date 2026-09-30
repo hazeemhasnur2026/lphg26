@@ -117,6 +117,14 @@ return [
      */
     'contact_recipient' => env('MAIL_CONTACT_RECIPIENT', 'info@hasnurgroup.com'),
 
+    /*
+     * Sebelumnya ditulis tiga kali langsung di halaman Lowongan
+     * (resources/views/pages/career/our-vacancy.blade.php), tidak lewat
+     * konfigurasi apa pun — beda dari contact_recipient di atas yang sudah
+     * benar diatur lewat .env.
+     */
+    'recruitment_recipient' => env('MAIL_RECRUITMENT_RECIPIENT', 'recruitment@hasnurgroup.com'),
+
     'from' => [
         'address' => env('MAIL_FROM_ADDRESS', 'hello@example.com'),
         'name' => env('MAIL_FROM_NAME', env('APP_NAME', 'Laravel')),

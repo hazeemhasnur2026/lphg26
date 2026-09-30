@@ -42,6 +42,17 @@ jobs:
       - name: Buat symlink di public/
         run: bash deploy/link-public-dirs.sh
 
+      # Kerentanan yang diumumkan setelah paketnya terpasang tidak akan
+      # ketahuan oleh siapa pun kecuali ada yang memeriksanya berkala. Ini
+      # tempat paling murah untuk memeriksanya: tiap push, tanpa ada yang
+      # perlu ingat.
+      #
+      # Gagal, bukan sekadar memberi peringatan. Peringatan di log CI yang
+      # tetap hijau tidak pernah dibaca dua kali.
+      - name: Audit kerentanan dependensi PHP
+        working-directory: backend
+        run: composer audit --no-interaction
+
       - name: Periksa gaya penulisan
         working-directory: backend
         run: vendor/bin/pint --test
@@ -57,6 +68,14 @@ jobs:
         run: |
           npm ci
           npm run build
+
+      # Setelah npm ci, karena audit butuh node_modules terpasang.
+      # --omit=dev: kerentanan pada alat build tidak ikut terkirim ke
+      # pengunjung, dan menggagalkan CI karenanya hanya melatih orang
+      # mengabaikan langkah ini.
+      - name: Audit kerentanan dependensi JavaScript
+        working-directory: backend
+        run: npm audit --omit=dev --audit-level=high
 
       - name: Simpan aset untuk tahap deploy
         uses: actions/upload-artifact@v4

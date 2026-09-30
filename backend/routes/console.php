@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\AnalyticsEvent;
 use App\Models\ContactMessage;
 use Illuminate\Foundation\Inspiring;
 use Illuminate\Support\Facades\Artisan;
@@ -10,7 +11,7 @@ Artisan::command('inspire', function () {
 })->purpose('Display an inspiring quote');
 
 /*
- * Pemangkasan pesan yang sudah melewati masa simpan.
+ * Pemangkasan pesan dan peristiwa analitik yang sudah melewati masa simpan.
  *
  * Butuh satu baris cron di server, kalau tidak jadwal ini tidak pernah jalan:
  *   * * * * * cd /path/ke/backend && php artisan schedule:run >> /dev/null 2>&1
@@ -21,7 +22,7 @@ Artisan::command('inspire', function () {
  * Sesi kedaluwarsa tidak dijadwalkan di sini karena driver database Laravel
  * sudah membersihkannya sendiri lewat session.lottery.
  */
-Schedule::command('model:prune', ['--model' => [ContactMessage::class]])
+Schedule::command('model:prune', ['--model' => [ContactMessage::class, AnalyticsEvent::class]])
     ->daily()
     ->onOneServer();
 

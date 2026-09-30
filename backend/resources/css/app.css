@@ -8,25 +8,55 @@
    ikut dibangun. Hanya dua nilai yang mungkin, keduanya disebut di sini. */
 @source inline('xl:col-span-{3,4}');
 
-/* Warna dan huruf ini sebelumnya ditulis sebagai tailwind.config inline di
-   <head> untuk Play CDN. Nilainya diambil dari logo resmi. Biru #154F91,
-   kuning #FFE80A, hijau #2A9941, merah #E03633, dan dipakai lintas halaman,
-   jadi kalau ada yang berubah cukup di satu tempat ini. */
+/* Palet korporat menurut TOR 2026 (UX-02): Emerald Green #007A53,
+   Navy #0F2747, Gold #C9A227, dan putih.
+
+   Sebelumnya nilai-nilai ini diambil dari logo resmi — biru #0F2747, kuning
+   #C9A227, hijau #007A53, merah #E03633. Keduanya palet yang berbeda, dan yang
+   dipakai sekarang adalah yang tertulis di TOR. Kalau ternyata brand guideline
+   yang berlaku adalah warna logo, di sinilah tempat mengembalikannya: seluruh
+   halaman membaca token ini, bukan menulis hexnya sendiri.
+
+   Merah dipertahankan. TOR tidak menyebut warna merah sama sekali, tetapi ia
+   satu-satunya penanda galat dan peringatan di situs ini, dan menghapusnya
+   berarti pesan kesalahan kehilangan warnanya. */
 @theme {
-    --color-primary: #2f3ba2;
-    --color-primary-dark: #232c7a;
-    --color-primary-light: #4c58c4;
+    /* Navy — warna utama: navigasi, tombol, judul. */
+    --color-primary: #0f2747;
+    --color-primary-dark: #091829;
+    --color-primary-light: #1c4270;
 
-    --color-accent: #d9a441;
+    /* Gold — aksen. Lihat catatan kontras di bawah sebelum memakainya
+       sebagai teks di atas latar terang. */
+    --color-accent: #c9a227;
 
-    --color-logo-blue: #154f91;
-    --color-logo-blue-dark: #0e335e;
-    --color-logo-yellow: #ffe80a;
-    --color-logo-green: #2a9941;
+    /* Emerald — warna kedua, dipakai untuk penanda positif dan aksen hijau. */
+    --color-emerald: #007a53;
+
+    /* Token logo-* dipertahankan namanya supaya tidak ada view yang perlu
+       disentuh, tetapi nilainya kini mengikuti palet TOR. */
+    --color-logo-blue: #0f2747;
+    --color-logo-blue-dark: #091829;
+    --color-logo-yellow: #c9a227;
+    --color-logo-green: #007a53;
     --color-logo-red: #e03633;
 
     --font-sans: 'Plus Jakarta Sans', ui-sans-serif, system-ui, sans-serif;
 }
+
+/* Catatan kontras terhadap WCAG 2.1 AA yang diminta TOR (UX-07):
+
+     putih di atas Navy      14.98:1   lulus
+     putih di atas Emerald    5.37:1   lulus
+     Gold di atas Navy        6.19:1   lulus
+     Gold di atas putih       2.42:1   GAGAL
+     Emerald di atas Navy     2.79:1   GAGAL
+
+   Dua yang gagal bukan hal baru: aksen lama #D9A441 di atas putih hanya 2.25:1,
+   jadi keadaannya sedikit membaik, bukan memburuk. Tetap perlu diperbaiki —
+   text-accent dipakai delapan kali sebagai label kecil di atas latar terang.
+   Perbaikannya bukan mengganti warnanya melainkan mengganti perannya: gold
+   untuk garis, ikon, dan latar, bukan untuk teks kecil di atas putih. */
 
 /* Isi artikel datang sebagai HTML lepas hasil crawl situs lama, jadi kelasnya
    bukan kelas kami dan tidak bisa disentuh satu per satu. `prose-hasnur` sudah

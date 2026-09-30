@@ -91,17 +91,78 @@ class ImageVariants
         );
     }
 
+    /**
+     * Manifest yang ditulis saat build, untuk gambar tema situs.
+     *
+     * Hidup di root repo, bukan di dalam backend/: satu berkas melayani dua
+     * tree gambar, dan salah satunya (content-migration/) milik tooling
+     * migrasi, bukan aplikasi Laravel. Ikut di dalam image dan hanya dibaca.
+     */
+    public static function jalurManifestBuild(): string
+    {
+        return base_path('../data/image-variants.json');
+    }
+
+    /**
+     * Manifest yang ditulis saat gambar diunggah orang.
+     *
+     * Berkas terpisah, dan pemisahan itu bukan kerapian.
+     *
+     * Manifest build ikut di dalam image Docker dan berganti tiap build.
+     * Manifest unggahan harus bertahan melewati build, jadi ia hidup di volume
+     * — dan volume menang selamanya atas isi image. Menaruh keduanya dalam satu
+     * berkas berarti memilih salah satu yang rusak: kalau berkasnya di image,
+     * entri unggahan hilang tiap deploy; kalau di volume, entri build tidak
+     * pernah diperbarui.
+     *
+     * Itu persis yang terjadi pada 30 September 2026: manifest di container
+     * tertinggal 224 entri sementara repo punya 226, dan poster pengumuman
+     * dilayani sebagai PNG 1,54 MB padahal varian WebP 207 KB-nya ada di disk.
+     */
+    public static function jalurManifestUnggahan(): string
+    {
+        return base_path('../content-migration/images-opt/manifest-unggahan.json');
+    }
+
+    /** Menulis atau memperbarui satu entri pada manifest unggahan. */
+    public static function catat(string $url, array $entri): void
+    {
+        $path = static::jalurManifestUnggahan();
+
+        @mkdir(dirname($path), 0775, true);
+
+        $isi = is_file($path)
+            ? (json_decode((string) file_get_contents($path), true) ?: [])
+            : [];
+
+        $isi[$url] = $entri;
+
+        // Ditulis lewat berkas sementara lalu dipindahkan: dua permintaan yang
+        // menyimpan gambar bersamaan dapat menimpa berkas di tengah penulisan,
+        // dan manifest yang rusak setengah jalan membuat setiap gambar di situs
+        // jatuh ke berkas aslinya sekaligus.
+        $tmp = $path.'.'.getmypid().'.tmp';
+        file_put_contents($tmp, json_encode($isi, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES));
+        rename($tmp, $path);
+
+        static::$manifest = null;
+    }
+
     private static function manifest(): array
     {
         if (static::$manifest === null) {
-            // Manifest hidup di root repo, bukan di dalam backend/: satu berkas
-            // melayani dua tree gambar, dan salah satunya (content-migration/)
-            // milik tooling migrasi, bukan aplikasi Laravel.
-            $path = base_path('../data/image-variants.json');
+            $baca = function (string $path): array {
+                return is_file($path)
+                    ? (json_decode((string) file_get_contents($path), true) ?: [])
+                    : [];
+            };
 
-            static::$manifest = is_file($path)
-                ? json_decode((string) file_get_contents($path), true) ?: []
-                : [];
+            // Unggahan menimpa build bila kuncinya sama: yang lebih baru
+            // adalah yang baru saja ditulis orang.
+            static::$manifest = array_merge(
+                $baca(static::jalurManifestBuild()),
+                $baca(static::jalurManifestUnggahan()),
+            );
         }
 
         return static::$manifest;

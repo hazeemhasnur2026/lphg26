@@ -40,6 +40,34 @@ return [
     'retensi_revisi' => (int) env('REVISION_RETENTION', 50),
 
     /*
+     * Footer panel admin.
+     *
+     * Tautan dukungan dibuat dapat diatur lewat .env, bukan ditulis tetap di
+     * view: alamat tim yang menangani panel ini berubah lebih sering daripada
+     * kodenya, dan perubahan alamat surel tidak layak menuntut deploy.
+     */
+    'panel' => [
+        'pemilik' => env('PANEL_OWNER', 'HASNUR GROUP — MANAGEMENT INFORMATION SYSTEMS & TECHNOLOGY'),
+        'dukungan' => env('PANEL_SUPPORT_URL', 'mailto:mist@hasnurgroup.com'),
+        'privasi' => env('PANEL_PRIVACY_URL', '/page/legal/kebijakan-privasi'),
+    ],
+
+    /*
+     * Masa simpan peristiwa analitik, dalam bulan.
+     *
+     * Dibatasi per umur, kebalikan dari revisi di atas, karena pertanyaannya
+     * memang tentang waktu: papan analitik membandingkan bulan ini dengan bulan
+     * lalu dan tidak pernah menanyakan apa pun tentang tahun lalu. Dua belas
+     * bulan cukup untuk satu perbandingan tahun-ke-tahun.
+     *
+     * Tabelnya bertambah satu baris tiap klik, jadi ia yang tumbuh paling cepat
+     * di basis data ini dan ia yang paling cepat mendominasi backup harian.
+     *
+     * Diisi 0 berarti tidak ada pemangkasan.
+     */
+    'retensi_analitik_bulan' => (int) env('ANALYTICS_RETENTION_MONTHS', 12),
+
+    /*
      * Halaman berisi konten tetap: URL -> view. Router dan sitemap membaca
      * daftar yang sama, jadi menambah halaman berarti menambah satu baris di
      * sini dan satu view. Tidak ada dua salinan yang bisa menyimpang.
@@ -60,6 +88,39 @@ return [
         'publication/gallery' => 'pages.publication.gallery',
         'career/our-vacancy' => 'pages.career.our-vacancy',
         'legal/kebijakan-privasi' => 'pages.legal.kebijakan-privasi',
+    ],
+
+    /*
+     * URL kanal resmi Hasnur Group, satu sumber untuk ketiga tempat yang
+     * memakainya: ikon di footer, skema Organization/sameAs untuk SEO
+     * (app/Support/StructuredData.php), dan data contoh analitik. Sebelum ini
+     * ketiganya menulis ulang URL yang sama, dan salah satu sudah mulai
+     * berselisih — SeedAnalyticsSample.php menulis "hasnur-group" dengan tanda
+     * hubung, dua tempat lain tanpa.
+     */
+    'sosial' => [
+        'linkedin' => 'https://www.linkedin.com/company/hasnurgroup',
+        'instagram' => 'https://www.instagram.com/hasnurgroup',
+        'youtube' => 'https://www.youtube.com/@hasnurgroup',
+    ],
+
+    /*
+     * Slug unit bisnis tidak selalu sama dengan kunci terjemahan navigasinya:
+     * "agribusiness-forestry" memendek jadi "agribusiness", "technology-services"
+     * jadi "technology". Dipetakan eksplisit di sini, satu tempat, alih-alih
+     * ditebak di view lewat penggabungan string — begitu unit bisnis baru
+     * ditambahkan lewat panel dan lupa didaftarkan di sini, menu navigasi jatuh
+     * ke $unit->name (bahasa Indonesia di ketiga versi bahasa) daripada diam-diam
+     * salah menunjuk kunci terjemahan unit lain.
+     */
+    'business_unit_nav_keys' => [
+        'logistic' => 'nav.business.logistic',
+        'agribusiness-forestry' => 'nav.business.agribusiness',
+        'energy' => 'nav.business.energy',
+        'technology-services' => 'nav.business.technology',
+        'education' => 'nav.business.education',
+        'consumer' => 'nav.business.consumer',
+        'investment' => 'nav.business.investment',
     ],
 
     'listings' => [

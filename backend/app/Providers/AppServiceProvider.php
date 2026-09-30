@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Models\Announcement;
 use App\Models\BusinessUnit;
 use App\Models\Office;
 use App\Models\Post;
@@ -24,6 +25,34 @@ class AppServiceProvider extends ServiceProvider
          * lowongan ikut lewat jalur yang sama karena disajikan rute /page
          * generik yang tidak membawa data apa pun.
          */
+        /*
+         * Pengumuman dibagikan ke partialnya sendiri, bukan ke seluruh layout.
+         *
+         * Bedanya satu kueri per permintaan: composer yang dipasang pada
+         * 'layouts.app' berjalan untuk setiap halaman termasuk yang tidak
+         * pernah merender pengumuman, sedangkan yang dipasang di sini hanya
+         * berjalan saat partialnya benar-benar disertakan.
+         */
+        View::composer('partials.announcement', function ($view) {
+            $view->with('announcement', Announcement::sekarang());
+        });
+
+        /*
+         * Menu navigasi "Bisnis Kami" dulu ditulis tangan, tujuh tautan,
+         * disalin ulang identik untuk versi mobile. Cocok hari ini karena
+         * kebetulan ada tepat tujuh unit bisnis; menambah atau menghapus unit
+         * lewat panel tidak akan mengubah menu ini sama sekali — situs bisa
+         * menautkan ke unit yang sudah dihapus, atau melewatkan unit baru
+         * tanpa satu pun galat yang terlihat.
+         *
+         * ordered() dan bukan urutan sisipan: itu urutan yang sama yang
+         * dipakai kartu SBU di beranda, jadi menu dan beranda tidak pernah
+         * berselisih urutan.
+         */
+        View::composer('partials.header', function ($view) {
+            $view->with('businessUnits', BusinessUnit::ordered()->get(['name', 'slug']));
+        });
+
         View::composer('partials.footer', function ($view) {
             $view->with([
                 'headOffice' => Office::headquarters()->ordered()->first(),

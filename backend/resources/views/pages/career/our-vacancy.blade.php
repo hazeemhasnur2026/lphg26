@@ -20,7 +20,7 @@
     <p class="reveal text-slate-600 leading-relaxed mb-4">Hasnur Group mencari orang-orang dengan bakat terbaik untuk bisnis terintegrasi terdepan di Indonesia, mulai dari sektor kehutanan, pertambangan batubara, jalan dan terminal khusus batubara, agribisnis, transportasi, pelayaran, konstruksi, klub sepakbola profesional, dan pendidikan sekolah olahraga bahkan media massa pernah dalam cakupan.</p>
 <p class="reveal text-slate-600 leading-relaxed mb-4">Dengan lebih dari 4000 orang tergabung di lebih dari 30 unit bisnis, Hasnur Group terus berupaya untuk menjadi perusahaan yang terdepan di Indonesia dan Asia Tenggara secara regional.</p>
 <p class="reveal text-slate-600 leading-relaxed mb-4">Bagi anda yang selalu bertekad untuk dapat mengubah sebuah gagasan menjadi kenyataan, kami mengajak untuk bekerjasama secara harmonis dalam menjelajahi tantangan global dan memantapkan solusi inovatif untuk sebuah bisnis komprehensif yang niscaya akan segera terjadi.</p>
-<p class="reveal text-slate-600 leading-relaxed mb-4">Kami menyambut orang-orang seperti anda untuk bergabung dengan mengembangkan peluang tak terbatas dalam karir bersama kami. Silakan kirim resume lengkap Anda ke: <a href="mailto:recruitment@hasnurgroup.com" class="text-primary font-semibold underline">recruitment@hasnurgroup.com</a></p>
+<p class="reveal text-slate-600 leading-relaxed mb-4">Kami menyambut orang-orang seperti anda untuk bergabung dengan mengembangkan peluang tak terbatas dalam karir bersama kami. Silakan kirim resume lengkap Anda ke: <a href="mailto:{{ config('mail.recruitment_recipient') }}" class="text-primary font-semibold underline">{{ config('mail.recruitment_recipient') }}</a></p>
   </div>
 </section>
 
@@ -53,7 +53,8 @@
           <div class="mt-1 text-sm leading-relaxed text-slate-600">{{ $vacancy->requirements }}</div>
         @endif
 
-        <a href="mailto:recruitment@hasnurgroup.com?subject={{ rawurlencode('Lamaran, '.$vacancy->title) }}"
+        <a href="mailto:{{ config('mail.recruitment_recipient') }}?subject={{ rawurlencode('Lamaran, '.$vacancy->title) }}"
+           data-cta="kirim-lamaran"
            class="mt-5 inline-block rounded-full bg-primary px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-primary-dark">
           Kirim Lamaran
         </a>
@@ -61,7 +62,7 @@
     @empty
       <p class="reveal mt-6 rounded-2xl bg-slate-50 p-8 text-slate-500">
         Saat ini belum ada posisi yang dibuka. Anda tetap dapat mengirimkan resume
-        ke <a href="mailto:recruitment@hasnurgroup.com" class="font-semibold text-primary underline">recruitment@hasnurgroup.com</a>
+        ke <a href="mailto:{{ config('mail.recruitment_recipient') }}" class="font-semibold text-primary underline">{{ config('mail.recruitment_recipient') }}</a>
         untuk disimpan dalam basis data kami.
       </p>
     @endforelse

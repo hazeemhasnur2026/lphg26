@@ -191,7 +191,52 @@ punya":
 
 ---
 
-## 8. Pertanyaan yang sering muncul
+## 8. Analitik
+
+**Pengaturan → Analitik.** Memperlihatkan apa yang benar-benar diklik pengunjung
+selama 30 hari terakhir: tombol ajakan, berkas yang diunduh, kata kunci yang
+diketik di halaman pencarian, dan artikel yang dibaca sampai habis.
+
+Tiga bagian: kartu angka di atas, grafik harian di tengah (rentangnya bisa
+diganti 7 / 30 / 90 hari), dan lima tabel peringkat di bawah.
+
+**Dua angka pada tiap tabel peringkat, dan keduanya berbeda arti.**
+*Peristiwa* adalah jumlah klik. *Pengunjung* adalah berapa orang berbeda yang
+melakukannya. "Diklik sepuluh kali" oleh satu orang bukan kabar yang sama dengan
+"diklik sepuluh orang", dan hanya yang kedua berarti sesuatu tentang
+ketertarikan.
+
+**Kata kunci yang paling sering dicari adalah bagian yang paling layak dibaca
+rutin.** Kata yang sering diketik orang biasanya berarti halamannya sulit
+ditemukan dari menu — itu daftar pekerjaan, bukan sekadar angka.
+
+**Yang tidak bisa dijawab halaman ini:** dari mana pengunjung datang, kata kunci
+apa yang membawanya dari Google, pengunjung baru atau yang kembali, dan
+perbandingan dengan situs lain. Itu pekerjaan platform analitik seperti Google
+Analytics, yang menunggu keputusan platform mana yang dipakai (CMS-10 pada TOR).
+Angka di halaman ini dihitung sendiri oleh situs.
+
+**Kunjungan tim sendiri ikut terhitung.** Tidak ada penyaring untuk itu, jadi
+hari kerja yang ramai penyuntingan cenderung terlihat sedikit lebih ramai
+daripada perhatian pengunjung yang sebenarnya.
+
+**Bila muncul kotak "Papan ini memuat data contoh"**, angka di bawahnya bercampur
+dengan data buatan untuk keperluan peninjauan dan belum boleh dipakai mengambil
+keputusan. Minta IT menjalankan `php artisan analitik:contoh --hapus`.
+
+Yang boleh membukanya: Peninjau ke atas. Kontributor tidak, karena halaman ini
+memuat kata yang diketik pengunjung.
+
+---
+
+## 9. Pertanyaan yang sering muncul
+
+**Angka di Analitik tidak bertambah padahal saya sudah mengklik.**
+Muat ulang halaman publiknya lebih dulu, lalu klik lagi. Tab yang dibiarkan
+terbuka berjam-jam memakai token keamanan yang sudah kedaluwarsa, dan peristiwa
+dari tab itu ditolak server. Bila masih tidak bertambah, buka Console peramban
+(F12) di halaman publiknya: pesan yang diawali `[analitik]` menyebutkan alasan
+penolakannya.
 
 **Artikel saya tidak muncul di situs.**
 Periksa berurutan: statusnya Terbit? Tanggal terbitnya sudah lewat? "Berhenti
