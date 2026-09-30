@@ -22,16 +22,17 @@ class UserRoleTest extends TestCase
 {
     use RefreshDatabase;
 
-    public function test_existing_accounts_became_administrators_not_editors(): void
+    public function test_existing_accounts_became_super_admins_not_contributors(): void
     {
-        // Migrasi menaikkan akun lama menjadi administrator. Menurunkannya akan
-        // mengunci orang di luar panelnya sendiri saat peran diperkenalkan.
-        $this->assertSame(UserRole::Administrator, User::factory()->administrator()->create()->role);
+        // Migrasi menaikkan akun lama, tidak menurunkannya. Menurunkan hak akun
+        // yang sedang dipakai akan mengunci orang di luar panelnya sendiri
+        // tepat saat sistem peran diperkenalkan.
+        $this->assertSame(UserRole::SuperAdmin, User::factory()->superAdmin()->create()->role);
     }
 
-    public function test_an_editor_cannot_open_contact_messages(): void
+    public function test_a_contributor_cannot_open_contact_messages(): void
     {
-        $this->actingAs(User::factory()->create(['role' => UserRole::Editor]));
+        $this->actingAs(User::factory()->contributor()->create());
 
         $this->assertFalse(ContactMessageResource::canAccess());
         $this->assertFalse(UserResource::canAccess());
@@ -39,9 +40,28 @@ class UserRoleTest extends TestCase
         $this->assertTrue(PostResource::canAccess());
     }
 
-    public function test_an_administrator_can_open_everything(): void
+    public function test_a_reviewer_cannot_read_contact_messages_either(): void
     {
-        $this->actingAs(User::factory()->administrator()->create());
+        // Peninjau membaca naskah, bukan korespondensi pengunjung. Haknya naik
+        // pada persetujuan, bukan pada data pribadi.
+        $this->actingAs(User::factory()->reviewer()->create());
+
+        $this->assertFalse(ContactMessageResource::canAccess());
+        $this->assertFalse(UserResource::canAccess());
+        $this->assertTrue(PostResource::canAccess());
+    }
+
+    public function test_a_corporate_admin_reads_messages_but_cannot_manage_accounts(): void
+    {
+        $this->actingAs(User::factory()->admin()->create());
+
+        $this->assertTrue(ContactMessageResource::canAccess());
+        $this->assertFalse(UserResource::canAccess());
+    }
+
+    public function test_a_super_admin_can_open_everything(): void
+    {
+        $this->actingAs(User::factory()->superAdmin()->create());
 
         $this->assertTrue(ContactMessageResource::canAccess());
         $this->assertTrue(UserResource::canAccess());
@@ -57,10 +77,10 @@ class UserRoleTest extends TestCase
     {
         ContactMessage::factory()->create(['subject' => 'Rahasia Pengunjung']);
 
-        $this->actingAs(User::factory()->create(['role' => UserRole::Editor]));
+        $this->actingAs(User::factory()->contributor()->create());
         $this->get(ContactMessageResource::getUrl('index'))->assertForbidden();
 
-        $this->actingAs(User::factory()->administrator()->create());
+        $this->actingAs(User::factory()->superAdmin()->create());
         $this->get(ContactMessageResource::getUrl('index'))
             ->assertOk()
             ->assertSee('Rahasia Pengunjung');

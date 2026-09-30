@@ -38,14 +38,21 @@ services:
       # Migrasi dijalankan container app. Dua proses yang bermigrasi ke basis
       # data yang sama pada saat bersamaan akan saling menjatuhkan.
       LEWATI_MIGRASI: "1"
+      # Nilai bawaan skrip menaruh hasil backup di sebelah kode, yang di dalam
+      # container berarti lapisan tulis yang ikut terbuang tiap `up --build`.
+      BACKUP_DIR: /cadangan
     depends_on: [app]
     volumes:
       - basis-data:/app/data
       - unggahan:/app/content-migration/images
       - log:/app/backend/storage/logs
+      - cadangan:/cadangan
     command: ["php", "artisan", "schedule:work"]
 
 volumes:
   basis-data:
   unggahan:
   log:
+  # Hasil backup harian. Sengaja volume terpisah: gunanya justru bertahan saat
+  # basis-data rusak atau terhapus, jadi keduanya tidak boleh senasib.
+  cadangan:

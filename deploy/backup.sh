@@ -21,9 +21,20 @@ CAP="$(date +%Y%m%d-%H%M%S)"
 mkdir -p "$BACKUP_DIR"
 
 nilai_env() {
+    # Variabel lingkungan menang atas .env, dan urutan ini bukan selera.
+    # Di Docker, DB_DATABASE ditetapkan compose sebagai /app/data/database.sqlite
+    # dan tidak pernah ditulis ke backend/.env. Membaca .env lebih dulu berarti
+    # skrip ini jatuh ke nilai bawaan backend/database/database.sqlite, lalu
+    # mencadangkan berkas yang tidak pernah dipakai siapa pun sambil melaporkan
+    # "Selesai". Backup yang salah lebih berbahaya daripada backup yang gagal.
+    local dari_lingkungan="${!1:-}"
+    if [ -n "$dari_lingkungan" ]; then
+        printf '%s\n' "$dari_lingkungan"
+        return
+    fi
+
     # || true wajib: dengan set -o pipefail, grep yang tidak menemukan kunci
-    # akan menghentikan seluruh skrip. DB_DATABASE memang sering tidak ditulis
-    # di .env karena Laravel punya nilai bawaannya sendiri.
+    # akan menghentikan seluruh skrip.
     grep -E "^$1=" "$ROOT/backend/.env" 2>/dev/null | head -1 | cut -d= -f2- | tr -d '"' | tr -d "'" | xargs || true
 }
 

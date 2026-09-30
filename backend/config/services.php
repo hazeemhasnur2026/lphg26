@@ -35,4 +35,20 @@ return [
         ],
     ],
 
+    /*
+     * Analytics (CMS-10 pada TOR).
+     *
+     * Kosong berarti mati. Skrip pengukuran tidak boleh ikut menyala di mesin
+     * pengembang dan di server uji: kunjungan tim sendiri akan bercampur ke
+     * dalam angka yang dipakai mengambil keputusan.
+     *
+     * Isi salah satu, bukan keduanya. Bila GTM diisi, ia yang dipakai dan GA
+     * dipasang dari dalam GTM — dua pemuat sekaligus menghitung tiap kunjungan
+     * dua kali.
+     */
+    'analytics' => [
+        'ga_id' => env('ANALYTICS_GA_ID'),
+        'gtm_id' => env('ANALYTICS_GTM_ID'),
+    ],
+
 ];

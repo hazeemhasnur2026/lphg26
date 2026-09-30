@@ -2,9 +2,15 @@
 
 namespace App\Models;
 
+use App\Enums\ContentType;
+use App\Enums\PostStatus;
 use App\Support\ImageVariants;
+use App\Support\VideoEmbed;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Support\Facades\Storage;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 
@@ -16,11 +22,70 @@ class Post extends Model
         'title', 'slug', 'category', 'excerpt', 'body',
         'cover_image', 'published_at', 'seo_title', 'source_url',
         'external_url', 'source_name',
+        'status', 'content_type', 'author_id', 'business_unit_id',
+        'submitted_at', 'submitted_by', 'reviewed_at', 'reviewed_by',
+        'review_note', 'archived_at', 'unpublish_at',
+        'meta_description', 'og_image', 'canonical_url', 'noindex',
+        'document_path', 'video_url',
     ];
 
     protected function casts(): array
     {
-        return ['published_at' => 'datetime'];
+        return [
+            'published_at' => 'datetime',
+            'unpublish_at' => 'datetime',
+            'submitted_at' => 'datetime',
+            'reviewed_at' => 'datetime',
+            'archived_at' => 'datetime',
+            'noindex' => 'boolean',
+            'status' => PostStatus::class,
+            'content_type' => ContentType::class,
+        ];
+    }
+
+    public function author(): BelongsTo
+    {
+        return $this->belongsTo(User::class, 'author_id');
+    }
+
+    public function submitter(): BelongsTo
+    {
+        return $this->belongsTo(User::class, 'submitted_by');
+    }
+
+    public function reviewer(): BelongsTo
+    {
+        return $this->belongsTo(User::class, 'reviewed_by');
+    }
+
+    public function businessUnit(): BelongsTo
+    {
+        return $this->belongsTo(BusinessUnit::class);
+    }
+
+    public function tags(): BelongsToMany
+    {
+        return $this->belongsToMany(Tag::class);
+    }
+
+    /** Berkas galeri, untuk artikel bertipe Galeri. */
+    public function media(): BelongsToMany
+    {
+        return $this->belongsToMany(Media::class)->withPivot('position')->orderBy('position');
+    }
+
+    /**
+     * Tanpa urutan bawaan, dengan sengaja.
+     *
+     * ->latest('version') di sini terasa membantu dan justru menipu: urutan
+     * yang melekat pada relasi ikut ke setiap query turunannya, dan orderBy
+     * yang ditulis pemanggil ditambahkan *sesudahnya*, bukan menggantikannya.
+     * Hasilnya ORDER BY version DESC, version ASC — pemanggil yang meminta
+     * urutan naik tetap menerima urutan turun, tanpa galat apa pun.
+     */
+    public function revisions(): HasMany
+    {
+        return $this->hasMany(PostRevision::class);
     }
 
     public function getRouteKeyName(): string
@@ -97,8 +162,138 @@ class Post extends Model
         return $query->whereNull('published_at');
     }
 
+    /**
+     * Apa yang boleh dilihat pengunjung.
+     *
+     * Tiga syarat, dan yang di tengah tampak longgar dengan sengaja. Tanggal
+     * yang kosong tidak menyembunyikan artikel, karena 26 artikel hasil migrasi
+     * memang belum punya tanggal dan sudah tampil sejak situs ini menyala.
+     * Yang menyembunyikan artikel adalah tanggal yang ditulis untuk masa depan
+     * — itu penjadwalan, dan itu memang diminta.
+     */
     public function scopePublished($query)
     {
-        return $query->whereNotNull('published_at')->where('published_at', '<=', now());
+        return $query
+            ->where('status', PostStatus::Published)
+            ->where(fn ($q) => $q->whereNull('published_at')->orWhere('published_at', '<=', now()))
+            ->where(fn ($q) => $q->whereNull('unpublish_at')->orWhere('unpublish_at', '>', now()));
     }
+
+    /** Naskah yang sedang menunggu seseorang membacanya. */
+    public function scopeAwaitingReview($query)
+    {
+        return $query->where('status', PostStatus::InReview);
+    }
+
+    public function isVisibleToPublic(): bool
+    {
+        return $this->status === PostStatus::Published
+            && ($this->published_at === null || $this->published_at->isPast())
+            && ($this->unpublish_at === null || $this->unpublish_at->isFuture());
+    }
+
+    /**
+     * Meta description untuk hasil pencarian.
+     *
+     * Ringkasan dipakai sebagai cadangan, bukan sebagai sumber utama. Keduanya
+     * ditulis untuk pembaca yang berbeda: ringkasan untuk orang yang sudah ada
+     * di halaman daftar, meta description untuk orang yang belum memutuskan
+     * mengklik.
+     */
+    public function getMetaDescriptionTextAttribute(): string
+    {
+        return $this->meta_description ?: ($this->excerpt ?: $this->title);
+    }
+
+    /** Gambar untuk kartu berbagi. Jatuh ke sampul bila tidak disetel sendiri. */
+    public function getOgImageUrlAttribute(): ?string
+    {
+        $path = $this->og_image ?: $this->cover_image;
+
+        return blank($path) ? null : Storage::disk('content')->url($path);
+    }
+
+    public function getDocumentUrlAttribute(): ?string
+    {
+        return blank($this->document_path)
+            ? null
+            : Storage::disk('content')->url($this->document_path);
+    }
+
+    /**
+     * Ukuran berkas unduhan, dalam bentuk yang bisa dibaca orang.
+     *
+     * Dibaca dari disk saat ditampilkan, bukan disimpan di kolom sendiri: satu
+     * pembacaan metadata per halaman tidak terasa, sedangkan kolom yang
+     * disimpan akan berselisih dengan berkasnya begitu berkas itu diganti dari
+     * luar panel.
+     *
+     * Null bila berkasnya tidak ada. Itu bukan keadaan mustahil — berkas bisa
+     * terhapus dari disk sementara barisnya tetap ada — dan tombol unduh tanpa
+     * keterangan ukuran masih jauh lebih baik daripada halaman yang gagal
+     * dirender seluruhnya.
+     */
+    public function getDocumentSizeAttribute(): ?string
+    {
+        if (blank($this->document_path)) {
+            return null;
+        }
+
+        try {
+            $disk = Storage::disk('content');
+
+            if (! $disk->exists($this->document_path)) {
+                return null;
+            }
+
+            $bytes = $disk->size($this->document_path);
+        } catch (\Throwable) {
+            return null;
+        }
+
+        foreach (['B', 'KB', 'MB', 'GB'] as $satuan) {
+            if ($bytes < 1024) {
+                return round($bytes, $satuan === 'B' ? 0 : 1).' '.$satuan;
+            }
+            $bytes /= 1024;
+        }
+
+        return round($bytes, 1).' TB';
+    }
+
+    /** Tautan video dalam bentuk yang bisa ditanam, bila penyedianya dikenali. */
+    public function getVideoEmbedUrlAttribute(): ?string
+    {
+        return VideoEmbed::url($this->video_url);
+    }
+
+    /**
+     * Menyimpan salinan keadaan sekarang sebagai satu versi.
+     *
+     * Dipanggil sebelum perubahan ditulis, jadi yang tersimpan adalah isi yang
+     * akan ditinggalkan — itu yang dicari orang saat ingin kembali.
+     */
+    public function recordRevision(?string $summary = null): PostRevision
+    {
+        return $this->revisions()->create([
+            'version' => ($this->revisions()->max('version') ?? 0) + 1,
+            'snapshot' => $this->only(self::REVISIONED_FIELDS),
+            'summary' => $summary,
+            'created_by' => auth()->id(),
+        ]);
+    }
+
+    /**
+     * Kolom yang ikut disalin ke sebuah revisi.
+     *
+     * Hanya isi naskah. Status, jejak tinjauan, dan tanggal terbit tidak masuk:
+     * mengembalikan versi lama adalah soal mengembalikan tulisan, bukan
+     * membatalkan persetujuan yang sudah diberikan orang lain.
+     */
+    public const REVISIONED_FIELDS = [
+        'title', 'slug', 'category', 'content_type', 'excerpt', 'body',
+        'cover_image', 'document_path', 'video_url',
+        'seo_title', 'meta_description', 'og_image', 'canonical_url', 'noindex',
+        'external_url', 'source_name',
+    ];
 }

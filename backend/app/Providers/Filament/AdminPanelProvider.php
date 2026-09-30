@@ -2,6 +2,8 @@
 
 namespace App\Providers\Filament;
 
+use App\Filament\Widgets\AktivitasTerakhirWidget;
+use App\Filament\Widgets\RingkasanKontenWidget;
 use Filament\Http\Middleware\Authenticate;
 use Filament\Http\Middleware\AuthenticateSession;
 use Filament\Http\Middleware\DisableBladeIconComponents;
@@ -11,7 +13,6 @@ use Filament\Panel;
 use Filament\PanelProvider;
 use Filament\Support\Colors\Color;
 use Filament\Widgets\AccountWidget;
-use Filament\Widgets\FilamentInfoWidget;
 use Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse;
 use Illuminate\Cookie\Middleware\EncryptCookies;
 use Illuminate\Foundation\Http\Middleware\PreventRequestForgery;
@@ -38,6 +39,12 @@ class AdminPanelProvider extends PanelProvider
             // ditulis di sini supaya terlihat sebagai keputusan, bukan kebetulan.
             ->darkMode()
             ->themeSwitcher()
+            // Lonceng pemberitahuan. Alur Draf → Tinjau → Setujui hanya berjalan
+            // bila orang tahu gilirannya tiba; sebelum ini satu-satunya petunjuk
+            // adalah angka di menu, yang cuma terlihat oleh yang memang membuka
+            // panel hari itu.
+            ->databaseNotifications()
+            ->databaseNotificationsPolling('60s')
             ->login()
             ->discoverResources(in: app_path('Filament/Resources'), for: 'App\Filament\Resources')
             ->discoverPages(in: app_path('Filament/Pages'), for: 'App\Filament\Pages')
@@ -45,9 +52,13 @@ class AdminPanelProvider extends PanelProvider
                 Dashboard::class,
             ])
             ->discoverWidgets(in: app_path('Filament/Widgets'), for: 'App\Filament\Widgets')
+            // FilamentInfoWidget dilepas: isinya tautan ke dokumentasi Filament
+            // dan nomor versinya. Berguna bagi yang membangun panel, tidak bagi
+            // yang memakainya tiap hari, dan ia menempati ruang paling atas.
             ->widgets([
                 AccountWidget::class,
-                FilamentInfoWidget::class,
+                RingkasanKontenWidget::class,
+                AktivitasTerakhirWidget::class,
             ])
             ->middleware([
                 EncryptCookies::class,

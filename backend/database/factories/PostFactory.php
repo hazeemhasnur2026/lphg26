@@ -2,6 +2,8 @@
 
 namespace Database\Factories;
 
+use App\Enums\ContentType;
+use App\Enums\PostStatus;
 use App\Models\Post;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
@@ -23,7 +25,42 @@ class PostFactory extends Factory
             // bukan null, karena isinya memang bukan milik kami.
             'body' => '<p>'.$this->faker->paragraph().'</p>',
             'published_at' => $this->faker->dateTimeBetween('-2 years'),
+            // Terbit secara bawaan, karena itu keadaan yang dipakai hampir
+            // setiap tes: yang diperiksa adalah artikel yang tampil di situs.
+            // Tes tentang alur redaksi menyatakan statusnya sendiri.
+            'status' => PostStatus::Published,
+            'content_type' => ContentType::News,
         ];
+    }
+
+    public function draft(): static
+    {
+        return $this->state(fn () => ['status' => PostStatus::Draft]);
+    }
+
+    public function awaitingReview(): static
+    {
+        return $this->state(fn () => [
+            'status' => PostStatus::InReview,
+            'submitted_at' => now(),
+        ]);
+    }
+
+    public function archived(): static
+    {
+        return $this->state(fn () => [
+            'status' => PostStatus::Archived,
+            'archived_at' => now(),
+        ]);
+    }
+
+    /** Sudah disetujui, tanggal terbitnya belum tiba. */
+    public function scheduled(): static
+    {
+        return $this->state(fn () => [
+            'status' => PostStatus::Published,
+            'published_at' => now()->addWeek(),
+        ]);
     }
 
     /** Artikel yang datelinenya belum dikonfirmasi manusia. */

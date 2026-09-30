@@ -10,6 +10,7 @@ use Filament\Panel;
 use Illuminate\Database\Eloquent\Attributes\Fillable;
 use Illuminate\Database\Eloquent\Attributes\Hidden;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
@@ -32,9 +33,46 @@ class User extends Authenticatable implements FilamentUser
         return true;
     }
 
-    public function isAdministrator(): bool
+    public function posts(): HasMany
     {
-        return $this->role === UserRole::Administrator;
+        return $this->hasMany(Post::class, 'author_id');
+    }
+
+    /**
+     * Hak akses diteruskan ke enum, tidak diputuskan di sini.
+     *
+     * Kalau tiap model menjawab sendiri siapa boleh apa, aturannya tersebar dan
+     * dua tempat akan menjawab berbeda begitu ada peran baru. Enum-nya satu
+     * tempat yang bisa dibaca utuh dalam sekali lihat.
+     */
+    public function isSuperAdmin(): bool
+    {
+        return $this->role === UserRole::SuperAdmin;
+    }
+
+    public function canApproveContent(): bool
+    {
+        return $this->role->canApprove();
+    }
+
+    public function canPublishContent(): bool
+    {
+        return $this->role->canPublish();
+    }
+
+    public function canReadContactMessages(): bool
+    {
+        return $this->role->canReadContactMessages();
+    }
+
+    public function canManageUsers(): bool
+    {
+        return $this->role->canManageUsers();
+    }
+
+    public function canEditOthersContent(): bool
+    {
+        return $this->role->canEditOthersContent();
     }
 
     /** @use HasFactory<UserFactory> */

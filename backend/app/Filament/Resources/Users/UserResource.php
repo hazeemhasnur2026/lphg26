@@ -34,7 +34,7 @@ class UserResource extends Resource
      */
     public static function canAccess(): bool
     {
-        return auth()->user()?->isAdministrator() ?? false;
+        return auth()->user()?->canManageUsers() ?? false;
     }
 
     public static function form(Schema $schema): Schema

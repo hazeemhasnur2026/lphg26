@@ -82,6 +82,17 @@
           </div>
         </div>
 
+        {{-- Pencarian diberi ikon, bukan kotak isian yang selalu terbuka:
+             bilah navigasi ini sudah penuh di lebar laptop, dan kotak yang
+             memakan ruang tetap akan menekan menu lain ke baris kedua. --}}
+        <a href="{{ \Mcamara\LaravelLocalization\Facades\LaravelLocalization::getLocalizedURL(app()->getLocale(), url('/cari')) }}"
+           class="px-3 py-2 rounded-md hover:text-primary hover:bg-slate-50 transition inline-flex items-center gap-1.5"
+           aria-label="{{ __('nav.search') }}">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-4.35-4.35M17 10.5a6.5 6.5 0 11-13 0 6.5 6.5 0 0113 0z"/>
+          </svg>
+          <span class="sr-only">{{ __('nav.search') }}</span>
+        </a>
         <a href="/page/contact/contact-us" class="ml-2 px-4 py-2 rounded-md bg-primary text-white hover:bg-primary-dark transition">{{ __('nav.contact') }}</a>
 
         <x-language-switcher />
@@ -182,6 +193,7 @@
         </div>
       </details>
 
+      <a href="{{ \Mcamara\LaravelLocalization\Facades\LaravelLocalization::getLocalizedURL(app()->getLocale(), url('/cari')) }}" class="nav-row px-4 py-2.5 rounded-md hover:bg-slate-50" style="animation-delay:255ms" x-on:click="mobileOpen=false">{{ __('nav.search') }}</a>
       <a href="/page/contact/contact-us" class="nav-row mt-2 text-center px-4 py-2.5 rounded-md bg-primary text-white" style="animation-delay:270ms" x-on:click="mobileOpen=false">{{ __('nav.contact') }}</a>
 
       <x-language-switcher variant="mobile" />

@@ -57,7 +57,7 @@ class SitemapController extends Controller
         // Daftar yang tidak memuat satu artikel pun tidak diajukan ke Google:
         // halaman kosong berisiko dinilai soft 404. Halamannya tetap bisa
         // dibuka dan masuk sitemap lagi begitu ada isinya.
-        $filled = Post::select('category')->distinct()->pluck('category')->all();
+        $filled = Post::published()->select('category')->distinct()->pluck('category')->all();
 
         foreach (array_keys(config('site.listings')) as $category) {
             if (! in_array($category, $filled, true)) {
@@ -70,7 +70,13 @@ class SitemapController extends Controller
 
         // Kutipan liputan media tidak punya halaman milik kami. URL-nya
         // menunjuk ke penerbitnya, jadi tidak boleh masuk sitemap kami.
-        $posts = Post::whereNull('external_url')
+        //
+        // noindex juga dikeluarkan di sini: mengajukan halaman ke Google sambil
+        // memintanya tidak mengindeks halaman itu adalah dua instruksi yang
+        // berlawanan, dan Search Console melaporkannya sebagai galat.
+        $posts = Post::published()
+            ->whereNull('external_url')
+            ->where('noindex', false)
             ->orderByRaw('published_at IS NULL, published_at DESC, id DESC')
             ->get(['category', 'slug', 'published_at', 'updated_at']);
 

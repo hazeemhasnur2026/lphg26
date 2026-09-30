@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\SearchController;
 use App\Http\Controllers\SitemapController;
 use App\Http\Middleware\SetLocale;
 use App\Models\BusinessUnit;
@@ -28,7 +29,8 @@ use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 $publicRoutes = function () {
     Route::get('/', function () {
         return view('home', [
-            'latestPosts' => Post::orderByRaw('published_at IS NULL, published_at DESC, id DESC')
+            'latestPosts' => Post::published()
+                ->orderByRaw('published_at IS NULL, published_at DESC, id DESC')
                 ->limit(3)
                 ->get(),
             'businessUnits' => BusinessUnit::ordered()->get(),
@@ -62,6 +64,10 @@ $publicRoutes = function () {
         ->name('post.index');
 
     Route::get('/post/{category}/{slug}', [PostController::class, 'show'])->name('post.show');
+
+    // Pencarian situs. Di dalam grup bahasa supaya hasilnya mengikuti bahasa
+    // yang sedang dibuka, sama seperti halaman daftar.
+    Route::get('/cari', SearchController::class)->name('search');
 
     /*
      * Nilai Inti pindah ke beranda; halaman tersendirinya dihapus.

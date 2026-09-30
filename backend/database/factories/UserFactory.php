@@ -13,9 +13,24 @@ use Illuminate\Support\Str;
  */
 class UserFactory extends Factory
 {
-    public function administrator(): static
+    public function superAdmin(): static
     {
-        return $this->state(fn () => ['role' => UserRole::Administrator]);
+        return $this->state(fn () => ['role' => UserRole::SuperAdmin]);
+    }
+
+    public function admin(): static
+    {
+        return $this->state(fn () => ['role' => UserRole::Admin]);
+    }
+
+    public function reviewer(): static
+    {
+        return $this->state(fn () => ['role' => UserRole::Reviewer]);
+    }
+
+    public function contributor(): static
+    {
+        return $this->state(fn () => ['role' => UserRole::Contributor]);
     }
 
     /**
@@ -36,9 +51,10 @@ class UserFactory extends Factory
             'email_verified_at' => now(),
             'password' => static::$password ??= Hash::make('password'),
             'remember_token' => Str::random(10),
-            // Sengaja editor: tes yang butuh hak penuh harus menyatakannya,
-            // supaya tidak ada yang lulus hanya karena bawaannya longgar.
-            'role' => UserRole::Editor,
+            // Sengaja peran paling sempit: tes yang butuh hak lebih harus
+            // menyatakannya, supaya tidak ada yang lulus hanya karena
+            // bawaannya longgar.
+            'role' => UserRole::Contributor,
         ];
     }
 

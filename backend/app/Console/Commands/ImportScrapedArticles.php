@@ -2,6 +2,7 @@
 
 namespace App\Console\Commands;
 
+use App\Enums\PostStatus;
 use App\Models\Post;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\File;
@@ -82,6 +83,18 @@ class ImportScrapedArticles extends Command
                 'published_at' => $data['publishedAt'] ?? null,
                 'seo_title' => $data['seo']['title'] ?? null,
                 'source_url' => $data['sourceUrl'] ?? null,
+                // Terbit, bukan draf.
+                //
+                // Kolom status punya nilai bawaan 'draft', dan mengandalkan
+                // bawaan itu di sini menyalakan situs dalam keadaan kosong:
+                // entrypoint Docker menjalankan importer ini saat container
+                // pertama kali hidup, sehingga seluruh artikel hasil migrasi
+                // akan mendarat sebagai draf dan tidak satu pun tampil.
+                //
+                // Artikel-artikel ini sudah terbit di situs lama dan sudah
+                // terindeks Google. Memindahkannya ke sini tidak menariknya
+                // kembali ke meja redaksi.
+                'status' => PostStatus::Published,
             ];
 
             if (empty($attributes['published_at'])) {

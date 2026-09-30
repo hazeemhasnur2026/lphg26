@@ -20,7 +20,12 @@ class UsersTable
                 TextColumn::make('role')
                     ->label('Peran')
                     ->badge()
-                    ->color(fn (UserRole $state) => $state === UserRole::Administrator ? 'primary' : 'gray'),
+                    ->color(fn (UserRole $state) => match ($state) {
+                        UserRole::SuperAdmin => 'danger',
+                        UserRole::Admin => 'primary',
+                        UserRole::Reviewer => 'info',
+                        UserRole::Contributor => 'gray',
+                    }),
                 TextColumn::make('created_at')->label('Dibuat')->date('d M Y')->sortable(),
             ])
             ->defaultSort('name')

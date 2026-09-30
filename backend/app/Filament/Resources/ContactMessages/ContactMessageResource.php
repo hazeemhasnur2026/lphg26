@@ -59,7 +59,7 @@ class ContactMessageResource extends Resource
      */
     public static function canAccess(): bool
     {
-        return auth()->user()?->isAdministrator() ?? false;
+        return auth()->user()?->canReadContactMessages() ?? false;
     }
 
     public static function form(Schema $schema): Schema

@@ -26,9 +26,17 @@ class AdminPanelTest extends TestCase
 {
     use RefreshDatabase;
 
+    /**
+     * Akun yang dipakai hampir seluruh tes di berkas ini.
+     *
+     * Harus dinyatakan sebagai admin sejak peran dipecah empat. Bawaan factory
+     * adalah Kontributor, dan kontributor hanya melihat naskahnya sendiri —
+     * tes tentang tabel dan form akan gagal karena barisnya memang tidak boleh
+     * ia lihat, bukan karena panelnya rusak.
+     */
     private function admin(): User
     {
-        return User::factory()->create();
+        return User::factory()->admin()->create();
     }
 
     public function test_guests_are_sent_to_the_login_page(): void
