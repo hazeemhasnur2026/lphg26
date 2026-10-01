@@ -23,6 +23,7 @@ class DatabaseSeeder extends Seeder
             BusinessUnitSeeder::class,
             OfficeSeeder::class,
             SlideBannerSeeder::class,
+            AdminUserSeeder::class,
         ]);
     }
 }
