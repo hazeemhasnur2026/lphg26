@@ -93,7 +93,7 @@ class AdminPanelTest extends TestCase
         $this->assertCount(count(config('site.listings')), $items);
 
         foreach (config('site.listings') as $category => $listing) {
-            $item = $items->first(fn ($i) => $i->getLabel() === $listing['label']);
+            $item = $items->first(fn ($i) => $i->getLabel() === __($listing['label']));
             $this->assertNotNull($item, "Menu untuk {$category} tidak ada.");
             $this->assertStringContainsString("category={$category}", $item->getUrl());
         }
@@ -106,7 +106,7 @@ class AdminPanelTest extends TestCase
         // Dan benar-benar tampil di sidebar, bukan hanya ada di array.
         $sidebar = $this->get('/admin')->assertOk();
         foreach (config('site.listings') as $listing) {
-            $sidebar->assertSee($listing['label']);
+            $sidebar->assertSee(__($listing['label']));
         }
         $sidebar->assertSee('CSR')->assertSee('SHE');
     }
@@ -139,7 +139,7 @@ class AdminPanelTest extends TestCase
         $response = $this->get(PostResource::getUrl('create'))->assertOk();
 
         foreach (config('site.listings') as $listing) {
-            $response->assertSee($listing['label']);
+            $response->assertSee(__($listing['label']));
         }
     }
 }

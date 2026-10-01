@@ -18,7 +18,8 @@ class BusinessUnitForm
                 TextInput::make('name')
                     ->label('Nama')
                     ->required()
-                    ->maxLength(255),
+                    ->maxLength(255)
+                    ->translatable(),
 
                 TextInput::make('slug')
                     ->required()
@@ -42,7 +43,8 @@ class BusinessUnitForm
                     ->label('Deskripsi singkat')
                     ->rows(3)
                     ->maxLength(500)
-                    ->columnSpanFull(),
+                    ->columnSpanFull()
+                    ->translatable(),
 
                 TextInput::make('order')
                     ->label('Urutan')
@@ -65,7 +67,8 @@ class BusinessUnitForm
                 TextInput::make('image_alt')
                     ->label('Teks alternatif foto')
                     ->maxLength(255)
-                    ->helperText('Dibaca pembaca layar dan mesin pencari. Jelaskan isi fotonya, bukan ulangi nama unit.'),
+                    ->helperText('Dibaca pembaca layar dan mesin pencari. Jelaskan isi fotonya, bukan ulangi nama unit.')
+                    ->translatable(),
 
                 FileUpload::make('icon')
                     ->label('Ikon bulat')

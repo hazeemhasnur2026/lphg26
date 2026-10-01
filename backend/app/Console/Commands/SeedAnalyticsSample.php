@@ -100,7 +100,10 @@ class SeedAnalyticsSample extends Command
         // karangan membuat papannya terlihat benar tapi tidak bisa dipakai
         // memeriksa apa pun: nama yang muncul di peringkat harus nama yang
         // memang bisa dicari orang di situsnya.
-        $artikel = Post::published()->latest('published_at')->limit(12)->pluck('title')->all();
+        // ->get() dulu, bukan ->pluck() langsung di query builder: title
+        // adalah kolom JSON translatable, dan pluck() pada query builder
+        // membaca kolom mentah tanpa lewat accessor model.
+        $artikel = Post::published()->latest('published_at')->limit(12)->get()->pluck('title')->all();
         $artikel = $artikel ?: ['Contoh artikel tanpa data situs'];
 
         $jalur = [

@@ -52,7 +52,7 @@ class PostResource extends Resource
     public static function getNavigationItems(): array
     {
         return collect(config('site.listings'))
-            ->map(fn (array $listing, string $category) => NavigationItem::make($listing['label'])
+            ->map(fn (array $listing, string $category) => NavigationItem::make(__($listing['label']))
                 ->group(static::navigationGroupFor($listing['section']))
                 ->icon(static::$navigationIcon)
                 ->sort(static::$navigationSort)

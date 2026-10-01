@@ -16,7 +16,11 @@ class OfficesTable
     {
         return $table
             ->columns([
-                TextColumn::make('name')->label('Nama')->searchable(),
+                TextColumn::make('name')
+                    ->label('Nama')
+                    ->searchable(query: fn ($query, string $search) => $query
+                        ->where('name->id', 'like', "%{$search}%")
+                        ->orWhere('name->en', 'like', "%{$search}%")),
                 TextColumn::make('region')
                     ->label('Jenis')
                     ->badge()

@@ -23,20 +23,21 @@ class VacancyForm
                     ->live(onBlur: true)
                     ->afterStateUpdated(fn (string $operation, $state, callable $set) => $operation === 'create'
                         ? $set('slug', Str::slug($state))
-                        : null),
+                        : null)
+                    ->translatable(),
 
                 TextInput::make('slug')
                     ->required()
                     ->maxLength(255)
                     ->unique(ignoreRecord: true),
 
-                TextInput::make('department')->label('Unit / Departemen')->maxLength(255),
-                TextInput::make('location')->label('Lokasi penempatan')->maxLength(255),
+                TextInput::make('department')->label('Unit / Departemen')->maxLength(255)->translatable(),
+                TextInput::make('location')->label('Lokasi penempatan')->maxLength(255)->translatable(),
             ])->columns(2),
 
             Section::make('Rincian')->schema([
-                RichEditor::make('description')->label('Deskripsi pekerjaan')->columnSpanFull(),
-                RichEditor::make('requirements')->label('Persyaratan')->columnSpanFull(),
+                RichEditor::make('description')->label('Deskripsi pekerjaan')->columnSpanFull()->translatable(),
+                RichEditor::make('requirements')->label('Persyaratan')->columnSpanFull()->translatable(),
             ]),
 
             Section::make('Masa berlaku')->schema([

@@ -5,10 +5,11 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Spatie\Translatable\HasTranslations;
 
 class Office extends Model
 {
-    use HasFactory;
+    use HasFactory, HasTranslations;
 
     /** Nilai kolom `region` yang membedakan kantor pusat dari perwakilan. */
     public const HEADQUARTERS = 'Pusat';
@@ -18,6 +19,8 @@ class Office extends Model
     protected $fillable = [
         'name', 'address', 'phone', 'fax', 'email', 'region', 'order',
     ];
+
+    public $translatable = ['name', 'address'];
 
     public function scopeOrdered(Builder $query): Builder
     {

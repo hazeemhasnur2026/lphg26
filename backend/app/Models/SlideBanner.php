@@ -6,14 +6,17 @@ use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Storage;
+use Spatie\Translatable\HasTranslations;
 
 class SlideBanner extends Model
 {
-    use HasFactory;
+    use HasFactory, HasTranslations;
 
     protected $fillable = [
         'image', 'image_alt', 'title', 'subtitle', 'order', 'is_active',
     ];
+
+    public $translatable = ['title', 'subtitle', 'image_alt'];
 
     protected function casts(): array
     {

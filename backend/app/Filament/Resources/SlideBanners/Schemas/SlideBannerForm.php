@@ -30,10 +30,11 @@ class SlideBannerForm
             TextInput::make('image_alt')
                 ->label('Teks alternatif')
                 ->maxLength(255)
-                ->columnSpanFull(),
+                ->columnSpanFull()
+                ->translatable(),
 
-            TextInput::make('title')->label('Judul')->maxLength(255),
-            TextInput::make('subtitle')->label('Keterangan')->maxLength(255),
+            TextInput::make('title')->label('Judul')->maxLength(255)->translatable(),
+            TextInput::make('subtitle')->label('Keterangan')->maxLength(255)->translatable(),
 
             TextInput::make('order')->label('Urutan')->numeric()->default(0),
 

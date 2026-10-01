@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
-@section('title', $q !== '' ? 'Pencarian: '.$q : 'Pencarian')
-@section('description', 'Cari berita, siaran pers, laporan, dan publikasi Hasnur Group.')
+@section('title', $q !== '' ? __('search.title_with_query', ['q' => $q]) : __('search.title'))
+@section('description', __('search.description'))
 {{-- Halaman hasil pencarian tidak layak masuk indeks: isinya berubah menurut
      kata kunci, dan tiap kombinasi melahirkan satu URL lagi yang isinya nyaris
      sama. Itu persis bentuk yang dinilai Google sebagai halaman bernilai tipis. --}}
@@ -21,7 +21,7 @@
     @endforeach
   </nav>
 
-  <h1 class="text-3xl font-extrabold text-slate-800 sm:text-4xl">Pencarian</h1>
+  <h1 class="text-3xl font-extrabold text-slate-800 sm:text-4xl">{{ __('search.title') }}</h1>
 
   {{-- Aksi formulir memakai URL berbahasa, bukan url('/cari') mentah: pembaca
        yang mencari dari /en akan terlempar ke versi Indonesia begitu menekan
@@ -29,24 +29,24 @@
   <form role="search" data-search method="GET"
         action="{{ \Mcamara\LaravelLocalization\Facades\LaravelLocalization::getLocalizedURL(app()->getLocale(), url('/cari')) }}"
         class="mt-6 flex flex-col gap-3 sm:flex-row">
-    <label for="q" class="sr-only">Kata kunci</label>
+    <label for="q" class="sr-only">{{ __('search.keyword_label') }}</label>
     <input type="search" name="q" id="q" value="{{ $q }}"
-           placeholder="Ketik kata kunci, misalnya batu bara"
+           placeholder="{{ __('search.keyword_placeholder') }}"
            class="w-full rounded-xl border border-slate-200 px-4 py-3 text-slate-700 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/30">
 
-    <label for="tipe" class="sr-only">Tipe konten</label>
+    <label for="tipe" class="sr-only">{{ __('search.type_label') }}</label>
     <select name="tipe" id="tipe"
             class="rounded-xl border border-slate-200 px-4 py-3 text-slate-700 focus:border-primary focus:outline-none">
-      <option value="">Semua tipe</option>
+      <option value="">{{ __('search.all_types') }}</option>
       @foreach (\App\Enums\ContentType::cases() as $case)
         <option value="{{ $case->value }}" @selected($tipe === $case)>{{ $case->getLabel() }}</option>
       @endforeach
     </select>
 
-    <label for="tag" class="sr-only">Tag</label>
+    <label for="tag" class="sr-only">{{ __('search.tag_label') }}</label>
     <select name="tag" id="tag"
             class="rounded-xl border border-slate-200 px-4 py-3 text-slate-700 focus:border-primary focus:outline-none">
-      <option value="">Semua tag</option>
+      <option value="">{{ __('search.all_tags') }}</option>
       @foreach ($tags as $t)
         <option value="{{ $t->slug }}" @selected($tag === $t->slug)>{{ $t->name }}</option>
       @endforeach
@@ -54,15 +54,15 @@
 
     <button type="submit"
             class="rounded-xl bg-primary px-6 py-3 font-semibold text-white transition hover:bg-primary/90">
-      Cari
+      {{ __('search.submit') }}
     </button>
   </form>
 
   <p class="mt-6 text-sm text-slate-500" aria-live="polite">
     @if ($q === '' && ! $tipe && ! $tag)
-      Masukkan kata kunci untuk mulai mencari.
+      {{ __('search.prompt') }}
     @else
-      {{ $posts->total() }} hasil ditemukan.
+      {{ __('search.results_count', ['count' => $posts->total()]) }}
     @endif
   </p>
 
@@ -87,16 +87,16 @@
           <h2 class="font-bold leading-snug text-slate-800 group-hover:text-primary">{{ $post->title }}</h2>
           <p class="mt-2 line-clamp-3 text-sm text-slate-500">{{ $post->excerpt }}</p>
           <div class="mt-auto pt-4 text-xs font-semibold text-slate-400">
-            {{ $post->published_at?->translatedFormat('d F Y') ?? 'tanggal belum dikonfirmasi' }}
+            {{ $post->published_at?->translatedFormat('d F Y') ?? __('post.date_unconfirmed') }}
           </div>
         </div>
       </a>
     @empty
       <p class="col-span-full rounded-2xl border border-dashed border-slate-200 p-10 text-center text-slate-500">
         @if ($q === '' && ! $tipe && ! $tag)
-          Belum ada yang dicari.
+          {{ __('search.empty_initial') }}
         @else
-          Tidak ada yang cocok dengan pencarian ini. Coba kata kunci yang lebih umum.
+          {{ __('search.empty_no_match') }}
         @endif
       </p>
     @endforelse

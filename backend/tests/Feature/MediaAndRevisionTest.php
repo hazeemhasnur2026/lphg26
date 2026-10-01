@@ -29,7 +29,8 @@ class MediaAndRevisionTest extends TestCase
         $revisi = $post->revisions()->orderByDesc('version')->first();
 
         // Yang tersimpan adalah isi yang ditinggalkan, bukan isi yang baru.
-        $this->assertSame('Judul Asli', $revisi->snapshot['title']);
+        // title translatable: snapshot menyimpan peta bahasa, bukan string.
+        $this->assertSame('Judul Asli', $revisi->snapshot['title']['id']);
         $this->assertSame(1, $revisi->version);
     }
 
@@ -60,7 +61,7 @@ class MediaAndRevisionTest extends TestCase
 
         $this->assertSame('Versi Satu', $post->fresh()->title);
         // Pengembalian yang keliru harus bisa dibatalkan dengan cara yang sama.
-        $this->assertSame('Versi Dua', $post->revisions()->orderByDesc('version')->first()->snapshot['title']);
+        $this->assertSame('Versi Dua', $post->revisions()->orderByDesc('version')->first()->snapshot['title']['id']);
     }
 
     public function test_the_audit_trail_survives_the_account_that_made_the_change(): void

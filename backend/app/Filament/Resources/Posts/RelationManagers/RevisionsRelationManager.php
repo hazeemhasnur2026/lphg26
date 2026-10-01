@@ -55,9 +55,23 @@ class RevisionsRelationManager extends RelationManager
                 // nilai: formatStateUsing dipanggil sekali untuk tiap elemen,
                 // bukan sekali untuk arraynya. Yang tampil jadi sederet "—"
                 // sepanjang jumlah kolom yang tersimpan.
+                //
+                // title di dalam snapshot sendiri kini array per-bahasa
+                // (['id' => ..., 'en' => ...]) karena Post::recordRevision()
+                // menyimpan getTranslations(), bukan string tunggal. Revisi
+                // yang dicatat sebelum perubahan itu masih berupa string —
+                // keduanya ditangani di sini.
                 TextColumn::make('judul_saat_itu')
                     ->label('Judul saat itu')
-                    ->state(fn (PostRevision $record) => $record->snapshot['title'] ?? '—')
+                    ->state(function (PostRevision $record) {
+                        $title = $record->snapshot['title'] ?? null;
+
+                        if (is_array($title)) {
+                            return $title['id'] ?? reset($title) ?: '—';
+                        }
+
+                        return $title ?: '—';
+                    })
                     ->wrap(),
             ])
             // Urutan ditetapkan di sini, bukan pada relasinya: relasi yang

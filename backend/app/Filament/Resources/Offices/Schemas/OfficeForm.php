@@ -16,7 +16,8 @@ class OfficeForm
             TextInput::make('name')
                 ->label('Nama kantor')
                 ->required()
-                ->maxLength(255),
+                ->maxLength(255)
+                ->translatable(),
 
             Select::make('region')
                 ->label('Jenis')
@@ -34,7 +35,8 @@ class OfficeForm
                 ->required()
                 ->rows(3)
                 ->helperText('Satu baris di sini menjadi satu baris di footer. Tidak perlu menulis tag HTML.')
-                ->columnSpanFull(),
+                ->columnSpanFull()
+                ->translatable(),
 
             TextInput::make('phone')->label('Telepon')->tel()->maxLength(255),
             TextInput::make('fax')->label('Faks')->maxLength(255),

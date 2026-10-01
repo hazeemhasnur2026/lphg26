@@ -17,7 +17,12 @@ class VacanciesTable
     {
         return $table
             ->columns([
-                TextColumn::make('title')->label('Posisi')->searchable()->wrap(),
+                TextColumn::make('title')
+                    ->label('Posisi')
+                    ->searchable(query: fn ($query, string $search) => $query
+                        ->where('title->id', 'like', "%{$search}%")
+                        ->orWhere('title->en', 'like', "%{$search}%"))
+                    ->wrap(),
                 TextColumn::make('department')->label('Unit')->placeholder('-'),
                 TextColumn::make('location')->label('Lokasi')->placeholder('-')->color('gray'),
                 TextColumn::make('deadline')

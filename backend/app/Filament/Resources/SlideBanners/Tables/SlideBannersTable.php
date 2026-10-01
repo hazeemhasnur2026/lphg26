@@ -18,7 +18,11 @@ class SlideBannersTable
         return $table
             ->columns([
                 ImageColumn::make('image_url')->label('Gambar')->height(40),
-                TextColumn::make('title')->label('Judul')->searchable(),
+                TextColumn::make('title')
+                    ->label('Judul')
+                    ->searchable(query: fn ($query, string $search) => $query
+                        ->where('title->id', 'like', "%{$search}%")
+                        ->orWhere('title->en', 'like', "%{$search}%")),
                 TextColumn::make('subtitle')->label('Keterangan')->limit(50)->color('gray'),
                 ToggleColumn::make('is_active')->label('Tampil'),
             ])

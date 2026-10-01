@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Post;
+use App\Support\Localization;
 use App\Support\RetiredPosts;
 
 class PostController extends Controller
@@ -27,12 +28,22 @@ class PostController extends Controller
             'posts' => $posts,
             'meta' => $meta,
             'breadcrumb' => [
-                ['label' => 'Beranda', 'url' => '/'],
-                ['label' => $meta['group'], 'url' => config("site.siblings.{$section}.0.url")],
-                ['label' => $meta['label'], 'url' => null],
+                ['label' => __('nav.home'), 'url' => Localization::url('/')],
+                [
+                    'label' => __($meta['group']),
+                    'url' => Localization::url(config("site.siblings.{$section}.0.url")),
+                ],
+                ['label' => __($meta['label']), 'url' => null],
             ],
+            // Setiap tautan tab juga harus locale-aware, dan 'active'
+            // dibandingkan terhadap path polos ($current) sebelum dibungkus,
+            // supaya pencocokannya tidak terganggu prefiks bahasa.
             'tabs' => collect(config("site.siblings.{$section}", []))
-                ->map(fn ($t) => $t + ['active' => $t['url'] === $current])
+                ->map(fn ($t) => [
+                    'label' => __($t['label']),
+                    'url' => Localization::url($t['url']),
+                    'active' => $t['url'] === $current,
+                ])
                 ->all(),
         ]);
     }

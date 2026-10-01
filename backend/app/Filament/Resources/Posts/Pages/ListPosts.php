@@ -64,7 +64,7 @@ class ListPosts extends ListRecords
     public function getTitle(): string
     {
         return $this->category()
-            ? config("site.listings.{$this->category()}.label")
+            ? __(config("site.listings.{$this->category()}.label"))
             : parent::getTitle();
     }
 

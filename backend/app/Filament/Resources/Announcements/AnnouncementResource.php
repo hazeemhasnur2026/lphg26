@@ -49,13 +49,15 @@ class AnnouncementResource extends Resource
                     ->label('Judul')
                     ->required()
                     ->maxLength(255)
-                    ->columnSpanFull(),
+                    ->columnSpanFull()
+                    ->translatable(),
 
                 RichEditor::make('body')
                     ->label('Isi')
                     ->helperText('Boleh dikosongkan bila judulnya sudah cukup.')
                     ->visible(fn ($get) => (bool) $get('show_text'))
-                    ->columnSpanFull(),
+                    ->columnSpanFull()
+                    ->translatable(),
 
                 Toggle::make('show_text')
                     ->label('Tampilkan judul dan isi')
@@ -85,7 +87,8 @@ class AnnouncementResource extends Resource
                     ->helperText(fn ($get) => $get('show_text')
                         ? 'Apa yang terlihat di gambar, untuk pembaca layar.'
                         : 'Wajib: gambar adalah satu-satunya isi, jadi tulis pesan pokoknya di sini.')
-                    ->columnSpanFull(),
+                    ->columnSpanFull()
+                    ->translatable(),
             ]),
 
             Section::make('Tombol')
@@ -94,7 +97,8 @@ class AnnouncementResource extends Resource
                     TextInput::make('cta_label')
                         ->label('Teks tombol')
                         ->maxLength(60)
-                        ->placeholder('Selengkapnya'),
+                        ->placeholder('Selengkapnya')
+                        ->translatable(),
 
                     TextInput::make('cta_url')
                         ->label('Tujuan tombol')
@@ -137,7 +141,13 @@ class AnnouncementResource extends Resource
 
                 TextColumn::make('title')
                     ->label('Judul')
-                    ->searchable()
+                    // title kolom JSON translatable: ->searchable() bawaan
+                    // membuat where "title" like ..., yang tidak akan pernah
+                    // cocok terhadap isi JSON. Query eksplisit menyisir kedua
+                    // bahasa.
+                    ->searchable(query: fn ($query, string $search) => $query
+                        ->where('title->id', 'like', "%{$search}%")
+                        ->orWhere('title->en', 'like', "%{$search}%"))
                     ->limit(50)
                     ->wrap(),
 

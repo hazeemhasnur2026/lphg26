@@ -8,10 +8,11 @@ use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Storage;
+use Spatie\Translatable\HasTranslations;
 
 class Announcement extends Model
 {
-    use HasFactory, MengoptimalkanGambar;
+    use HasFactory, HasTranslations, MengoptimalkanGambar;
 
     public function kolomGambar(): array
     {
@@ -23,6 +24,8 @@ class Announcement extends Model
         'cta_label', 'cta_url', 'is_active',
         'starts_at', 'ends_at', 'order',
     ];
+
+    public $translatable = ['title', 'body', 'image_alt', 'cta_label'];
 
     protected function casts(): array
     {

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Enums\ContentType;
 use App\Models\Post;
 use App\Models\Tag;
+use App\Support\Localization;
 use Illuminate\Http\Request;
 
 /**
@@ -35,10 +36,16 @@ class SearchController extends Controller
                 // dilepas, pencarian "100%" akan cocok dengan segalanya.
                 $pola = '%'.str_replace(['%', '_'], ['\%', '\_'], $q).'%';
 
+                // title/excerpt/body kolom JSON translatable. Dicari hanya di
+                // bahasa yang sedang dibuka — pengunjung Indonesia tidak boleh
+                // mendapat hasil dari teks Inggris artikel yang sama, dan
+                // sebaliknya.
+                $locale = app()->getLocale();
+
                 $query->where(fn ($w) => $w
-                    ->where('title', 'like', $pola)
-                    ->orWhere('excerpt', 'like', $pola)
-                    ->orWhere('body', 'like', $pola));
+                    ->where("title->{$locale}", 'like', $pola)
+                    ->orWhere("excerpt->{$locale}", 'like', $pola)
+                    ->orWhere("body->{$locale}", 'like', $pola));
             })
             ->when($tipe, fn ($query) => $query->where('content_type', $tipe))
             ->when($kategori && config("site.listings.{$kategori}"),
@@ -56,8 +63,8 @@ class SearchController extends Controller
             'kategori' => $kategori,
             'tags' => Tag::has('posts')->orderBy('name')->get(),
             'breadcrumb' => [
-                ['label' => 'Beranda', 'url' => '/'],
-                ['label' => 'Pencarian', 'url' => null],
+                ['label' => __('nav.home'), 'url' => Localization::url('/')],
+                ['label' => __('search.title'), 'url' => null],
             ],
         ]);
     }

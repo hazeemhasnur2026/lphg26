@@ -1,14 +1,14 @@
 @extends('layouts.app')
 
-@section('title', $meta['label'])
-@section('description', 'Kumpulan '.$meta['label'].' dari Hasnur Group.')
+@section('title', __($meta['label']))
+@section('description', __('listing.meta_description', ['label' => __($meta['label'])]))
 
 @section('content')
 <x-page-hero
     :breadcrumb="$breadcrumb"
-    :title="$meta['label']"
-    :description="$posts->total().' publikasi dari Hasnur Group.'"
-    :image="['src' => asset('assets/img/pages/'.$meta['banner'].'/banner.jpg'), 'alt' => $meta['label']]"
+    :title="__($meta['label'])"
+    :description="__('listing.hero_description', ['count' => $posts->total()])"
+    :image="['src' => asset('assets/img/pages/'.$meta['banner'].'/banner.jpg'), 'alt' => __($meta['label'])]"
     :tabs="$tabs" />
 
 <div class="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
@@ -30,7 +30,7 @@
           <h2 class="font-bold leading-snug text-slate-800 group-hover:text-primary">{{ $post->title }}</h2>
           <p class="mt-2 line-clamp-3 text-sm text-slate-500">{{ $post->excerpt }}</p>
           <div class="mt-auto pt-4 text-xs font-semibold text-slate-400">
-            {{ $post->published_at?->translatedFormat('d F Y') ?? 'tanggal belum dikonfirmasi' }}
+            {{ $post->published_at?->translatedFormat('d F Y') ?? __('post.date_unconfirmed') }}
             @if ($post->isExternal())
               <span class="mt-1 flex items-center gap-1 text-slate-500">
                 <svg class="h-3 w-3" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
@@ -48,7 +48,7 @@
            masih ada di navigasi, tapi tidak diajukan ke sitemap sampai ada
            isinya. --}}
       <p class="col-span-full rounded-2xl bg-slate-50 p-10 text-center text-slate-500">
-        Belum ada publikasi pada kategori ini.
+        {{ __('listing.empty') }}
       </p>
     @endforelse
   </div>

@@ -2,19 +2,29 @@
 
 namespace App\Models;
 
+use App\Support\Localization;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Storage;
+use Spatie\Translatable\HasTranslations;
 
 class BusinessUnit extends Model
 {
-    use HasFactory;
+    use HasFactory, HasTranslations;
 
     protected $fillable = [
         'name', 'slug', 'website_url', 'icon', 'image', 'image_alt',
         'tint_color', 'accent_color', 'short_description', 'full_content', 'order',
     ];
+
+    /**
+     * `full_content` tidak ikut di sini dengan sengaja: kolom itu tidak ada di
+     * form panel sama sekali (halaman rinci SBU masih view Blade tersendiri,
+     * lihat komentar getUrlAttribute() di bawah), jadi menerjemahkannya tidak
+     * ada gunanya sampai kolom itu benar-benar dipakai.
+     */
+    public $translatable = ['name', 'short_description', 'image_alt'];
 
     /**
      * Halaman rinci tiap SBU masih berupa view Blade sendiri, bukan dari
@@ -24,7 +34,7 @@ class BusinessUnit extends Model
      */
     public function getUrlAttribute(): string
     {
-        return "/page/our-business/{$this->slug}";
+        return Localization::url("/page/our-business/{$this->slug}");
     }
 
     /**

@@ -231,6 +231,10 @@ class CmsContentTest extends TestCase
         $this->assertSame(0, Vacancy::count());
 
         // Nama SBU tersimpan sebagai karakter sebenarnya, bukan entitas HTML.
-        $this->assertDatabaseHas('business_units', ['name' => 'Agribisnis & Kehutanan']);
+        // name kolom JSON translatable sekarang, jadi dicek lewat model
+        // (accessor), bukan assertDatabaseHas yang membandingkan kolom mentah.
+        $this->assertTrue(
+            BusinessUnit::where('name->id', 'Agribisnis & Kehutanan')->exists()
+        );
     }
 }

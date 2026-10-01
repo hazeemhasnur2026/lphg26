@@ -32,7 +32,8 @@
 
 <meta property="og:type" content="@yield('og_type', 'website')">
 <meta property="og:site_name" content="Hasnur Group">
-<meta property="og:locale" content="id_ID">
+{{-- Regional locale bahasa yang sedang dibuka, bukan selalu Indonesia. --}}
+<meta property="og:locale" content="{{ \Mcamara\LaravelLocalization\Facades\LaravelLocalization::getSupportedLocales()[app()->getLocale()]['regional'] ?? 'id_ID' }}">
 <meta property="og:url" content="@yield('canonical', url()->current())">
 <meta property="og:title" content="@yield('title')">
 <meta property="og:description" content="@yield('description')">

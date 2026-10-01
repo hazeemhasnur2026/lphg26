@@ -54,13 +54,73 @@ class EditPost extends EditRecord
         return $nilai instanceof \BackedEnum ? $nilai->value : $nilai;
     }
 
+    /**
+     * Peta terjemahan dalam bentuk yang bisa dibandingkan.
+     *
+     * Dua sisi yang dibandingkan memakai cara berbeda untuk menyatakan "belum
+     * ada terjemahan", dan tanpa disamakan lebih dulu keduanya tidak pernah
+     * cocok:
+     *
+     * - getTranslations() tidak memuat kunci bahasa yang tidak pernah diisi,
+     *   jadi field tanpa versi Inggris kembali sebagai ['id' => ...] saja.
+     * - Formulir selalu mengirim kunci untuk tiap tab bahasa. Tab teks biasa
+     *   yang dibiarkan kosong datang sebagai null, dan RichEditor yang kosong
+     *   datang sebagai "<p></p>" — bukan string kosong.
+     *
+     * Akibatnya tiap klik Simpan terlihat mengubah excerpt, seo_title, dan
+     * meta_description sekaligus, dan riwayat versi terisi versi kembar.
+     * Ditemukan lewat pengujian di panel yang sungguhan, bukan lewat pembacaan
+     * kode: perbandingannya terlihat benar sampai datanya dilihat.
+     */
+    private static function petaTerjemahan(array $nilai): array
+    {
+        $kosong = ['', '<p></p>', '<p><br></p>'];
+
+        $hasil = [];
+
+        foreach ($nilai as $bahasa => $teks) {
+            $teks = (string) $teks;
+
+            if (in_array(trim($teks), $kosong, true)) {
+                continue;
+            }
+
+            $hasil[$bahasa] = $teks;
+        }
+
+        ksort($hasil);
+
+        return $hasil;
+    }
+
     protected function mutateFormDataBeforeSave(array $data): array
     {
         $record = $this->getRecord();
 
+        /*
+         * Field translatable (title, excerpt, body, seo_title,
+         * meta_description) dibungkus TranslatableFieldsPlugin jadi tab per
+         * bahasa, dan statePath tiap tab jadi "{field}.{locale}" — jadi
+         * $data['title'] sekarang array ['id'=>..,'en'=>..], bukan string.
+         * Membandingkannya lewat skalar() (yang mengasumsikan string/enum)
+         * selalu "berbeda" karena array tidak pernah sama dengan string,
+         * sehingga tiap klik Simpan membuat revisi baru walau tak ada yang
+         * diubah. Field translatable dibandingkan sebagai peta bahasa;
+         * lainnya tetap lewat skalar() seperti sebelumnya.
+         */
         $berubah = collect(Post::REVISIONED_FIELDS)
-            ->filter(fn (string $field) => array_key_exists($field, $data)
-                && static::skalar($data[$field]) !== static::skalar($record->getAttribute($field)))
+            ->filter(function (string $field) use ($data, $record) {
+                if (! array_key_exists($field, $data)) {
+                    return false;
+                }
+
+                if (in_array($field, $record->translatable, true)) {
+                    return static::petaTerjemahan($data[$field] ?? [])
+                        !== static::petaTerjemahan($record->getTranslations($field));
+                }
+
+                return static::skalar($data[$field]) !== static::skalar($record->getAttribute($field));
+            })
             ->values();
 
         if ($berubah->isNotEmpty()) {

@@ -1,38 +1,38 @@
 @extends('layouts.app')
 
-@section('title', 'Logistik')
-@section('description', 'SBU Logistik Hasnur Group, jasa transportasi dan logistik melalui sungai dan laut.')
+@section('title', __('nav.business.logistic'))
+@section('description', __('business.logistic.meta_description'))
 
 @section('content')
 <x-page-hero
     :breadcrumb="[
-            ['label' => 'Beranda', 'url' => '/'],
-            ['label' => 'Bisnis Kami', 'url' => '/page/our-business/logistic'],
-            ['label' => 'Logistik', 'url' => null]
+            ['label' => __('nav.home'), 'url' => \App\Support\Localization::url('/')],
+            ['label' => __('nav.business'), 'url' => \App\Support\Localization::url('/page/our-business/logistic')],
+            ['label' => __('nav.business.logistic'), 'url' => null]
         ]"
-    title="Logistik"
-    description="SBU Logistik dikembangkan untuk mendukung kebutuhan logistik internal grup maupun mitra eksternal."
-    :image="['src' => '/assets/img/pages/our-business-logistic/banner.png', 'alt' => 'Logistik, Hasnur Group']"
-    :tabs="[
-            ['label' => 'Logistik', 'url' => '/page/our-business/logistic', 'active' => true],
-            ['label' => 'Agribisnis & Kehutanan', 'url' => '/page/our-business/agribusiness-forestry', 'active' => false],
-            ['label' => 'Energi', 'url' => '/page/our-business/energy', 'active' => false],
-            ['label' => 'Teknologi & Jasa', 'url' => '/page/our-business/technology-services', 'active' => false],
-            ['label' => 'Pendidikan', 'url' => '/page/our-business/education', 'active' => false],
-            ['label' => 'Kebutuhan Pelanggan', 'url' => '/page/our-business/consumer', 'active' => false],
-            ['label' => 'Investasi', 'url' => '/page/our-business/investment', 'active' => false]
-        ]" />
+    :title="__('nav.business.logistic')"
+    :description="__('business.logistic.hero_description')"
+    :image="['src' => '/assets/img/pages/our-business-logistic/banner.png', 'alt' => __('nav.business.logistic').', Hasnur Group']"
+    :tabs="$businessTabs" />
+
+<section class="bg-slate-50 border-b border-slate-100">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-5 flex flex-wrap gap-2">
+    @foreach ($businessTabs as $tab)
+      <a href="{{ $tab['url'] }}" class="px-5 py-2.5 rounded-full text-sm font-semibold transition {{ $tab['active'] ? 'bg-primary text-white' : 'bg-white text-slate-600 hover:text-primary border border-slate-200' }}">{{ $tab['label'] }}</a>
+    @endforeach
+  </div>
+</section>
 
 <section class="py-16 sm:py-20">
   <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-    <p class="reveal text-slate-600 leading-relaxed mb-4">Hasnur Group mengembangkan Strategic Business Unit (SBU) Logistik untuk mendukung bisnis-bisnis di lingkungan Hasnur Group dan juga mitra bisnis lainnya.</p>
-<p class="reveal text-slate-600 leading-relaxed mb-4">PT Hasnur Internasional Shipping Tbk (HIS) bergerak di sektor usaha logistik dan transportasi komoditas melalui sungai dan laut untuk pasar domestik maupun kawasan Asia. Saat ini HIS memiliki 14 set kapal tunda ( tugboat ) dan tongkang ( barge ) dengan kapasitas angkut yang bervariasi, mulai dari 7.500 metrik ton (MT) hingga 10.000 MT. Dengan kapasitas angkut per tahun mencapai 10 juta MT, HIS memberikan jasa pengangkutan berbagai komoditas dari pelabuhan loading sampai pelabuhan bongkar, baik domestik maupun internasional dengan keunggulan operation excellence , aman, tepat waktu, dan efisien.</p>
-<x-img src="/assets/img/pages/our-business-logistic/content-1.jpg" alt="Logistik" class="reveal w-full h-auto rounded-2xl shadow-lg my-8" loading="lazy" sizes="(min-width: 768px) 768px, 100vw" />
-<p class="reveal text-slate-600 leading-relaxed mb-4">Sebagai bagian dari SBU Logistik Hasnur Group Indonesia, HIS memiliki anak perusahaan yakni PT Hasnur Resources Terminal (HRT) dan PT Hasnur Mitra Sarana (HMS). HRT bergerak pada bidang usaha pengelolaan terminal dan fasilitas kepelabuhan. HRT memiliki izin Badan Usaha Pelabuhan yang mencakup sembilan bidang usaha, yaitu:</p>
-<ul class="reveal list-disc pl-5 space-y-2 mb-6"><li class="text-slate-600 leading-relaxed">Penyediaan dan/ atau pelayanan jasa dermaga untuk bertambat;</li><li class="text-slate-600 leading-relaxed">Penyediaan dan/ atau pelayanan pengisian bahan bakar dan pelayanan air bersih;</li><li class="text-slate-600 leading-relaxed">Penyediaan dan/ atau pelayanan fasilitas naik turun penumpang dan/ atau kendaraan;</li><li class="text-slate-600 leading-relaxed">Penyediaan dan/ atau pelayanan jasa dermaga untuk pelaksanaan kegiatan bongkar muat barang dan peti kemas;</li><li class="text-slate-600 leading-relaxed">Penyediaan dan/ atau pelayanan jasa gudang dan tempat penimbunan barang, alat bongkar muat, serta peralatan pelabuhan;</li><li class="text-slate-600 leading-relaxed">Penyediaan dan/ atau pelayanan jasa terminal peti kemas, curah cair, curah kering, dan Ro-Ro;</li><li class="text-slate-600 leading-relaxed">Penyediaan dan/ atau pelayanan jasa bongkar muat barang;</li><li class="text-slate-600 leading-relaxed">Penyediaan dan/ atau pelayanan pusat distribusi dan konsolidasi barang;</li><li class="text-slate-600 leading-relaxed">Penyediaan dan/ atau pelayanan jasa penundaan kapal.</li></ul>
-<x-img src="/assets/img/pages/our-business-logistic/content-2.png" alt="Logistik" class="reveal w-full h-auto rounded-2xl shadow-lg my-8" loading="lazy" sizes="(min-width: 768px) 768px, 100vw" />
-<p class="reveal text-slate-600 leading-relaxed mb-4">Saat ini PT Hasnur Resources Terminal menjalankan bisnisnya di 2 lokasi, yaitu di Sungai Puting, Kabupaten Tapin, Kalimantan Selatan melalui pengoperasian 5 jetty dengan kapasitas terpasang 20 juta metrik ton (MT) per tahun dan Pendang, Kabupaten Barito Selatan, Kalimantan Tengah melalui pengoperasian 1 jetty dengan kapasitas terpasang 6 juta merik ton (MT) per tahun.</p>
-<x-img src="/assets/img/pages/our-business-logistic/content-3.png" alt="Logistik" class="reveal w-full h-auto rounded-2xl shadow-lg my-8" loading="lazy" sizes="(min-width: 768px) 768px, 100vw" />
+    <p class="reveal text-slate-600 leading-relaxed mb-4">{{ __('business.logistic.paragraph_1') }}</p>
+<p class="reveal text-slate-600 leading-relaxed mb-4">{{ __('business.logistic.paragraph_2') }}</p>
+<x-img src="/assets/img/pages/our-business-logistic/content-1.jpg" alt="{{ __('nav.business.logistic') }}" class="reveal w-full h-auto rounded-2xl shadow-lg my-8" loading="lazy" sizes="(min-width: 768px) 768px, 100vw" />
+<p class="reveal text-slate-600 leading-relaxed mb-4">{{ __('business.logistic.paragraph_3') }}</p>
+<ul class="reveal list-disc pl-5 space-y-2 mb-6"><li class="text-slate-600 leading-relaxed">{{ __('business.logistic.list_1') }}</li><li class="text-slate-600 leading-relaxed">{{ __('business.logistic.list_2') }}</li><li class="text-slate-600 leading-relaxed">{{ __('business.logistic.list_3') }}</li><li class="text-slate-600 leading-relaxed">{{ __('business.logistic.list_4') }}</li><li class="text-slate-600 leading-relaxed">{{ __('business.logistic.list_5') }}</li><li class="text-slate-600 leading-relaxed">{{ __('business.logistic.list_6') }}</li><li class="text-slate-600 leading-relaxed">{{ __('business.logistic.list_7') }}</li><li class="text-slate-600 leading-relaxed">{{ __('business.logistic.list_8') }}</li><li class="text-slate-600 leading-relaxed">{{ __('business.logistic.list_9') }}</li></ul>
+<x-img src="/assets/img/pages/our-business-logistic/content-2.png" alt="{{ __('nav.business.logistic') }}" class="reveal w-full h-auto rounded-2xl shadow-lg my-8" loading="lazy" sizes="(min-width: 768px) 768px, 100vw" />
+<p class="reveal text-slate-600 leading-relaxed mb-4">{{ __('business.logistic.paragraph_4') }}</p>
+<x-img src="/assets/img/pages/our-business-logistic/content-3.png" alt="{{ __('nav.business.logistic') }}" class="reveal w-full h-auto rounded-2xl shadow-lg my-8" loading="lazy" sizes="(min-width: 768px) 768px, 100vw" />
 
     <x-sbu-website-link :unit="$unit ?? null" />
   </div>

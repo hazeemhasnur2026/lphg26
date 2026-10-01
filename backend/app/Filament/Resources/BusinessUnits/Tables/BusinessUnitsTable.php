@@ -18,7 +18,13 @@ class BusinessUnitsTable
         return $table
             ->columns([
                 ImageColumn::make('image_url')->label('Foto')->height(40),
-                TextColumn::make('name')->label('Nama')->searchable(),
+                TextColumn::make('name')
+                    ->label('Nama')
+                    // Kolom JSON translatable; ->searchable() bawaan tidak
+                    // bisa mencocokkan isi JSON.
+                    ->searchable(query: fn ($query, string $search) => $query
+                        ->where('name->id', 'like', "%{$search}%")
+                        ->orWhere('name->en', 'like', "%{$search}%")),
                 TextColumn::make('slug')->searchable()->color('gray'),
                 IconColumn::make('website_url')->label('Situs')->boolean(),
                 ColorColumn::make('tint_color')->label('Latar'),

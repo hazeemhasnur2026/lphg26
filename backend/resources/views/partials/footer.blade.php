@@ -18,13 +18,13 @@
             @endforeach
           </p>
           <p class="mt-3 text-sm text-white/70">
-            @if ($headOffice->phone) Telp: {{ $headOffice->phone }}<br> @endif
-            @if ($headOffice->fax) Fax: {{ $headOffice->fax }}<br> @endif
+            @if ($headOffice->phone) {{ __('footer.phone') }} {{ $headOffice->phone }}<br> @endif
+            @if ($headOffice->fax) {{ __('footer.fax') }} {{ $headOffice->fax }}<br> @endif
             {{-- Alamat surelnya sengaja tidak dipasang sebagai mailto: alamat
                  yang terpampang di HTML adalah yang pertama dipanen pengirim
                  spam, dan lewat formulir pesannya sekaligus tersimpan. --}}
             @if ($headOffice->email)
-              {{ __('footer.email') }} <a href="/page/contact/contact-us" class="underline hover:text-accent">{{ __('footer.via_form') }}</a>
+              {{ __('footer.email') }} <a href="@lurl('/page/contact/contact-us')" class="underline hover:text-accent">{{ __('footer.via_form') }}</a>
             @endif
           </p>
         @endif
@@ -72,13 +72,13 @@
         <ul class="mt-3 space-y-2 text-sm text-white/70">
           <li><a href="https://www.hasnurcentre.org" target="_blank" rel="noopener" class="hover:text-accent transition">Hasnur Centre</a></li>
           <li><a href="https://www.baritoputera.co.id" target="_blank" rel="noopener" class="hover:text-accent transition">PS Barito Putera</a></li>
-          <li><a href="/page/contact/contact-us" class="hover:text-accent transition">{{ __('nav.contact') }}</a></li>
+          <li><a href="@lurl('/page/contact/contact-us')" class="hover:text-accent transition">{{ __('nav.contact') }}</a></li>
         </ul>
       </div>
     </div>
 
     <div class="mt-16 pt-6 border-t border-white/10 text-center text-sm text-white/50">
-      <a href="/page/legal/kebijakan-privasi" class="underline hover:text-accent">{{ __('footer.privacy') }}</a>
+      <a href="@lurl('/page/legal/kebijakan-privasi')" class="underline hover:text-accent">{{ __('footer.privacy') }}</a>
       <p class="mt-2">{{ __('footer.rights') }}</p>
     </div>
   </div>

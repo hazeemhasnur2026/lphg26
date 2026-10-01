@@ -15,10 +15,13 @@ use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Support\Facades\Storage;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
+use Spatie\Translatable\HasTranslations;
 
 class Post extends Model
 {
-    use HasFactory, MengoptimalkanGambar;
+    use HasFactory, HasTranslations, MengoptimalkanGambar;
+
+    public $translatable = ['title', 'excerpt', 'body', 'seo_title', 'meta_description'];
 
     /** Kolom gambar pada disk `content`. */
     public function kolomGambar(): array
@@ -300,9 +303,22 @@ class Post extends Model
      */
     public function recordRevision(?string $summary = null): PostRevision
     {
+        /*
+         * ->only() memanggil accessor, dan accessor field translatable hanya
+         * mengembalikan locale yang aktif saat ini (selalu 'id' di panel admin,
+         * yang berada di luar grup rute berbahasa). Snapshot yang dibangun lewat
+         * ->only() akan diam-diam membuang separuh terjemahan Inggris setiap
+         * kali versi baru dicatat. getTranslations() mengambil kedua bahasa.
+         */
+        $snapshot = collect(self::REVISIONED_FIELDS)->mapWithKeys(fn (string $field) => [
+            $field => in_array($field, $this->translatable, true)
+                ? $this->getTranslations($field)
+                : $this->getAttribute($field),
+        ])->all();
+
         return $this->revisions()->create([
             'version' => ($this->revisions()->max('version') ?? 0) + 1,
-            'snapshot' => $this->only(self::REVISIONED_FIELDS),
+            'snapshot' => $snapshot,
             'summary' => $summary,
             'created_by' => auth()->id(),
         ]);

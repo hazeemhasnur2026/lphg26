@@ -9,7 +9,7 @@
     <div class="relative flex items-center justify-between h-18 py-3">
       <!-- Logo. Hidden at the very top of the page (transparent header over
            the hero), fades in together with the full nav once scrolled. -->
-      <a href="/" class="flex items-center shrink-0" x-show="scrolled"
+      <a href="@lurl('/')" class="flex items-center shrink-0" x-show="scrolled"
          x-transition:enter="transition ease-out duration-200" x-transition:enter-start="opacity-0 -translate-y-1" x-transition:enter-end="opacity-100 translate-y-0">
         <x-img src="/assets/img/logo.png" alt="Hasnur Group" class="h-9 sm:h-10 w-auto drop-shadow" sizes="176px" />
       </a>
@@ -17,14 +17,14 @@
       <!-- Desktop Nav. Hidden at the very top of the page, appears once the visitor scrolls -->
       <nav x-show="scrolled" x-transition:enter="transition ease-out duration-200" x-transition:enter-start="opacity-0 -translate-y-1" x-transition:enter-end="opacity-100 translate-y-0"
            class="hidden xl:flex items-center gap-1 text-sm font-semibold text-slate-700">
-        <a href="/" class="px-3 py-2 rounded-md hover:text-primary hover:bg-slate-50 transition">{{ __('nav.home') }}</a>
+        <a href="@lurl('/')" class="px-3 py-2 rounded-md hover:text-primary hover:bg-slate-50 transition">{{ __('nav.home') }}</a>
 
         <div class="relative" x-data="{ open: false }" x-on:mouseenter="open = true" x-on:mouseleave="open = false">
           <button class="px-3 py-2 rounded-md hover:text-primary hover:bg-slate-50 transition inline-flex items-center gap-1">{{ __('nav.about') }}<svg class="w-3.5 h-3.5" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.17l3.71-3.94a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd"/></svg>
           </button>
           <div x-show="open" x-transition x-cloak class="absolute left-0 top-full w-56 bg-white rounded-xl shadow-lg border border-slate-100 py-2">
-            <a href="/page/about-us/overview" class="block px-4 py-2 text-sm hover:bg-slate-50 hover:text-primary">{{ __('nav.overview') }}</a>
-            <a href="/page/about-us/vision-mission" class="block px-4 py-2 text-sm hover:bg-slate-50 hover:text-primary">{{ __('nav.vision') }}</a>
+            <a href="@lurl('/page/about-us/overview')" class="block px-4 py-2 text-sm hover:bg-slate-50 hover:text-primary">{{ __('nav.overview') }}</a>
+            <a href="@lurl('/page/about-us/vision-mission')" class="block px-4 py-2 text-sm hover:bg-slate-50 hover:text-primary">{{ __('nav.vision') }}</a>
           </div>
         </div>
 
@@ -35,14 +35,15 @@
             {{-- Daftar dan urutan dari tabel business_units, bukan ditulis
                  tangan: menambah atau menghapus unit lewat panel langsung
                  terlihat di sini. Labelnya tetap dari lang/*.json lewat
-                 pemetaan di config/site.php — $unit->name belum translatable,
-                 dan situs ini punya tiga bahasa. Unit yang lupa didaftarkan di
+                 pemetaan di config/site.php, bukan dari $unit->name langsung —
+                 situs ini punya tiga bahasa (id/en/ja) sementara $unit->name
+                 kini hanya translatable id/en. Unit yang lupa didaftarkan di
                  pemetaan jatuh ke $unit->name, yang berarti bahasa Indonesia
-                 di ketiga versi bahasa sampai kuncinya ditambahkan — lebih
-                 baik daripada salah menunjuk kunci terjemahan unit lain. --}}
+                 di halaman /ja sampai kuncinya ditambahkan — lebih baik
+                 daripada salah menunjuk kunci terjemahan unit lain. --}}
             @foreach ($businessUnits as $unit)
               @php($kunciNav = config("site.business_unit_nav_keys.{$unit->slug}"))
-              <a href="/page/our-business/{{ $unit->slug }}" class="block px-4 py-2 text-sm hover:bg-slate-50 hover:text-primary">{{ $kunciNav ? __($kunciNav) : $unit->name }}</a>
+              <a href="@lurl('/page/our-business/'.$unit->slug)" class="block px-4 py-2 text-sm hover:bg-slate-50 hover:text-primary">{{ $kunciNav ? __($kunciNav) : $unit->name }}</a>
             @endforeach
           </div>
         </div>
@@ -51,19 +52,19 @@
           <button class="px-3 py-2 rounded-md hover:text-primary hover:bg-slate-50 transition inline-flex items-center gap-1">{{ __('nav.csr') }}<svg class="w-3.5 h-3.5" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.17l3.71-3.94a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd"/></svg>
           </button>
           <div x-show="open" x-transition x-cloak class="absolute left-0 top-full w-56 bg-white rounded-xl shadow-lg border border-slate-100 py-2">
-            <a href="/page/csr/csr-overview" class="block px-4 py-2 text-sm hover:bg-slate-50 hover:text-primary">{{ __('nav.overview') }}</a>
-            <a href="/page/csr/csr-activity" class="block px-4 py-2 text-sm hover:bg-slate-50 hover:text-primary">{{ __('nav.csr.activity') }}</a>
+            <a href="@lurl('/page/csr/csr-overview')" class="block px-4 py-2 text-sm hover:bg-slate-50 hover:text-primary">{{ __('nav.overview') }}</a>
+            <a href="@lurl('/page/csr/csr-activity')" class="block px-4 py-2 text-sm hover:bg-slate-50 hover:text-primary">{{ __('nav.csr.activity') }}</a>
           </div>
         </div>
 
         <div class="relative" x-data="{ open: false }" x-on:mouseenter="open = true" x-on:mouseleave="open = false">
           <button class="px-3 py-2 rounded-md hover:text-primary hover:bg-slate-50 transition inline-flex items-center gap-1">
-            SHE
+            {{ __('nav.she') }}
             <svg class="w-3.5 h-3.5" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.17l3.71-3.94a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd"/></svg>
           </button>
           <div x-show="open" x-transition x-cloak class="absolute left-0 top-full w-56 bg-white rounded-xl shadow-lg border border-slate-100 py-2">
-            <a href="/page/she/overview-1" class="block px-4 py-2 text-sm hover:bg-slate-50 hover:text-primary">{{ __('nav.overview') }}</a>
-            <a href="/page/she/she-activity" class="block px-4 py-2 text-sm hover:bg-slate-50 hover:text-primary">{{ __('nav.she.activity') }}</a>
+            <a href="@lurl('/page/she/overview-1')" class="block px-4 py-2 text-sm hover:bg-slate-50 hover:text-primary">{{ __('nav.overview') }}</a>
+            <a href="@lurl('/page/she/she-activity')" class="block px-4 py-2 text-sm hover:bg-slate-50 hover:text-primary">{{ __('nav.she.activity') }}</a>
           </div>
         </div>
 
@@ -71,7 +72,7 @@
           <button class="px-3 py-2 rounded-md hover:text-primary hover:bg-slate-50 transition inline-flex items-center gap-1">{{ __('nav.career') }}<svg class="w-3.5 h-3.5" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.17l3.71-3.94a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd"/></svg>
           </button>
           <div x-show="open" x-transition x-cloak class="absolute left-0 top-full w-48 bg-white rounded-xl shadow-lg border border-slate-100 py-2">
-            <a href="/page/career/our-vacancy" class="block px-4 py-2 text-sm hover:bg-slate-50 hover:text-primary">{{ __('nav.career.vacancy') }}</a>
+            <a href="@lurl('/page/career/our-vacancy')" class="block px-4 py-2 text-sm hover:bg-slate-50 hover:text-primary">{{ __('nav.career.vacancy') }}</a>
           </div>
         </div>
 
@@ -79,11 +80,11 @@
           <button class="px-3 py-2 rounded-md hover:text-primary hover:bg-slate-50 transition inline-flex items-center gap-1">{{ __('nav.publication') }}<svg class="w-3.5 h-3.5" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.17l3.71-3.94a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd"/></svg>
           </button>
           <div x-show="open" x-transition x-cloak class="absolute left-0 top-full w-56 bg-white rounded-xl shadow-lg border border-slate-100 py-2">
-            <a href="/page/publication/latest-update" class="block px-4 py-2 text-sm hover:bg-slate-50 hover:text-primary">{{ __('nav.publication.latest') }}</a>
-            <a href="/page/publication/news" class="block px-4 py-2 text-sm hover:bg-slate-50 hover:text-primary">{{ __('nav.publication.news') }}</a>
-            <a href="/page/publication/press-release" class="block px-4 py-2 text-sm hover:bg-slate-50 hover:text-primary">{{ __('nav.publication.press') }}</a>
-            <a href="/page/publication/multimedia" class="block px-4 py-2 text-sm hover:bg-slate-50 hover:text-primary">{{ __('nav.publication.multimedia') }}</a>
-            <a href="/page/publication/gallery" class="block px-4 py-2 text-sm hover:bg-slate-50 hover:text-primary">{{ __('nav.publication.gallery') }}</a>
+            <a href="@lurl('/page/publication/latest-update')" class="block px-4 py-2 text-sm hover:bg-slate-50 hover:text-primary">{{ __('nav.publication.latest') }}</a>
+            <a href="@lurl('/page/publication/news')" class="block px-4 py-2 text-sm hover:bg-slate-50 hover:text-primary">{{ __('nav.publication.news') }}</a>
+            <a href="@lurl('/page/publication/press-release')" class="block px-4 py-2 text-sm hover:bg-slate-50 hover:text-primary">{{ __('nav.publication.press') }}</a>
+            <a href="@lurl('/page/publication/multimedia')" class="block px-4 py-2 text-sm hover:bg-slate-50 hover:text-primary">{{ __('nav.publication.multimedia') }}</a>
+            <a href="@lurl('/page/publication/gallery')" class="block px-4 py-2 text-sm hover:bg-slate-50 hover:text-primary">{{ __('nav.publication.gallery') }}</a>
           </div>
         </div>
 
@@ -98,7 +99,7 @@
           </svg>
           <span class="sr-only">{{ __('nav.search') }}</span>
         </a>
-        <a href="/page/contact/contact-us" class="ml-2 px-4 py-2 rounded-md bg-primary text-white hover:bg-primary-dark transition">{{ __('nav.contact') }}</a>
+        <a href="@lurl('/page/contact/contact-us')" class="ml-2 px-4 py-2 rounded-md bg-primary text-white hover:bg-primary-dark transition">{{ __('nav.contact') }}</a>
 
         <x-language-switcher />
       </nav>
@@ -112,7 +113,7 @@
            swapping two unrelated icons. -->
       <button class="xl:hidden ml-auto flex h-11 w-11 items-center justify-center text-primary transition-opacity duration-200 hover:opacity-70"
               x-on:click="mobileOpen = !mobileOpen"
-              :aria-label="mobileOpen ? 'Tutup menu' : 'Buka menu'" :aria-expanded="mobileOpen">
+              :aria-label="mobileOpen ? @js(__('nav.menu_close')) : @js(__('nav.menu_open'))" :aria-expanded="mobileOpen">
         <!-- All three bars sit centred on top-1/2 (-mt-px offsets half the 2px
              height). The closed state pushes the outer two apart with
              translateY, so opening only has to cancel that translate and
@@ -141,13 +142,13 @@
        x-transition:leave-end="opacity-0 -translate-y-3"
        class="border-t border-slate-100 bg-white max-h-[80vh] overflow-y-auto">
     <nav class="px-4 py-3 flex flex-col text-sm font-semibold text-slate-700">
-      <a href="/" class="nav-row py-2.5" style="animation-delay:60ms" x-on:click="mobileOpen=false">{{ __('nav.home') }}</a>
+      <a href="@lurl('/')" class="nav-row py-2.5" style="animation-delay:60ms" x-on:click="mobileOpen=false">{{ __('nav.home') }}</a>
 
       <details class="nav-row py-2.5" style="animation-delay:90ms">
         <summary class="cursor-pointer">{{ __('nav.about') }}</summary>
         <div class="pl-4 pt-2 flex flex-col gap-2 font-normal">
-          <a href="/page/about-us/overview">{{ __('nav.overview') }}</a>
-          <a href="/page/about-us/vision-mission">{{ __('nav.vision') }}</a>
+          <a href="@lurl('/page/about-us/overview')">{{ __('nav.overview') }}</a>
+          <a href="@lurl('/page/about-us/vision-mission')">{{ __('nav.vision') }}</a>
         </div>
       </details>
 
@@ -156,7 +157,7 @@
         <div class="pl-4 pt-2 flex flex-col gap-2 font-normal">
           @foreach ($businessUnits as $unit)
             @php($kunciNav = config("site.business_unit_nav_keys.{$unit->slug}"))
-            <a href="/page/our-business/{{ $unit->slug }}">{{ $kunciNav ? __($kunciNav) : $unit->name }}</a>
+            <a href="@lurl('/page/our-business/'.$unit->slug)">{{ $kunciNav ? __($kunciNav) : $unit->name }}</a>
           @endforeach
         </div>
       </details>
@@ -164,39 +165,39 @@
       <details class="nav-row py-2.5" style="animation-delay:150ms">
         <summary class="cursor-pointer">{{ __('nav.csr.full') }}</summary>
         <div class="pl-4 pt-2 flex flex-col gap-2 font-normal">
-          <a href="/page/csr/csr-overview">{{ __('nav.overview') }}</a>
-          <a href="/page/csr/csr-activity">{{ __('nav.csr.activity') }}</a>
+          <a href="@lurl('/page/csr/csr-overview')">{{ __('nav.overview') }}</a>
+          <a href="@lurl('/page/csr/csr-activity')">{{ __('nav.csr.activity') }}</a>
         </div>
       </details>
 
       <details class="nav-row py-2.5" style="animation-delay:180ms">
         <summary class="cursor-pointer">{{ __('nav.she.full') }}</summary>
         <div class="pl-4 pt-2 flex flex-col gap-2 font-normal">
-          <a href="/page/she/overview-1">{{ __('nav.overview') }}</a>
-          <a href="/page/she/she-activity">{{ __('nav.she.activity') }}</a>
+          <a href="@lurl('/page/she/overview-1')">{{ __('nav.overview') }}</a>
+          <a href="@lurl('/page/she/she-activity')">{{ __('nav.she.activity') }}</a>
         </div>
       </details>
 
       <details class="nav-row py-2.5" style="animation-delay:210ms">
         <summary class="cursor-pointer">{{ __('nav.career') }}</summary>
         <div class="pl-4 pt-2 flex flex-col gap-2 font-normal">
-          <a href="/page/career/our-vacancy">{{ __('nav.career.vacancy') }}</a>
+          <a href="@lurl('/page/career/our-vacancy')">{{ __('nav.career.vacancy') }}</a>
         </div>
       </details>
 
       <details class="nav-row py-2.5" style="animation-delay:240ms">
         <summary class="cursor-pointer">{{ __('nav.publication') }}</summary>
         <div class="pl-4 pt-2 flex flex-col gap-2 font-normal">
-          <a href="/page/publication/latest-update">{{ __('nav.publication.latest') }}</a>
-          <a href="/page/publication/news">{{ __('nav.publication.news') }}</a>
-          <a href="/page/publication/press-release">{{ __('nav.publication.press') }}</a>
-          <a href="/page/publication/multimedia">{{ __('nav.publication.multimedia') }}</a>
-          <a href="/page/publication/gallery">{{ __('nav.publication.gallery') }}</a>
+          <a href="@lurl('/page/publication/latest-update')">{{ __('nav.publication.latest') }}</a>
+          <a href="@lurl('/page/publication/news')">{{ __('nav.publication.news') }}</a>
+          <a href="@lurl('/page/publication/press-release')">{{ __('nav.publication.press') }}</a>
+          <a href="@lurl('/page/publication/multimedia')">{{ __('nav.publication.multimedia') }}</a>
+          <a href="@lurl('/page/publication/gallery')">{{ __('nav.publication.gallery') }}</a>
         </div>
       </details>
 
       <a href="{{ \Mcamara\LaravelLocalization\Facades\LaravelLocalization::getLocalizedURL(app()->getLocale(), url('/cari')) }}" class="nav-row px-4 py-2.5 rounded-md hover:bg-slate-50" style="animation-delay:255ms" x-on:click="mobileOpen=false">{{ __('nav.search') }}</a>
-      <a href="/page/contact/contact-us" class="nav-row mt-2 text-center px-4 py-2.5 rounded-md bg-primary text-white" style="animation-delay:270ms" x-on:click="mobileOpen=false">{{ __('nav.contact') }}</a>
+      <a href="@lurl('/page/contact/contact-us')" class="nav-row mt-2 text-center px-4 py-2.5 rounded-md bg-primary text-white" style="animation-delay:270ms" x-on:click="mobileOpen=false">{{ __('nav.contact') }}</a>
 
       <x-language-switcher variant="mobile" />
     </nav>

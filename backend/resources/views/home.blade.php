@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
-@section('title', 'Welcome to Hasnur Group')
-@section('description', 'Hasnur Group adalah grup usaha yang didirikan oleh H. Abdussamad Sulaiman HB dan Hj. Nurhayati, pengusaha asal Kalimantan. Grow Together Develop the Future.')
+@section('title', __('home.meta_title'))
+@section('description', __('home.meta_description'))
 {{-- Mengikuti bahasa yang dibuka; url('/') selalu menunjuk versi Indonesia --}}
 @section('canonical', \Mcamara\LaravelLocalization\Facades\LaravelLocalization::getLocalizedURL(app()->getLocale(), url('/')))
 
@@ -76,23 +76,23 @@
       <x-img src="/assets/img/founder.png" alt="H. Abdussamad Sulaiman HB & Hj. Nurhayati" class="w-64 sm:w-80 lg:w-96 h-auto mx-auto lg:mx-0 object-contain drop-shadow-lg mb-6" loading="lazy" data-parallax="0.05" sizes="(min-width: 1024px) 384px, 320px" />
       <svg class="w-8 h-8 mx-auto lg:mx-0 text-accent mb-3" fill="currentColor" viewBox="0 0 32 32"><path d="M9.352 4C4.456 7.456 1 13.12 1 19.36 1 24.88 4.288 28 8.464 28c3.88 0 6.552-3.16 6.552-6.616 0-3.16-2.176-5.976-5.336-5.976-.6 0-1.336.104-1.512.208.408-2.744 2.984-5.976 5.568-7.6L9.352 4zm16.512 0C20.968 7.456 17.512 13.12 17.512 19.36c0 5.52 3.288 8.64 7.464 8.64 3.88 0 6.552-3.16 6.552-6.616 0-3.16-2.176-5.976-5.336-5.976-.6 0-1.336.104-1.512.208.408-2.744 2.984-5.976 5.568-7.6L25.864 4z"/></svg>
       <p class="text-lg sm:text-xl font-semibold text-slate-800 leading-relaxed">
-        Komitmen pendiri, H. Abdussamad Sulaiman HB dan Hj. Nurhayati, untuk terus mengabdi dan membangun bersama masyarakat Kalimantan Selatan, "Banua", menjadi fondasi perjalanan Hasnur Group hingga hari ini.
+        {{ __('home.hero.quote') }}
       </p>
       <p class="mt-5 font-bold text-primary">H. Abdussamad Sulaiman HB &amp; Hj. Nurhayati</p>
-      <p class="text-sm text-slate-500">Pendiri Hasnur Group</p>
+      <p class="text-sm text-slate-500">{{ __('home.hero.founder_caption') }}</p>
     </div>
   </div>
 
   <!-- Supporting copy + CTA -->
   <div class="relative max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 pt-10 pb-16 sm:pb-20 text-center reveal">
     <p class="text-lg text-slate-600">
-      Merayakan 60 tahun perjalanan Hasnur Group, nilai-nilai perusahaan yang semakin kuat dalam melangkah menuju masa depan yang berkelanjutan.
+      {{ __('home.hero.supporting') }}
     </p>
     <div class="mt-8 flex flex-wrap gap-4 justify-center">
-      <a href="/page/about-us/overview" data-cta="beranda-tentang-kami" class="px-6 py-3 rounded-md bg-primary text-white font-bold hover:bg-primary-dark transition">Tentang Kami</a>
-      <a href="#bisnis-kami" data-cta="beranda-lihat-bisnis" class="px-6 py-3 rounded-md border border-slate-300 text-slate-700 font-semibold hover:bg-slate-50 transition">Lihat Bisnis Kami</a>
+      <a href="@lurl('/page/about-us/overview')" data-cta="beranda-tentang-kami" class="px-6 py-3 rounded-md bg-primary text-white font-bold hover:bg-primary-dark transition">{{ __('nav.about') }}</a>
+      <a href="#bisnis-kami" data-cta="beranda-lihat-bisnis" class="px-6 py-3 rounded-md border border-slate-300 text-slate-700 font-semibold hover:bg-slate-50 transition">{{ __('home.hero.cta_business') }}</a>
     </div>
-    <a href="#tentang-kami" class="hidden sm:inline-flex mt-10 text-slate-400 hover:text-primary transition animate-bounce" aria-label="Gulir ke bawah">
+    <a href="#tentang-kami" class="hidden sm:inline-flex mt-10 text-slate-400 hover:text-primary transition animate-bounce" aria-label="{{ __('home.hero.scroll_down') }}">
       <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"/></svg>
     </a>
   </div>
@@ -108,13 +108,13 @@
      dicocokkan dengan mata, supaya kartu dan segmen roda benar-benar sewarna. --}}
 @php
     $coreValues = [
-        ['name' => 'Pantang Menyerah', 'color' => '#DA272C', 'description' => 'Selalu berusaha maksimal dan tuntas dalam menghadapi setiap tantangan, serta memiliki sikap ulet, tangguh dan tidak mudah menyerah untuk mewujudkan setiap tantangan/tugas menjadi kenyataan.'],
-        ['name' => 'Keadilan', 'color' => '#83C034', 'description' => 'Memberikan perlakuan yang seimbang antara hak dan kewajiban yang dimiliki karyawan dan perusahaan, serta keinginan untuk memberikan manfaat yang maksimal bagi seluruh pemangku kepentingan perusahaan.'],
-        ['name' => 'Kebersamaan', 'color' => '#F9EE15', 'description' => 'Memiliki perasaan senasib dan sepenanggungan, serta saling memiliki, saling peduli, saling memperhatikan, dan saling mengingatkan dalam ikatan kekeluargaan sehingga tercipta hubungan personal yang erat.'],
-        ['name' => 'Bijaksana', 'color' => '#1891D1', 'description' => 'Selalu mempertimbangkan berbagai aspek, menggunakan akal dan nurani dalam pengambilan keputusan guna mendapatkan manfaat yang terbaik bagi seluruh pemangku kepentingan.'],
-        ['name' => 'Kesatuan Sikap', 'color' => '#8E5343', 'description' => 'Keserasian pandangan, keyakinan dan tindakan segenap anggota perusahaan dengan tetap menjunjung tinggi nilai-nilai luhur serta mengutamakan keutuhan prinsip moral dan etika demi tercapainya tujuan bersama.'],
-        ['name' => 'Dapat Dipercaya', 'color' => '#E77820', 'description' => 'Bekerja sepenuh hati, jujur, memegang teguh nilai etika dan moral, dan dapat diandalkan oleh seluruh pemangku kepentingan dalam menghadapi setiap penugasan maupun tantangan.'],
-        ['name' => 'Disiplin', 'color' => '#964377', 'description' => 'Mengarahkan diri sendiri dan orang lain untuk melaksanakan tugas dan kewajiban secara terus-menerus sesuai dengan norma dan peraturan yang berlaku.'],
+        ['key' => 'perseverance', 'color' => '#DA272C'],
+        ['key' => 'fairness', 'color' => '#83C034'],
+        ['key' => 'togetherness', 'color' => '#F9EE15'],
+        ['key' => 'wisdom', 'color' => '#1891D1'],
+        ['key' => 'unity', 'color' => '#8E5343'],
+        ['key' => 'trustworthiness', 'color' => '#E77820'],
+        ['key' => 'discipline', 'color' => '#964377'],
     ];
 @endphp
 
@@ -127,14 +127,14 @@
     <div class="core-value-panel lg:sticky lg:top-0 lg:flex lg:min-h-screen lg:items-center">
       <div class="mx-auto w-full max-w-7xl px-4 py-16 sm:px-6 sm:py-20 lg:px-8 lg:py-6">
         <div class="mx-auto max-w-2xl text-center">
-          <h2 class="text-2xl font-extrabold text-primary sm:text-3xl">Tujuh Nilai yang Kami Pegang</h2>
+          <h2 class="text-2xl font-extrabold text-primary sm:text-3xl">{{ __('home.core_values.heading') }}</h2>
         </div>
 
         <div class="mt-6 grid items-center gap-8 lg:grid-cols-[16rem_minmax(0,1fr)]">
           <div class="core-value-stage flex justify-center lg:justify-start">
             <div class="core-value-wheel relative aspect-square w-full max-w-[min(70vw,16rem)]">
               <x-img src="/assets/img/nilai_inti/core-value-outer.png"
-                     alt="Roda nilai inti Hasnur Group: Pantang Menyerah, Keadilan, Kebersamaan, Bijaksana, Kesatuan Sikap, Dapat Dipercaya, dan Disiplin"
+                     alt="{{ __('home.core_values.wheel_alt') }}"
                      sizes="(min-width: 1024px) 256px, 70vw" loading="lazy"
                      class="core-value-ring absolute inset-0 h-full w-full" />
 
@@ -155,8 +155,8 @@
             @foreach ($coreValues as $index => $value)
               <li class="core-value-card rounded-2xl border border-slate-100 bg-white p-4 shadow-sm" data-index="{{ $index }}">
                 <span class="block h-1.5 w-10 rounded-full" style="background:{{ $value['color'] }}"></span>
-                <h3 class="mt-2.5 text-xs font-bold uppercase tracking-wide text-slate-800">{{ $value['name'] }}</h3>
-                <p class="mt-1.5 text-[13px] leading-relaxed text-slate-600">{{ $value['description'] }}</p>
+                <h3 class="mt-2.5 text-xs font-bold uppercase tracking-wide text-slate-800">{{ __("home.core_values.{$value['key']}.name") }}</h3>
+                <p class="mt-1.5 text-[13px] leading-relaxed text-slate-600">{{ __("home.core_values.{$value['key']}.description") }}</p>
               </li>
             @endforeach
           </ul>
@@ -186,9 +186,9 @@
 
 
   <div class="relative max-w-2xl mx-auto px-4 sm:px-6 lg:px-8 text-center reveal">
-    <span class="text-sm font-bold uppercase tracking-widest text-accent">Galeri Kegiatan</span>
-    <h2 class="mt-3 text-3xl sm:text-4xl font-extrabold text-primary">Momen Hasnur Group</h2>
-    <p class="mt-4 text-slate-600 text-sm">Konten sementara memakai dokumentasi yang tersedia, akan digantikan feed dinamis dari CMS Publikasi.</p>
+    <span class="text-sm font-bold uppercase tracking-widest text-accent">{{ __('home.gallery.eyebrow') }}</span>
+    <h2 class="mt-3 text-3xl sm:text-4xl font-extrabold text-primary">{{ __('home.gallery.heading') }}</h2>
+    <p class="mt-4 text-slate-600 text-sm">{{ __('home.gallery.description') }}</p>
   </div>
 
   <!-- Full-bleed slide frame. No max-width wrapper, no rounded border,
@@ -213,10 +213,10 @@
         </div>
       </template>
 
-      <button x-on:click="prev()" class="absolute left-3 sm:left-6 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/20 hover:bg-white/30 backdrop-blur ring-1 ring-white/40 flex items-center justify-center transition" aria-label="Slide sebelumnya">
+      <button x-on:click="prev()" class="absolute left-3 sm:left-6 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/20 hover:bg-white/30 backdrop-blur ring-1 ring-white/40 flex items-center justify-center transition" aria-label="{{ __('home.gallery.prev') }}">
         <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
       </button>
-      <button x-on:click="next()" class="absolute right-3 sm:right-6 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/20 hover:bg-white/30 backdrop-blur ring-1 ring-white/40 flex items-center justify-center transition" aria-label="Slide berikutnya">
+      <button x-on:click="next()" class="absolute right-3 sm:right-6 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/20 hover:bg-white/30 backdrop-blur ring-1 ring-white/40 flex items-center justify-center transition" aria-label="{{ __('home.gallery.next') }}">
         <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
       </button>
     </div>
@@ -240,19 +240,19 @@
   </div>
   <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid lg:grid-cols-2 gap-14 items-center">
     <div class="reveal">
-      <x-img src="/assets/img/image-about.png" alt="Tentang Hasnur Group" class="rounded-2xl shadow-lg w-full h-auto" loading="lazy" data-parallax="0.05" sizes="(min-width: 1024px) 600px, 100vw" />
+      <x-img src="/assets/img/image-about.png" alt="{{ __('home.about.image_alt') }}" class="rounded-2xl shadow-lg w-full h-auto" loading="lazy" data-parallax="0.05" sizes="(min-width: 1024px) 600px, 100vw" />
     </div>
     <div class="reveal">
-      <span class="text-sm font-bold uppercase tracking-widest text-accent">Tentang Kami</span>
-      <h2 class="mt-3 text-3xl sm:text-4xl font-extrabold text-primary">Berawal dari Sungai Barito, 1966</h2>
+      <span class="text-sm font-bold uppercase tracking-widest text-accent">{{ __('nav.about') }}</span>
+      <h2 class="mt-3 text-3xl sm:text-4xl font-extrabold text-primary">{{ __('home.about.heading') }}</h2>
       <p class="mt-6 text-slate-600 leading-relaxed">
-        Hasnur Group didirikan oleh pengusaha asli Kalimantan, H. Abdussamad Sulaiman HB, bersama istrinya Hj. Nurhayati, yang memulai usaha di bidang angkutan sungai pada tahun 1966.
+        {{ __('home.about.paragraph_1') }}
       </p>
       <p class="mt-4 text-slate-600 leading-relaxed">
-        Nama <span class="font-semibold text-primary">"HASNUR"</span> merupakan gabungan inisial nama keduanya, <span class="font-semibold">HAS</span> (H. Abdussamad Sulaiman) + <span class="font-semibold">NUR</span> (Nurhayati).
+        {!! __('home.about.paragraph_2') !!}
       </p>
-      <a href="/page/about-us/overview" class="mt-8 inline-flex items-center gap-2 font-bold text-primary hover:text-primary-dark transition">
-        Selengkapnya
+      <a href="@lurl('/page/about-us/overview')" class="mt-8 inline-flex items-center gap-2 font-bold text-primary hover:text-primary-dark transition">
+        {{ __('home.about.more') }}
         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
       </a>
     </div>
@@ -285,9 +285,9 @@
 
   <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="relative text-center max-w-2xl mx-auto reveal">
-      <span class="text-sm font-bold uppercase tracking-widest text-accent">Perjalanan Kami</span>
-      <h2 class="mt-3 text-3xl sm:text-4xl font-extrabold text-primary">Timeline Sejarah Perusahaan</h2>
-      <p class="mt-4 text-slate-600">Setiap tonggak perjalanan Hasnur Group dari tahun ke tahun, 1966–2023.</p>
+      <span class="text-sm font-bold uppercase tracking-widest text-accent">{{ __('home.timeline.eyebrow') }}</span>
+      <h2 class="mt-3 text-3xl sm:text-4xl font-extrabold text-primary">{{ __('home.timeline.heading') }}</h2>
+      <p class="mt-4 text-slate-600">{{ __('home.timeline.description') }}</p>
     </div>
 
     <!-- ===== Desktop/tablet: serpentine grid (hidden below sm) ===== -->
@@ -304,35 +304,35 @@
           <div class="tl-dot relative w-36 h-36 rounded-full ring-[6px] ring-white bg-gradient-to-br from-primary-light to-primary shadow-[0_14px_30px_-10px_rgba(76,88,196,0.6)] flex items-center justify-center">
             <span class="text-white text-3xl font-extrabold tracking-tight">1966</span>
           </div>
-          <p class="mt-5 text-sm text-slate-600 leading-relaxed max-w-[12rem] min-h-[9rem]">Mulai usaha angkutan sungai.</p>
+          <p class="mt-5 text-sm text-slate-600 leading-relaxed max-w-[12rem] min-h-[9rem]">{{ __('home.timeline.1966') }}</p>
         </div>
 
         <div class="tl-node flex flex-col items-center text-center" style="transition-delay:80ms">
           <div class="tl-dot relative w-36 h-36 rounded-full ring-[6px] ring-white bg-gradient-to-br from-primary-light to-primary shadow-[0_14px_30px_-10px_rgba(76,88,196,0.6)] flex items-center justify-center">
             <span class="text-white text-3xl font-extrabold tracking-tight">1982</span>
           </div>
-          <p class="mt-5 text-sm text-slate-600 leading-relaxed max-w-[12rem] min-h-[9rem]">Mulai usaha kehutanan.</p>
+          <p class="mt-5 text-sm text-slate-600 leading-relaxed max-w-[12rem] min-h-[9rem]">{{ __('home.timeline.1982') }}</p>
         </div>
 
         <div class="tl-node flex flex-col items-center text-center" style="transition-delay:160ms">
           <div class="tl-dot relative w-36 h-36 rounded-full ring-[6px] ring-white bg-gradient-to-br from-primary-light to-primary shadow-[0_14px_30px_-10px_rgba(76,88,196,0.6)] flex items-center justify-center">
             <span class="text-white text-3xl font-extrabold tracking-tight">1988</span>
           </div>
-          <p class="mt-5 text-sm text-slate-600 leading-relaxed max-w-[12rem] min-h-[9rem]">Pendirian klub sepak bola PS Barito Putera.</p>
+          <p class="mt-5 text-sm text-slate-600 leading-relaxed max-w-[12rem] min-h-[9rem]">{{ __('home.timeline.1988') }}</p>
         </div>
 
         <div class="tl-node flex flex-col items-center text-center" style="transition-delay:240ms">
           <div class="tl-dot relative w-36 h-36 rounded-full ring-[6px] ring-white bg-gradient-to-br from-primary-light to-primary shadow-[0_14px_30px_-10px_rgba(76,88,196,0.6)] flex items-center justify-center">
             <span class="text-white text-3xl font-extrabold tracking-tight">1992</span>
           </div>
-          <p class="mt-5 text-sm text-slate-600 leading-relaxed max-w-[12rem] min-h-[9rem]">Mulai usaha pertambangan dan perkebunan kelapa sawit.</p>
+          <p class="mt-5 text-sm text-slate-600 leading-relaxed max-w-[12rem] min-h-[9rem]">{{ __('home.timeline.1992') }}</p>
         </div>
 
         <div class="tl-node flex flex-col items-center text-center" style="transition-delay:320ms">
           <div class="tl-dot relative w-36 h-36 rounded-full ring-[6px] ring-white bg-gradient-to-br from-primary-light to-primary shadow-[0_14px_30px_-10px_rgba(76,88,196,0.6)] flex items-center justify-center">
             <span class="text-white text-3xl font-extrabold tracking-tight">2000</span>
           </div>
-          <p class="mt-5 text-sm text-slate-600 leading-relaxed max-w-[12rem] min-h-[9rem]">Memiliki jalan hauling dan pelabuhan batubara di Tapin, Kalsel.</p>
+          <p class="mt-5 text-sm text-slate-600 leading-relaxed max-w-[12rem] min-h-[9rem]">{{ __('home.timeline.2000') }}</p>
         </div>
       </div>
 
@@ -348,35 +348,35 @@
           <div class="tl-dot relative w-36 h-36 rounded-full ring-[6px] ring-white bg-gradient-to-br from-primary to-logo-blue shadow-[0_14px_30px_-10px_rgba(47,59,162,0.6)] flex items-center justify-center">
             <span class="text-white text-3xl font-extrabold tracking-tight">2006</span>
           </div>
-          <p class="mt-5 text-sm text-slate-600 leading-relaxed max-w-[12rem] min-h-[9rem]">Ekspansi ke bidang jasa/services.</p>
+          <p class="mt-5 text-sm text-slate-600 leading-relaxed max-w-[12rem] min-h-[9rem]">{{ __('home.timeline.2006') }}</p>
         </div>
 
         <div class="tl-node order-4 flex flex-col items-center text-center" style="transition-delay:480ms">
           <div class="tl-dot relative w-36 h-36 rounded-full ring-[6px] ring-white bg-gradient-to-br from-primary to-logo-blue shadow-[0_14px_30px_-10px_rgba(47,59,162,0.6)] flex items-center justify-center">
             <span class="text-white text-3xl font-extrabold tracking-tight">2008</span>
           </div>
-          <p class="mt-5 text-sm text-slate-600 leading-relaxed max-w-[12rem] min-h-[9rem]">Mulai usaha di bidang media.</p>
+          <p class="mt-5 text-sm text-slate-600 leading-relaxed max-w-[12rem] min-h-[9rem]">{{ __('home.timeline.2008') }}</p>
         </div>
 
         <div class="tl-node order-3 flex flex-col items-center text-center" style="transition-delay:560ms">
           <div class="tl-dot relative w-36 h-36 rounded-full ring-[6px] ring-white bg-gradient-to-br from-primary to-logo-blue shadow-[0_14px_30px_-10px_rgba(47,59,162,0.6)] flex items-center justify-center">
             <span class="text-white text-3xl font-extrabold tracking-tight">2009</span>
           </div>
-          <p class="mt-5 text-sm text-slate-600 leading-relaxed max-w-[12rem] min-h-[9rem]">Ekspansi perkebunan sawit dan pengangkutan batubara via laut.</p>
+          <p class="mt-5 text-sm text-slate-600 leading-relaxed max-w-[12rem] min-h-[9rem]">{{ __('home.timeline.2009') }}</p>
         </div>
 
         <div class="tl-node order-2 flex flex-col items-center text-center" style="transition-delay:640ms">
           <div class="tl-dot relative w-36 h-36 rounded-full ring-[6px] ring-white bg-gradient-to-br from-primary to-logo-blue shadow-[0_14px_30px_-10px_rgba(47,59,162,0.6)] flex items-center justify-center">
             <span class="text-white text-3xl font-extrabold tracking-tight">2010</span>
           </div>
-          <p class="mt-5 text-sm text-slate-600 leading-relaxed max-w-[12rem] min-h-[9rem]">Pendirian Yayasan Hasnur Centre, tambahan lahan sawit di Barito Kuala.</p>
+          <p class="mt-5 text-sm text-slate-600 leading-relaxed max-w-[12rem] min-h-[9rem]">{{ __('home.timeline.2010') }}</p>
         </div>
 
         <div class="tl-node order-1 flex flex-col items-center text-center" style="transition-delay:720ms">
           <div class="tl-dot relative w-36 h-36 rounded-full ring-[6px] ring-white bg-gradient-to-br from-primary to-logo-blue shadow-[0_14px_30px_-10px_rgba(47,59,162,0.6)] flex items-center justify-center">
             <span class="text-white text-3xl font-extrabold tracking-tight">2011</span>
           </div>
-          <p class="mt-5 text-sm text-slate-600 leading-relaxed max-w-[12rem] min-h-[9rem]">Ekspansi ke bidang teknologi informasi.</p>
+          <p class="mt-5 text-sm text-slate-600 leading-relaxed max-w-[12rem] min-h-[9rem]">{{ __('home.timeline.2011') }}</p>
         </div>
       </div>
 
@@ -388,35 +388,35 @@
           <div class="tl-dot relative w-36 h-36 rounded-full ring-[6px] ring-white bg-gradient-to-br from-logo-blue to-logo-blue-dark shadow-[0_14px_30px_-10px_rgba(21,79,145,0.6)] flex items-center justify-center">
             <span class="text-white text-3xl font-extrabold tracking-tight">2013</span>
           </div>
-          <p class="mt-5 text-sm text-slate-600 leading-relaxed max-w-[12rem] min-h-[9rem]">Peresmian pabrik kelapa sawit di Tapin dan pelabuhan batubara di Barito Selatan.</p>
+          <p class="mt-5 text-sm text-slate-600 leading-relaxed max-w-[12rem] min-h-[9rem]">{{ __('home.timeline.2013') }}</p>
         </div>
 
         <div class="tl-node flex flex-col items-center text-center" style="transition-delay:880ms">
           <div class="tl-dot relative w-36 h-36 rounded-full ring-[6px] ring-white bg-gradient-to-br from-logo-blue to-logo-blue-dark shadow-[0_14px_30px_-10px_rgba(21,79,145,0.6)] flex items-center justify-center">
             <span class="text-white text-3xl font-extrabold tracking-tight">2015</span>
           </div>
-          <p class="mt-5 text-sm text-slate-600 leading-relaxed max-w-[12rem] min-h-[9rem]">Ekspansi ke jasa konstruksi.</p>
+          <p class="mt-5 text-sm text-slate-600 leading-relaxed max-w-[12rem] min-h-[9rem]">{{ __('home.timeline.2015') }}</p>
         </div>
 
         <div class="tl-node flex flex-col items-center text-center" style="transition-delay:960ms">
           <div class="tl-dot relative w-36 h-36 rounded-full ring-[6px] ring-white bg-gradient-to-br from-logo-blue to-logo-blue-dark shadow-[0_14px_30px_-10px_rgba(21,79,145,0.6)] flex items-center justify-center">
             <span class="text-white text-3xl font-extrabold tracking-tight">2020</span>
           </div>
-          <p class="mt-5 text-sm text-slate-600 leading-relaxed max-w-[12rem] min-h-[9rem]">Penguatan bisnis logistik dan energi terbarukan.</p>
+          <p class="mt-5 text-sm text-slate-600 leading-relaxed max-w-[12rem] min-h-[9rem]">{{ __('home.timeline.2020') }}</p>
         </div>
 
         <div class="tl-node flex flex-col items-center text-center" style="transition-delay:1040ms">
           <div class="tl-dot relative w-36 h-36 rounded-full ring-[6px] ring-white bg-gradient-to-br from-logo-blue to-logo-blue-dark shadow-[0_14px_30px_-10px_rgba(21,79,145,0.6)] flex items-center justify-center">
             <span class="text-white text-3xl font-extrabold tracking-tight">2021</span>
           </div>
-          <p class="mt-5 text-sm text-slate-600 leading-relaxed max-w-[12rem] min-h-[9rem]">Anak perusahaan PT Hasnur International Shipping IPO di BEI (kode saham: HAIS), 1 September 2021.</p>
+          <p class="mt-5 text-sm text-slate-600 leading-relaxed max-w-[12rem] min-h-[9rem]">{{ __('home.timeline.2021') }}</p>
         </div>
 
         <div class="tl-node flex flex-col items-center text-center" style="transition-delay:1120ms">
           <div class="tl-dot tl-ping relative w-36 h-36 rounded-full ring-[6px] ring-accent bg-gradient-to-br from-accent to-[#bd8526] shadow-[0_14px_34px_-8px_rgba(217,164,65,0.7)] flex items-center justify-center">
             <span class="text-logo-blue text-3xl font-extrabold tracking-tight">2023</span>
           </div>
-          <p class="mt-5 text-sm text-slate-600 leading-relaxed max-w-[12rem] min-h-[9rem]">Restrukturisasi menjadi 7 Strategic Business Unit (SBU): Logistic, Agro Forestry, Energy, Technology &amp; Services, Education, Consumer, Investment.</p>
+          <p class="mt-5 text-sm text-slate-600 leading-relaxed max-w-[12rem] min-h-[9rem]">{{ __('home.timeline.2023') }}</p>
         </div>
       </div>
 
@@ -432,7 +432,7 @@
           <span class="text-white text-xl font-extrabold">1966</span>
         </div>
           <div>
-            <p class="text-sm text-slate-600 leading-relaxed">Mulai usaha angkutan sungai.</p>
+            <p class="text-sm text-slate-600 leading-relaxed">{{ __('home.timeline.1966') }}</p>
           </div>
         </div>
 
@@ -441,7 +441,7 @@
           <span class="text-white text-xl font-extrabold">1982</span>
         </div>
           <div>
-            <p class="text-sm text-slate-600 leading-relaxed">Mulai usaha kehutanan.</p>
+            <p class="text-sm text-slate-600 leading-relaxed">{{ __('home.timeline.1982') }}</p>
           </div>
         </div>
 
@@ -450,7 +450,7 @@
           <span class="text-white text-xl font-extrabold">1988</span>
         </div>
           <div>
-            <p class="text-sm text-slate-600 leading-relaxed">Pendirian klub sepak bola PS Barito Putera.</p>
+            <p class="text-sm text-slate-600 leading-relaxed">{{ __('home.timeline.1988') }}</p>
           </div>
         </div>
 
@@ -459,7 +459,7 @@
           <span class="text-white text-xl font-extrabold">1992</span>
         </div>
           <div>
-            <p class="text-sm text-slate-600 leading-relaxed">Mulai usaha pertambangan dan perkebunan kelapa sawit.</p>
+            <p class="text-sm text-slate-600 leading-relaxed">{{ __('home.timeline.1992') }}</p>
           </div>
         </div>
 
@@ -468,7 +468,7 @@
           <span class="text-white text-xl font-extrabold">2000</span>
         </div>
           <div>
-            <p class="text-sm text-slate-600 leading-relaxed">Memiliki jalan hauling dan pelabuhan batubara di Tapin, Kalsel.</p>
+            <p class="text-sm text-slate-600 leading-relaxed">{{ __('home.timeline.2000') }}</p>
           </div>
         </div>
 
@@ -477,7 +477,7 @@
           <span class="text-white text-xl font-extrabold">2006</span>
         </div>
           <div>
-            <p class="text-sm text-slate-600 leading-relaxed">Ekspansi ke bidang jasa/services.</p>
+            <p class="text-sm text-slate-600 leading-relaxed">{{ __('home.timeline.2006') }}</p>
           </div>
         </div>
 
@@ -486,7 +486,7 @@
           <span class="text-white text-xl font-extrabold">2008</span>
         </div>
           <div>
-            <p class="text-sm text-slate-600 leading-relaxed">Mulai usaha di bidang media.</p>
+            <p class="text-sm text-slate-600 leading-relaxed">{{ __('home.timeline.2008') }}</p>
           </div>
         </div>
 
@@ -495,7 +495,7 @@
           <span class="text-white text-xl font-extrabold">2009</span>
         </div>
           <div>
-            <p class="text-sm text-slate-600 leading-relaxed">Ekspansi perkebunan sawit dan pengangkutan batubara via laut.</p>
+            <p class="text-sm text-slate-600 leading-relaxed">{{ __('home.timeline.2009') }}</p>
           </div>
         </div>
 
@@ -504,7 +504,7 @@
           <span class="text-white text-xl font-extrabold">2010</span>
         </div>
           <div>
-            <p class="text-sm text-slate-600 leading-relaxed">Pendirian Yayasan Hasnur Centre, tambahan lahan sawit di Barito Kuala.</p>
+            <p class="text-sm text-slate-600 leading-relaxed">{{ __('home.timeline.2010') }}</p>
           </div>
         </div>
 
@@ -513,7 +513,7 @@
           <span class="text-white text-xl font-extrabold">2011</span>
         </div>
           <div>
-            <p class="text-sm text-slate-600 leading-relaxed">Ekspansi ke bidang teknologi informasi.</p>
+            <p class="text-sm text-slate-600 leading-relaxed">{{ __('home.timeline.2011') }}</p>
           </div>
         </div>
 
@@ -522,7 +522,7 @@
           <span class="text-white text-xl font-extrabold">2013</span>
         </div>
           <div>
-            <p class="text-sm text-slate-600 leading-relaxed">Peresmian pabrik kelapa sawit di Tapin dan pelabuhan batubara di Barito Selatan.</p>
+            <p class="text-sm text-slate-600 leading-relaxed">{{ __('home.timeline.2013') }}</p>
           </div>
         </div>
 
@@ -531,7 +531,7 @@
           <span class="text-white text-xl font-extrabold">2015</span>
         </div>
           <div>
-            <p class="text-sm text-slate-600 leading-relaxed">Ekspansi ke jasa konstruksi.</p>
+            <p class="text-sm text-slate-600 leading-relaxed">{{ __('home.timeline.2015') }}</p>
           </div>
         </div>
 
@@ -540,7 +540,7 @@
           <span class="text-white text-xl font-extrabold">2020</span>
         </div>
           <div>
-            <p class="text-sm text-slate-600 leading-relaxed">Penguatan bisnis logistik dan energi terbarukan.</p>
+            <p class="text-sm text-slate-600 leading-relaxed">{{ __('home.timeline.2020') }}</p>
           </div>
         </div>
 
@@ -549,7 +549,7 @@
           <span class="text-white text-xl font-extrabold">2021</span>
         </div>
           <div>
-            <p class="text-sm text-slate-600 leading-relaxed">Anak perusahaan PT Hasnur International Shipping IPO di BEI (kode saham: HAIS), 1 September 2021.</p>
+            <p class="text-sm text-slate-600 leading-relaxed">{{ __('home.timeline.2021') }}</p>
           </div>
         </div>
 
@@ -558,7 +558,7 @@
           <span class="text-logo-blue text-xl font-extrabold">2023</span>
         </div>
           <div>
-            <p class="text-sm text-slate-600 leading-relaxed">Restrukturisasi menjadi 7 Strategic Business Unit (SBU): Logistic, Agro Forestry, Energy, Technology &amp; Services, Education, Consumer, Investment.</p>
+            <p class="text-sm text-slate-600 leading-relaxed">{{ __('home.timeline.2023') }}</p>
           </div>
         </div>
 
@@ -582,8 +582,8 @@
   </div>
   <div class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
     <div class="reveal mx-auto max-w-2xl text-center">
-      <span class="text-sm font-bold uppercase tracking-widest text-accent">7 Strategic Business Unit</span>
-      <h2 class="mt-3 text-3xl font-extrabold text-primary sm:text-4xl">Bisnis Kami</h2>
+      <span class="text-sm font-bold uppercase tracking-widest text-accent">{{ __('home.business.eyebrow') }}</span>
+      <h2 class="mt-3 text-3xl font-extrabold text-primary sm:text-4xl">{{ __('nav.business') }}</h2>
     </div>
 
     <!-- 4 cards then 3, as in the reference, once there is room for it (xl);
@@ -637,11 +637,11 @@
   <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="flex flex-wrap items-end justify-between gap-4 reveal">
       <div>
-        <span class="text-sm font-bold uppercase tracking-widest text-accent">Publikasi</span>
-        <h2 class="mt-3 text-3xl sm:text-4xl font-extrabold text-primary">Aktivitas Kami</h2>
+        <span class="text-sm font-bold uppercase tracking-widest text-accent">{{ __('nav.publication') }}</span>
+        <h2 class="mt-3 text-3xl sm:text-4xl font-extrabold text-primary">{{ __('home.activities.heading') }}</h2>
       </div>
-      <a href="/page/publication/latest-update" data-cta="beranda-lihat-semua-aktivitas" class="font-bold text-primary hover:text-primary-dark transition inline-flex items-center gap-2">
-        Lihat Semua
+      <a href="@lurl('/page/publication/latest-update')" data-cta="beranda-lihat-semua-aktivitas" class="font-bold text-primary hover:text-primary-dark transition inline-flex items-center gap-2">
+        {{ __('home.activities.view_all') }}
         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
       </a>
     </div>
@@ -659,7 +659,7 @@
             @endif
             <div class="p-6">
               <span class="inline-block rounded-full bg-primary/10 px-3 py-1 text-xs font-bold uppercase tracking-wide text-primary">
-                {{ str_replace('-', ' ', $post->category) }}
+                {{ ($kunciKategori = config("site.listings.{$post->category}.label")) ? __($kunciKategori) : str_replace('-', ' ', $post->category) }}
               </span>
               <h3 class="mt-4 text-lg font-bold leading-snug text-slate-800 transition group-hover:text-primary">
                 {{ $post->title }}
@@ -672,7 +672,7 @@
           </a>
         </article>
       @empty
-        <p class="text-slate-500">Belum ada publikasi. Jalankan <code>php artisan import:articles</code>.</p>
+        <p class="text-slate-500">{{ __('home.activities.empty') }} <code>php artisan import:articles</code>.</p>
       @endforelse
     </div>
   </div>

@@ -35,7 +35,12 @@ class PostsTable
 
                 TextColumn::make('title')
                     ->label('Judul')
-                    ->searchable()
+                    // title kolom JSON translatable: ->searchable() bawaan
+                    // membuat where "title" like ..., yang tidak pernah cocok
+                    // terhadap isi JSON. Query eksplisit menyisir kedua bahasa.
+                    ->searchable(query: fn ($query, string $search) => $query
+                        ->where('title->id', 'like', "%{$search}%")
+                        ->orWhere('title->en', 'like', "%{$search}%"))
                     ->limit(60)
                     ->wrap()
                     ->description(fn (Post $record) => $record->author?->name),
@@ -56,7 +61,7 @@ class PostsTable
                     ->label('Kategori')
                     ->badge()
                     ->color('gray')
-                    ->formatStateUsing(fn (string $state) => config("site.listings.{$state}.label") ?? $state)
+                    ->formatStateUsing(fn (string $state) => ($kunci = config("site.listings.{$state}.label")) ? __($kunci) : $state)
                     ->sortable(),
 
                 TextColumn::make('tags.name')
@@ -96,7 +101,7 @@ class PostsTable
 
                 SelectFilter::make('category')
                     ->label('Kategori')
-                    ->options(fn () => collect(config('site.listings'))->map(fn ($l) => $l['label'])->all()),
+                    ->options(fn () => collect(config('site.listings'))->map(fn ($l) => __($l['label']))->all()),
 
                 SelectFilter::make('author')
                     ->label('Penulis')
@@ -112,7 +117,12 @@ class PostsTable
 
                 SelectFilter::make('business_unit')
                     ->label('Unit bisnis')
-                    ->relationship('businessUnit', 'name'),
+                    // name kolom JSON translatable. Filament mendukung path
+                    // JSON langsung di titleAttribute ("kolom->kunci"), jadi
+                    // opsi filter dibaca dari nilai bahasa Indonesia — cukup
+                    // untuk dropdown panel admin, yang memang berbahasa
+                    // Indonesia di seluruh labelnya.
+                    ->relationship('businessUnit', 'name->id'),
 
                 Filter::make('rentang_terbit')
                     ->schema([

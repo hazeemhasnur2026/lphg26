@@ -123,45 +123,55 @@ return [
         'investment' => 'nav.business.investment',
     ],
 
+    /*
+     * label/group di sini adalah NAMA KUNCI lang, bukan teks langsung —
+     * di-__() saat dipakai (di PostController/view), bukan di berkas ini.
+     * config di-cache dan dimuat sebelum bahasa permintaan diketahui, jadi
+     * memanggil __() di sini akan membekukan satu bahasa untuk semua orang.
+     * Mengikuti pola yang sama dengan business_unit_nav_keys di bawah, dan
+     * key-nya dipakai ulang dari nav.* yang sudah ada — string yang sama
+     * sudah muncul di menu navigasi.
+     */
     'listings' => [
         'latest-update' => [
-            'label' => 'Update Terbaru', 'section' => 'publication',
-            'group' => 'Publikasi', 'banner' => 'publication-latest-update',
+            'label' => 'nav.publication.latest', 'section' => 'publication',
+            'group' => 'nav.publication', 'banner' => 'publication-latest-update',
         ],
         'news' => [
-            'label' => 'Berita', 'section' => 'publication',
-            'group' => 'Publikasi', 'banner' => 'publication-news',
+            'label' => 'nav.publication.news', 'section' => 'publication',
+            'group' => 'nav.publication', 'banner' => 'publication-news',
         ],
         'press-release' => [
-            'label' => 'Press Release', 'section' => 'publication',
-            'group' => 'Publikasi', 'banner' => 'publication-press-release',
+            'label' => 'nav.publication.press', 'section' => 'publication',
+            'group' => 'nav.publication', 'banner' => 'publication-press-release',
         ],
         'csr-activity' => [
-            'label' => 'Aktifitas CSR', 'section' => 'csr',
-            'group' => 'Tanggung Jawab Sosial Perusahaan', 'banner' => 'csr-csr-activity',
+            'label' => 'nav.csr.activity', 'section' => 'csr',
+            'group' => 'nav.csr.full', 'banner' => 'csr-csr-activity',
         ],
         'she-activity' => [
-            'label' => 'Aktivitas SHE', 'section' => 'she',
-            'group' => 'Keselamatan, Kesehatan, & Lingkungan', 'banner' => 'she-she-activity',
+            'label' => 'nav.she.activity', 'section' => 'she',
+            'group' => 'nav.she.full', 'banner' => 'she-she-activity',
         ],
     ],
 
-    // Sibling pages shown as the tab strip, keyed by section.
+    // Sibling pages shown as the tab strip, keyed by section. label juga
+    // nama kunci lang, sama seperti listings di atas.
     'siblings' => [
         'publication' => [
-            ['label' => 'Update Terbaru', 'url' => '/page/publication/latest-update'],
-            ['label' => 'Berita', 'url' => '/page/publication/news'],
-            ['label' => 'Press Release', 'url' => '/page/publication/press-release'],
-            ['label' => 'Multimedia', 'url' => '/page/publication/multimedia'],
-            ['label' => 'Galeri', 'url' => '/page/publication/gallery'],
+            ['label' => 'nav.publication.latest', 'url' => '/page/publication/latest-update'],
+            ['label' => 'nav.publication.news', 'url' => '/page/publication/news'],
+            ['label' => 'nav.publication.press', 'url' => '/page/publication/press-release'],
+            ['label' => 'nav.publication.multimedia', 'url' => '/page/publication/multimedia'],
+            ['label' => 'nav.publication.gallery', 'url' => '/page/publication/gallery'],
         ],
         'csr' => [
-            ['label' => 'Ikhtisar', 'url' => '/page/csr/csr-overview'],
-            ['label' => 'Aktifitas CSR', 'url' => '/page/csr/csr-activity'],
+            ['label' => 'nav.overview', 'url' => '/page/csr/csr-overview'],
+            ['label' => 'nav.csr.activity', 'url' => '/page/csr/csr-activity'],
         ],
         'she' => [
-            ['label' => 'Ikhtisar', 'url' => '/page/she/overview-1'],
-            ['label' => 'Aktivitas SHE', 'url' => '/page/she/she-activity'],
+            ['label' => 'nav.overview', 'url' => '/page/she/overview-1'],
+            ['label' => 'nav.she.activity', 'url' => '/page/she/she-activity'],
         ],
     ],
 ];

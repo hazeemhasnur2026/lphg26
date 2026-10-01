@@ -52,7 +52,8 @@ class PostForm
                     ->afterStateUpdated(fn (string $operation, $state, callable $set) => $operation === 'create'
                         ? $set('slug', Str::slug($state))
                         : null)
-                    ->columnSpanFull(),
+                    ->columnSpanFull()
+                    ->translatable(),
 
                 TextInput::make('slug')
                     ->required()
@@ -63,7 +64,7 @@ class PostForm
 
                 Select::make('category')
                     ->label('Kategori')
-                    ->options(fn () => collect(config('site.listings'))->map(fn ($l) => $l['label'])->all())
+                    ->options(fn () => collect(config('site.listings'))->map(fn ($l) => __($l['label']))->all())
                     ->required()
                     // Terisi lebih dulu bila form dibuka dari menu seksi
                     // tertentu, tapi tetap bisa diubah. Memindahkan artikel
@@ -84,12 +85,14 @@ class PostForm
                     ->rows(3)
                     ->maxLength(500)
                     ->helperText('Tampil di kartu daftar.')
-                    ->columnSpanFull(),
+                    ->columnSpanFull()
+                    ->translatable(),
 
                 RichEditor::make('body')
                     ->label('Isi artikel')
                     ->helperText('Kosongkan bila ini hanya catatan liputan media atau berkas unduhan.')
-                    ->columnSpanFull(),
+                    ->columnSpanFull()
+                    ->translatable(),
             ])->columns(2),
 
             Section::make('Berkas')
@@ -179,7 +182,11 @@ class PostForm
 
                 Select::make('business_unit_id')
                     ->label('Unit bisnis')
-                    ->options(fn () => BusinessUnit::orderBy('name')->pluck('name', 'id'))
+                    // name adalah kolom JSON translatable sekarang.
+                    // ->pluck() pada query builder membaca kolom mentah tanpa
+                    // lewat accessor, jadi hasilnya JSON mentah, bukan string.
+                    // ->get() dulu supaya modelnya hidup dan accessor jalan.
+                    ->options(fn () => BusinessUnit::orderBy('name->id')->get()->pluck('name', 'id'))
                     ->searchable()
                     ->placeholder('Tidak terkait unit tertentu'),
 
@@ -204,7 +211,8 @@ class PostForm
                     TextInput::make('seo_title')
                         ->label('Judul SEO')
                         ->maxLength(255)
-                        ->helperText('Kosong berarti memakai judul artikel.'),
+                        ->helperText('Kosong berarti memakai judul artikel.')
+                        ->translatable(),
 
                     TextInput::make('canonical_url')
                         ->label('URL kanonik')
@@ -217,7 +225,8 @@ class PostForm
                         ->rows(2)
                         ->maxLength(320)
                         ->helperText('Tampil di hasil pencarian. Kosong berarti memakai ringkasan.')
-                        ->columnSpanFull(),
+                        ->columnSpanFull()
+                        ->translatable(),
 
                     FileUpload::make('og_image')
                         ->label('Gambar berbagi (OG image)')
