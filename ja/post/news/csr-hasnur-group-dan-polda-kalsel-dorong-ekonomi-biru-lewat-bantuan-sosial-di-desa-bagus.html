@@ -1,0 +1,805 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CSR HASNUR GROUP DAN POLDA KALSEL DORONG EKONOMI BIRU LEWAT BANTUAN SOSIAL DI DESA BAGUS - Hasnur Group</title>
+<meta name="description" content="MARABAHAN, klikkalsel.com – Wujud sinergi antara dunia usaha dan aparat penegak hukum kembali terlihat melalui kolaborasi Hasnur Group dan Kepolisian">
+<meta name="theme-color" content="#0F2747">
+<link rel="canonical" href="csr-hasnur-group-dan-polda-kalsel-dorong-ekonomi-biru-lewat-bantuan-sosial-di-desa-bagus.html">
+
+
+
+  <link rel="alternate" hreflang="id-ID" href="../../../post/news/csr-hasnur-group-dan-polda-kalsel-dorong-ekonomi-biru-lewat-bantuan-sosial-di-desa-bagus.html">
+  <link rel="alternate" hreflang="en-GB" href="../../../en/post/news/csr-hasnur-group-dan-polda-kalsel-dorong-ekonomi-biru-lewat-bantuan-sosial-di-desa-bagus.html">
+  <link rel="alternate" hreflang="ja-JP" href="csr-hasnur-group-dan-polda-kalsel-dorong-ekonomi-biru-lewat-bantuan-sosial-di-desa-bagus.html">
+
+<link rel="alternate" hreflang="x-default" href="../../../post/news/csr-hasnur-group-dan-polda-kalsel-dorong-ekonomi-biru-lewat-bantuan-sosial-di-desa-bagus.html">
+
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Hasnur Group">
+
+<meta property="og:locale" content="ja_JP">
+<meta property="og:url" content="http://127.0.0.1:8123/ja/post/news/csr-hasnur-group-dan-polda-kalsel-dorong-ekonomi-biru-lewat-bantuan-sosial-di-desa-bagus">
+<meta property="og:title" content="CSR HASNUR GROUP DAN POLDA KALSEL DORONG EKONOMI BIRU LEWAT BANTUAN SOSIAL DI DESA BAGUS">
+<meta property="og:description" content="MARABAHAN, klikkalsel.com – Wujud sinergi antara dunia usaha dan aparat penegak hukum kembali terlihat melalui kolaborasi Hasnur Group dan Kepolisian">
+<meta property="og:image" content="http://127.0.0.1:8123/content-images-opt/news/csr-hasnur-group-dan-polda-kalsel-dorong-ekonomi-biru-lewat-bantuan-sosial-di-desa-bagus/1-1600.webp">
+<meta name="twitter:card" content="summary_large_image">
+
+<script>
+(function () {
+  var titik = 'http:\/\/127.0.0.1:8123\/analitik\/peristiwa';
+
+  // Token cadangan: nilai saat halaman ini dirender.
+  var tokenHalaman = 'eXVx0lGjmytxvV0aJgE73EW4vKmhEymb9VxEzIcv';
+
+  /*
+   * Token CSRF diambil dari cookie XSRF-TOKEN, bukan dari tokenHalaman di atas.
+   *
+   * Keduanya bernilai sama saat halaman baru dibuka, lalu berpisah. Token yang
+   * tertanam di HTML beku sejak halaman dirender; cookie-nya disegarkan pada
+   * setiap respons, dari tab mana pun. Begitu sesi berganti — umurnya lewat,
+   * pembaca membuka tab lain, atau APP_KEY berubah di mesin pengembang — token
+   * beku itu tidak cocok lagi, dan sejak saat itu setiap peristiwa dari tab
+   * tersebut dijawab 419 tanpa pernah tersimpan.
+   *
+   * Yang paling dirugikan justru peristiwa yang paling ingin dihitung: pembaca
+   * yang sampai ke ujung bawah artikel panjang adalah pembaca yang tabnya sudah
+   * lama terbuka.
+   *
+   * Laravel menerima cookie ini apa adanya lewat header X-XSRF-TOKEN dan
+   * mendekripsinya sendiri; nilainya ter-URL-encode di document.cookie.
+   */
+  var tokenSekarang = function () {
+    var cocok = document.cookie.match(/(?:^|;\s*)XSRF-TOKEN=([^;]+)/);
+
+    if (!cocok) return null;
+
+    try {
+      return decodeURIComponent(cocok[1]);
+    } catch (e) {
+      return null;
+    }
+  };
+
+  var kirim = function (nama, data) {
+    data = data || {};
+
+    // Platform luar membaca dataLayer. Didorong lebih dulu dan tanpa syarat:
+    // bila GTM belum termuat, antreannya tetap terbaca begitu ia termuat, dan
+    // bila tidak ada platform sama sekali yang terbentuk hanya sebuah array.
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push(Object.assign({ event: nama }, data));
+
+    if (!titik) return;
+
+    // Satu kolom label untuk keempat peristiwa. Tiap peristiwa hanya mengisi
+    // satu di antaranya, jadi yang pertama terisi itulah isi peristiwanya.
+    var label = data.cta_name || data.file_name || data.search_term ||
+                data.content_title || data.link_url || null;
+
+    var xsrf = tokenSekarang();
+    var kepala = { 'Content-Type': 'application/json' };
+
+    if (xsrf) {
+      kepala['X-XSRF-TOKEN'] = xsrf;
+    } else {
+      // Cookie tidak terbaca: peramban memblokir cookie, atau umur sesinya
+      // sudah lewat tanpa satu pun permintaan lain di antaranya. Token halaman
+      // adalah satu-satunya yang tersisa untuk dicoba.
+      kepala['X-CSRF-TOKEN'] = tokenHalaman;
+    }
+
+    try {
+      fetch(titik, {
+        method: 'POST',
+        // keepalive: peristiwa unduhan dan tautan keluar terkirim tepat saat
+        // halaman mulai ditinggalkan. Tanpa ini browser membatalkan
+        // permintaannya di tengah jalan, dan yang hilang justru dua peristiwa
+        // yang paling ingin dihitung.
+        keepalive: true,
+        credentials: 'same-origin',
+        headers: kepala,
+        body: JSON.stringify({
+          nama: nama,
+          label: label,
+          jalur: window.location.pathname + window.location.search,
+          bahasa: document.documentElement.lang || null
+        })
+      }).then(function (r) {
+        // Peristiwa yang ditolak harus meninggalkan jejak di suatu tempat.
+        // Jawaban 419 bukan penolakan promise, jadi tanpa baris ini seluruh
+        // peristiwa bisa hilang tanpa satu pun gejala — dan itulah cara bug
+        // pertama di jalur ini sempat lolos: papannya tetap menunjukkan angka,
+        // hanya saja angka yang tidak pernah bertambah.
+        if (!r.ok) {
+          console.warn('[analitik] peristiwa ' + nama + ' ditolak: HTTP ' + r.status +
+            (r.status === 419 ? ' — token kedaluwarsa, muat ulang halaman' : ''));
+        }
+      }).catch(function () {});
+    } catch (e) {}
+  };
+
+  document.addEventListener('click', function (e) {
+    var a = e.target.closest('a, button');
+    if (!a) return;
+
+    var href = a.getAttribute('href') || '';
+
+    if (/\.(pdf|docx?|xlsx?|pptx?|zip)($|\?)/i.test(href)) {
+      kirim('file_download', { file_url: href, file_name: href.split('/').pop() });
+      return;
+    }
+
+    if (a.dataset.cta) {
+      kirim('cta_click', { cta_name: a.dataset.cta, cta_text: (a.innerText || '').trim().slice(0, 80) });
+      return;
+    }
+
+    if (href && a.hostname && a.hostname !== window.location.hostname) {
+      kirim('outbound_click', { link_url: href });
+    }
+  });
+
+  document.addEventListener('submit', function (e) {
+    var form = e.target;
+    if (!form.matches('form[role="search"], form[data-search]')) return;
+    var q = form.querySelector('input[name="q"]');
+    kirim('search', { search_term: q ? q.value : '' });
+  });
+
+  // Keterlibatan isi: dicatat sekali saat pembaca benar-benar sampai ke ujung
+  // bawah artikel, bukan saat halaman dibuka. Pembaca yang membuka lalu
+  // langsung menutup bukan pembaca yang terlibat.
+  //
+  // Yang diamati penanda setinggi satu piksel di akhir artikel, bukan elemen
+  // <article> itu sendiri. Ambang IntersectionObserver dihitung terhadap luas
+  // targetnya: pada artikel yang lebih tinggi dari layar, "90% target terlihat"
+  // tidak pernah tercapai sekali pun pembaca membaca tiap katanya.
+  var artikel = document.querySelector('article');
+  if (artikel && 'IntersectionObserver' in window) {
+    var penanda = document.createElement('div');
+    penanda.setAttribute('aria-hidden', 'true');
+    penanda.style.height = '1px';
+    artikel.appendChild(penanda);
+
+    new IntersectionObserver(function (entries, obs) {
+      if (!entries[0].isIntersecting) return;
+      obs.disconnect();
+      kirim('content_read', { content_title: document.title });
+    }).observe(penanda);
+  }
+})();
+</script>
+
+<link rel="icon" type="image/png" sizes="32x32" href="../../../assets/img/ico/favicon-32x32.png">
+<link rel="shortcut icon" href="../../../assets/img/ico/favicon.ico">
+
+
+<link rel="preload" as="style" href="../../../build/assets/app-Bo0NoSU9.css" /><link rel="modulepreload" as="script" href="../../../build/assets/app-DIZEten-.js" /><link rel="stylesheet" href="../../../build/assets/app-Bo0NoSU9.css" data-navigate-track="reload" /><script type="module" src="../../../build/assets/app-DIZEten-.js" data-navigate-track="reload"></script>
+
+<link rel="preload" as="font" href="../../../build/assets/plus-jakarta-sans-400-normal-Dhut76fR.woff2" type="font/woff2" crossorigin="anonymous" />
+<link rel="preload" as="font" href="../../../build/assets/plus-jakarta-sans-500-normal-Bf-nb4oT.woff2" type="font/woff2" crossorigin="anonymous" />
+<link rel="preload" as="font" href="../../../build/assets/plus-jakarta-sans-600-normal-DLTa1BUW.woff2" type="font/woff2" crossorigin="anonymous" />
+<link rel="preload" as="font" href="../../../build/assets/plus-jakarta-sans-700-normal-CfpNZvy6.woff2" type="font/woff2" crossorigin="anonymous" />
+<link rel="preload" as="font" href="../../../build/assets/plus-jakarta-sans-800-normal-CusIZhrK.woff2" type="font/woff2" crossorigin="anonymous" />
+<style>
+@font-face {
+  font-family: "Plus Jakarta Sans";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("../../../build/assets/plus-jakarta-sans-400-normal-Dhut76fR.woff2") format("woff2");
+  unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;
+}
+
+@font-face {
+  font-family: "Plus Jakarta Sans";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("../../../build/assets/plus-jakarta-sans-400-normal-BDKaGhyp.woff") format("woff");
+  unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;
+}
+
+@font-face {
+  font-family: "Plus Jakarta Sans";
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("../../../build/assets/plus-jakarta-sans-500-normal-Bf-nb4oT.woff2") format("woff2");
+  unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;
+}
+
+@font-face {
+  font-family: "Plus Jakarta Sans";
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("../../../build/assets/plus-jakarta-sans-500-normal-DYtqi0QS.woff") format("woff");
+  unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;
+}
+
+@font-face {
+  font-family: "Plus Jakarta Sans";
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("../../../build/assets/plus-jakarta-sans-600-normal-DLTa1BUW.woff2") format("woff2");
+  unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;
+}
+
+@font-face {
+  font-family: "Plus Jakarta Sans";
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("../../../build/assets/plus-jakarta-sans-600-normal-BR_Ojra4.woff") format("woff");
+  unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;
+}
+
+@font-face {
+  font-family: "Plus Jakarta Sans";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("../../../build/assets/plus-jakarta-sans-700-normal-CfpNZvy6.woff2") format("woff2");
+  unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;
+}
+
+@font-face {
+  font-family: "Plus Jakarta Sans";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("../../../build/assets/plus-jakarta-sans-700-normal-DqEcQeE5.woff") format("woff");
+  unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;
+}
+
+@font-face {
+  font-family: "Plus Jakarta Sans";
+  font-style: normal;
+  font-weight: 800;
+  font-display: swap;
+  src: url("../../../build/assets/plus-jakarta-sans-800-normal-CusIZhrK.woff2") format("woff2");
+  unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;
+}
+
+@font-face {
+  font-family: "Plus Jakarta Sans";
+  font-style: normal;
+  font-weight: 800;
+  font-display: swap;
+  src: url("../../../build/assets/plus-jakarta-sans-800-normal-BRNHt2w0.woff") format("woff");
+  unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;
+}
+
+:root {
+  --font-plus-jakarta-sans: "Plus Jakarta Sans";
+}
+
+.font-plus-jakarta-sans {
+  font-family: var(--font-plus-jakarta-sans);
+}
+</style>
+<link rel="stylesheet" href="../../../assets/css/style.css">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"NewsArticle","headline":"CSR HASNUR GROUP DAN POLDA KALSEL DORONG EKONOMI BIRU LEWAT BANTUAN SOSIAL DI DESA BAGUS","datePublished":"2025-05-07T00:00:00+07:00","publisher":{"@type":"Organization","name":"Hasnur Group"},"mainEntityOfPage":"http://127.0.0.1:8123/ja/post/news/csr-hasnur-group-dan-polda-kalsel-dorong-ekonomi-biru-lewat-bantuan-sosial-di-desa-bagus"}
+</script>
+</head>
+<body class="font-sans text-slate-800 bg-white antialiased">
+
+<header data-motion-nav class="fixed top-0 inset-x-0 z-50 transition-colors duration-300"
+        :class="scrolled ? 'bg-white/95 backdrop-blur border-b border-slate-100' : 'bg-transparent border-b border-transparent'"
+        x-data="{ scrolled: false, mobileOpen: false,
+                  updateScrolled() { this.scrolled = window.scrollY > 40 || window.innerWidth >= 1280 } }"
+        x-init="updateScrolled()"
+        x-on:scroll.window="updateScrolled()"
+        x-on:resize.window="updateScrolled()"
+        x-effect="document.documentElement.classList.toggle('overflow-hidden', mobileOpen)">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="relative flex items-center justify-between h-18 py-3">
+      <!-- Logo. Hidden at the very top of the page (transparent header over
+           the hero), fades in together with the full nav once scrolled. -->
+      <a href="../../page/about-us/core-value.html" class="flex items-center shrink-0" x-show="scrolled"
+         x-transition:enter="transition ease-out duration-200" x-transition:enter-start="opacity-0 -translate-y-1" x-transition:enter-end="opacity-100 translate-y-0">
+        <picture style="display:contents">
+        <source type="image/webp" srcset="../../../assets/img-opt/logo-400.webp 400w, ../../../assets/img-opt/logo-800.webp 800w, ../../../assets/img-opt/logo-1600.webp 1600w" sizes="176px">
+        <img src="../../../assets/img/logo.png" alt="Hasnur Group"  width="2072"  height="473"  class="h-9 sm:h-10 w-auto drop-shadow">
+    </picture>
+      </a>
+
+      <!-- Desktop Nav. Hidden at the very top of the page, appears once the visitor scrolls -->
+      <nav x-show="scrolled" x-transition:enter="transition ease-out duration-200" x-transition:enter-start="opacity-0 -translate-y-1" x-transition:enter-end="opacity-100 translate-y-0"
+           class="hidden xl:flex items-center gap-1 text-sm font-semibold text-slate-700">
+        <a href="../../page/about-us/core-value.html" class="px-3 py-2 rounded-md hover:text-primary hover:bg-slate-50 transition">ホーム</a>
+
+        <div class="relative" x-data="{ open: false }" x-on:mouseenter="open = true" x-on:mouseleave="open = false">
+          <button class="px-3 py-2 rounded-md hover:text-primary hover:bg-slate-50 transition inline-flex items-center gap-1">会社概要<svg class="w-3.5 h-3.5" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.17l3.71-3.94a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd"/></svg>
+          </button>
+          <div x-show="open" x-transition x-cloak class="absolute left-0 top-full w-56 bg-white rounded-xl shadow-lg border border-slate-100 py-2">
+            <a href="../../page/about-us/overview.html" class="block px-4 py-2 text-sm hover:bg-slate-50 hover:text-primary">概要</a>
+            <a href="../../page/about-us/vision-mission.html" class="block px-4 py-2 text-sm hover:bg-slate-50 hover:text-primary">ビジョン・ミッション</a>
+          </div>
+        </div>
+
+        <div class="relative" x-data="{ open: false }" x-on:mouseenter="open = true" x-on:mouseleave="open = false">
+          <button class="px-3 py-2 rounded-md hover:text-primary hover:bg-slate-50 transition inline-flex items-center gap-1">事業分野<svg class="w-3.5 h-3.5" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.17l3.71-3.94a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd"/></svg>
+          </button>
+          <div x-show="open" x-transition x-cloak class="absolute left-0 top-full w-64 bg-white rounded-xl shadow-lg border border-slate-100 py-2">
+            
+                                        <a href="../../page/our-business/logistic.html" class="block px-4 py-2 text-sm hover:bg-slate-50 hover:text-primary">物流</a>
+                                        <a href="../../page/our-business/agribusiness-forestry.html" class="block px-4 py-2 text-sm hover:bg-slate-50 hover:text-primary">農林業</a>
+                                        <a href="../../page/our-business/energy.html" class="block px-4 py-2 text-sm hover:bg-slate-50 hover:text-primary">エネルギー</a>
+                                        <a href="../../page/our-business/technology-services.html" class="block px-4 py-2 text-sm hover:bg-slate-50 hover:text-primary">テクノロジー・サービス</a>
+                                        <a href="../../page/our-business/education.html" class="block px-4 py-2 text-sm hover:bg-slate-50 hover:text-primary">教育</a>
+                                        <a href="../../page/our-business/consumer.html" class="block px-4 py-2 text-sm hover:bg-slate-50 hover:text-primary">消費者向け事業</a>
+                                        <a href="../../page/our-business/investment.html" class="block px-4 py-2 text-sm hover:bg-slate-50 hover:text-primary">投資</a>
+                      </div>
+        </div>
+
+        <div class="relative" x-data="{ open: false }" x-on:mouseenter="open = true" x-on:mouseleave="open = false">
+          <button class="px-3 py-2 rounded-md hover:text-primary hover:bg-slate-50 transition inline-flex items-center gap-1">CSR<svg class="w-3.5 h-3.5" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.17l3.71-3.94a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd"/></svg>
+          </button>
+          <div x-show="open" x-transition x-cloak class="absolute left-0 top-full w-56 bg-white rounded-xl shadow-lg border border-slate-100 py-2">
+            <a href="../../page/csr/csr-overview.html" class="block px-4 py-2 text-sm hover:bg-slate-50 hover:text-primary">概要</a>
+            <a href="../../page/csr/csr-activity.html" class="block px-4 py-2 text-sm hover:bg-slate-50 hover:text-primary">CSR活動</a>
+          </div>
+        </div>
+
+        <div class="relative" x-data="{ open: false }" x-on:mouseenter="open = true" x-on:mouseleave="open = false">
+          <button class="px-3 py-2 rounded-md hover:text-primary hover:bg-slate-50 transition inline-flex items-center gap-1">
+            SHE
+            <svg class="w-3.5 h-3.5" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.17l3.71-3.94a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd"/></svg>
+          </button>
+          <div x-show="open" x-transition x-cloak class="absolute left-0 top-full w-56 bg-white rounded-xl shadow-lg border border-slate-100 py-2">
+            <a href="../../page/she/overview-1.html" class="block px-4 py-2 text-sm hover:bg-slate-50 hover:text-primary">概要</a>
+            <a href="../../page/she/she-activity.html" class="block px-4 py-2 text-sm hover:bg-slate-50 hover:text-primary">SHE活動</a>
+          </div>
+        </div>
+
+        <div class="relative" x-data="{ open: false }" x-on:mouseenter="open = true" x-on:mouseleave="open = false">
+          <button class="px-3 py-2 rounded-md hover:text-primary hover:bg-slate-50 transition inline-flex items-center gap-1">採用情報<svg class="w-3.5 h-3.5" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.17l3.71-3.94a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd"/></svg>
+          </button>
+          <div x-show="open" x-transition x-cloak class="absolute left-0 top-full w-48 bg-white rounded-xl shadow-lg border border-slate-100 py-2">
+            <a href="../../page/career/our-vacancy.html" class="block px-4 py-2 text-sm hover:bg-slate-50 hover:text-primary">募集職種</a>
+          </div>
+        </div>
+
+        <div class="relative" x-data="{ open: false }" x-on:mouseenter="open = true" x-on:mouseleave="open = false">
+          <button class="px-3 py-2 rounded-md hover:text-primary hover:bg-slate-50 transition inline-flex items-center gap-1">広報<svg class="w-3.5 h-3.5" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.17l3.71-3.94a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd"/></svg>
+          </button>
+          <div x-show="open" x-transition x-cloak class="absolute left-0 top-full w-56 bg-white rounded-xl shadow-lg border border-slate-100 py-2">
+            <a href="../../page/publication/latest-update.html" class="block px-4 py-2 text-sm hover:bg-slate-50 hover:text-primary">最新情報</a>
+            <a href="../../page/publication/news.html" class="block px-4 py-2 text-sm hover:bg-slate-50 hover:text-primary">ニュース</a>
+            <a href="../../page/publication/press-release.html" class="block px-4 py-2 text-sm hover:bg-slate-50 hover:text-primary">プレスリリース</a>
+            <a href="../../page/publication/multimedia.html" class="block px-4 py-2 text-sm hover:bg-slate-50 hover:text-primary">マルチメディア</a>
+            <a href="../../page/publication/gallery.html" class="block px-4 py-2 text-sm hover:bg-slate-50 hover:text-primary">ギャラリー</a>
+          </div>
+        </div>
+
+        
+        <a href="../../cari.html"
+           class="px-3 py-2 rounded-md hover:text-primary hover:bg-slate-50 transition inline-flex items-center gap-1.5"
+           aria-label="検索">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-4.35-4.35M17 10.5a6.5 6.5 0 11-13 0 6.5 6.5 0 0113 0z"/>
+          </svg>
+          <span class="sr-only">検索</span>
+        </a>
+        <a href="../../page/contact/contact-us.html" class="ml-2 px-4 py-2 rounded-md bg-primary text-white hover:bg-primary-dark transition">お問い合わせ</a>
+
+        <div class="relative ml-1" x-data="{ open: false }" x-on:click.outside="open = false">
+    
+    <button type="button" x-on:click="open = !open"
+            class="flex h-10 w-10 items-center justify-center rounded-md text-slate-600 transition hover:bg-slate-50 hover:text-primary"
+            title="言語" aria-haspopup="true" :aria-expanded="open.toString()">
+      <span class="sr-only">言語</span>
+      <svg class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24" aria-hidden="true">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M12 21a9 9 0 100-18 9 9 0 000 18zm0 0c2.5-2.5 3.5-5.8 3.5-9S14.5 5.5 12 3m0 18c-2.5-2.5-3.5-5.8-3.5-9S9.5 5.5 12 3M3.5 9h17m-17 6h17"/>
+      </svg>
+    </button>
+
+    <div x-show="open" x-cloak x-transition
+         class="absolute right-0 z-50 mt-1 w-44 overflow-hidden rounded-xl border border-slate-100 bg-white py-1 shadow-lg">
+              
+        <a href="../../../post/news/csr-hasnur-group-dan-polda-kalsel-dorong-ekonomi-biru-lewat-bantuan-sosial-di-desa-bagus.html" hreflang="id"
+                      class="flex items-center justify-between gap-2 px-4 py-2 text-sm transition hover:bg-slate-50 hover:text-primary
+                  text-slate-600">
+          Bahasa Indonesia
+                  </a>
+              
+        <a href="../../../en/post/news/csr-hasnur-group-dan-polda-kalsel-dorong-ekonomi-biru-lewat-bantuan-sosial-di-desa-bagus.html" hreflang="en"
+                      class="flex items-center justify-between gap-2 px-4 py-2 text-sm transition hover:bg-slate-50 hover:text-primary
+                  text-slate-600">
+          English
+                  </a>
+              
+        <a href="csr-hasnur-group-dan-polda-kalsel-dorong-ekonomi-biru-lewat-bantuan-sosial-di-desa-bagus.html" hreflang="ja"
+            aria-current="true"            class="flex items-center justify-between gap-2 px-4 py-2 text-sm transition hover:bg-slate-50 hover:text-primary
+                  font-bold text-primary">
+          日本語
+                      <svg class="h-4 w-4 shrink-0" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"/>
+            </svg>
+                  </a>
+          </div>
+  </div>
+      </nav>
+
+      <!-- Mobile burger. Always present (no inline nav to fall back to on
+           small screens), toggles the dropdown below. ml-auto keeps it
+           flush right even pre-scroll, when the logo is hidden and this
+           is the only visible flex child (justify-between alone would
+           otherwise drop a lone item to the start). Animated as three bars
+           that morph into an X (rotate + fade the middle bar) instead of
+           swapping two unrelated icons. -->
+      <button class="xl:hidden ml-auto flex h-11 w-11 items-center justify-center text-primary transition-opacity duration-200 hover:opacity-70"
+              x-on:click="mobileOpen = !mobileOpen"
+              :aria-label="mobileOpen ? 'nav.menu_close' : 'nav.menu_open'" :aria-expanded="mobileOpen">
+        <!-- All three bars sit centred on top-1/2 (-mt-px offsets half the 2px
+             height). The closed state pushes the outer two apart with
+             translateY, so opening only has to cancel that translate and
+             rotate. Transform and opacity are the only animated properties,
+             never top/bottom, which would relayout on every frame. -->
+        <span class="relative block h-4 w-6" aria-hidden="true">
+          <span class="absolute left-0 top-1/2 -mt-px h-0.5 w-6 rounded-full bg-current transition-transform duration-300 ease-in-out"
+                :class="mobileOpen ? 'rotate-45' : '-translate-y-[7px]'"></span>
+          <span class="absolute left-0 top-1/2 -mt-px h-0.5 w-6 rounded-full bg-current transition-opacity duration-200 ease-in-out"
+                :class="mobileOpen ? 'opacity-0' : 'opacity-100'"></span>
+          <span class="absolute left-0 top-1/2 -mt-px h-0.5 w-6 rounded-full bg-current transition-transform duration-300 ease-in-out"
+                :class="mobileOpen ? '-rotate-45' : 'translate-y-[7px]'"></span>
+        </span>
+      </button>
+    </div>
+  </div>
+
+  <!-- Mobile Nav: right-side drawer (also reachable pre-scroll on desktop
+       via the burger above, since the inline nav only appears once
+       `scrolled` is true). Two layers: a dark scrim over the whole page,
+       and the drawer itself sliding in from the right, leaving the left
+       strip of the page visible (dimmed) behind it. -->
+  <div x-show="mobileOpen" x-cloak
+       x-transition:enter="transition-opacity ease-out duration-300" x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100"
+       x-transition:leave="transition-opacity ease-in duration-200" x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0"
+       class="fixed inset-0 z-40 bg-slate-900/50 xl:hidden"
+       x-on:click="mobileOpen = false" aria-hidden="true"></div>
+
+  <div x-show="mobileOpen" x-cloak
+       x-transition:enter="transition ease-out duration-300" x-transition:enter-start="translate-x-full" x-transition:enter-end="translate-x-0"
+       x-transition:leave="transition ease-in duration-200" x-transition:leave-start="translate-x-0" x-transition:leave-end="translate-x-full"
+       class="fixed inset-y-0 right-0 z-50 flex w-[82%] max-w-sm flex-col bg-white shadow-2xl xl:hidden"
+       role="dialog" aria-modal="true" :aria-label="'nav.menu_open'">
+
+    <!-- Compact top bar: close button only, no title/gradient/decoration. -->
+    <div class="flex shrink-0 justify-end px-3 pt-3">
+      <button type="button" x-on:click="mobileOpen = false" :aria-label="'nav.menu_close'"
+              class="flex h-11 w-11 items-center justify-center rounded-full text-primary transition hover:bg-slate-50">
+        <svg class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/>
+        </svg>
+      </button>
+    </div>
+
+    <!-- Navigation list -->
+    <nav class="flex-1 overflow-y-auto px-3 pb-2">
+      <div class="flex flex-col divide-y divide-slate-100">
+        <a href="../../page/about-us/core-value.html" x-on:click="mobileOpen=false"
+           class="nav-row flex items-center rounded-[10px] px-3 py-3.5 text-[15px] font-semibold text-primary transition hover:bg-slate-50 "
+           style="animation-delay:0ms">
+          ホーム
+        </a>
+
+        <details class="nav-row group" style="animation-delay:40ms">
+          <summary class="flex cursor-pointer list-none items-center justify-between rounded-[10px] px-3 py-3.5 text-[15px] font-semibold text-primary transition hover:bg-slate-50 [&::-webkit-details-marker]:hidden ">
+            会社概要
+            <svg class="h-4 w-4 shrink-0 text-slate-400 transition-transform duration-200 group-open:rotate-90" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+          </summary>
+          <div class="flex flex-col gap-1 py-1 pl-6 pr-3">
+            <a href="../../page/about-us/overview.html" x-on:click="mobileOpen=false" class="rounded-lg px-3 py-2.5 text-sm font-medium text-slate-600 transition hover:bg-slate-50 hover:text-primary">概要</a>
+            <a href="../../page/about-us/vision-mission.html" x-on:click="mobileOpen=false" class="rounded-lg px-3 py-2.5 text-sm font-medium text-slate-600 transition hover:bg-slate-50 hover:text-primary">ビジョン・ミッション</a>
+          </div>
+        </details>
+
+        <details class="nav-row group" style="animation-delay:80ms">
+          <summary class="flex cursor-pointer list-none items-center justify-between rounded-[10px] px-3 py-3.5 text-[15px] font-semibold text-primary transition hover:bg-slate-50 [&::-webkit-details-marker]:hidden ">
+            事業分野
+            <svg class="h-4 w-4 shrink-0 text-slate-400 transition-transform duration-200 group-open:rotate-90" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+          </summary>
+          <div class="flex flex-col gap-1 py-1 pl-6 pr-3">
+                                        <a href="../../page/our-business/logistic.html" x-on:click="mobileOpen=false" class="rounded-lg px-3 py-2.5 text-sm font-medium text-slate-600 transition hover:bg-slate-50 hover:text-primary">物流</a>
+                                        <a href="../../page/our-business/agribusiness-forestry.html" x-on:click="mobileOpen=false" class="rounded-lg px-3 py-2.5 text-sm font-medium text-slate-600 transition hover:bg-slate-50 hover:text-primary">農林業</a>
+                                        <a href="../../page/our-business/energy.html" x-on:click="mobileOpen=false" class="rounded-lg px-3 py-2.5 text-sm font-medium text-slate-600 transition hover:bg-slate-50 hover:text-primary">エネルギー</a>
+                                        <a href="../../page/our-business/technology-services.html" x-on:click="mobileOpen=false" class="rounded-lg px-3 py-2.5 text-sm font-medium text-slate-600 transition hover:bg-slate-50 hover:text-primary">テクノロジー・サービス</a>
+                                        <a href="../../page/our-business/education.html" x-on:click="mobileOpen=false" class="rounded-lg px-3 py-2.5 text-sm font-medium text-slate-600 transition hover:bg-slate-50 hover:text-primary">教育</a>
+                                        <a href="../../page/our-business/consumer.html" x-on:click="mobileOpen=false" class="rounded-lg px-3 py-2.5 text-sm font-medium text-slate-600 transition hover:bg-slate-50 hover:text-primary">消費者向け事業</a>
+                                        <a href="../../page/our-business/investment.html" x-on:click="mobileOpen=false" class="rounded-lg px-3 py-2.5 text-sm font-medium text-slate-600 transition hover:bg-slate-50 hover:text-primary">投資</a>
+                      </div>
+        </details>
+
+        <details class="nav-row group" style="animation-delay:120ms">
+          <summary class="flex cursor-pointer list-none items-center justify-between rounded-[10px] px-3 py-3.5 text-[15px] font-semibold text-primary transition hover:bg-slate-50 [&::-webkit-details-marker]:hidden ">
+            企業の社会的責任
+            <svg class="h-4 w-4 shrink-0 text-slate-400 transition-transform duration-200 group-open:rotate-90" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+          </summary>
+          <div class="flex flex-col gap-1 py-1 pl-6 pr-3">
+            <a href="../../page/csr/csr-overview.html" x-on:click="mobileOpen=false" class="rounded-lg px-3 py-2.5 text-sm font-medium text-slate-600 transition hover:bg-slate-50 hover:text-primary">概要</a>
+            <a href="../../page/csr/csr-activity.html" x-on:click="mobileOpen=false" class="rounded-lg px-3 py-2.5 text-sm font-medium text-slate-600 transition hover:bg-slate-50 hover:text-primary">CSR活動</a>
+          </div>
+        </details>
+
+        <details class="nav-row group" style="animation-delay:160ms">
+          <summary class="flex cursor-pointer list-none items-center justify-between gap-3 rounded-[10px] px-3 py-3.5 text-[15px] font-semibold leading-snug text-primary transition hover:bg-slate-50 [&::-webkit-details-marker]:hidden ">
+            <span>安全・健康・環境（SHE）</span>
+            <svg class="h-4 w-4 shrink-0 text-slate-400 transition-transform duration-200 group-open:rotate-90" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+          </summary>
+          <div class="flex flex-col gap-1 py-1 pl-6 pr-3">
+            <a href="../../page/she/overview-1.html" x-on:click="mobileOpen=false" class="rounded-lg px-3 py-2.5 text-sm font-medium text-slate-600 transition hover:bg-slate-50 hover:text-primary">概要</a>
+            <a href="../../page/she/she-activity.html" x-on:click="mobileOpen=false" class="rounded-lg px-3 py-2.5 text-sm font-medium text-slate-600 transition hover:bg-slate-50 hover:text-primary">SHE活動</a>
+          </div>
+        </details>
+
+        <details class="nav-row group" style="animation-delay:200ms">
+          <summary class="flex cursor-pointer list-none items-center justify-between rounded-[10px] px-3 py-3.5 text-[15px] font-semibold text-primary transition hover:bg-slate-50 [&::-webkit-details-marker]:hidden ">
+            採用情報
+            <svg class="h-4 w-4 shrink-0 text-slate-400 transition-transform duration-200 group-open:rotate-90" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+          </summary>
+          <div class="flex flex-col gap-1 py-1 pl-6 pr-3">
+            <a href="../../page/career/our-vacancy.html" x-on:click="mobileOpen=false" class="rounded-lg px-3 py-2.5 text-sm font-medium text-slate-600 transition hover:bg-slate-50 hover:text-primary">募集職種</a>
+          </div>
+        </details>
+
+        <details class="nav-row group" style="animation-delay:240ms">
+          <summary class="flex cursor-pointer list-none items-center justify-between rounded-[10px] px-3 py-3.5 text-[15px] font-semibold text-primary transition hover:bg-slate-50 [&::-webkit-details-marker]:hidden ">
+            広報
+            <svg class="h-4 w-4 shrink-0 text-slate-400 transition-transform duration-200 group-open:rotate-90" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+          </summary>
+          <div class="flex flex-col gap-1 py-1 pl-6 pr-3">
+            <a href="../../page/publication/latest-update.html" x-on:click="mobileOpen=false" class="rounded-lg px-3 py-2.5 text-sm font-medium text-slate-600 transition hover:bg-slate-50 hover:text-primary">最新情報</a>
+            <a href="../../page/publication/news.html" x-on:click="mobileOpen=false" class="rounded-lg px-3 py-2.5 text-sm font-medium text-slate-600 transition hover:bg-slate-50 hover:text-primary">ニュース</a>
+            <a href="../../page/publication/press-release.html" x-on:click="mobileOpen=false" class="rounded-lg px-3 py-2.5 text-sm font-medium text-slate-600 transition hover:bg-slate-50 hover:text-primary">プレスリリース</a>
+            <a href="../../page/publication/multimedia.html" x-on:click="mobileOpen=false" class="rounded-lg px-3 py-2.5 text-sm font-medium text-slate-600 transition hover:bg-slate-50 hover:text-primary">マルチメディア</a>
+            <a href="../../page/publication/gallery.html" x-on:click="mobileOpen=false" class="rounded-lg px-3 py-2.5 text-sm font-medium text-slate-600 transition hover:bg-slate-50 hover:text-primary">ギャラリー</a>
+          </div>
+        </details>
+
+        <a href="../../cari.html" x-on:click="mobileOpen=false"
+           class="nav-row flex items-center rounded-[10px] px-3 py-3.5 text-[15px] font-semibold text-primary transition hover:bg-slate-50 "
+           style="animation-delay:280ms">
+          検索
+        </a>
+      </div>
+    </nav>
+
+    <!-- Bottom section: fixed below the scrollable list, not part of the cascade. -->
+    <div class="shrink-0 border-t border-slate-100 px-4 pb-6 pt-4">
+      <a href="../../page/contact/contact-us.html" x-on:click="mobileOpen=false"
+         class="flex h-14 items-center justify-center gap-1.5 rounded-xl bg-primary px-4 text-[15px] font-semibold text-white transition hover:bg-primary-dark">
+        お問い合わせ
+        <svg class="h-4 w-4 shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+      </a>
+
+      <div class="mt-3">
+        <div class="flex gap-2">
+          <a href="../../../post/news/csr-hasnur-group-dan-polda-kalsel-dorong-ekonomi-biru-lewat-bantuan-sosial-di-desa-bagus.html" hreflang="id"
+                  class="flex-1 rounded-lg border px-3 py-2.5 text-center text-sm font-semibold transition
+                border-slate-200 bg-white text-slate-600">
+        ID
+      </a>
+          <a href="../../../en/post/news/csr-hasnur-group-dan-polda-kalsel-dorong-ekonomi-biru-lewat-bantuan-sosial-di-desa-bagus.html" hreflang="en"
+                  class="flex-1 rounded-lg border px-3 py-2.5 text-center text-sm font-semibold transition
+                border-slate-200 bg-white text-slate-600">
+        EN
+      </a>
+          <a href="csr-hasnur-group-dan-polda-kalsel-dorong-ekonomi-biru-lewat-bantuan-sosial-di-desa-bagus.html" hreflang="ja"
+          aria-current="true"          class="flex-1 rounded-lg border px-3 py-2.5 text-center text-sm font-semibold transition
+                border-primary bg-primary text-white">
+        JA
+      </a>
+      </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main>
+<section class="relative overflow-hidden bg-gradient-to-br from-logo-blue via-logo-blue to-logo-blue-dark pt-[72px] text-white">
+  <div class="h-1.5 w-full"
+     style="background:linear-gradient(90deg,#0F2747,#C9A227,#007A53,#E03633,#0F2747)"></div>
+  <div class="absolute inset-0 opacity-10 hero-pattern"></div>
+  <div class="relative mx-auto max-w-4xl px-4 py-10 sm:px-6 lg:px-8 lg:py-14">
+    <nav aria-label="Breadcrumb" class="mb-3 text-xs">
+      <ol class="flex flex-wrap items-center gap-x-1.5">
+        <li><a href="../../page/about-us/core-value.html" class="text-white/65 hover:text-white">ホーム</a></li>
+        <li aria-hidden="true" class="text-white/35">/</li>
+        <li><span class="font-semibold text-logo-yellow">news</span></li>
+      </ol>
+    </nav>
+        <h1 class="text-3xl font-extrabold leading-tight md:text-4xl">CSR HASNUR GROUP DAN POLDA KALSEL DORONG EKONOMI BIRU LEWAT BANTUAN SOSIAL DI DESA BAGUS</h1>
+    <p class="mt-4 text-sm text-white/70">
+              07 5月 2025
+          </p>
+  </div>
+</section>
+
+<article class="mx-auto max-w-3xl px-4 py-12 sm:px-6 lg:px-8">
+
+  
+  
+  
+  
+  <div class="prose-hasnur mt-8 space-y-4 leading-relaxed text-slate-700">
+    <p><strong><picture style="display:contents"><source type="image/webp" srcset="../../../content-images-opt/news/csr-hasnur-group-dan-polda-kalsel-dorong-ekonomi-biru-lewat-bantuan-sosial-di-desa-bagus/1-400.webp 400w, ../../../content-images-opt/news/csr-hasnur-group-dan-polda-kalsel-dorong-ekonomi-biru-lewat-bantuan-sosial-di-desa-bagus/1-800.webp 800w, ../../../content-images-opt/news/csr-hasnur-group-dan-polda-kalsel-dorong-ekonomi-biru-lewat-bantuan-sosial-di-desa-bagus/1-1600.webp 1600w" sizes="(min-width: 896px) 896px, 100vw"><img style="display: block; margin-left: auto; margin-right: auto" src="http://127.0.0.1:8123/content-images/news/csr-hasnur-group-dan-polda-kalsel-dorong-ekonomi-biru-lewat-bantuan-sosial-di-desa-bagus/1.jpg" alt /></picture></strong></p>
+<p style="text-align: justify"><strong>MARABAHAN</strong>, klikkalsel.com – Wujud sinergi antara dunia usaha dan aparat penegak hukum kembali terlihat melalui kolaborasi Hasnur Group dan Kepolisian Daerah Kalimantan Selatan (Polda Kalsel), yang menyalurkan bantuan sosial dan penguatan ekonomi biru kepada masyarakat Desa Bagus, Kecamatan Marabahan, Kabupaten Barito Kuala, Rabu (7/5/2025).</p>
+<p style="text-align: justify">Berlokasi di sekitar Jembatan Rumpiang, kegiatan ini menjadi bukti nyata komitmen kedua pihak dalam mendukung ketahanan pangan dan keberlanjutan ekonomi berbasis sumber daya perairan lokal.</p>
+<p style="text-align: justify">Dalam kesempatan tersebut, Hasnur Group menyerahkan tiga unit keramba ikan lengkap dan 200 paket sembako kepada warga.</p>
+<p style="text-align: justify">Tak hanya itu, sebanyak 170 ribu ekor bibit ikan juga ditebar di perairan sekitar keramba, sebagai langkah strategis meningkatkan produktivitas perikanan rakyat.</p>
+<p style="text-align: justify">“Melalui program ini, kami terus berkomitmen mendorong kemandirian ekonomi masyarakat sekaligus menjaga keberlangsungan ekosistem perairan sebagai aset penting masa depan,” ujar Ahmad Riduan perwakilan Hasnur Group dalam sambutannya.</p>
+<p style="text-align: justify">Inisiatif ini merupakan bagian dari implementasi arahan Presiden Republik Indonesia terkait penguatan ekonomi biru yang berkelanjutan, terutama dalam memaksimalkan potensi wilayah pesisir dan perairan lokal.</p>
+<p style="text-align: justify">Respon positif datang dari warga dan jajaran pemerintah daerah setempat. Mereka menilai program ini tidak hanya membawa dampak langsung berupa bantuan fisik, namun juga mendorong pembangunan ekonomi jangka panjang yang inklusif dan berkelanjutan.</p>
+<p style="text-align: justify">Hasnur Group dan Polda Kalsel berharap langkah ini menjadi awal dari rangkaian program serupa di wilayah lain di Kalimantan Selatan.</p>
+<p style="text-align: justify">Kolaborasi lintas sektor ini diyakini mampu menjadi model pembangunan yang tangguh, menyentuh kebutuhan riil masyarakat, sekaligus menjaga kelestarian lingkungan.(restu)</p>
+<hr />
+<p style="text-align: justify"><em>https://klikkalsel.com/csr-hasnur-group-dan-polda-kalsel-dorong-ekonomi-biru-lewat-bantuan-sosial-di-desa-bagus/</em></p>
+  </div>
+
+      <p class="mt-10 border-t border-slate-100 pt-6 text-xs text-slate-400">
+      post.imported_from <a href="https://www.hasnurgroup.com/post/news/csr-hasnur-group-dan-polda-kalsel-dorong-ekonomi-biru-lewat-bantuan-sosial-di-desa-bagus" class="underline" rel="noopener" target="_blank">post.old_site</a>.
+    </p>
+  </article>
+
+<section class="bg-slate-50 py-14">
+  <div class="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
+    <h2 class="text-2xl font-extrabold text-primary">post.related</h2>
+    <div class="mt-8 grid gap-6 sm:grid-cols-3">
+              <a href="melihat-kiprah-perusahaan-asal-kalimantan-yang-raih-dua-penghargaan-di-top-csr-awards-2025.html" class="motion-card group rounded-2xl border border-slate-100 bg-white p-5 hover:shadow-lg">
+          <h3 class="font-bold leading-snug text-slate-800 group-hover:text-primary">MELIHAT KIPRAH  PERUSAHAAN ASAL KALIMANTAN YANG RAIH DUA PENGHARGAAN DI TOP CSR AWARDS 2025</h3>
+          <p class="mt-2 line-clamp-3 text-sm text-slate-500">Liputan6.com, Jakarta - Hasnur Group meraih dua penghargaan nasional dalam ajang TOP CSR Awards 2025 yang diselenggarakan oleh Majalah TopBusiness di</p>
+        </a>
+          </div>
+  </div>
+</section>
+</main>
+
+<footer id="contact" class="bg-primary-dark text-white pt-20 pb-8">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-12">
+
+      <!-- Kantor -->
+      <div>
+        <div class="mb-5">
+          <picture style="display:contents">
+        <source type="image/webp" srcset="../../../assets/img-opt/logo-400.webp 400w, ../../../assets/img-opt/logo-800.webp 800w, ../../../assets/img-opt/logo-1600.webp 1600w" sizes="176px">
+        <img src="../../../assets/img/logo.png" alt="Hasnur Group"  width="2072"  height="473"  class="h-9 w-auto bg-white rounded-md px-2 py-1.5">
+    </picture>
+        </div>
+
+                  <p class="text-sm font-bold text-white/90">Kantor Pusat — Jakarta</p>
+          <p class="mt-2 text-sm text-white/70 leading-relaxed">
+            
+                          Office 8 Building, Lantai 7<br>                          Jl. Senopati No. 8B, Jakarta Selatan<br>                          DKI Jakarta 12190                      </p>
+          <p class="mt-3 text-sm text-white/70">
+             footer.phone (+6221) 29343888<br>              footer.fax (+6221) 29343777<br>             
+                          メール： <a href="../../page/contact/contact-us.html" class="underline hover:text-accent">お問い合わせフォームから</a>
+                      </p>
+              </div>
+
+      <!-- Kantor perwakilan -->
+      <div>
+        <p class="text-sm font-bold text-white/90">支社</p>
+                  <div class="mt-3 text-sm text-white/70 leading-relaxed">
+            <p class="font-semibold text-white/90">Kalimantan Selatan</p>
+            <p>Jl. Berangas Timur No. 95 A, Alalak, Kalimantan Selatan 70582</p>
+          </div>
+                  <div class="mt-4 text-sm text-white/70 leading-relaxed">
+            <p class="font-semibold text-white/90">Kalimantan Tengah</p>
+            <p>Jl. G. Obos No. 88 A, Palangkaraya, Kalimantan Tengah 73112</p>
+          </div>
+              </div>
+
+      <!-- Recent post -->
+      <div>
+        <p class="text-sm font-bold text-white/90">最新の投稿</p>
+        <ul class="mt-3 space-y-3 text-sm text-white/70">
+                      <li><a href="../latest-update/hasnur-berbagi-qurban-jangkau-puluhan-kabupaten-dan-kota-di-delapan-provinsi-pada-momentum-iduladha-1447-h.html"  class="hover:text-accent transition leading-snug block">Hasnur Berbagi Qurban Jangkau Puluhan Kabupaten dan Kota di Delapan Provinsi pada Momentum Iduladha 1447 H</a></li>
+                      <li><a href="../latest-update/hasnur-group-and-international-partners-pioneer-pongamia-project-for-post-mining-land-rehabilitation.html"  class="hover:text-accent transition leading-snug block">Kolaborasi Hasnur Group dan Mitra dalam Rehabilitasi Lahan Pascatambang di Kalimantan Selatan</a></li>
+                      <li><a href="../latest-update/haul-ke-11-h-abdussamad-sulaiman-tegaskan-keberlanjutan-warisan-usaha-dan-manfaat-sosial.html"  class="hover:text-accent transition leading-snug block">Haul ke-11 H. Abdussamad Sulaiman Tegaskan Keberlanjutan Warisan Usaha dan Manfaat Sosial</a></li>
+                  </ul>
+      </div>
+
+      <!-- Social + link terkait -->
+      <div>
+        <p class="text-sm font-bold text-white/90">ソーシャルメディア</p>
+        <div class="mt-3 flex gap-3">
+          <a href="https://www.linkedin.com/company/hasnurgroup" target="_blank" rel="noopener" aria-label="LinkedIn Hasnur Group" class="w-9 h-9 rounded-full bg-white/10 hover:bg-accent hover:text-primary-dark flex items-center justify-center transition">
+            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 110-4.125 2.062 2.062 0 010 4.125zM7.114 20.452H3.558V9h3.556v11.452z"/></svg>
+          </a>
+          <a href="https://www.instagram.com/hasnurgroup" target="_blank" rel="noopener" aria-label="Instagram Hasnur Group" class="w-9 h-9 rounded-full bg-white/10 hover:bg-accent hover:text-primary-dark flex items-center justify-center transition">
+            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.332.014 7.052.072 2.695.272.273 2.69.073 7.052.014 8.332 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.332 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.668-.072-4.948C23.73 2.7 21.31.273 16.949.073 15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+          </a>
+          <a href="https://www.youtube.com/@hasnurgroup" target="_blank" rel="noopener" aria-label="YouTube Hasnur Group" class="w-9 h-9 rounded-full bg-white/10 hover:bg-accent hover:text-primary-dark flex items-center justify-center transition">
+            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a2.994 2.994 0 00-2.107-2.117C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.391.524A2.994 2.994 0 00.502 6.186 31.36 31.36 0 000 12a31.36 31.36 0 00.502 5.814 2.994 2.994 0 002.107 2.117c1.886.524 9.391.524 9.391.524s7.505 0 9.391-.524a2.994 2.994 0 002.107-2.117A31.36 31.36 0 0024 12a31.36 31.36 0 00-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+          </a>
+        </div>
+
+        <p class="mt-6 text-sm font-bold text-white/90">関連リンク</p>
+        <ul class="mt-3 space-y-2 text-sm text-white/70">
+          <li><a href="https://www.hasnurcentre.org" target="_blank" rel="noopener" class="hover:text-accent transition">Hasnur Centre</a></li>
+          <li><a href="https://www.baritoputera.co.id" target="_blank" rel="noopener" class="hover:text-accent transition">PS Barito Putera</a></li>
+          <li><a href="../../page/contact/contact-us.html" class="hover:text-accent transition">お問い合わせ</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="mt-16 pt-6 border-t border-white/10 text-center text-sm text-white/50">
+      <a href="../../page/legal/kebijakan-privasi.html" class="underline hover:text-accent">プライバシーポリシー</a>
+      <p class="mt-2">© 2026 All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+<div
+  x-data="{
+    tampil: false,
+    kunci: 'pengumuman:2-1790671890',
+    init() {
+      let sudah = false;
+      try { sudah = localStorage.getItem(this.kunci) === 'tutup' } catch (e) {}
+      if (sudah) return;
+      setTimeout(() => { this.tampil = true; this.$nextTick(() => this.$refs.tutup?.focus()) }, 900);
+    },
+    tutup() {
+      this.tampil = false;
+      try { localStorage.setItem(this.kunci, 'tutup') } catch (e) {}
+    },
+  }"
+  x-show="tampil"
+  x-cloak
+  @keydown.escape.window="tutup()"
+  class="fixed inset-0 z-[80] flex items-center justify-center p-4"
+  role="dialog"
+  aria-modal="true"
+  
+   aria-label="Waspada Penipuan Rekrutmen" >
+  <div x-show="tampil" x-transition.opacity @click="tutup()"
+       class="absolute inset-0 bg-slate-900/60 backdrop-blur-sm"></div>
+
+  <div x-show="tampil"
+       x-transition:enter="transition ease-out duration-300"
+       x-transition:enter-start="opacity-0 translate-y-4 sm:scale-95"
+       x-transition:enter-end="opacity-100 translate-y-0 sm:scale-100"
+       class="relative w-full max-w-lg">
+
+    
+    <button type="button" x-ref="tutup" @click="tutup()" aria-label="Tutup pengumuman"
+            class="absolute -right-3 -top-3 z-30 rounded-full bg-white p-2 text-slate-600 shadow-lg ring-1 ring-slate-900/10 transition hover:text-primary focus:outline-none focus:ring-2 focus:ring-primary">
+      <svg class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/>
+      </svg>
+    </button>
+
+    <div class="relative flex max-h-[90vh] w-full flex-col overflow-hidden rounded-2xl bg-white shadow-2xl">
+
+    
+    
+          
+      <div class="flex shrink-0 justify-center bg-primary">
+        <picture style="display:contents">
+        <source type="image/webp" srcset="../../../content-images-opt/unggahan/pengumuman/waspada-penipuan-rekrutmen-400.webp 400w, ../../../content-images-opt/unggahan/pengumuman/waspada-penipuan-rekrutmen-800.webp 800w, ../../../content-images-opt/unggahan/pengumuman/waspada-penipuan-rekrutmen-1122.webp 1122w" sizes="(min-width: 640px) 512px, 100vw">
+        <img src="../../../content-images/unggahan/pengumuman/waspada-penipuan-rekrutmen.png" alt="Waspada penipuan: seluruh proses rekrutmen Hasnur Group tidak dipungut biaya apa pun. Informasi lowongan hanya disampaikan lewat www.hasnurgroup.com serta akun resmi LinkedIn, Instagram, dan YouTube Hasnur Group. Laporkan ke tim HR bila menemukan indikasi penipuan."  class="max-h-[82vh] h-auto w-auto max-w-full object-contain">
+    </picture>
+      </div>
+    
+    
+    <img src="../../../assets/img/keyvisual-corner.png" alt="" aria-hidden="true" draggable="false"
+         class="pointer-events-none absolute -bottom-6 -right-10 z-0 w-40 rotate-180 select-none opacity-[0.07]">
+
+    
+    
+        </div>
+  </div>
+</div>
+
+<script src="../../../assets/js/main.js"></script>
+</body>
+</html>

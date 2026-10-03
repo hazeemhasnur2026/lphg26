@@ -1,0 +1,214 @@
+/* Hasnur Group. Landing Page Prototype (Phase 1: Frontend / Beranda)
+   Custom styles that go beyond what plain Tailwind utility classes cover.
+   Meant to be ported into resources/css when the project moves to the
+   Laravel + Tailwind build pipeline described in the rejuvenation spec. */
+
+html {
+  scroll-behavior: smooth;
+}
+
+:root {
+  --motion-fast: 250ms;
+  --motion-hover: 250ms;
+  --motion-enter: 650ms;
+  --motion-image: 850ms;
+  --motion-carousel: 500ms;
+  --motion-nav: 550ms;
+  --motion-stagger-small: 60ms;
+  --motion-stagger: 80ms;
+  --motion-stagger-large: 110ms;
+  --motion-stagger-limit: 320ms;
+  --motion-hero-stagger-limit: 380ms;
+  --motion-timeline-step: 70ms;
+  --motion-timeline-stagger-limit: 280ms;
+  --motion-ease-enter: cubic-bezier(0.22, 1, 0.36, 1);
+  --motion-ease-hover: ease-out;
+  --motion-distance: 24px;
+  --motion-text-distance: 18px;
+  --default-transition-duration: var(--motion-fast);
+}
+
+body {
+  overflow-x: hidden;
+}
+
+[x-cloak] {
+  display: none !important;
+}
+
+/* Hide scrollbar on the timeline year-rail while keeping it scrollable
+   (touch / drag / arrow buttons still work). */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Dot-grid texture behind the banner on every /page/ subpage (see
+   tools/build_page_hero.py). It was dropped when the homepage hero stopped
+   using it. The usage check at the time only covered index.html, not the 20
+   subpages that also reference it. */
+.hero-pattern {
+  background-image: radial-gradient(circle, #ffffff 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+/* Global motion system. Content is visible by default; it is hidden only
+   after the observer is ready, so failed/unsupported JS never hides content. */
+.reveal,
+.tl-node,
+.tl-line,
+.tl-turn {
+  transition-property: opacity, transform;
+  transition-duration: var(--motion-enter);
+  transition-timing-function: var(--motion-ease-enter);
+}
+
+html.motion-ready .reveal:not(.is-visible),
+html.motion-ready .tl-node:not(.is-visible) {
+  opacity: 0;
+  transform: translate3d(0, var(--motion-distance), 0);
+}
+
+.reveal.is-visible,
+.tl-node.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+[data-motion-stagger] > [data-motion-item],
+[data-motion-stagger] .tl-node,
+[data-motion-stagger] .nav-row {
+  transition-delay: var(--motion-delay, 0ms);
+}
+
+[data-motion-stagger] [data-motion-item="text"] {
+  transition: opacity var(--motion-enter) var(--motion-ease-enter), transform var(--motion-enter) var(--motion-ease-enter);
+}
+
+[data-motion-stagger] [data-motion-item="visual"] {
+  transition: opacity var(--motion-image) var(--motion-ease-enter), transform var(--motion-image) var(--motion-ease-enter);
+}
+
+html.motion-ready [data-motion-stagger]:not(.is-visible) [data-motion-item="text"] {
+  opacity: 0;
+  transform: translate3d(0, var(--motion-text-distance), 0);
+}
+
+html.motion-ready [data-motion-stagger]:not(.is-visible) [data-motion-item="visual"] {
+  opacity: 0;
+  transform: scale(1.03);
+}
+
+[data-motion-nav] {
+  opacity: 0;
+  transform: translate3d(0, -8px, 0);
+  transition: opacity var(--motion-nav) var(--motion-ease-enter), transform var(--motion-nav) var(--motion-ease-enter);
+}
+[data-motion-nav].is-visible { opacity: 1; transform: none; }
+
+/* Editorial images and cards get their own restrained interaction language. */
+.motion-card {
+  transition: transform var(--motion-hover) var(--motion-ease-hover), box-shadow var(--motion-hover) var(--motion-ease-hover);
+}
+.motion-card-image {
+  transition: transform var(--motion-image) var(--motion-ease-enter);
+}
+@media (hover: hover) and (prefers-reduced-motion: no-preference) {
+  .motion-card:hover { transform: translateY(-4px); }
+  .motion-card:hover .motion-card-image { transform: scale(1.03); transition-duration: var(--motion-hover); }
+}
+.motion-arrow { transition: transform var(--motion-hover) var(--motion-ease-hover); }
+@media (hover: hover) and (prefers-reduced-motion: no-preference) {
+  .motion-card:hover .motion-arrow,
+  a:hover .motion-arrow { transform: translateX(4px); }
+}
+
+.motion-carousel-enter {
+  transition: opacity var(--motion-carousel) var(--motion-ease-enter), scale var(--motion-carousel) var(--motion-ease-enter);
+}
+.motion-carousel-leave { transition: opacity var(--motion-fast) ease-out; }
+.motion-carousel-caption { transition: opacity var(--motion-carousel) var(--motion-ease-enter), translate var(--motion-carousel) var(--motion-ease-enter); }
+.motion-carousel-indicator { transition: scale var(--motion-hover) var(--motion-ease-hover); }
+
+button,
+a[data-cta] { transition-duration: var(--motion-hover); }
+button:active,
+a[data-cta]:active {
+  scale: 0.98;
+  transition: scale 120ms ease-out;
+}
+
+/* Timeline progression: scale transforms stay on the compositor; milestones
+   enter with the same quiet distance and timing as the rest of the site. */
+.tl-line { transform: scaleX(1); }
+.tl-turn > div { transform: scaleY(1); }
+html.motion-ready .tl-line:not(.is-visible) { transform: scaleX(0); }
+html.motion-ready .tl-turn:not(.is-visible) > div { transform: scaleY(0); }
+.tl-line.is-visible { transform: scaleX(1); }
+.tl-turn > div {
+  transform: scaleY(1);
+  transform-origin: top;
+  transition: transform var(--motion-image) var(--motion-ease-enter);
+}
+.tl-turn.is-visible > div { transform: scaleY(1); }
+.tl-node { opacity: 1; transform: none; }
+html.motion-ready .tl-node:not(.is-visible) { opacity: 0; transform: translate3d(0, 18px, 0); }
+.tl-dot { transition: transform var(--motion-hover) var(--motion-ease-hover), box-shadow var(--motion-hover) var(--motion-ease-hover); }
+@media (hover: hover) and (prefers-reduced-motion: no-preference) {
+  .tl-node:hover .tl-dot { transform: translateY(-4px); }
+}
+.tl-ping::before { animation: none !important; }
+
+/* Mobile menu rows cascade in behind the panel. A CSS *animation*, not a
+   transition: Alpine's x-show takes each row straight from display:none to
+   visible together with the panel, and a transition has no rendered start
+   frame to move from in that case — it simply pops instead of animating.
+   (A plain `transition` here regressed silently: .nav-row's opacity never
+   actually changes value, since nothing sets a hidden state for it, so the
+   transition has nothing to animate and every row just appears at full
+   opacity immediately. Confirmed live: opacity stayed "1" at every sampled
+   point after opening the menu.) `both` holds the pre-animation frame during
+   the delay so nothing flashes in at full opacity first.
+   prefers-reduced-motion: reduce still wins here — see the media query
+   below, which forces opacity/transform back to their resting state and
+   collapses animation-duration globally. */
+@keyframes nav-row-in {
+  from { opacity: 0; transform: translate3d(0, -6px, 0); }
+  to   { opacity: 1; transform: none; }
+}
+.nav-row {
+  animation: nav-row-in var(--motion-hover) var(--motion-ease-enter) both;
+}
+
+/* Former decorative loops are static to keep GPU work and motion restrained. */
+.animate-float,
+.animate-blob { animation: none !important; }
+
+@media (max-width: 767px) {
+  :root { --motion-distance: 16px; --motion-text-distance: 14px; --motion-stagger: 60ms; }
+}
+@media (min-width: 768px) and (max-width: 1023px) {
+  :root { --motion-distance: 20px; --motion-text-distance: 16px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    transition-delay: 0ms !important;
+  }
+  .reveal, .tl-node, .tl-line, .tl-turn > div,
+  [data-motion-item], [data-motion-nav], .motion-card, .motion-card-image,
+  .nav-row {
+    opacity: 1 !important;
+    transform: none !important;
+    clip-path: none !important;
+  }
+  button:active, a[data-cta]:active { scale: 1; }
+}
