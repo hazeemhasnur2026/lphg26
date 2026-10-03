@@ -4,7 +4,7 @@
 # Dibangun di dalam image, bukan disalin dari mesin pengembang: public/build
 # tidak dilacak git, dan aset yang dibangun di macOS tidak dijamin sama dengan
 # yang dibutuhkan container Linux.
-FROM node:22-alpine AS aset
+FROM node:26-alpine AS aset
 
 WORKDIR /app/backend
 COPY backend/package.json backend/package-lock.json ./
