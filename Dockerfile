@@ -34,7 +34,7 @@ RUN composer install \
 # ── Tahap 3: runtime ──────────────────────────────────────────────────────────
 # PHP 8.4 bukan pilihan gaya: 18 paket terkunci menuntutnya, dan 8.3 gagal pada
 # composer install.
-FROM php:8.4-fpm-alpine AS runtime
+FROM php:8.5-fpm-alpine AS runtime
 
 # nginx dan php-fpm berjalan di satu container, diatur supervisor.
 #
