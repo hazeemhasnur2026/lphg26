@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
 
       # Versi terendah yang benar-benar bisa memasang composer.lock. Laravel 13
       # membawa Symfony 8 dan plugin terjemahan Filament; 18 paket di antaranya
